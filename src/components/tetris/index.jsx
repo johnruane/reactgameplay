@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { useState, useEffect } from 'react';
 
 /* Utils */
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
@@ -17,16 +16,17 @@ import { gameBoard } from './lib/board';
 import { getRandomTetromino } from './lib/randomTetromino';
 
 /* Components */
-import Board from './board';
-import Next from './next';
-import Controls from './controls';
-import Panel from './panel';
+import Board from './Board';
+import Next from './Next';
+import Controls from './Controls';
+import Panel from './Panel';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
 
 /* Styles */
-import './style.css';
+import style from './tetris.module.css';
+import classNames from 'classnames';
 
 /*
  * @position: Current r & c position to place the top left corner of the tetromino on a board.
@@ -273,23 +273,22 @@ const Tetris = () => {
   }, speed);
 
   return (
-    <div className='main'>
-      <div className='layout-wrapper'>
-        <div className='layout-grid'>
-          <p className='title'>TETRIS</p>
-          <div className='game-board'>
-            <div className='board-wrapper game-board-stack'>
-              <Board board={displayBoard} />
-            </div>
+    <div className={style.main}>
+      <div className={style.layoutGrid}>
+        <p className={style.title}>TETRIS</p>
+        <div className={style.gameBoard}>
+          <div className={classNames(style.gameBoardStack, style.boardWrapper)}>
+            <Board board={displayBoard} />
           </div>
-          <Panel additionalClasses={'score'} label={'Score'} value={score} />
-          <Panel additionalClasses={'level'} label={'Level'} value={level} />
-          <Panel additionalClasses={'lines'} label={'Lines'} value={lines} />
-          <Next nextTetromino={nextTetromino.matrix} gameOver={gameOver} />
         </div>
+        <Panel additionalClasses={'score'} label={'Score'} value={score} />
+        <Panel additionalClasses={'level'} label={'Level'} value={level} />
+        <Panel additionalClasses={'lines'} label={'Lines'} value={lines} />
+        <Next nextTetromino={nextTetromino.matrix} gameOver={gameOver} />
       </div>
-      <div className='controls-wrapper'>
-        <div className='controls'>
+
+      <div className={style.controlsWrapper}>
+        <div className={style.controls}>
           <Controls move={move} />
         </div>
       </div>
