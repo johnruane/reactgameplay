@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import style from './button.module.css';
 
-export default function Button({ classname, onClick }) {
+export default function Button({ buttonClass, onClick }) {
   return (
     <button
-      className={classNames(style.button, classname)}
+      className={classNames(style.button, buttonClass)}
       type='button'
       onClick={() => onClick()}
     ></button>
@@ -13,6 +13,6 @@ export default function Button({ classname, onClick }) {
 }
 
 Button.propTypes = {
-  classname: PropTypes.string,
+  buttonClass: PropTypes.string,
   onClick: PropTypes.func,
 };

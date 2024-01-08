@@ -1,3 +1,10 @@
+.controls {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
 .left {
   grid-column: 1;
   grid-row: 1 / 3;

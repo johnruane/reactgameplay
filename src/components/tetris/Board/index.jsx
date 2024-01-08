@@ -1,26 +1,31 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
-import style from './board.module.css';
 import classNames from 'classnames';
+import style from './board.module.css';
 
-export default function Board({ board, cellStyle }) {
+const Cell = memo(function Cell(props) {
+  const { value } = props;
+  return <div className={classNames(style.cell)} data-value={value}></div>;
+});
+
+export default function Board({ board }) {
   return (
-    <>
+    <div className={style.board}>
       {board?.map((boardRow, i) => (
         <div key={`r-${i}`} className={style.row} data-animate='row'>
           {boardRow.map((cell, j) => (
-            <div
-              key={`c-${i}${j}`}
-              className={classNames(style.cell, cellStyle)}
-              data-value={cell}
-            ></div>
+            <Cell key={`c-${i}-${j}`} value={cell} />
           ))}
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
 Board.propTypes = {
   board: PropTypes.array,
-  cellStyle: PropTypes.string,
+};
+
+Cell.propTypes = {
+  value: PropTypes.number,
 };

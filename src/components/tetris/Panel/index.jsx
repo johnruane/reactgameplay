@@ -1,26 +1,16 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import style from './panel.module.css';
 
-export default function Panel({ additionalClasses, label, value }) {
+export default function Panel({ title, value }) {
   return (
-    <div
-      className={classNames(
-        style.score,
-        style.panel,
-        style.shadow,
-        style[`${additionalClasses}`],
-        'data-wrapper'
-      )}
-    >
-      <p className='data-title'>{label}</p>
-      <p className='data-value'>{value}</p>
+    <div className={style.panel}>
+      <p className={style.title}>{title}</p>
+      <p className={style.value}>{value}</p>
     </div>
   );
 }
 
 Panel.propTypes = {
-  additionalClasses: PropTypes.string,
-  label: PropTypes.string,
+  title: PropTypes.string,
   value: PropTypes.string || PropTypes.number,
 };

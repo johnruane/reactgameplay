@@ -276,21 +276,29 @@ const Tetris = () => {
     <div className={style.main}>
       <div className={style.layoutGrid}>
         <p className={style.title}>TETRIS</p>
-        <div className={style.gameBoard}>
-          <div className={classNames(style.gameBoardStack, style.boardWrapper)}>
-            <Board board={displayBoard} />
-          </div>
+        <div className={style.boardWrapper}>
+          <Board board={displayBoard} />
         </div>
-        <Panel additionalClasses={'score'} label={'Score'} value={score} />
-        <Panel additionalClasses={'level'} label={'Level'} value={level} />
-        <Panel additionalClasses={'lines'} label={'Lines'} value={lines} />
-        <Next nextTetromino={nextTetromino.matrix} gameOver={gameOver} />
+        <div className={style.scoreWrapper}>
+          <Panel title={'score'} value={score} />
+        </div>
+        <div className={style.levelWrapper}>
+          <Panel title={'level'} value={level} />
+        </div>
+        <div className={style.linesWrapper}>
+          <Panel title={'lines'} value={lines} />
+        </div>
+        <div className={style.nextWrapper}>
+          {gameOver ? (
+            <p className={style.gameOverText}>Game Over</p>
+          ) : (
+            <Next nextTetromino={nextTetromino.matrix} />
+          )}
+        </div>
       </div>
 
       <div className={style.controlsWrapper}>
-        <div className={style.controls}>
-          <Controls move={move} />
-        </div>
+        <Controls move={move} />
       </div>
     </div>
   );

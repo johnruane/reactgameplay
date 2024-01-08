@@ -1,7 +1,7 @@
 .main {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 9.25rem);
+  height: 100vh;
   margin: 0;
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
@@ -14,6 +14,12 @@
   @media (min-width: 768px) {
     height: calc(100vh - 3.25rem);
     align-items: start;
+  }
+}
+
+@media (pointer: coarse) and (hover: none) and (max-width: 768px) {
+  .main {
+    height: calc(100vh - 9.25rem);
   }
 }
 
@@ -55,14 +61,13 @@
   }
 }
 
-.gameBoard {
+.boardWrapper {
   grid-area: board;
   position: relative;
   display: grid;
 }
 
-.notification {
-  grid-area: notification;
+.gameOverText {
   align-self: center;
   font-size: 1rem;
   font-weight: bold;
@@ -75,28 +80,8 @@
   }
 }
 
-.tetromino-board {
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-}
-
-.next {
-  grid-row-gap: 0.5rem;
-}
-
-.gameBoardStack {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.boardWrapper {
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-}
-
 .controlsWrapper {
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: flex-end;
   position: fixed;
@@ -104,14 +89,23 @@
   bottom: 0;
   width: 100%;
 
-  @media (min-width: 768px) {
-    display: none;
+  @media (pointer: coarse) and (hover: none) and (max-width: 768px) {
+    display: flex;
   }
 }
 
-.controls {
-  display: grid;
-  width: 100vw;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+.nextWrapper {
+  grid-area: next;
+}
+
+.scoreWrapper {
+  grid-area: score;
+}
+
+.levelWrapper {
+  grid-area: level;
+}
+
+.linesWrapper {
+  grid-area: lines;
 }

@@ -3,34 +3,15 @@
   --font-size-xs: 2rem;
   --font-size-sm: 1.5rem;
   --color-white: #FFFFFF;
-  --cell-small: 1rem;
-  --cell-default: 1.5rem;
+  --cell-sm: 1rem;
+  --cell-md: 1.5rem;
   --cell-background-color: #161616;
   --button-height: 3rem;
   --button-width: 3rem;
   --button-font-size: 1.5rem;
-}
-
-.data-wrapper {
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  justify-items: center;
-  align-content: center;
-}
-
-.data-title {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--color-white);
-}
-
-.data-value {
-  color: var(--color-white);
-  font-size: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-  }
+  --panel-background: rgb(29 29 29 / 50%);
+  --panel-border-radius: 0.25rem;
+  --panel-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
