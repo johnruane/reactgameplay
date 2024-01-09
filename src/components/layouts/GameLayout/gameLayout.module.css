@@ -1,0 +1,5 @@
+.layout {
+  touch-action: manipulation;
+  background: rgb(55, 11, 90);
+  background: linear-gradient(19deg, rgba(55, 11, 90, 1) 0%, rgba(162, 30, 102, 1) 100%);
+}
