@@ -1,73 +1,66 @@
+import { Link } from 'react-router-dom';
+
 export default function Home() {
   return (
-    <div className='container py-4'>
-      <div className='p-5 mb-4 bg-body-tertiary rounded-3'>
-        <div className='container-fluid py-5'>
-          <h1 className='display-5 fw-bold'>React Gameplay</h1>
-          <p className='col-md-8 fs-4'>
-            Embark on a coding adventure with React Gameplay, a personal project dedicated
-            to crafting engaging and straightforward games using the formidable React
-            framework. Our mission is to not only deepen our understanding of React's
-            intricacies but also to share the journey, code, and insights with the vibrant
-            community of developers.
+    <>
+      <div className='container py-5'>
+        <div className='col-xxl-10'>
+          <h1 className='display-1'>React Game Play</h1>
+          <div className='border border-6 border-dark w-25 my-4'></div>
+        </div>
+        <div className='col-lg-10 col-xxl-8'>
+          <p className='font-serif lead mb-4'>
+            Welcome to React Game Play – where the joy of coding meets the thrill of
+            gaming! 🎮
           </p>
-          <button
-            className='d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill'
-            type='button'
-          >
-            Call to action
-            <svg className='bi ms-2' width='24' height='24'>
-              <use xlinkHref='#arrow-right-short'></use>
-            </svg>
-          </button>
+          <p className='font-serif lead my-0'>
+            Dive into a world of whimsical wonders and playful pixels as we showcase a
+            collection of React-powered games designed to tickle your coding fancy. Our
+            goal is simple: to turn game development into an enjoyable, accessible
+            playground for React enthusiasts and aspiring developers.
+          </p>
         </div>
       </div>
-
-      <div className='container px-4 py-5' id='featured-3'>
-        <h2 className='pb-2 border-bottom'>Columns with icons</h2>
-        <div className='row g-4 py-5 row-cols-1 row-cols-lg-2'>
-          <div className='feature col'>
-            <div className='feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3'>
-              <svg className='bi' width='1em' height='1em'>
-                <use xlinkHref='#collection'></use>
-              </svg>
-            </div>
-            <h3 className='fs-2 text-body-emphasis'>Why React Gameplay?</h3>
-            <p>
-              Dive into the world of game development with React as your trusted
-              companion. This platform serves as a learning playground, where we explore
-              the art of creating simple yet captivating games, unraveling React's
-              lifecycles, and documenting the essential steps in the process.
-            </p>
-            <a href='#' className='icon-link'>
-              Call to action
-              <svg className='bi'>
-                <use xlinkHref='#chevron-right'></use>
-              </svg>
-            </a>
+      <div className='container py-4 mt-1 mb-2 mt-sm-2 mb-sm-3 mt-md-3 mb-md-4 my-lg-4 my-xl-5'>
+        <div className='row'>
+          <div className='col'>
+            <Link to={'/tetris'} className='text-decoration-none'>
+              <div className='card'>
+                <img
+                  src='https://placehold.co/280x200?text=Tetris'
+                  className='card-img-top'
+                  alt='...'
+                />
+                <div className='card-body'>
+                  <h5 className='card-title'>Card title</h5>
+                  <p className='card-text'>
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+            </Link>
           </div>
-          <div className='feature col'>
-            <div className='feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3'>
-              <svg className='bi' width='1em' height='1em'>
-                <use xlinkHref='#people-circle'></use>
-              </svg>
-            </div>
-            <h3 className='fs-2 text-body-emphasis'>Why Development with React?</h3>
-            <p>
-              React Gameplay aims to showcase why React is not just for building user
-              interfaces. By harnessing its power for game development, we uncover a new
-              realm of possibilities, blending the simplicity of React with the excitement
-              of creating interactive and dynamic gaming experiences.
-            </p>
-            <a href='#' className='icon-link'>
-              Call to action
-              <svg className='bi'>
-                <use xlinkHref='#chevron-right'></use>
-              </svg>
-            </a>
+          <div className='col'>
+            <Link to={'/snake'} className='text-decoration-none'>
+              <div className='card'>
+                <img
+                  src='https://placehold.co/280x200?text=Snake'
+                  className='card-img-top'
+                  alt='...'
+                />
+                <div className='card-body'>
+                  <h5 className='card-title'>Card title</h5>
+                  <p className='card-text'>
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
