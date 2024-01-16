@@ -6,7 +6,7 @@ export default function Home() {
       <div className='container py-5'>
         <div className='col-xxl-10'>
           <h1 className='display-1 text-uppercase fw-bold'>React Game Play</h1>
-          <div className='border border-3 accent-color w-50 my-4'></div>
+          <div className='border border-3 border-warning w-50 my-4'></div>
         </div>
         <div className='col-lg-10 col-xxl-8'>
           <p className='font-serif lead mb-4'>
@@ -27,7 +27,7 @@ export default function Home() {
             <Link to={'/tetris'} className='text-decoration-none'>
               <div className='card'>
                 <img
-                  src='https://placehold.co/280x200?text=Tetris'
+                  src='https://placehold.co/280x200/FFF/000?text=TETRIS'
                   className='card-img-top'
                   alt='...'
                 />
@@ -45,7 +45,7 @@ export default function Home() {
             <Link to={'/snake'} className='text-decoration-none'>
               <div className='card'>
                 <img
-                  src='https://placehold.co/280x200?text=Snake'
+                  src='https://placehold.co/280x200/FFF/000?text=SNAKE'
                   className='card-img-top'
                   alt='...'
                 />
