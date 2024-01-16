@@ -16,6 +16,13 @@
   0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-body{
-  overflow-y:scroll;
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+  background-color: #2F4455;
+  /* background: rgb(55, 11, 90);
+  background: linear-gradient(19deg, rgba(55, 11, 90, 1) 0%, rgba(162, 30, 102, 1) 100%); */
 }

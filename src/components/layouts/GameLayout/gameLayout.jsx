@@ -7,7 +7,13 @@ export default function DefaultLayout() {
     <>
       <Navigation />
       <div className={style.layout}>
-        <Outlet />
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <Outlet />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

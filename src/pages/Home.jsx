@@ -5,8 +5,8 @@ export default function Home() {
     <>
       <div className='container py-5'>
         <div className='col-xxl-10'>
-          <h1 className='display-1'>React Game Play</h1>
-          <div className='border border-6 border-dark w-25 my-4'></div>
+          <h1 className='display-1 text-uppercase fw-bold'>React Game Play</h1>
+          <div className='border border-3 accent-color w-50 my-4'></div>
         </div>
         <div className='col-lg-10 col-xxl-8'>
           <p className='font-serif lead mb-4'>
