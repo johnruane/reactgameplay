@@ -17,8 +17,8 @@ export default function Routes() {
     {
       element: <GameLayout />,
       children: [
-        { path: 'tetris', element: <Tetris /> },
-        { path: 'snake', element: <Snake /> },
+        { path: 'tetris', element: <Tetris title='Tetris' /> },
+        { path: 'snake', element: <Snake title='Snake' /> },
       ],
     },
     { path: '*', element: <Error404 /> },

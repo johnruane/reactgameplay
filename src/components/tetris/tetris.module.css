@@ -17,12 +17,20 @@
   }
 } */
 
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: 768px) {
+  flex-direction: row;
+  }
+}
+
 .layoutGrid {
   display: grid;
   grid-template-columns: auto 6rem;
-  grid-template-rows: auto repeat(3, 3.5rem) auto;
+  grid-template-rows: repeat(3, 3.5rem) auto;
   grid-template-areas: 
-    "title title"
     "board score"
     "board level"
     "board lines"
@@ -34,26 +42,17 @@
 
   @media (min-width: 768px) {
     grid-template-columns: auto 7rem;
-    grid-template-rows: auto repeat(3, 4.5rem) auto;
-    /* margin: 3rem 0 0; */
+    grid-template-rows: repeat(3, 4.5rem) auto;
+    grid-template-areas: 
+    "board score"
+    "board level"
+    "board lines"
+    "board next";
   }
 }
 
-.title {
-  grid-area: title;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  grid-column: 1 / span 2;
-  font-weight: bold;
-  text-align: center;
-  color: var(--color-white);
-  margin: 0;
-  align-self: end;
-  text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
-
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-  }
+.instructionsWrapper {
+  grid-area: instructions;
 }
 
 .boardWrapper {
