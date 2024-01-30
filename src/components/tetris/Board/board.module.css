@@ -21,7 +21,7 @@
   width: var(--cell-sm);
   height: var(--cell-sm);
   background: var(--cell-background-color);
-  outline: 1px solid #454545;
+  outline: 1px solid var(--cell-outline-color);
 
   @media (min-width: 768px) {
     &, &::after {

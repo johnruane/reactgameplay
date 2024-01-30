@@ -278,10 +278,10 @@ const Tetris = () => {
           <div className={style.instructionsWrapper}>
             <p className='lead fw-bold'>How to play:</p>
             <ol className='lead'>
-              <li>Use the Arrow Keys ⬅ ⬇ ➡️ to move the falling piece.</li>
+              <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the falling piece.</li>
               <li>Press the Spacebar to rotate.</li>
               <li>100 points are scored for completing a row.</li>
-              <li>A multiplier of x(Rows) is added for multi-row wins.</li>
+              <li>A multiplier (100 X rows) is added for multi-row wins.</li>
               <li>
                 During gameplay the fall speed (Level) is increased by 10% every 30
                 seconds.

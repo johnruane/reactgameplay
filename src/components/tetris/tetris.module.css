@@ -29,7 +29,7 @@
 .layoutGrid {
   display: grid;
   grid-template-columns: auto 6rem;
-  grid-template-rows: repeat(3, 3.5rem) auto;
+  grid-template-rows: repeat(3, 6rem) auto;
   grid-template-areas: 
     "board score"
     "board level"
@@ -41,8 +41,8 @@
   /* margin: 1rem 1rem 3rem; */
 
   @media (min-width: 768px) {
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(3, 4.5rem) auto;
+    grid-template-columns: auto 8rem;
+    grid-template-rows: repeat(3, 6rem) auto;
     grid-template-areas: 
     "board score"
     "board level"

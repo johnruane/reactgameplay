@@ -5,16 +5,15 @@
   justify-items: center;
   align-content: center;
   padding: 1rem;
-  background: #1d1d1b;
-  border: 2px solid var(--bs-body-color);
-  border-radius: 0.5rem;
+  background: var(--bs-body-color);
+  border-radius: var(--panel-border-radius);
+  box-shadow: var(--panel-box-shadow);
 }
 
 .title {
   margin: 0;
   color: var(--bs-body-bg);
   font-size: 0.75rem;
-  font-weight: bold;
   text-transform: uppercase;
 }
 
