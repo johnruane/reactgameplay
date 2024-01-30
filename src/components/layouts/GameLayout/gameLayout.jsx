@@ -8,11 +8,7 @@ export default function DefaultLayout() {
       <Navigation />
       <div className={style.layout}>
         <div className='container py-5'>
-          <div className='row'>
-            <div className='col'>
-              <Outlet />
-            </div>
-          </div>
+          <Outlet />
         </div>
       </div>
     </>

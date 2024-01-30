@@ -273,38 +273,43 @@ const Tetris = () => {
 
   return (
     <>
-      <div className={style.main}>
-        <div className={style.instructionsWrapper}>
-          <p className='lead fw-bold'>How to play:</p>
-          <ol className='lead'>
-            <li>Use the Arrow Keys ⬅ ⬇ ➡️ to move the falling piece.</li>
-            <li>Press the Spacebar to rotate.</li>
-            <li>100 points are scored for completing a row.</li>
-            <li>A multiplier of x(Rows) is added for multi-row wins.</li>
-            <li>
-              During gameplay the fall speed (Level) is increased by 10% every 30 seconds.
-            </li>
-          </ol>
+      <div className='row g-5'>
+        <div className='col-xs-12 col-lg-5'>
+          <div className={style.instructionsWrapper}>
+            <p className='lead fw-bold'>How to play:</p>
+            <ol className='lead'>
+              <li>Use the Arrow Keys ⬅ ⬇ ➡️ to move the falling piece.</li>
+              <li>Press the Spacebar to rotate.</li>
+              <li>100 points are scored for completing a row.</li>
+              <li>A multiplier of x(Rows) is added for multi-row wins.</li>
+              <li>
+                During gameplay the fall speed (Level) is increased by 10% every 30
+                seconds.
+              </li>
+            </ol>
+          </div>
         </div>
-        <div className={style.layoutGrid}>
-          <div className={style.boardWrapper}>
-            <Board board={displayBoard} />
-          </div>
-          <div className={style.scoreWrapper}>
-            <Panel title={'score'} value={score} />
-          </div>
-          <div className={style.levelWrapper}>
-            <Panel title={'level'} value={level} />
-          </div>
-          <div className={style.linesWrapper}>
-            <Panel title={'lines'} value={lines} />
-          </div>
-          <div className={style.nextWrapper}>
-            {gameOver ? (
-              <p className={style.gameOverText}>Game Over</p>
-            ) : (
-              <Next nextTetromino={nextTetromino.matrix} />
-            )}
+        <div className='col-xs-12 col-lg-auto'>
+          <div className={style.layoutGrid}>
+            <div className={style.boardWrapper}>
+              <Board board={displayBoard} />
+            </div>
+            <div className={style.scoreWrapper}>
+              <Panel title={'score'} value={score} />
+            </div>
+            <div className={style.levelWrapper}>
+              <Panel title={'level'} value={level} />
+            </div>
+            <div className={style.linesWrapper}>
+              <Panel title={'lines'} value={lines} />
+            </div>
+            <div className={style.nextWrapper}>
+              {gameOver ? (
+                <p className={style.gameOverText}>Game Over</p>
+              ) : (
+                <Next nextTetromino={nextTetromino.matrix} />
+              )}
+            </div>
           </div>
         </div>
       </div>

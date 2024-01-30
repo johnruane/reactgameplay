@@ -17,14 +17,14 @@
   }
 } */
 
-.main {
+/* .main {
   display: flex;
   flex-direction: column-reverse;
 
   @media (min-width: 768px) {
   flex-direction: row;
   }
-}
+} */
 
 .layoutGrid {
   display: grid;
@@ -41,7 +41,7 @@
   /* margin: 1rem 1rem 3rem; */
 
   @media (min-width: 768px) {
-    grid-template-columns: auto 7rem;
+    grid-template-columns: auto auto;
     grid-template-rows: repeat(3, 4.5rem) auto;
     grid-template-areas: 
     "board score"
@@ -49,10 +49,6 @@
     "board lines"
     "board next";
   }
-}
-
-.instructionsWrapper {
-  grid-area: instructions;
 }
 
 .boardWrapper {
@@ -65,8 +61,7 @@
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  color: var(--color-white);
-  text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+
   @media (min-width: 768px) {
     font-size: 1.5rem;
   }
