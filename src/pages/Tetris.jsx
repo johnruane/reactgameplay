@@ -1,4 +1,4 @@
-import TetrisGame from '../components/tetris';
+import TetrisGame from '../components/games/tetris';
 
 export default function Tetris({ title }) {
   return (

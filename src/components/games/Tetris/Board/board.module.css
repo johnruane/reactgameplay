@@ -1,3 +1,10 @@
+:root {
+  --cell-sm: 1rem;
+  --cell-md: 2rem;
+  --cell-background-color: #161616;
+  --cell-outline-color: #454545;
+}
+
 .board {
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
