@@ -1,22 +1,28 @@
 import { addSnakeToBoard } from './addSnakeToBoard';
-import { t1, t2, t3, t4 } from './__test__/testUtils';
 
-// describe('addSnakeToBoard Test Suite', () => {
-//   it.each`
-//     board                                | tetromino    | r    | c    | output
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t1.matrix} | ${0} | ${0} | ${[[1, 0, 0], [0, 0, 0], [0, 0, 0]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t1.matrix} | ${2} | ${2} | ${[[0, 0, 0], [0, 0, 0], [0, 0, 1]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t2.matrix} | ${0} | ${0} | ${[[0, 0, 0], [0, 1, 0], [0, 0, 0]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t2.matrix} | ${2} | ${2} | ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t3.matrix} | ${1} | ${1} | ${[[0, 0, 0], [0, 0, 1], [0, 0, 1]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t3.matrix} | ${2} | ${1} | ${[[0, 0, 0], [0, 0, 0], [0, 0, 1]]}
-//     ${[[0, 0, 0], [0, 0, 0], [0, 0, 0]]} | ${t4.matrix} | ${1} | ${1} | ${[[0, 0, 0], [0, 0, 0], [0, 1, 1]]}
-//   `(
-//     'should add tetromino to board at specified position',
-//     ({ board, tetromino, r, c, output }) => {
-//       expect(JSON.stringify(addTetrominoToBoard(board, tetromino, r, c))).toEqual(
-//         JSON.stringify(output)
-//       );
-//     }
-//   );
-// });
+const board = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+];
+
+const output = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 2, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+];
+
+describe('addSnakeToBoard Test Suite', () => {
+  it.each`
+    board         | snake  | pos               | output
+    ${[...board]} | ${[1]} | ${{ r: 2, c: 2 }} | ${output}
+  `('should add snake to board starting at pos', ({ board, snake, pos, output }) => {
+    expect(JSON.stringify(addSnakeToBoard(board, snake, pos))).toEqual(
+      JSON.stringify(output)
+    );
+  });
+});

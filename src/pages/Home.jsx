@@ -42,7 +42,18 @@ export default function Home() {
             <Link to={'/snake'} className='text-decoration-none'>
               <div className='card'>
                 <img
-                  src='https://placehold.co/280x200/1d1d1b/ffcb03?text=SNAKE'
+                  src='https://placehold.co/280x200/1d1d1b/ffcb03?text=SNAKE\n(coming soon)'
+                  className='card-img-top'
+                  alt='...'
+                />
+              </div>
+            </Link>
+          </div>
+          <div className='col-md-4'>
+            <Link to={'/snake'} className='text-decoration-none'>
+              <div className='card'>
+                <img
+                  src='https://placehold.co/280x200/1d1d1b/ffcb03?text=MASTERMIND\n(coming soon)'
                   className='card-img-top'
                   alt='...'
                 />

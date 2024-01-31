@@ -38,9 +38,10 @@
   }
 }
 
-/* T shape */
 [data-value='1']::after {
-  background: #9900fe;
-  background: rgb(153,0,254);
-  background: linear-gradient(145deg, rgba(153,0,254,1) 0%, rgba(119,0,197,1) 100%);
+  background: red;
+}
+
+[data-value='2']::after {
+  background: white;
 }

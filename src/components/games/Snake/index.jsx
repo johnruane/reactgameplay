@@ -9,36 +9,43 @@ import { addSnakeToBoard } from './lib/utils/addSnakeToBoard';
 import { useInterval } from './hooks/useInterval';
 
 const Snake = () => {
-  const [displayBoard, setDisplayBoard] = useState(createGameBoard(20, 20, 0));
-
-  const [snake, setSnake] = useState([1]);
+  const gameBoard = createGameBoard(20, 20, 0);
+  const [displayBoard, setDisplayBoard] = useState([...gameBoard]);
 
   const [position, setPosition] = useState({ r: 10, c: 10 });
+  const [snake, setSnake] = useState([1, 1, 1]);
   const [snakeDirection, setSnakeDirection] = useState('ArrowUp');
 
-  const [delay, setDelay] = useState(500);
+  const [delay, setDelay] = useState(1000);
 
   /*
-   * Update the 'position' either via 'useInterval', in which case 'direction' is 'undefined' or
-   * via 'keyPress'.
+   * Update 'position', 'snakeNumericDirection' and 'snake' based off 'direction'. If no 'direction' is
+   * provided the direction fallback to 'snakeDirection' state.
+   *
    */
   const moveSnake = (direction) => {
     let newR = position.r;
     let newC = position.c;
+
     let newDirection = direction || snakeDirection;
+    let snakeNumericDirection;
 
     switch (newDirection) {
-      case 'ArrowLeft':
-        newC = position.c - 1;
+      case 'ArrowUp':
+        newR = position.r - 1;
+        snakeNumericDirection = 1;
         break;
       case 'ArrowRight':
         newC = position.c + 1;
+        snakeNumericDirection = 2;
         break;
       case 'ArrowDown':
         newR = position.r + 1;
+        snakeNumericDirection = 3;
         break;
-      case 'ArrowUp':
-        newR = position.r - 1;
+      case 'ArrowLeft':
+        newC = position.c - 1;
+        snakeNumericDirection = 4;
         break;
     }
 
@@ -49,6 +56,12 @@ const Snake = () => {
         r: newR,
         c: newC,
       });
+
+      const newSnake = [...snake];
+      newSnake.unshift(snakeNumericDirection);
+      newSnake.pop();
+
+      setSnake(newSnake);
       setSnakeDirection(newDirection);
     }
   };
@@ -71,14 +84,15 @@ const Snake = () => {
     };
   }, []);
 
+  /*
+   * useEffect to update the displayBoard when position is updated.
+   */
   useEffect(() => {
-    setDisplayBoard(
-      addSnakeToBoard(createGameBoard(20, 20, 0), snake, position.r, position.c)
-    );
-  }, [snake, position]);
+    setDisplayBoard(addSnakeToBoard([...gameBoard], snake, position));
+  }, [position]);
 
   /*
-   * Interval to move tetrominos every 'delay' milliseconds
+   * Interval to move snake every 'delay' milliseconds
    */
   useInterval(() => {
     moveSnake();
