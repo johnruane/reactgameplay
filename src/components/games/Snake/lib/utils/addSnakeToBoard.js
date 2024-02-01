@@ -12,9 +12,10 @@
 export function addSnakeToBoard(board, snake, pos) {
   let localR = pos.r;
   let localC = pos.c;
+  let localBoard = [...board];
 
   // Set head
-  board[localR][localC] = 1;
+  localBoard[localR][localC] = 1;
   snake.forEach((item) => {
     switch (item) {
       case 1:
@@ -30,7 +31,7 @@ export function addSnakeToBoard(board, snake, pos) {
         localC = localC + 1;
         break;
     }
-    board[localR][localC] = 2;
+    localBoard[localR][localC] = 2;
   });
-  return board;
+  return localBoard;
 }

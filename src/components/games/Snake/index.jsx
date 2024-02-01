@@ -4,67 +4,115 @@ import Board from './Board';
 /* Utils */
 import { createGameBoard } from '../utils/createBoard';
 import { addSnakeToBoard } from './lib/utils/addSnakeToBoard';
+import { deepClone } from '../utils/deepClone';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
+import { findEmptyCells } from './lib/utils/findEmptyCells';
 
 const Snake = () => {
-  const gameBoard = createGameBoard(20, 20, 0);
-  const [displayBoard, setDisplayBoard] = useState([...gameBoard]);
+  const emptyBoard = createGameBoard(20, 20, 0);
+  const initialFoodBoard = deepClone(emptyBoard);
+  initialFoodBoard[5][5] = 3;
 
-  const [position, setPosition] = useState({ r: 10, c: 10 });
-  const [snake, setSnake] = useState([1, 1, 1]);
+  const [displayBoard, setDisplayBoard] = useState(deepClone(emptyBoard));
+
+  const [snakeBody, setSnakeBody] = useState([1, 1, 1]);
+  const [snakeHeadPosition, setSnakeHeadPosition] = useState({ r: 10, c: 10 });
   const [snakeDirection, setSnakeDirection] = useState('ArrowUp');
 
-  const [delay, setDelay] = useState(1000);
+  const [foodBoardPosition, setFoodBoardPosition] = useState({ r: 5, c: 5 });
+  const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
+
+  const [delay, setDelay] = useState(500);
+
+  function isDirectionOpposite(direction) {
+    let isOpposite = false;
+    switch (direction) {
+      case 'ArrowUp':
+        if (snakeDirection === 'ArrowDown') {
+          isOpposite = true;
+        }
+        break;
+      case 'ArrowRight':
+        if (snakeDirection === 'ArrowLeft') {
+          isOpposite = true;
+        }
+        break;
+      case 'ArrowDown':
+        if (snakeDirection === 'ArrowUp') {
+          isOpposite = true;
+        }
+        break;
+      case 'ArrowLeft':
+        if (snakeDirection === 'ArrowRight') {
+          isOpposite = true;
+        }
+        break;
+    }
+    return isOpposite;
+  }
 
   /*
-   * Update 'position', 'snakeNumericDirection' and 'snake' based off 'direction'. If no 'direction' is
+   * Update 'snakeHeadPosition', 'snakeNumericDirection' and 'snake' based off 'direction'. If no 'direction' is
    * provided the direction fallback to 'snakeDirection' state.
    *
    */
   const moveSnake = (direction) => {
-    let newR = position.r;
-    let newC = position.c;
+    let { r: newR, c: newC } = snakeHeadPosition;
 
     let newDirection = direction || snakeDirection;
     let snakeNumericDirection;
 
     switch (newDirection) {
       case 'ArrowUp':
-        newR = position.r - 1;
+        newR = snakeHeadPosition.r - 1;
         snakeNumericDirection = 1;
         break;
       case 'ArrowRight':
-        newC = position.c + 1;
+        newC = snakeHeadPosition.c + 1;
         snakeNumericDirection = 2;
         break;
       case 'ArrowDown':
-        newR = position.r + 1;
+        newR = snakeHeadPosition.r + 1;
         snakeNumericDirection = 3;
         break;
       case 'ArrowLeft':
-        newC = position.c - 1;
+        newC = snakeHeadPosition.c - 1;
         snakeNumericDirection = 4;
         break;
     }
 
-    const canMove = displayBoard[newR][newC] === 0;
+    const canMove =
+      (displayBoard[newR] && displayBoard[newR][newC] === 0) ||
+      displayBoard[newR][newC] === 3;
 
     if (canMove) {
-      setPosition({
+      setSnakeHeadPosition({
         r: newR,
         c: newC,
       });
 
-      const newSnake = [...snake];
+      /*
+       * The snakeBody follows the head by unshift() (adding to front of array) the snakeHead direction and
+       * pop() (remove end of array), thereby shifting all array values to the right.
+       */
+      const newSnake = deepClone(snakeBody);
       newSnake.unshift(snakeNumericDirection);
       newSnake.pop();
 
-      setSnake(newSnake);
+      setSnakeBody(newSnake);
       setSnakeDirection(newDirection);
     }
   };
+
+  function getRandomEmptyBoardPosition() {
+    const availableCells = findEmptyCells(displayBoard);
+    const randomPosition =
+      availableCells[Math.floor(Math.random() * availableCells.length)];
+    const [row, col] = randomPosition.split('-').map(Number);
+    return { row, col };
+  }
 
   const keyPress = (event) => {
     event.preventDefault();
@@ -84,12 +132,41 @@ const Snake = () => {
     };
   }, []);
 
+  function growSnake() {
+    let lastElement = snakeBody[2];
+    const copySnakeBody = [...snakeBody];
+    copySnakeBody.push(lastElement);
+    setSnakeBody(copySnakeBody);
+  }
+
+  useEffect(() => {
+    if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
+      const { row, col } = getRandomEmptyBoardPosition();
+      const newFoodBoard = createGameBoard(20, 20, 0);
+      newFoodBoard[row][col] = 3;
+      setFoodBoard(newFoodBoard);
+      setFoodBoardPosition({ r: row, c: col });
+      growSnake();
+    }
+  }, [snakeHeadPosition]);
+
+  // useEffect(() => {
+  //   const currentSnakeBody = snakeBody;
+  //   currentSnakeBody.push(1);
+  //   setSnakeBody(currentSnakeBody);
+  // }, [foodBoardPosition]);
+
   /*
-   * useEffect to update the displayBoard when position is updated.
+   * useEffect to update the displayBoard when snakeHeadPosition is updated.
    */
   useEffect(() => {
-    setDisplayBoard(addSnakeToBoard([...gameBoard], snake, position));
-  }, [position]);
+    const snakeBoard = addSnakeToBoard(
+      deepClone(foodBoard),
+      snakeBody,
+      snakeHeadPosition
+    );
+    setDisplayBoard(snakeBoard);
+  }, [foodBoard, snakeHeadPosition]);
 
   /*
    * Interval to move snake every 'delay' milliseconds

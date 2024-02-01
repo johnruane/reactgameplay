@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 /* Utils */
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
 import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
-import { cloneArray } from './lib/utils/cloneArray';
+import { deepClone } from '../utils/deepClone';
 import { rotateMatrix } from './lib/utils/rotateMatrix';
 import { animateCompleteRow } from './lib/utils/animateCompleteRow';
 import { findCompletedRows } from './lib/utils/findCompletedRows';
@@ -119,7 +119,7 @@ const Tetris = () => {
     if (!canMove && !direction) {
       setStaticBoard(
         addTetrominoToBoard(
-          cloneArray(staticBoard),
+          deepClone(staticBoard),
           currentTetromino.matrix,
           position.r,
           position.c
@@ -170,7 +170,7 @@ const Tetris = () => {
    * function to be executed as a 'onFinish' function if the index is the last row to be animated.
    */
   useEffect(() => {
-    const cloneBoard = cloneArray(staticBoard);
+    const cloneBoard = deepClone(staticBoard);
     /*
      * We sort the indexes ascending so that rows are removed from top to bottom. If descending then the board
      * indexes would be wrong as we shift the rows downwards after removing a row.
@@ -233,7 +233,7 @@ const Tetris = () => {
   useEffect(() => {
     setDisplayBoard(
       addTetrominoToBoard(
-        cloneArray(staticBoard),
+        deepClone(staticBoard),
         currentTetromino.matrix,
         position.r,
         position.c

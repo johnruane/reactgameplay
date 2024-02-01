@@ -45,3 +45,7 @@
 [data-value='2']::after {
   background: white;
 }
+
+[data-value='3']::after {
+  background: green;
+}

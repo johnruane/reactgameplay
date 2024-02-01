@@ -9,4 +9,8 @@ export default defineConfig({
       localsConvention: 'camelCase',
     },
   },
+  test: {
+    include: ['**/*.test.js'],
+    globals: true,
+  },
 });
