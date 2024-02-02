@@ -274,7 +274,7 @@ const Tetris = () => {
 
   return (
     <>
-      <div className='row g-5'>
+      <div className='d-flex column-gap-3'>
         <div className='col-xs-12 col-lg-5'>
           <div className={style.instructionsWrapper}>
             <p className='lead fw-bold'>How to play:</p>

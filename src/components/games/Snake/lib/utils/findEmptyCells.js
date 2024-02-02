@@ -5,7 +5,7 @@
  * example: ['0-1', '1-1']
  *
  * @param {Number[][]} board
- * @return {String[]}
+ * @return {String[]} Array of strings
  */
 
 export function findEmptyCells(board) {

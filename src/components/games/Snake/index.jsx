@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
+
+/* Components */
 import Board from './Board';
+import Panel from './Panel';
 
 /* Utils */
 import { createGameBoard } from '../utils/createBoard';
 import { addSnakeToBoard } from './lib/utils/addSnakeToBoard';
 import { deepClone } from '../utils/deepClone';
+import { growSnake } from './lib/utils/growSnake';
+import { getRandomEmptyBoardPosition } from './lib/utils/getRandomEmptyBoardPosition';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
-import { findEmptyCells } from './lib/utils/findEmptyCells';
+
+const SNAKE_DIRECTIONS = {
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_LEFT: 'ArrowLeft',
+};
 
 const Snake = () => {
   const emptyBoard = createGameBoard(20, 20, 0);
@@ -19,67 +30,59 @@ const Snake = () => {
 
   const [snakeBody, setSnakeBody] = useState([1, 1, 1]);
   const [snakeHeadPosition, setSnakeHeadPosition] = useState({ r: 10, c: 10 });
-  const [snakeDirection, setSnakeDirection] = useState('ArrowUp');
+  const [proposedSnakeDirection, setProposedSnakeDirection] = useState(
+    SNAKE_DIRECTIONS.ARROW_UP
+  );
+  const [currentSnakeDirection, setCurrentSnakeDirection] = useState(
+    SNAKE_DIRECTIONS.ARROW_UP
+  );
 
   const [foodBoardPosition, setFoodBoardPosition] = useState({ r: 5, c: 5 });
   const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
 
-  const [delay, setDelay] = useState(500);
-
-  function isDirectionOpposite(direction) {
-    let isOpposite = false;
-    switch (direction) {
-      case 'ArrowUp':
-        if (snakeDirection === 'ArrowDown') {
-          isOpposite = true;
-        }
-        break;
-      case 'ArrowRight':
-        if (snakeDirection === 'ArrowLeft') {
-          isOpposite = true;
-        }
-        break;
-      case 'ArrowDown':
-        if (snakeDirection === 'ArrowUp') {
-          isOpposite = true;
-        }
-        break;
-      case 'ArrowLeft':
-        if (snakeDirection === 'ArrowRight') {
-          isOpposite = true;
-        }
-        break;
-    }
-    return isOpposite;
-  }
+  const prohibitedDirections = {
+    ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
+    ArrowLeft: SNAKE_DIRECTIONS.ARROW_RIGHT,
+    ArrowRight: SNAKE_DIRECTIONS.ARROW_LEFT,
+    ArrowDown: SNAKE_DIRECTIONS.ARROW_UP,
+  };
 
   /*
    * Update 'snakeHeadPosition', 'snakeNumericDirection' and 'snake' based off 'direction'. If no 'direction' is
-   * provided the direction fallback to 'snakeDirection' state.
+   * provided the direction fallback to 'proposedSnakeDirection' state.
    *
    */
-  const moveSnake = (direction) => {
+  const moveSnake = () => {
     let { r: newR, c: newC } = snakeHeadPosition;
 
-    let newDirection = direction || snakeDirection;
-    let snakeNumericDirection;
+    /*
+     * Before moving the 'snake' in the direction of 'proposedSnakeDirection' we need to prevent trying to move the 'snake'
+     * back towards itself. To do this we take the 'currentSnakeDirection' as key to object of prohibited directions. If it
+     * matches then we carry on going in the 'currentSnakeDirection'.
+     */
+    let newDirection =
+      proposedSnakeDirection === prohibitedDirections[currentSnakeDirection]
+        ? currentSnakeDirection
+        : proposedSnakeDirection;
+
+    let snakeBodyDirection;
 
     switch (newDirection) {
-      case 'ArrowUp':
+      case SNAKE_DIRECTIONS.ARROW_UP:
         newR = snakeHeadPosition.r - 1;
-        snakeNumericDirection = 1;
+        snakeBodyDirection = 1;
         break;
-      case 'ArrowRight':
+      case SNAKE_DIRECTIONS.ARROW_RIGHT:
         newC = snakeHeadPosition.c + 1;
-        snakeNumericDirection = 2;
+        snakeBodyDirection = 2;
         break;
-      case 'ArrowDown':
+      case SNAKE_DIRECTIONS.ARROW_DOWN:
         newR = snakeHeadPosition.r + 1;
-        snakeNumericDirection = 3;
+        snakeBodyDirection = 3;
         break;
-      case 'ArrowLeft':
+      case SNAKE_DIRECTIONS.ARROW_LEFT:
         newC = snakeHeadPosition.c - 1;
-        snakeNumericDirection = 4;
+        snakeBodyDirection = 4;
         break;
     }
 
@@ -94,31 +97,24 @@ const Snake = () => {
       });
 
       /*
-       * The snakeBody follows the head by unshift() (adding to front of array) the snakeHead direction and
-       * pop() (remove end of array), thereby shifting all array values to the right.
+       * The snakeBody follows the head by unshifting the values in the array so they propogate
+       * from the front of the array to the back.
        */
       const newSnake = deepClone(snakeBody);
-      newSnake.unshift(snakeNumericDirection);
+      newSnake.unshift(snakeBodyDirection);
       newSnake.pop();
 
       setSnakeBody(newSnake);
-      setSnakeDirection(newDirection);
+      setCurrentSnakeDirection(newDirection);
     }
   };
-
-  function getRandomEmptyBoardPosition() {
-    const availableCells = findEmptyCells(displayBoard);
-    const randomPosition =
-      availableCells[Math.floor(Math.random() * availableCells.length)];
-    const [row, col] = randomPosition.split('-').map(Number);
-    return { row, col };
-  }
 
   const keyPress = (event) => {
     event.preventDefault();
     const key = event.code;
-    if (['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(key)) {
-      setSnakeDirection(key);
+
+    if (Object.values(SNAKE_DIRECTIONS).includes(key)) {
+      setProposedSnakeDirection(key);
     }
   };
 
@@ -132,29 +128,18 @@ const Snake = () => {
     };
   }, []);
 
-  function growSnake() {
-    let lastElement = snakeBody[2];
-    const copySnakeBody = [...snakeBody];
-    copySnakeBody.push(lastElement);
-    setSnakeBody(copySnakeBody);
-  }
-
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
-      const { row, col } = getRandomEmptyBoardPosition();
+      const { row, col } = getRandomEmptyBoardPosition(displayBoard);
       const newFoodBoard = createGameBoard(20, 20, 0);
       newFoodBoard[row][col] = 3;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });
-      growSnake();
-    }
-  }, [snakeHeadPosition]);
 
-  // useEffect(() => {
-  //   const currentSnakeBody = snakeBody;
-  //   currentSnakeBody.push(1);
-  //   setSnakeBody(currentSnakeBody);
-  // }, [foodBoardPosition]);
+      const newLongerSnake = growSnake(snakeBody);
+      setSnakeBody(newLongerSnake);
+    }
+  }, [snakeHeadPosition, displayBoard, foodBoardPosition, snakeBody]);
 
   /*
    * useEffect to update the displayBoard when snakeHeadPosition is updated.
@@ -166,20 +151,34 @@ const Snake = () => {
       snakeHeadPosition
     );
     setDisplayBoard(snakeBoard);
-  }, [foodBoard, snakeHeadPosition]);
+  }, [foodBoard, snakeBody, snakeHeadPosition]);
 
   /*
    * Interval to move snake every 'delay' milliseconds
    */
   useInterval(() => {
     moveSnake();
-  }, delay);
+  }, 400);
 
   return (
     <>
-      <div className='row'>
-        <div className='col-auto'>
+      <div className='d-flex column-gap-3'>
+        <div className='col-xs-12 col-lg-5'>
+          <div>
+            <p className='lead fw-bold'>How to play:</p>
+            <ol className='lead'>
+              <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the snake.</li>
+              <li>Catch the 🟩 food to increase the level score and grow the snake.</li>
+              <li>
+                Avoid hitting the walls of the play area, or running into your own tail.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div className='col-auto d-flex column-gap-3'>
           <Board board={displayBoard} />
+          <Panel title='Score' value={0} />
         </div>
       </div>
     </>
