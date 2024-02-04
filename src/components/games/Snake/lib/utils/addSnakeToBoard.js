@@ -9,13 +9,15 @@
  * @param {{r: Number, c: Number}} r Row
  * @return {Number[][]} New board with @snake added
  */
+const SNAKE_VALUE = 1;
 export function addSnakeToBoard(board, snake, pos) {
   let localR = pos.r;
   let localC = pos.c;
   let localBoard = [...board];
 
-  // Set head
-  localBoard[localR][localC] = 1;
+  // Snake head
+  localBoard[localR][localC] = SNAKE_VALUE;
+
   snake.forEach((item) => {
     switch (item) {
       case 1:
@@ -31,7 +33,9 @@ export function addSnakeToBoard(board, snake, pos) {
         localC = localC + 1;
         break;
     }
-    localBoard[localR][localC] = 2;
+
+    // Snake body
+    localBoard[localR][localC] = SNAKE_VALUE;
   });
   return localBoard;
 }

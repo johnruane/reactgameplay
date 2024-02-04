@@ -21,10 +21,12 @@ const SNAKE_DIRECTIONS = {
   ARROW_LEFT: 'ArrowLeft',
 };
 
+const FOOD_VALUE = 2;
+
 const Snake = () => {
   const emptyBoard = createGameBoard(20, 20, 0);
   const initialFoodBoard = deepClone(emptyBoard);
-  initialFoodBoard[5][5] = 3;
+  initialFoodBoard[5][5] = FOOD_VALUE;
 
   const [displayBoard, setDisplayBoard] = useState(deepClone(emptyBoard));
 
@@ -40,6 +42,8 @@ const Snake = () => {
   const [foodBoardPosition, setFoodBoardPosition] = useState({ r: 5, c: 5 });
   const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
 
+  const [score, setScore] = useState(0);
+
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
     ArrowLeft: SNAKE_DIRECTIONS.ARROW_RIGHT,
@@ -48,18 +52,16 @@ const Snake = () => {
   };
 
   /*
-   * Update 'snakeHeadPosition', 'snakeNumericDirection' and 'snake' based off 'direction'. If no 'direction' is
-   * provided the direction fallback to 'proposedSnakeDirection' state.
+   * Function to move the 'snake'. The 'direction' to move the 'snake' is determined by whether the keyed direction is prohibited based
+   * on the 'currentSnakeDirection'. This prevents the 'snake' trying to move back into itself.
+   *
+   * The new direction is plotted and the 'snakeBody' has its values shifted to the right so we can
+   * draw the 'snakeBody' based off the directions the 'snakeHead' has taken.
    *
    */
   const moveSnake = () => {
     let { r: newR, c: newC } = snakeHeadPosition;
 
-    /*
-     * Before moving the 'snake' in the direction of 'proposedSnakeDirection' we need to prevent trying to move the 'snake'
-     * back towards itself. To do this we take the 'currentSnakeDirection' as key to object of prohibited directions. If it
-     * matches then we carry on going in the 'currentSnakeDirection'.
-     */
     let newDirection =
       proposedSnakeDirection === prohibitedDirections[currentSnakeDirection]
         ? currentSnakeDirection
@@ -88,7 +90,7 @@ const Snake = () => {
 
     const canMove =
       (displayBoard[newR] && displayBoard[newR][newC] === 0) ||
-      displayBoard[newR][newC] === 3;
+      (displayBoard[newR] && displayBoard[newR][newC] === FOOD_VALUE);
 
     if (canMove) {
       setSnakeHeadPosition({
@@ -128,21 +130,33 @@ const Snake = () => {
     };
   }, []);
 
+  /*
+   * Check to see if the snakeHeadPosition is the same as the foodPosition, which indicates
+   * that the snake has caught the food. This useEffect generates an new random position for
+   * the next food and updates the boards.
+   */
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
       const { row, col } = getRandomEmptyBoardPosition(displayBoard);
       const newFoodBoard = createGameBoard(20, 20, 0);
-      newFoodBoard[row][col] = 3;
+      newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });
-
-      const newLongerSnake = growSnake(snakeBody);
-      setSnakeBody(newLongerSnake);
     }
-  }, [snakeHeadPosition, displayBoard, foodBoardPosition, snakeBody]);
+  }, [displayBoard]);
 
   /*
-   * useEffect to update the displayBoard when snakeHeadPosition is updated.
+   * Update the snake & score when the foodBoard is updated. foodBoard is updated when the snake
+   * catches the food.
+   */
+  useEffect(() => {
+    const newLongerSnake = growSnake(snakeBody);
+    setSnakeBody(newLongerSnake);
+    setScore((prev) => prev + 1);
+  }, [foodBoard]);
+
+  /*
+   * Update the displayBoard when various values are updated.
    */
   useEffect(() => {
     const snakeBoard = addSnakeToBoard(
@@ -158,11 +172,11 @@ const Snake = () => {
    */
   useInterval(() => {
     moveSnake();
-  }, 400);
+  }, 180);
 
   return (
     <>
-      <div className='d-flex column-gap-3'>
+      <div className='row d-flex gap-3 gap-3'>
         <div className='col-xs-12 col-lg-5'>
           <div>
             <p className='lead fw-bold'>How to play:</p>
@@ -176,9 +190,9 @@ const Snake = () => {
           </div>
         </div>
 
-        <div className='col-auto d-flex column-gap-3'>
+        <div className='col-auto d-flex flex-column gap-3'>
+          <Panel title='Score' value={score} />
           <Board board={displayBoard} />
-          <Panel title='Score' value={0} />
         </div>
       </div>
     </>

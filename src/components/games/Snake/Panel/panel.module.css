@@ -9,7 +9,7 @@
   display: grid;
   height: 100%;
   grid-template-rows: repeat(2, min-content);
-  justify-items: center;
+  justify-items: start;
   align-content: center;
   padding: 1rem;
   background: var(--bs-body-color);

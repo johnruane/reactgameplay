@@ -12,5 +12,5 @@ export default function Panel({ title, value }) {
 
 Panel.propTypes = {
   title: PropTypes.string,
-  value: PropTypes.string || PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
