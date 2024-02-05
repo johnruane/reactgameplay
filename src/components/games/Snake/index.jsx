@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 /* Components */
 import Board from './Board';
 import Panel from './Panel';
+import { BuildYourOwn } from './Text';
 
 /* Utils */
 import { createGameBoard } from '../utils/createBoard';
@@ -175,27 +176,25 @@ const Snake = () => {
   }, 180);
 
   return (
-    <>
-      <div className='row d-flex gap-3 gap-3'>
-        <div className='col-xs-12 col-lg-5'>
-          <div>
-            <p className='lead fw-bold'>How to play:</p>
-            <ol className='lead'>
-              <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the snake.</li>
-              <li>Catch the 🟩 food to increase the level score and grow the snake.</li>
-              <li>
-                Avoid hitting the walls of the play area, or running into your own tail.
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        <div className='col-auto d-flex flex-column gap-3'>
-          <Panel title='Score' value={score} />
-          <Board board={displayBoard} />
-        </div>
+    <div className='row d-flex gap-3 gap-3'>
+      <div className='col-auto d-flex flex-column gap-3'>
+        <Panel title='Score' value={score} />
+        <Board board={displayBoard} />
       </div>
-    </>
+      <div>
+        <p className='lead fw-bold'>How to play:</p>
+        <ol className='lead'>
+          <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the snake.</li>
+          <li>Catch the 🟩 food to increase the level score and grow the snake.</li>
+          <li>
+            Avoid hitting the walls of the play area, or running into your own tail.
+          </li>
+        </ol>
+      </div>
+      <div className='lead'>
+        <BuildYourOwn />
+      </div>
+    </div>
   );
 };
 
