@@ -4,13 +4,12 @@ import { useState, useEffect } from 'react';
 /* Utils */
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
 import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
-import { deepClone } from '../utils/deepClone';
 import { rotateMatrix } from './lib/utils/rotateMatrix';
 import { animateCompleteRow } from './lib/utils/animateCompleteRow';
 import { findCompletedRows } from './lib/utils/findCompletedRows';
 import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
 import { convertScore } from './lib/utils/convertScore';
-import { createGameBoard } from '../utils/createBoard';
+import { deepClone, createBoard } from '../utils';
 
 /* Lib */
 import { getRandomTetromino } from './lib/randomTetromino';
@@ -51,8 +50,8 @@ const Tetris = () => {
   const boardConfig = [19, 10, 0];
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
-  const [displayBoard, setDisplayBoard] = useState(createGameBoard(...boardConfig));
-  const [staticBoard, setStaticBoard] = useState(createGameBoard(...boardConfig));
+  const [displayBoard, setDisplayBoard] = useState(createBoard(...boardConfig));
+  const [staticBoard, setStaticBoard] = useState(createBoard(...boardConfig));
 
   const [currentTetromino, setCurrentTetromino] = useState(getRandomTetromino());
   const [nextTetromino, setNextTetromino] = useState(getRandomTetromino());
@@ -276,20 +275,125 @@ const Tetris = () => {
     <>
       <div className='d-flex column-gap-3'>
         <div className='col-xs-12 col-lg-5'>
-          <div className={style.instructionsWrapper}>
-            <p className='lead fw-bold'>How to play:</p>
-            <ol className='lead'>
+          <p className='lead fw-bold'>Difficulty: ★ ☆ ☆</p>
+
+          <div className='lead'>
+            <p className='fw-bold'>Controls:</p>
+            <ol>
               <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the falling piece.</li>
               <li>Press the Spacebar to rotate.</li>
-              <li>100 points are scored for completing a row.</li>
-              <li>A multiplier (100 X rows) is added for multi-row wins.</li>
+            </ol>
+          </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>How to play:</p>
+            <ol>
               <li>
-                During gameplay the fall speed (Level) is increased by 10% every 30
-                seconds.
+                Drop the falling blocks into the game board. Arrange them in horizontal
+                lines without any gaps to clear those lines.
+              </li>
+              <li>
+                Use the arrow keys on your keyboard to move the falling tetrominoes left
+                or right, rotate them clockwise or counterclockwise, or accelerate their
+                descent.
+              </li>
+              <li>
+                Anticipate where each tetromino will land and strategically place them to
+                create complete lines. Think ahead to avoid creating gaps that cannot be
+                filled.
+              </li>
+              <li>
+                The level of the game will increase every 30 seconds, making the
+                tetrominoes fall at a faster rate. As you reach each level the game speed
+                will speed up by 10%, so don't hang about.
+              </li>
+              <li>
+                Clearing lines earns you points, and as you accumulate points, you advance
+                to higher levels. With each level increase, the game speed increases,
+                making it more challenging.
+              </li>
+              <li>
+                If the stack of tetrominoes reaches the top of the game board, the game
+                ends. Keep an eye on the upcoming tetrominoes and plan your moves
+                accordingly to prevent the game from ending prematurely.
               </li>
             </ol>
           </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>Scoring:</p>
+            <ol>
+              <li>Completing a single line earns you 100 points.</li>
+              <li>
+                If you manage to clear multiple lines simultaneously, your score will be
+                multiplied by the number of lines cleared. For example, clearing two lines
+                at once will earn you 200 points (100 points per line * 2 lines = 200
+                points), and then multiplied by 2, resulting in a total of 400 points.
+                Clearing three lines at once will earn you 300 points, multiplied by 3 for
+                a total of 900 points, and so on.
+              </li>
+            </ol>
+          </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>Technical details:</p>
+            <ol>
+              <li>
+                The game makes use of <code>useState</code> & <code>useEffect</code> to
+                store game states and react to state updates.
+              </li>
+              <li>
+                <code>eventListeners</code> for keypresses to change direction.
+              </li>
+              <li>
+                <code>Arrays</code> & loops make up most of the utility functions, as well
+                as storing and accessing a matrix.
+              </li>
+              <li>
+                Animation is acheived through the Web Animation API. Promises are used to
+                provide hooks for callbacks.
+              </li>
+            </ol>
+          </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>Challenges:</p>
+            <ol>
+              <li>
+                Breaking the game logic into <code>useEffects</code> will be a challenge.
+                There are a lot of steps in the game to write logic for.
+              </li>
+              <li>
+                Rotating a matrix is not as simple as expected. Some shapes do not have an
+                obvious centre of rotation.
+              </li>
+              <li>
+                Animating a winning row is difficult. You will have to look at how you are
+                rendering the tetrominos in CSS as modifying the board will require
+                resting before the next piece drops into play.
+              </li>
+              <li>
+                Collision detection will need to know if the tetromino in play can still
+                be moved before the current interval ends.
+              </li>
+            </ol>
+          </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>Credits:</p>
+            <ol>
+              <li>
+                <code>useInterval</code> custom hook written by Dan Abramov
+                https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+              </li>
+            </ol>
+          </div>
+
+          <div className='lead'>
+            <p className='fw-bold'>Sourcecode:</p>
+          </div>
         </div>
+
         <div className='col-xs-12 col-lg-auto'>
           <div className={style.layoutGrid}>
             <div className={style.boardWrapper}>

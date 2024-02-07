@@ -1,4 +1,4 @@
-import SnakeGame from '../components/games/Snake';
+import SnakeGame from '../components/Games/Snake';
 
 export default function Snake({ title }) {
   return (
