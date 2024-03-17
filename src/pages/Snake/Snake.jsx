@@ -199,7 +199,7 @@ export default function Snake({ title }) {
         </div>
 
         <div>
-          <p>Credits:</p>
+          <p>Credits</p>
           <ol>
             <li>
               <code>useInterval</code> custom hook written by Dan Abramov
