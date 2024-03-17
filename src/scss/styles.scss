@@ -1,9 +1,48 @@
-// Import all of Bootstrap's CSS
-@import 'bootstrap/scss/bootstrap';
-
 :root {
-  --bs-body-bg: #ffcb03;
-  --bs-body-color: #1d1d1b;
-  --bs-heading-color: #1e000e;
-  --accent-color: #2b50aa;
+  /* Display */
+  --font-size-display-1: 5.25;
+  --font-size-display-2: 3.375;
+  --font-size-display-3: 2.625;
+  --font-size-display-4: 2;
+  --font-size-display-5: 1.5;
+  --line-height-display-1: 7.875;
+  --line-height-display-2: 4.5;
+  --line-height-display-3: 3.9375;
+  --line-height-display-4: 3;
+  --line-height-display-5: 2.25;
+  /* Headings */
+  --font-size-heading-1: 2.625;
+  --font-size-heading-2: 1.5;
+  --font-size-heading-3: 1;
+  --line-height-heading-1: 3.9375;
+  --line-height-heading-2: 1.875;
+  --line-height-heading-3: 1.5;
+  /* Body */
+  --font-size-body-1: 2;
+  --font-size-body-2: 1.5;
+  --font-size-body-3: 1;
+  --line-height-body-1: 3;
+  --line-height-body-2: 2.25;
+  --line-height-body-3: 1.5;
+  /* Button */
+  --font-size-button-1: 1.5;
+  --font-size-button-2: 1;
+  --line-height-button-1: 2.25;
+  --line-height-button-2: 1.5;
+  /* Link */
+  --font-size-link: 1;
+  --line-height-link: 1.5;
+  /* Caption */
+  --font-size-caption-1: 1.5;
+  --font-size-caption-2: 1;
+  --font-size-caption-3: 0.75;
+  --line-height-caption-1: 2.25;
+  --line-height-caption-2: 1.5;
+  --line-height-caption-3: 1.125;
+  /* Colours */
+  --color-yellow: #f4d34b;
+  --color-black: #1e342c;
+  --color-pink: #e55496;
+  --color-teal: #41ead4;
+  --color-white: #fefefe;
 }
