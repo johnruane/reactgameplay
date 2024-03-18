@@ -95,7 +95,7 @@ export default function Snake({ title }) {
 
         <div>
           <p>How to build</p>
-          The game is made up of the following major components:
+          <p>The game is made up of the following major components:</p>
           <ul>
             <li>
               <code>displayBoard</code>

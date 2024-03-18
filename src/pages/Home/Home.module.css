@@ -1,3 +1,63 @@
-.text-clamp {
-  
+.main {
+  background-color: var(--color-yellow);
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.headingWrapper {
+  margin-top: 2rem;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.25rem;
+  justify-content: center;
+}
+
+.heading {
+  position: relative;
+  font-size: var(--font-size-display-4);
+  line-height: normal;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-black);
+  text-indent: 0.4rem;
+  letter-spacing: 0.4rem;
+  text-align: center;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0.75rem;
+    background-color: var(--color-pink);
+    width: 100%;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 0.75rem;
+    background-color: var(--color-pink);
+    width: 0.75rem;
+    height: 0.75rem;
+    bottom: 0;
+    right: -1rem;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.subHeading {
+  font-size: var(--font-size-display-6);
+  line-height: normal;
+  font-weight: var(--font-weight-light);
+  text-transform: uppercase;
+  color: var(--color-black);
+  text-align: center;
+  text-indent: 0.4rem;
+  letter-spacing: 0.4rem;
 }

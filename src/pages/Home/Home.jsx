@@ -1,17 +1,22 @@
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import imageUrl from '../../assets/homepage_image.png';
+import style from './Home.module.css';
 
 export default function Home() {
   return (
     <>
+      <section className={style.main}>
+        <div className='grid'>
+          <h1 className={style.headingWrapper}>
+            <span className={style.heading}>REACT</span>
+            <span className={style.subHeading}> gameplay</span>
+          </h1>
+          <img src={imageUrl} width={500} />
+        </div>
+      </section>
+
       <div>
-        <h1>
-          <span>REACT</span>
-          <span> gameplay</span>
-        </h1>
-
-        <img src={imageUrl} width={500} />
-
         <div>
           <div>
             <p>

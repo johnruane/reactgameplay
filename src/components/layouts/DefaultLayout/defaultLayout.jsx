@@ -4,7 +4,7 @@ import Navigation from '../../Navigation';
 export default function DefaultLayout() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <Outlet />
     </>
   );

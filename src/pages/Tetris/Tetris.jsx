@@ -134,6 +134,90 @@ export default function Tetris({ title }) {
         </div>
 
         <div>
+          <p>How to build</p>
+          <p>The game is made up of the following major components:</p>
+          <ul>
+            <li>
+              <code>displayBoard</code>
+            </li>
+            <li>
+              <code>staticBoard</code>
+            </li>
+            <li>
+              <code>position</code>
+            </li>
+            <li>
+              <code>currentTetromino</code>
+            </li>
+            <li>
+              <code>nextTetromino</code>
+            </li>
+          </ul>
+          <p>
+            There are various states for <code>score</code>, <code>level</code>,{' '}
+            <code>speed</code> & <code>delay</code>
+          </p>
+          <ol>
+            <li>
+              The <code>displayBoard</code> is represented by an <code>Array</code> of
+              arrays - a matrix i.e <code>{'[[0, 0],[0, 0]]'}</code> would be a 2 x 2
+              board. This is stored and everytime this is updated the{' '}
+              <code>displayBoard</code> is redrawn.
+            </li>
+            <li>
+              The <code>staticBoard</code> basic purpose is to store all the previously
+              played pieces. If we only had one board we would need to keep removing the{' '}
+              <code>currentTetromino</code> before moving in a new direction. By having a
+              board clean of the current piece we can use this to test moving in a
+              direction as well as updating the <code>displayBoard</code> with a new move.
+            </li>
+            <li>
+              <code>position</code> is an object <code>{'{ r: 5, c: 5 }'}</code> storing
+              the row & col position of the <code>currentTetromino</code>. When{' '}
+              <code>position</code> is updated the <code>displayBoard</code> is redrawn
+              using the new <code>position</code>, <code>currrentTetromino</code> &{' '}
+              <code>staticBoard</code>..
+            </li>
+            <li>
+              <code>currentTetromino</code> & <code>nextTetromino</code> are an{' '}
+              <code>Array</code> of arrays - a matrix i.e <code>{'[[0, 1],[1, 0]]'}</code>
+              . Both are randomly generated. The non-zero values in the matrix vary across
+              the different tetrominos. This is how we can set different colours for each
+              piece. When trying to move a tetromino, we use <code>position</code> to
+              start a loop on <code>staticBoard</code> and for each of the{' '}
+              <code>currentTetromin</code> values if two non-zero values are found at the
+              same indexes during the loop that means we cannot move.
+            </li>
+            <li>
+              Winning rows are tested for everytime the <code>staticBoard</code> updates.
+              We simply look at each row in the <code>staticBoard</code> array and if
+              every index contains a non-zero value then that is a complete row. The row
+              or rows are removed and new rows added to the top of{' '}
+              <code>staticBoard</code> to simulate the blocks moving downwards.
+            </li>
+          </ol>
+          This is obviously a brief description of the game mechanics. Some of the other
+          challenges of the game are:
+          <ol>
+            <li>
+              The <code>useInterval</code> hook, see code comments for source.
+            </li>
+            <li>
+              Animating completed rows requires delays, callbacks and animation Promises
+              in order to restore the DOM after the animation is complete. This could be
+              done with a package to make slightly easier.
+            </li>
+            <li>
+              Writing the game logic in a functional way is a lot harder than class-based.
+              The use of useEffects needs to be carefully considered as the game logic is
+              fairly complex and it is easy to write long winding functions. Thinking in a
+              useEffect way takes some trial and error as &apos;stale&apos; state is easy
+              to encounter
+            </li>
+          </ol>
+        </div>
+
+        <div>
           <p>Credits:</p>
           <ol>
             <li>
