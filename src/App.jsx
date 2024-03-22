@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
+import './styles/reset.css';
 import './styles/app.scss';
 
 export default function App() {

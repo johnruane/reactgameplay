@@ -1,0 +1,36 @@
+.gs-main {
+  background-color: $color-black;
+}
+
+.gs-tile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'icon heading'
+    'icon text';
+  border: 2px solid $color-pink;
+  border-radius: 12px;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.gs-icon {
+  grid-area: icon;
+  align-self: center;
+}
+
+.gs-title {
+  @include display2;
+
+  grid-area: heading;
+  justify-self: flex-end;
+  color: $color-white;
+  text-decoration: none;
+}
+
+.gs-level {
+  grid-area: text;
+  justify-self: flex-end;
+  color: $color-white;
+}

@@ -1,51 +1,53 @@
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
-import imageUrl from '../../assets/homepage_image.png';
-import style from './Home.module.css';
+import Circle from '../../assets/circle';
+import Rectangle from '../../assets/rectangle';
+import LineCircle from '../../assets/line-circle';
+import GamesSection from '../../components/sections/GamesSection';
+import imageUrl from '../../assets/homepage_image2.png';
+import './Home.scss';
 
 export default function Home() {
   return (
     <>
-      <section className={style.main}>
-        <div className='grid'>
-          <h1 className={style.headingWrapper}>
-            <span className={style.heading}>REACT</span>
-            <span className={style.subHeading}> gameplay</span>
-          </h1>
-          <img src={imageUrl} width={500} />
+      <section className='hm-main'>
+        <h1 className='hm-heading'>
+          <div className='hm-heading-top'>
+            <span className='hm-heading-text'>REACT</span>
+            <div className='hm-shapes-wrapper'>
+              <Rectangle className='hm-rectangle' />
+              <Circle className='hm-circle' />
+            </div>
+          </div>
+          <span className='hm-heading-subtext'> gameplay</span>
+        </h1>
+
+        <div className='hm-image-wrapper'>
+          <img className='hm-image' src={imageUrl} />
         </div>
       </section>
 
-      <div>
-        <div>
-          <div>
-            <p>
-              Welcome to React Gameplay, where coding meets gaming in the most playful way
-              possible!
-            </p>
-            <p>
-              Ever wondered how the old classic games are built? Join me as I delve into
-              the fascinating world of game development, starting from ground zero.
-              Together, we&apos;ll uncover the secrets behind these beloved classics,
-              unravelling their complexities one line of code at a time and bring them to
-              life before your very eyes.
-            </p>
-          </div>
-        </div>
-      </div>
+      <section className='grid hm-intro'>
+        <p className='hm-intro-heading'>
+          Welcome to React Gameplay, where coding meets gaming in the most playful way
+          possible!
+        </p>
+        <p className='hm-intro-subheading'>
+          Ever wondered how the old classic games are built? Join me as I delve into the
+          fascinating world of game development, starting from ground zero. Together,
+          we&apos;ll uncover the secrets behind these beloved classics, unravelling their
+          complexities one line of code at a time and bring them to life before your very
+          eyes.
+        </p>
+      </section>
 
-      <div>
-        <p>GAMES</p>
-        <div>
-          <Link to={'/tetris'}>TETRIS</Link>
+      <section className='grid hm-games-section'>
+        <div className='gs-heading-wrapper'>
+          <LineCircle />
+          <p className='gs-heading'>GAMES</p>
         </div>
-        <div className='col-md-4'>
-          <Link to={'/snake'}>SNAKE</Link>
+        <div className='gs-main-wrapper'>
+          <GamesSection />
         </div>
-        <div className='col-md-4'>
-          <Link to={'/snake'}>MINESWEEPER</Link>
-        </div>
-      </div>
+      </section>
 
       <div>
         <p>Ready to level up your coding skills while having a blast?</p>

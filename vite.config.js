@@ -5,8 +5,14 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   css: {
-    modules: {
-      localsConvention: 'camelCase',
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import './src/styles/breakpoints';
+          @import './src/styles/variables';
+          @import './src/styles/mixins';
+        `,
+      },
     },
   },
   test: {

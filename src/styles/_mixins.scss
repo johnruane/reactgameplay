@@ -1,0 +1,24 @@
+@mixin display1 {
+  font-size: $font-size-display-1;
+  line-height: $line-height-display-1;
+}
+
+@mixin display2 {
+  font-size: $font-size-display-2;
+  line-height: $line-height-display-2;
+}
+
+@mixin display3 {
+  font-size: $font-size-display-3;
+  line-height: $line-height-display-3;
+}
+
+@mixin display4 {
+  font-size: $font-size-display-4;
+  line-height: $line-height-display-4;
+}
+
+@mixin display5 {
+  font-size: $font-size-display-5;
+  line-height: $line-height-display-5;
+}
