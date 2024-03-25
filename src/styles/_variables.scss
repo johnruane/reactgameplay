@@ -54,8 +54,9 @@ $color-pink: #e55496;
 $color-teal: #41ead4;
 $color-white: #fefefe;
 /* Grid */
-$grid-sm: repeat(2, 1fr);
-$grid-lg: repeat(18, 1fr);
+$grid-phone: repeat(2, 1fr);
+$grid-tablet: repeat(12, 1fr);
+$grid-desktop: repeat(18, 1fr);
 /* Fonts */
 $font-weight-light: 300;
 $font-weight-regular: 400;

@@ -1,5 +1,3 @@
-import Circle from '../../assets/circle';
-import Rectangle from '../../assets/rectangle';
 import LineCircle from '../../assets/line-circle';
 import GamesSection from '../../components/sections/GamesSection';
 import imageUrl from '../../assets/homepage_image2.png';
@@ -9,18 +7,14 @@ export default function Home() {
   return (
     <>
       <section className='hm-main'>
-        <h1 className='hm-heading'>
-          <div className='hm-heading-top'>
-            <span className='hm-heading-text'>REACT</span>
-            <div className='hm-shapes-wrapper'>
-              <Rectangle className='hm-rectangle' />
-              <Circle className='hm-circle' />
+        <div className='hm-heading-wrapper'>
+          <h1 className='hm-heading'>
+            <div className='hm-heading-top'>
+              <span className='hm-heading-text'>REACT</span>
             </div>
-          </div>
-          <span className='hm-heading-subtext'> gameplay</span>
-        </h1>
+            <span className='hm-heading-subtext'> gameplay</span>
+          </h1>
 
-        <div className='hm-image-wrapper'>
           <img className='hm-image' src={imageUrl} />
         </div>
       </section>

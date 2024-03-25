@@ -1,9 +1,15 @@
 .grid {
   display: grid;
-  grid-template-columns: $grid-sm;
+  grid-template-columns: $grid-phone;
   padding: 0 $margin-horizontal-1;
+
+  @include media('>=tablet') {
+    grid-template-columns: $grid-tablet;
+    padding: 0 $margin-horizontal-2;
+  }
+
   @include media('>=desktop') {
-    grid-template-columns: $grid-lg;
+    grid-template-columns: $grid-desktop;
     padding: 0 $margin-horizontal-2;
   }
 }
