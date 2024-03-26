@@ -1,36 +1,88 @@
 .gs-main {
   background-color: $color-black;
+  display: flex;
+  gap: 1rem;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+
+  & > * {
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    @include media('>=tablet') {
+      flex-grow: unset;
+      flex-basis: 11.25rem;
+    }
+  }
 }
 
 .gs-tile {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: min-content auto;
   grid-template-areas:
     'icon heading'
     'icon text';
+  column-gap: 1rem;
+  row-gap: 0.5rem;
   border: 2px solid $color-pink;
   border-radius: 12px;
   padding: 1rem;
   text-decoration: none;
+
+  &:hover {
+    background-color: $color-pink;
+    color: $color-white;
+  }
 }
 
 .gs-icon {
   grid-area: icon;
   align-self: center;
+  justify-self: start;
+  width: 3.15rem;
+  height: 3.15rem;
+  @include media('>=tablet') {
+    width: 4.375rem;
+    height: 4.375rem;
+  }
 }
 
 .gs-title {
-  @include display2;
-
+  font-size: clamp($font-size-display-6, 8vw, $font-size-display-3);
+  line-height: 1;
   grid-area: heading;
-  justify-self: flex-end;
+  justify-self: end;
   color: $color-white;
   text-decoration: none;
 }
 
+.gs-long-title {
+  font-size: clamp($font-size-display-6, 8vw, $font-size-display-4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
 .gs-level {
+  font-size: $font-size-body-3;
   grid-area: text;
-  justify-self: flex-end;
+  justify-self: end;
+  align-self: end;
   color: $color-white;
+}
+
+.gs-coming-soon::after {
+  content: 'Coming soon';
+  display: block;
+  position: absolute;
+  padding: 0.2rem 0.3rem 0.3rem;
+  background-color: $color-pink;
+  border-radius: 0.75rem 0rem 0.25rem 0rem;
+  color: $color-white;
+  font-size: $font-size-caption-3;
+  top: -1px;
+  left: 0;
 }

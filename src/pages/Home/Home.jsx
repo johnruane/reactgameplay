@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <section className='hm-main'>
-        <div className='hm-heading-wrapper'>
+        <div className='hm-heading-wrapper vertical-padding-25'>
           <h1 className='hm-heading'>
             <div className='hm-heading-top'>
               <span className='hm-heading-text'>REACT</span>
@@ -20,17 +20,19 @@ export default function Home() {
       </section>
 
       <section className='grid hm-intro'>
-        <p className='hm-intro-heading'>
-          Welcome to React Gameplay, where coding meets gaming in the most playful way
-          possible!
-        </p>
-        <p className='hm-intro-subheading'>
-          Ever wondered how the old classic games are built? Join me as I delve into the
-          fascinating world of game development, starting from ground zero. Together,
-          we&apos;ll uncover the secrets behind these beloved classics, unravelling their
-          complexities one line of code at a time and bring them to life before your very
-          eyes.
-        </p>
+        <div className='hm-intro-wrapper vertical-padding-25'>
+          <p className='hm-intro-heading'>
+            Welcome to React Gameplay, where coding meets gaming in the most playful way
+            possible!
+          </p>
+          <p className='hm-intro-subheading'>
+            Ever wondered how the old classic games are built? Join me as I delve into the
+            fascinating world of game development, starting from ground zero. Together,
+            we&apos;ll uncover the secrets behind these beloved classics, unravelling
+            their complexities one line of code at a time and bring them to life before
+            your very eyes.
+          </p>
+        </div>
       </section>
 
       <section className='grid hm-games-section'>
