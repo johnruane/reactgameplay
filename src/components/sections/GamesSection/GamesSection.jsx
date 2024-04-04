@@ -18,8 +18,9 @@ const Games = () => {
         <span className='gs-level'>L3</span>
       </Link>
       <Link to={'/minesweeper'} className='gs-tile'>
+        <span className='gs-soon'>Coming soon</span>
         <Bomb className='gs-icon' />
-        <span className='gs-title gs-long-title gs-coming-soon'>
+        <span className='gs-title gs-long-title'>
           <span>MINE</span>
           <span>SWEEPER</span>
         </span>

@@ -1,6 +1,8 @@
 import LineCircle from '../../assets/line-circle';
+import Streetfighter from '../../components/icons/Streetfighter/StreetFighter';
 import GamesSection from '../../components/sections/GamesSection';
 import imageUrl from '../../assets/homepage_image2.png';
+
 import './Home.scss';
 
 export default function Home() {
@@ -35,7 +37,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='grid hm-games-section'>
+      <section className='grid hm-games'>
         <div className='gs-heading-wrapper'>
           <LineCircle />
           <p className='gs-heading'>GAMES</p>
@@ -45,13 +47,22 @@ export default function Home() {
         </div>
       </section>
 
-      <div>
-        <p>Ready to level up your coding skills while having a blast?</p>
-        <p>
-          Choose your game & explore the code. React Gameplay is your go-to destination
-          for learning React through play.
-        </p>
-      </div>
+      <section className='hm-levelup'>
+        <div className='grid hm-levelup-wrapper'>
+          <div className='hm-levelup-image-wrapper'>
+            <Streetfighter />
+          </div>
+          <div className='hm-levelup-text-wrapper'>
+            <p className='hm-levelup-heading'>
+              Ready to level up your coding skills while having a blast?
+            </p>
+            <p className='hm-levelup-sub-heading'>
+              Choose your game & explore the code. React Gameplay is your go-to
+              destination for learning React through play.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div>
         <p>ABOUT</p>

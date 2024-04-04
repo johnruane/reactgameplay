@@ -29,13 +29,25 @@
   row-gap: 0.5rem;
   border: 2px solid $color-pink;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1.5rem;
   text-decoration: none;
 
   &:hover {
     background-color: $color-pink;
     color: $color-white;
   }
+}
+
+.gs-soon {
+  display: block;
+  position: absolute;
+  padding: 0.2rem 0.7rem 0.3rem;
+  background-color: $color-pink;
+  border-radius: 0.75rem 0rem 0.25rem 0rem;
+  color: $color-white;
+  font-size: $font-size-caption-3;
+  top: -1px;
+  left: 0;
 }
 
 .gs-icon {
@@ -74,15 +86,15 @@
   color: $color-white;
 }
 
-.gs-coming-soon::after {
-  content: 'Coming soon';
-  display: block;
-  position: absolute;
-  padding: 0.2rem 0.3rem 0.3rem;
-  background-color: $color-pink;
-  border-radius: 0.75rem 0rem 0.25rem 0rem;
-  color: $color-white;
-  font-size: $font-size-caption-3;
-  top: -1px;
-  left: 0;
-}
+// .gs-coming-soon::after {
+//   content: 'Coming soon';
+//   display: block;
+//   position: absolute;
+//   padding: 0.2rem 0.3rem 0.3rem;
+//   background-color: $color-pink;
+//   border-radius: 0.75rem 0rem 0.25rem 0rem;
+//   color: $color-white;
+//   font-size: $font-size-caption-3;
+//   top: -1px;
+//   left: 0;
+// }
