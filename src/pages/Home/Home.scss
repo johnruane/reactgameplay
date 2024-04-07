@@ -160,7 +160,12 @@
   background-color: $color-black;
 }
 
-.gs-heading-wrapper {
+.grid.hm-games {
+  padding-bottom: 25vh;
+  padding-bottom: calc(var(--vh, 1vh) * 25);
+}
+
+.hm-section-heading-wrapper {
   display: flex;
   align-items: center;
   margin-bottom: 3.5rem;
@@ -168,15 +173,13 @@
   grid-column: 1 / -1;
 }
 
-.gs-heading {
+.hm-section-heading {
   margin: 0;
   color: $color-white;
 }
 
-.gs-main-wrapper {
+.hm-section-content-wrapper {
   grid-column: 1 / -1;
-  padding-bottom: 25vh;
-  padding-bottom: calc(var(--vh, 1vh) * 25);
 
   @include media('>=tablet') {
     grid-column: 2 / -2;
@@ -185,11 +188,7 @@
 
 .hm-levelup {
   background-color: $color-yellow;
-}
-
-.hm-levelup-wrapper {
   row-gap: 5rem;
-  padding: calc(var(--vh, 1vh) * 25) 1rem !important;
 }
 
 .hm-levelup-image-wrapper {

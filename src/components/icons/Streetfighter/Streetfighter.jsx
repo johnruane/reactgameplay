@@ -1,19 +1,17 @@
-import DownArrow from '../../../assets/down-arrow';
-import DownRightArrow from '../../../assets/down-right-arrow';
-import RightArrow from '../../../assets/right-arrow';
-import Plus from '../../../assets/plus';
-import Punch from '../../../assets/punch';
-
-import './Streetfighter.scss';
+import DownArrow from '../DownArrow';
+import DownRightArrow from '../DownRightArrow';
+import RightArrow from '../RightArrow';
+import Plus from '../Plus';
+import Punch from '../Punch';
 
 const Streetfighter = () => {
   return (
     <>
-      <DownArrow className='sf-shawdow-icon' />
-      <DownRightArrow className='sf-shawdow-icon' />
-      <RightArrow className='sf-shawdow-icon' />
+      <DownArrow />
+      <DownRightArrow />
+      <RightArrow />
       <Plus />
-      <Punch className='sf-shawdow-icon' />
+      <Punch />
     </>
   );
 };

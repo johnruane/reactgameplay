@@ -1,7 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 
-import DefaultLayout from '../components/layouts/DefaultLayout/defaultLayout';
-import GameLayout from '../components/layouts/GameLayout/gameLayout';
+import DefaultLayout from '../components/Layouts/DefaultLayout';
 
 import Home from '../pages/Home';
 import Tetris from '../pages/Tetris';
@@ -15,7 +14,7 @@ export default function Routes() {
       children: [{ path: '/', element: <Home /> }],
     },
     {
-      element: <GameLayout />,
+      element: <DefaultLayout />,
       children: [
         { path: 'tetris', element: <Tetris title='Tetris' /> },
         { path: 'snake', element: <Snake title='Snake' /> },

@@ -15,8 +15,10 @@
 }
 
 .vertical-padding-25 {
-  padding: 25vh;
-  padding: calc(var(--vh, 1vh) * 25) 0;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+  padding-top: calc(var(--vh, 1vh) * 25);
+  padding-bottom: calc(var(--vh, 1vh) * 25);
 }
 
 body {
