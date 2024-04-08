@@ -21,6 +21,10 @@
   padding-bottom: calc(var(--vh, 1vh) * 25);
 }
 
+.icon-shadow {
+  @include iconShadow;
+}
+
 body {
   font-family: 'Archivo', sans-serif;
   font-optical-sizing: auto;

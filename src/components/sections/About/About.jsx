@@ -5,7 +5,7 @@ import './About.scss';
 
 const About = () => {
   return (
-    <div className='ab-content-wrapper'>
+    <>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
           <p className='ab-text-heading'>Learning Made Exciting and Interactive</p>
@@ -16,7 +16,9 @@ const About = () => {
             levels. Get ready to immerse yourself in a world where fun meets learning.
           </p>
         </div>
-        <ArrowKeys />
+        <div className='ab-icon-wrapper'>
+          <ArrowKeys />
+        </div>
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
@@ -29,7 +31,9 @@ const About = () => {
             confidence.
           </p>
         </div>
-        <Space />
+        <div className='ab-icon-wrapper'>
+          <Space className='icon-shadow' />
+        </div>
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
@@ -42,9 +46,11 @@ const About = () => {
             learning experience.
           </p>
         </div>
-        <Control />
+        <div className='ab-icon-wrapper'>
+          <Control className='icon-shadow' />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

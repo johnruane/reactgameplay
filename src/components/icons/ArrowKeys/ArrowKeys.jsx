@@ -7,10 +7,10 @@ import './ArrowKeys.scss';
 const ArrowKeys = () => {
   return (
     <div className='ak-wrapper'>
-      <UpArrow className='ak-up' />
-      <LeftArrow className='ak-left' />
-      <DownArrow className='ak-down' />
-      <RightArrow className='ak-right' />
+      <UpArrow className='ak-up icon-shadow' />
+      <LeftArrow className='ak-left icon-shadow' />
+      <DownArrow className='ak-down icon-shadow' />
+      <RightArrow className='ak-right icon-shadow' />
     </div>
   );
 };

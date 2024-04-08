@@ -1,0 +1,27 @@
+.ft-footer-wrapper {
+  background-color: $color-teal;
+}
+
+.grid.ft-footer-wrapper {
+  padding-top: 25vh;
+  padding-bottom: 15vh;
+  padding-top: calc(var(--vh, 1vh) * 25);
+  padding-bottom: calc(var(--vh, 1vh) * 15);
+}
+
+.ft-content-wrapper {
+  grid-column: 1 / -1;
+
+  @include media('>=tablet') {
+    grid-column: 2 / 15;
+  }
+}
+
+.ft-heading {
+  font-size: clamp($font-size-display-4, 5cqw, $font-size-display-2);
+  font-weight: $font-weight-bold;
+}
+
+.ft-text {
+  font-size: clamp($font-size-body-3, 5cqw, $font-size-body-2);
+}

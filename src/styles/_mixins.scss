@@ -22,3 +22,9 @@
   font-size: $font-size-display-5;
   line-height: $line-height-display-5;
 }
+
+@mixin iconShadow {
+  -webkit-filter: drop-shadow(8px 8px 4px rgba(229, 84, 150, 0.8));
+  -moz-filter: drop-shadow(8px 8px 4px rgba(229, 84, 150, 0.8));
+  filter: drop-shadow(8px 8px 4px rgba(229, 84, 150, 0.8));
+}

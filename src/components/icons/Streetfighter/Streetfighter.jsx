@@ -7,11 +7,11 @@ import Punch from '../Punch';
 const Streetfighter = () => {
   return (
     <>
-      <DownArrow />
-      <DownRightArrow />
-      <RightArrow />
+      <DownArrow className='icon-shadow' />
+      <DownRightArrow className='icon-shadow' />
+      <RightArrow className='icon-shadow' />
       <Plus />
-      <Punch />
+      <Punch className='icon-shadow' />
     </>
   );
 };

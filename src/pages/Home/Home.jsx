@@ -1,7 +1,8 @@
 import LineCircle from '../../components/Icons/LineCircle';
-import Streetfighter from '../../components/Icons/Streetfighter/Streetfighter';
+import Streetfighter from '../../components/Icons/StreetFighter/StreetFighter';
 import GamesSection from '../../components/sections/GamesSection';
 import About from '../../components/sections/About';
+import Enter from '../../components/Icons/Enter';
 import imageUrl from '../../assets/homepage_image2.png';
 
 import './Home.scss';
@@ -17,11 +18,12 @@ export default function Home() {
             </div>
             <span className='hm-heading-subtext'> gameplay</span>
           </h1>
-
           <img className='hm-image' src={imageUrl} />
         </div>
       </section>
-
+      <div className='hm-enter-wrapper'>
+        <Enter className='hm-enter-icon icon-shadow' />
+      </div>
       <section className='grid hm-intro vertical-padding-25'>
         <div className='hm-intro-wrapper'>
           <p className='hm-intro-heading'>
@@ -68,7 +70,7 @@ export default function Home() {
           <LineCircle />
           <p className='hm-section-heading'>ABOUT</p>
         </div>
-        <div className='hm-section-content-wrapper'>
+        <div className='hm-section-content-wrapper hm-about-wrapper'>
           <About />
         </div>
       </section>
