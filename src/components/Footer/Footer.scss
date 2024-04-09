@@ -1,12 +1,16 @@
-.ft-footer-wrapper {
+.ft-footer {
   background-color: $color-teal;
+}
+
+.ft-footer-wrapper {
+  row-gap: 4.5rem;
 }
 
 .grid.ft-footer-wrapper {
   padding-top: 25vh;
-  padding-bottom: 15vh;
   padding-top: calc(var(--vh, 1vh) * 25);
-  padding-bottom: calc(var(--vh, 1vh) * 15);
+  padding-bottom: 5vh;
+  padding-bottom: calc(var(--vh, 1vh) * 5);
 }
 
 .ft-content-wrapper {
@@ -24,4 +28,55 @@
 
 .ft-text {
   font-size: clamp($font-size-body-3, 5cqw, $font-size-body-2);
+}
+
+.ft-logo-wrapper {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.ft-divider {
+  border-top: 2px solid $color-black;
+  margin: 0;
+}
+
+.ft-links-wrapper {
+}
+
+.ft-links {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 4rem 1rem 2rem;
+
+  @include media('>=tablet') {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.6rem 0;
+  }
+}
+
+.ft-links a {
+  text-decoration: none;
+  color: $color-black;
+  font-size: $font-size-link;
+  font-weight: $font-weight-bold;
+}
+
+.ft-underline {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+
+.ft-underline::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1rem;
+  background-color: $color-pink;
+  position: absolute;
+  bottom: 1rem;
+  z-index: -1;
 }

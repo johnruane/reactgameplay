@@ -1,7 +1,7 @@
 const Snake = ({ className }) => {
   return (
     <svg
-      width='244'
+      width='200'
       height='40'
       viewBox='0 0 244 40'
       fill='none'

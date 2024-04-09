@@ -24,7 +24,7 @@
   grid-column: 2;
   column-gap: 2cqw;
   display: grid;
-  row-gap: 3rem;
+  row-gap: 6rem;
 
   @include media('>=tablet') {
     display: grid;
@@ -172,6 +172,8 @@
   @include iconShadow;
 
   transform: translateY(-50%);
+  width: clamp(5.75rem, 10cqw, 10.6rem);
+  height: auto;
 }
 
 .grid.hm-games {
@@ -212,7 +214,7 @@
   grid-row: 2;
   display: flex;
   align-items: center;
-  column-gap: 0.75rem;
+  column-gap: 1.5rem;
 
   @include media('>=tablet') {
     grid-column: 1 / -1;
@@ -221,7 +223,6 @@
   @include media('>=desktop') {
     grid-row: 1;
     grid-column: 2 / 8;
-    justify-self: start;
   }
 }
 

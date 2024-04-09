@@ -25,6 +25,16 @@
   @include iconShadow;
 }
 
+.icon-resp-w {
+  width: clamp(2.5rem, 6cqw, 5rem);
+  height: auto;
+}
+
+.icon-resp-h {
+  width: auto;
+  height: clamp(2.5rem, 6.5cqw, 5rem);
+}
+
 body {
   font-family: 'Archivo', sans-serif;
   font-optical-sizing: auto;

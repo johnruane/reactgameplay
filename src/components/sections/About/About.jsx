@@ -17,7 +17,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <ArrowKeys />
+          <ArrowKeys className='icon-resp-w' />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
@@ -32,7 +32,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <Space className='icon-shadow' />
+          <Space className='icon-resp-h icon-shadow' />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
@@ -47,7 +47,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <Control className='icon-shadow' />
+          <Control className='icon-resp-h icon-shadow' />
         </div>
       </div>
     </>

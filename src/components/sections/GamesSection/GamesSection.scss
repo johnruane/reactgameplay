@@ -25,12 +25,13 @@
   grid-template-areas:
     'icon heading'
     'icon text';
-  column-gap: 1rem;
+  column-gap: 1.5rem;
   row-gap: 0.5rem;
   border: 2px solid $color-pink;
   border-radius: 12px;
   padding: 1.5rem;
   text-decoration: none;
+  min-height: 9.25rem;
 
   &:hover {
     background-color: $color-pink;
@@ -72,7 +73,6 @@
 }
 
 .gs-long-title {
-  font-size: clamp($font-size-display-6, 8cqw, $font-size-display-4);
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
