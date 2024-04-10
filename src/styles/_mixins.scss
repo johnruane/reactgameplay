@@ -28,3 +28,8 @@
   -moz-filter: drop-shadow(8px 8px 4px rgba(229, 84, 150, 0.8));
   filter: drop-shadow(8px 8px 4px rgba(229, 84, 150, 0.8));
 }
+
+@mixin padding($dir, $value) {
+  #{'padding-#{$dir}'}: $value * 1vh;
+  #{'padding-#{$dir}'}: calc(var(--vh, 1vh) * $value);
+}

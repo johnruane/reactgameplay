@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Tetris from '../../Icons/Tetris';
 import Snake from '../../Icons/Snake';
 import Bomb from '../../Icons/Bomb';
-import './GamesSection.scss';
+import './Games.scss';
 
 const Games = () => {
   return (

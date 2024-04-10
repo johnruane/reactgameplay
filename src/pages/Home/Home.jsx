@@ -1,9 +1,14 @@
-import LineCircle from '../../components/Icons/LineCircle';
-import Streetfighter from '../../components/Icons/StreetFighter/StreetFighter';
-import GamesSection from '../../components/sections/GamesSection';
-import About from '../../components/sections/About';
-import Enter from '../../components/Icons/Enter';
-import imageUrl from '../../assets/homepage_image2.png';
+/* Icons */
+import Enter from '@icons/Enter';
+import Logo from '@icons/Logo';
+import LineCircle from '@icons/LineCircle';
+import Streetfighter from '@icons/StreetFighter/StreetFighter';
+/* Sections */
+import IntroSection from '@sections/home/Intro';
+import GamesSection from '@sections/Games';
+import AboutSection from '@sections/About';
+/* Assets */
+import imageUrl from '@assets/homepage_image2.png';
 
 import './Home.scss';
 
@@ -11,32 +16,21 @@ export default function Home() {
   return (
     <>
       <section className='hm-main'>
-        <div className='hm-heading-wrapper vertical-padding-25'>
-          <h1 className='hm-heading'>
-            <div className='hm-heading-top'>
-              <span className='hm-heading-text'>REACT</span>
-            </div>
-            <span className='hm-heading-subtext'> gameplay</span>
-          </h1>
+        <div className='hm-heading-wrapper'>
+          <div className='hm-logo-wrapper'>
+            <Logo className='hm-logo' />
+          </div>
+
           <img className='hm-image' src={imageUrl} />
         </div>
       </section>
       <div className='hm-enter-wrapper'>
         <Enter className='hm-enter-icon icon-shadow' />
       </div>
-      <section className='grid hm-intro vertical-padding-25'>
+
+      <section className='grid hm-intro'>
         <div className='hm-intro-wrapper'>
-          <p className='hm-intro-heading'>
-            Welcome to React Gameplay, where coding meets gaming in the most playful way
-            possible!
-          </p>
-          <p className='hm-intro-subheading'>
-            Ever wondered how the old classic games are built? Join me as I delve into the
-            fascinating world of game development, starting from ground zero. Together,
-            we&apos;ll uncover the secrets behind these beloved classics, unravelling
-            their complexities one line of code at a time and bring them to life before
-            your very eyes.
-          </p>
+          <IntroSection />
         </div>
       </section>
 
@@ -71,7 +65,7 @@ export default function Home() {
           <p className='hm-section-heading'>ABOUT</p>
         </div>
         <div className='hm-section-content-wrapper hm-about-wrapper'>
-          <About />
+          <AboutSection />
         </div>
       </section>
     </>

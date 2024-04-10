@@ -1,0 +1,11 @@
+.hm-intro-heading {
+  font-size: clamp($font-size-display-5, 5cqw, $font-size-display-2);
+  line-height: 1.2;
+  color: $color-white;
+  margin: 0;
+}
+
+.hm-intro-subheading {
+  font-size: clamp($font-size-body-3, 2cqw, $font-size-body-2);
+  color: $color-white;
+}
