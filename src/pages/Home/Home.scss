@@ -2,7 +2,7 @@
   --heading-decoration-height: clamp(0.75rem, 3cqw, 3.5rem);
 }
 
-.hm-main {
+.hm-main-section {
   position: relative;
   background-color: $color-yellow;
   display: grid;
@@ -38,27 +38,26 @@
   container-type: inline-size;
   justify-content: center;
   width: 100%;
-
-  @include media('>=desktop') {
-  }
 }
 
 .hm-logo {
   width: 80cqw;
   height: auto;
+
+  @include media('>=tablet') {
+    width: 100cqw;
+  }
 }
 
 .hm-image {
   justify-self: center;
 }
 
-.grid.hm-intro {
-  @include padding('top', 25);
-  @include padding('bottom', 25);
+.grid.hm-intro-section {
+  @include verticalPadding(15, 25);
 }
 
-.hm-intro {
-  background-color: $color-black;
+.hm-intro-section {
   position: relative;
 }
 
@@ -68,10 +67,6 @@
   @include media('>=desktop') {
     grid-column: 2 / 15;
   }
-}
-
-.hm-games {
-  background-color: $color-black;
 }
 
 .hm-enter-wrapper {
@@ -89,7 +84,7 @@
   height: auto;
 }
 
-.grid.hm-games {
+.grid.hm-games-section {
   padding-bottom: 25vh;
   padding-bottom: calc(var(--vh, 1vh) * 25);
 }
@@ -115,56 +110,12 @@
   }
 }
 
-.hm-levelup {
-  background-color: $color-yellow;
+.grid.hm-levelup-section {
+  @include verticalPadding(15, 25);
+}
+
+.hm-levelup-section {
   row-gap: 5rem;
-}
-
-.hm-levelup-image-wrapper {
-  grid-column: 1 / -1;
-  justify-self: center;
-  align-self: center;
-  grid-row: 2;
-  display: flex;
-  align-items: center;
-  column-gap: 1.5rem;
-
-  @include media('>=tablet') {
-    grid-column: 1 / -1;
-  }
-
-  @include media('>=desktop') {
-    grid-row: 1;
-    grid-column: 2 / 8;
-  }
-}
-
-.hm-levelup-text-wrapper {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  display: grid;
-  grid-auto-flow: row;
-  row-gap: 1rem;
-
-  @include media('>=tablet') {
-    grid-column: 2 / 10;
-  }
-
-  @include media('>=desktop') {
-    grid-column: 9 / 18;
-  }
-}
-
-.hm-levelup-heading {
-  margin: 0;
-  font-size: clamp($font-size-display-5, 4cqw, $font-size-display-2);
-  font-weight: $font-weight-bold;
-  line-height: 1.2;
-}
-
-.hm-levelup-sub-heading {
-  margin: 0;
-  font-size: clamp($font-size-body-3, 2cqw, $font-size-body-2);
 }
 
 .hm-about-wrapper {
@@ -177,4 +128,8 @@
     grid-column: 1 / -1;
     row-gap: 10rem;
   }
+}
+
+.grid.hm-about-section {
+  @include verticalPadding(15, 25);
 }

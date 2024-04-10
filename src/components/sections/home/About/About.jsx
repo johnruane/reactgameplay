@@ -1,6 +1,6 @@
-import ArrowKeys from '../../Icons/ArrowKeys/ArrowKeys';
-import Space from '../../Icons/Space';
-import Control from '../../Icons/Control';
+import ArrowKeys from '@icons/ArrowKeys/ArrowKeys';
+import Space from '@icons/Space';
+import Control from '@icons/Control';
 import './About.scss';
 
 const About = () => {

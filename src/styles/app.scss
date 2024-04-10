@@ -14,6 +14,23 @@
   }
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1920px) 1fr;
+
+  & > * {
+    grid-column: 2;
+  }
+}
+
+.container-black {
+  background-color: $color-black;
+}
+
+.container-yellow {
+  background-color: $color-yellow;
+}
+
 .vertical-padding-25 {
   padding-top: 25vh;
   padding-bottom: 25vh;

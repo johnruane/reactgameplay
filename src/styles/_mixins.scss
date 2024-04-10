@@ -33,3 +33,28 @@
   #{'padding-#{$dir}'}: $value * 1vh;
   #{'padding-#{$dir}'}: calc(var(--vh, 1vh) * $value);
 }
+
+@mixin verticalPadding($value1, $value2: null, $value3: null) {
+  #{padding-top}: $value1 * 1vh;
+  #{padding-top}: calc(var(--vh, 1vh) * $value1);
+  #{padding-bottom}: $value1 * 1vh;
+  #{padding-bottom}: calc(var(--vh, 1vh) * $value1);
+
+  @if ($value2) {
+    @include media('>=tablet') {
+      #{padding-top}: $value2 * 1vh;
+      #{padding-top}: calc(var(--vh, 1vh) * $value2);
+      #{padding-bottom}: $value2 * 1vh;
+      #{padding-bottom}: calc(var(--vh, 1vh) * $value2);
+    }
+  }
+
+  @if ($value3) {
+    @include media('>=desktop') {
+      #{padding-top}: $value3 * 1vh;
+      #{padding-top}: calc(var(--vh, 1vh) * $value3);
+      #{padding-bottom}: $value2 * 1vh;
+      #{padding-bottom}: calc(var(--vh, 1vh) * $value3);
+    }
+  }
+}

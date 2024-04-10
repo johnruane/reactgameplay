@@ -1,0 +1,46 @@
+.hm-levelup-image-wrapper {
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+
+  @include media('>=tablet') {
+    grid-column: 1 / -1;
+  }
+
+  @include media('>=desktop') {
+    grid-row: 1;
+    grid-column: 2 / 8;
+  }
+}
+
+.hm-levelup-text-wrapper {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 1rem;
+
+  @include media('>=tablet') {
+    grid-column: 2 / 10;
+  }
+
+  @include media('>=desktop') {
+    grid-column: 9 / 18;
+  }
+}
+
+.hm-levelup-heading {
+  margin: 0;
+  font-size: clamp($font-size-display-5, 4cqw, $font-size-display-2);
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+.hm-levelup-sub-heading {
+  margin: 0;
+  font-size: clamp($font-size-body-3, 2cqw, $font-size-body-2);
+}
