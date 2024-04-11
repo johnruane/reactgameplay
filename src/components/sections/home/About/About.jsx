@@ -9,7 +9,7 @@ const About = () => {
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
           <p className='ab-text-heading'>Learning Made Exciting and Interactive</p>
-          <p>
+          <p className='ab-text'>
             At React Gameplay, I firmly believe that learning should be an engaging and
             hands-on experience. That&apos;s why I&apos;ve meticulously curated a
             selection of well-known games, each tailored to cater to different skill
@@ -23,7 +23,7 @@ const About = () => {
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
           <p className='ab-text-heading'>Guided Exploration: Your Path to Mastery</p>
-          <p>
+          <p className='ab-text'>
             Every game in our collection comes with invaluable insights and practical tips
             on fundamental concepts. From mastering state management to implementing
             intricate game mechanics, I&apos;ve got your back every step of the way.
@@ -38,7 +38,7 @@ const About = () => {
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
           <p className='ab-text-heading'>Elevate Your Skills While Having Fun</p>
-          <p>
+          <p className='ab-text'>
             Are you prepared to elevate your coding prowess while embarking on an
             exhilarating journey? Take your pick from our array of games, dive deep into
             the code, and let the adventure begin. Whether you&apos;re here to play or to

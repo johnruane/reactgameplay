@@ -31,6 +31,10 @@
   background-color: $color-yellow;
 }
 
+.container-teal {
+  background-color: $color-teal;
+}
+
 .vertical-padding-25 {
   padding-top: 25vh;
   padding-bottom: 25vh;
@@ -43,7 +47,7 @@
 }
 
 .icon-resp-w {
-  width: clamp(2.5rem, 6cqw, 5rem);
+  width: clamp(2.5rem, 6vw, 5rem);
   height: auto;
 }
 

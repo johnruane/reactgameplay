@@ -5,8 +5,8 @@
 }
 
 .ab-text-heading {
-  font-size: clamp($font-size-display-5, 4cqw, $font-size-display-3);
-  line-height: normal;
+  font-size: clamp($font-size-display-5, 4vw, $font-size-display-3);
+  line-height: clamp(36px, 5vw, 63px);
 }
 
 .ab-text-icon-wrapper {
@@ -31,8 +31,8 @@
 }
 
 .ab-text-wrapper {
-  display: grid;
-  row-gap: 1.5rem;
+  @include headingTextSpacing;
+
   color: $color-white;
 
   @include media('>=tablet') {
@@ -40,6 +40,12 @@
     grid-row: 1;
   }
   @include media('>=desktop') {
-    grid-column: 9 / -1;
+    grid-column: 9 / -2;
   }
+}
+
+.ab-text {
+  @include body1;
+
+  margin: 0;
 }

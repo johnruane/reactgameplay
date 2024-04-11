@@ -8,7 +8,7 @@ import GamesSection from '@sections/Games';
 import AboutSection from '@sections/home/About';
 import LevelUpSection from '@sections/home/LevelUp';
 /* Assets */
-import imageUrl from '@assets/homepage_image2.png';
+import imageUrl from '@assets/homepage_image4.png';
 
 import './Home.scss';
 
@@ -21,7 +21,7 @@ export default function Home() {
             <Logo className='hm-logo' />
           </div>
 
-          <img className='hm-image' src={imageUrl} />
+          <img className='hm-image' src={imageUrl} alt='' />
         </div>
       </section>
       <div className='hm-enter-wrapper'>
