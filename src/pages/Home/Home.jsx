@@ -15,20 +15,25 @@ import './Home.scss';
 export default function Home() {
   return (
     <>
-      <section className='hm-main-section'>
-        <div className='hm-heading-wrapper'>
-          <div className='hm-logo-wrapper'>
-            <Logo className='hm-logo' />
-          </div>
+      <div className='container background-yellow'>
+        <section className='hm-main-section'>
+          <div className='hm-heading-wrapper'>
+            <div className='hm-logo-wrapper'>
+              <Logo className='hm-logo' />
+            </div>
 
-          <img className='hm-image' src={imageUrl} alt='' />
-        </div>
-      </section>
-      <div className='hm-enter-wrapper'>
+            <img className='hm-image' src={imageUrl} alt='' />
+          </div>
+        </section>
+      </div>
+
+      <div className='hm-wavy-wrapper'>
+        <span className='hm-wavy-pink'></span>
+        <span className='hm-wavy-black'></span>
         <Enter className='hm-enter-icon icon-shadow' />
       </div>
 
-      <div className='container container-black'>
+      <div className='container background-black'>
         <section className='grid hm-intro-section'>
           <div className='hm-intro-wrapper'>
             <IntroSection />
@@ -46,13 +51,23 @@ export default function Home() {
         </section>
       </div>
 
-      <div className='container container-yellow'>
+      <div className='hm-wavy-wrapper flip-vertical'>
+        <span className='hm-wavy-pink'></span>
+        <span className='hm-wavy-black'></span>
+      </div>
+
+      <div className='container background-yellow'>
         <section className='grid hm-levelup-section'>
           <LevelUpSection />
         </section>
       </div>
 
-      <div className='container container-black'>
+      <div className='hm-wavy-wrapper'>
+        <span className='hm-wavy-pink'></span>
+        <span className='hm-wavy-black'></span>
+      </div>
+
+      <div className='container background-black'>
         <section className='grid hm-about-section'>
           <div className='hm-section-heading-wrapper'>
             <LineCircle />

@@ -23,15 +23,15 @@
   }
 }
 
-.container-black {
+.background-black {
   background-color: $color-black;
 }
 
-.container-yellow {
+.background-yellow {
   background-color: $color-yellow;
 }
 
-.container-teal {
+.background-teal {
   background-color: $color-teal;
 }
 
@@ -54,6 +54,10 @@
 .icon-resp-h {
   width: auto;
   height: clamp(2.5rem, 6.5cqw, 5rem);
+}
+
+.flip-vertical {
+  transform: rotate(180deg);
 }
 
 body {

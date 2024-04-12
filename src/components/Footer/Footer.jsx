@@ -4,7 +4,11 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className='ft-footer'>
-      <div className='container container-teal'>
+      <div className='hm-wavy-wrapper flip-vertical background-teal'>
+        <span className='hm-wavy-pink'></span>
+        <span className='hm-wavy-black'></span>
+      </div>
+      <div className='container background-teal'>
         <div className='grid ft-footer-wrapper'>
           <div className='ft-content-wrapper'>
             <p className='ft-heading'>Hello, I&apos;m John Ruane.</p>

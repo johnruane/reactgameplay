@@ -27,6 +27,15 @@
   @include media('>=tablet') {
     grid-template-columns: 4.5fr 6fr;
   }
+
+  @include media('>=desktop') {
+    padding-top: 0;
+  }
+}
+
+.hm-h1 {
+  position: absolute;
+  left: -10000px;
 }
 
 .hm-logo-wrapper {
@@ -72,19 +81,45 @@
   }
 }
 
-.hm-enter-wrapper {
-  background-color: $color-black;
+.hm-wavy-wrapper {
+  background-color: $color-yellow;
   position: relative;
-  display: flex;
-  justify-content: center;
+
+  & > span {
+    display: block;
+    background-repeat: no-repeat;
+  }
+}
+
+.hm-wavy-black {
+  background: url('/src/assets/wave-black.svg');
+  background-position: center 1px;
+  height: 8rem;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.hm-wavy-pink {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.6;
+  background: url('/src/assets/wave-pink.svg');
+  background-position: calc(50% - 0.6rem) -12px;
 }
 
 .hm-enter-icon {
   @include iconShadow;
 
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   width: clamp(5.75rem, 10cqw, 10.6rem);
   height: auto;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate3d(-50%, -20%, 0);
 }
 
 .grid.hm-games-section {
