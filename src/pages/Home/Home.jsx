@@ -4,7 +4,7 @@ import Logo from '@icons/Logo';
 import LineCircle from '@icons/LineCircle';
 /* Sections */
 import IntroSection from '@sections/home/Intro';
-import GamesSection from '@sections/Games';
+import GamesSection from '@sections/home/Games';
 import AboutSection from '@sections/home/About';
 import LevelUpSection from '@sections/home/LevelUp';
 /* Assets */
@@ -27,9 +27,14 @@ export default function Home() {
         </section>
       </div>
 
-      <div className='hm-wavy-wrapper'>
+      {/* <div className='hm-wavy-wrapper'>
         <span className='hm-wavy-pink'></span>
         <span className='hm-wavy-black'></span>
+        <Enter className='hm-enter-icon icon-shadow' />
+      </div> */}
+      <div className='hm-wavy-wrapper'>
+        {/* <span className='hm-shapes'></span>
+        <span className='hm-wave'></span> */}
         <Enter className='hm-enter-icon icon-shadow' />
       </div>
 

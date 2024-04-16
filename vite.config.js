@@ -25,6 +25,10 @@ export default defineConfig({
       '@icons': path.resolve(__dirname, './src/components/Icons'),
       '@sections': path.resolve(__dirname, './src/components/sections'),
       '@assets': path.resolve(__dirname, './src/assets'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@layouts': path.resolve(__dirname, './src/components/Layouts'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@templates': path.resolve(__dirname, './src/templates'),
     },
   },
 });

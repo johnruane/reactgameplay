@@ -1,0 +1,32 @@
+.tb-wrapper {
+  display: grid;
+  row-gap: 3.375rem;
+}
+
+.tb-tabs-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.tb-tab-button {
+  all: unset;
+  background-color: $color-yellow;
+  border-radius: 3.125rem;
+  border: 5px solid $color-black;
+  color: $color-black;
+  font-size: clamp($font-size-body-3, 4vw, $font-size-body-2);
+  line-height: initial;
+  font-weight: $font-weight-bold;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 0.75rem 1rem;
+}
+
+.tb-tab-button-active {
+  @include iconShadow;
+
+  background-color: $color-black;
+  color: $color-white;
+}

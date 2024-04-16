@@ -295,10 +295,6 @@ const Tetris = () => {
         </div>
       </div>
 
-      <div>
-        <p>How to build</p>
-      </div>
-
       <div className={style.controlsWrapper}>
         <Controls move={move} />
       </div>

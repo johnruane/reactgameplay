@@ -33,11 +33,6 @@
   }
 }
 
-.hm-h1 {
-  position: absolute;
-  left: -10000px;
-}
-
 .hm-logo-wrapper {
   display: flex;
   container-type: inline-size;
@@ -82,33 +77,75 @@
 }
 
 .hm-wavy-wrapper {
+  background: url('/src/assets/wave.svg');
+  background-position: center 0;
   background-color: $color-yellow;
+  background-repeat: no-repeat;
   position: relative;
+  height: 228px;
+}
 
-  & > span {
-    display: block;
-    background-repeat: no-repeat;
+.hm-wave {
+  display: block;
+  background: url('/src/assets/wave-clean.svg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  height: 100%;
+
+  @include media('<=tablet') {
+    top: -50px;
+    background-size: auto 50%;
   }
 }
 
-.hm-wavy-black {
-  background: url('/src/assets/wave-black.svg');
-  background-position: center 1px;
-  height: 8rem;
-  position: relative;
-  backdrop-filter: blur(2px);
+.hm-shapes {
+  position: absolute;
+  top: -80px;
+  right: 0px;
+  bottom: 0;
+  left: 0px;
+  background: url(/src/assets/shapes.svg);
+  background-position: 50% 0px;
+
+  @include media('<=tablet') {
+    top: -50px;
+    background-size: auto 50%;
+  }
 }
 
-.hm-wavy-pink {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.6;
-  background: url('/src/assets/wave-pink.svg');
-  background-position: calc(50% - 0.6rem) -12px;
-}
+// .hm-wavy-wrapper {
+//   background-color: $color-yellow;
+//   position: relative;
+
+//   & > span {
+//     display: block;
+//     background-repeat: no-repeat;
+
+//     @include media('<=tablet') {
+//       height: calc(30vw - 5px);
+//       background-size: auto 30vw;
+//     }
+//   }
+// }
+
+// .hm-wavy-black {
+//   background: url('/src/assets/wave-black.svg');
+//   background-position: center 0;
+//   height: 274px;
+//   position: relative;
+//   backdrop-filter: blur(2px);
+// }
+
+// .hm-wavy-pink {
+//   position: absolute;
+//   top: 0px;
+//   right: 0px;
+//   bottom: 0px;
+//   left: 0px;
+//   opacity: 0.6;
+//   background: url('/src/assets/wave-pink.svg');
+//   background-position: calc(50% - 0.6rem) 70px;
+// }
 
 .hm-enter-icon {
   @include iconShadow;
@@ -119,7 +156,7 @@
   position: absolute;
   left: 50%;
   top: 0;
-  transform: translate3d(-50%, -20%, 0);
+  transform: translate3d(-50%, 20%, 0);
 }
 
 .grid.hm-games-section {

@@ -1,0 +1,14 @@
+.t-intro-wrapper {
+  @include body1;
+  @include verticalPadding(15, 25);
+
+  grid-column: 1 / -1;
+  color: $color-white;
+}
+
+.t-tabs-wrapper {
+  @include body1;
+  @include verticalPadding(15, 25);
+
+  grid-column: 1 / -1;
+}
