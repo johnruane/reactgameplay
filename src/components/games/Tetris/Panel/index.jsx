@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import style from './panel.module.css';
 
 export default function Panel({ title, value }) {
@@ -9,8 +8,3 @@ export default function Panel({ title, value }) {
     </div>
   );
 }
-
-Panel.propTypes = {
-  title: PropTypes.string,
-  value: PropTypes.string || PropTypes.number,
-};

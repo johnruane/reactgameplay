@@ -1,4 +1,4 @@
-const data = [
+const tabs = [
   {
     id: 1,
     title: 'How to play',
@@ -206,4 +206,4 @@ const data = [
   },
 ];
 
-export default data;
+export default tabs;

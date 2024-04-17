@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import DefaultLayout from '@layouts/DefaultLayout';
+import GameLayout from '@layouts/GameLayout';
+import Home from '@pages/Home';
+import Error404 from '@pages/404';
+import GamePage from '@pages/GamePage';
+
 import './styles/reset.css';
 import './styles/app.scss';
 
@@ -10,9 +16,19 @@ export default function App() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, []);
 
-  return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
-  );
+  const routes = createBrowserRouter([
+    {
+      element: <DefaultLayout />,
+      children: [{ path: '/', element: <Home /> }],
+      errorElement: <Error404 />,
+    },
+    {
+      element: <GameLayout />,
+      children: [{ path: 'gamepage/:title', element: <GamePage /> }],
+      errorElement: <Error404 />,
+    },
+    { path: '*', element: <Error404 /> },
+  ]);
+
+  return <RouterProvider router={routes} />;
 }

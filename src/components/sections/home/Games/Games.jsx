@@ -9,13 +9,13 @@ const games = [
     title: <span className='gs-title'>TETRIS</span>,
     icon: <Tetris className='gs-icon' />,
     level: 'L3',
-    link: '/tetris',
+    link: 'gamepage/tetris',
   },
   {
     title: <span className='gs-title'>SNAKE</span>,
     icon: <Snake className='gs-icon' />,
     level: 'L1',
-    link: '/snake',
+    link: 'gamepage/snake',
   },
   {
     title: (
@@ -26,7 +26,7 @@ const games = [
     ),
     icon: <Bomb className='gs-icon' />,
     level: 'L3',
-    link: '/minesweeper',
+    link: 'gamepage/minesweeper',
     inDev: true,
   },
 ];

@@ -1,0 +1,44 @@
+.gp-intro-wrapper {
+  @include body1;
+  @include verticalPadding(15, 25);
+
+  grid-column: 1 / -1;
+  color: $color-white;
+  display: grid;
+  row-gap: 2rem;
+}
+
+.gp-heading {
+  @include display1;
+
+  display: flex;
+  column-gap: 1rem;
+  text-transform: capitalize;
+}
+
+.gp-year {
+  font-size: clamp($font-size-caption-3, 2cqw, $font-size-caption-1);
+  font-weight: $font-weight-regular;
+  line-height: clamp(18px, 3vw, 36px);
+}
+
+.gp-details-wrapper {
+  display: grid;
+  row-gap: clamp(32px, 6vw, 100px);
+
+  & > div {
+    display: grid;
+    row-gap: clamp(24px, 2vw, 32px);
+  }
+}
+
+.gp-details-heading {
+  text-transform: uppercase;
+}
+
+.gp-tabs-wrapper {
+  @include body1;
+  @include verticalPadding(15, 25);
+
+  grid-column: 1 / -1;
+}

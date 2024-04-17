@@ -29,6 +29,7 @@ export default defineConfig({
       '@layouts': path.resolve(__dirname, './src/components/Layouts'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@templates': path.resolve(__dirname, './src/templates'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   },
 });
