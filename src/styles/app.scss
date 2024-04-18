@@ -68,6 +68,10 @@ body {
   font-variation-settings: 'wdth' 100;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* .archivo-<uniquifier> {
   font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;

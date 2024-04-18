@@ -36,7 +36,7 @@ const Games = () => {
     <div className='gs-main'>
       {games.map((game) => {
         return (
-          <Link to={game.link} className='gs-tile' key={game.title}>
+          <Link to={game.link} className='gs-tile' key={game.link}>
             {game.inDev && <span className='gs-soon'>Coming soon</span>}
             {game.icon}
             {game.title}

@@ -26,7 +26,9 @@ const Tabs = ({ data }) => {
           </button>
         ))}
       </div>
-      <div>{data.find((x) => x.id === selectedSection).content}</div>
+      <div className='tb-tabs-content-wrapper'>
+        {data.find((x) => x.id === selectedSection).content}
+      </div>
     </div>
   );
 };

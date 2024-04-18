@@ -1,11 +1,17 @@
-/* eslint-disable react/prop-types */
+import { useCallback, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { RemoveScrollBar } from 'react-remove-scroll-bar';
+import classNames from 'classnames';
 
 import Tabs from '@components/Tabs';
 import pageData from '@data';
+import Cross from '@icons/Cross';
+
 import './GamePage.scss';
 
 const GamePage = () => {
+  const [gameSheetToggle, setGameSheetToggle] = useState(false);
+
   const { title } = useParams();
   const navigate = useNavigate();
 
@@ -21,15 +27,24 @@ const GamePage = () => {
 
   const { id, year, complexity, controls, intro, tabs, game } = data || {};
 
+  const handleButtonClick = useCallback(() => {
+    setGameSheetToggle((prev) => !prev);
+  }, [setGameSheetToggle]);
+
   return (
     <>
       <div className='container background-black'>
         <div className='grid'>
           <div className='gp-intro-wrapper'>
-            <h1 className='gp-heading'>
-              {id}
-              <span className='gp-year'>{year}</span>
-            </h1>
+            <div className='gp-heading-wrapper'>
+              <button className='gp-game-button' onClick={handleButtonClick}>
+                Play Now
+              </button>
+              <h1 className='gp-heading'>
+                {id}
+                <span className='gp-year'>{year}</span>
+              </h1>
+            </div>
             <div className='gp-details-wrapper'>
               <div>
                 <p className='gp-details-heading'>Complexity</p>
@@ -68,7 +83,25 @@ const GamePage = () => {
         <span className='hm-wavy-black'></span>
       </div>
 
-      {game}
+      <div
+        className={classNames('container background-yellow gp-gamesheet-wrapper', {
+          ['active']: gameSheetToggle,
+        })}
+      >
+        <div className='grid'>
+          <div className='gp-gamesheet-content-wrapper'>
+            <div className='gp-gamesheet-heading-wrapper'>
+              <h2 className='gp-gamesheet-heading'>{id}</h2>
+
+              <button className='gp-game-close-button' onClick={handleButtonClick}>
+                <Cross />
+              </button>
+            </div>
+            {game}
+          </div>
+        </div>
+      </div>
+      {gameSheetToggle && <RemoveScrollBar />}
     </>
   );
 };

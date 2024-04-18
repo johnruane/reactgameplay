@@ -1,11 +1,22 @@
 .gp-intro-wrapper {
   @include body1;
-  @include verticalPadding(15, 25);
+  @include padding('top', 5);
+  @include padding('bottom', 15);
 
   grid-column: 1 / -1;
   color: $color-white;
   display: grid;
+  grid-template-columns: subgrid;
   row-gap: 2rem;
+
+  @include media('>=tablet') {
+    @include padding('top', 15);
+    @include padding('bottom', 25);
+  }
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
 }
 
 .gp-heading {
@@ -23,12 +34,17 @@
 }
 
 .gp-details-wrapper {
+  grid-column: 1 / -1;
   display: grid;
   row-gap: clamp(32px, 6vw, 100px);
 
   & > div {
     display: grid;
     row-gap: clamp(24px, 2vw, 32px);
+  }
+
+  @include media('>=desktop') {
+    grid-column: 1 / 15;
   }
 }
 
@@ -41,4 +57,81 @@
   @include verticalPadding(15, 25);
 
   grid-column: 1 / -1;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
+}
+
+.gp-heading-wrapper {
+  grid-column: 1 / -1;
+  display: grid;
+  row-gap: 5rem;
+
+  & > button {
+    justify-self: center;
+  }
+
+  @include media('>=tablet') {
+    grid-auto-flow: column;
+
+    & > .gp-heading {
+      grid-column: 1;
+    }
+
+    & > .gp-game-button {
+      justify-self: end;
+      grid-column: 2;
+    }
+  }
+}
+
+.gp-game-button {
+  @include button1;
+
+  width: fit-content;
+  padding: 1rem 1.5rem;
+}
+
+.gp-gamesheet-content-wrapper {
+  grid-column: 1 / -1;
+}
+
+.gp-gamesheet-heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.gp-gamesheet-heading {
+  @include display1;
+
+  text-transform: uppercase;
+}
+
+.gp-game-close-button {
+  @include button1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.gp-gamesheet-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  transform: translateX(-100%);
+  transition: transform ease-out 0.5s;
+  background: $color-yellow;
+}
+
+.gp-gamesheet-wrapper.active {
+  transform: translateX(0);
+  transition: transform ease-out 0.5s;
 }

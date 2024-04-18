@@ -57,6 +57,7 @@
   justify-self: start;
   width: 3.15rem;
   height: 3.15rem;
+
   @include media('>=tablet') {
     width: 4.375rem;
     height: 4.375rem;

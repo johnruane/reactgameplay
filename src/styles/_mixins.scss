@@ -1,13 +1,28 @@
 @mixin display1 {
-  margin: 0;
   font-size: clamp($font-size-display-5, 5vw, $font-size-display-2);
   line-height: clamp(36px, 6vw, 72px);
 }
 
 @mixin body1 {
-  margin: 0;
   font-size: clamp($font-size-body-3, 2cqw, $font-size-body-2);
   line-height: clamp(24px, 3vw, 36px);
+}
+
+@mixin button1 {
+  all: unset;
+  @include iconShadow;
+
+  font-size: clamp($font-size-button-2, 2cqw, $font-size-button-1);
+  line-height: initial;
+  text-transform: uppercase;
+  border: 1px solid $color-white;
+  font-weight: $font-weight-bold;
+  background-color: $color-black;
+  border-radius: $button-border-radius;
+
+  &:hover {
+    background-color: $color-pink;
+  }
 }
 
 @mixin headingTextSpacing {

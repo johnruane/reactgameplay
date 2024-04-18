@@ -30,3 +30,9 @@
   background-color: $color-black;
   color: $color-white;
 }
+
+.tb-tabs-content-wrapper {
+  @include media('>=desktop') {
+    max-width: 75ch;
+  }
+}

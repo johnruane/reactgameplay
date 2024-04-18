@@ -17,6 +17,10 @@
   grid-column: 1 / -1;
   display: grid;
   row-gap: 3rem;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
 }
 
 .ft-heading {

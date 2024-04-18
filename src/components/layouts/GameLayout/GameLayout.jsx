@@ -1,6 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Header from '@components/Header';
-import Footer from '@components/Footer';
+import Footer from '../../../components/Footer';
+import GetKey from '../../../utils/GetKey';
 
 export default function DefaultLayout() {
   return (
@@ -8,6 +9,7 @@ export default function DefaultLayout() {
       <Header />
       <Outlet />
       <Footer />
+      <ScrollRestoration getKey={GetKey()} />
     </>
   );
 }
