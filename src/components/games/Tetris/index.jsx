@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 /* Utils */
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
@@ -53,23 +54,37 @@ const Tetris = () => {
   const [displayBoard, setDisplayBoard] = useState(createBoard(...boardConfig));
   const [staticBoard, setStaticBoard] = useState(createBoard(...boardConfig));
 
-  const [currentTetromino, setCurrentTetromino] = useState(getRandomTetromino());
-  const [nextTetromino, setNextTetromino] = useState(getRandomTetromino());
+  const [currentTetromino, setCurrentTetromino] = useState(null);
+  const [nextTetromino, setNextTetromino] = useState(null);
 
   const [score, setScore] = useState('000000');
   const [lines, setLines] = useState(0);
   const [level, setLevel] = useState(0);
 
-  const [delay, setDelay] = useState(1000);
-  const [speed, setSpeed] = useState(30000);
+  const [delay, setDelay] = useState(null);
+  const [speed, setSpeed] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
+  const [startGame, setStartGame] = useState(false);
+
+  const resetGame = () => {
+    setStartGame(true);
+    setGameOver(false);
+    setDisplayBoard(createBoard(...boardConfig));
+    setStaticBoard(createBoard(...boardConfig));
+    setCurrentTetromino(getRandomTetromino());
+    setNextTetromino(getRandomTetromino());
+    setDelay(1000);
+    setSpeed(30000);
+  };
 
   /*
    * Function to reset position and cycle tetrominos. Done this way in order to have control of when this
    * occurs, like when there is a need to wait for an animation to complete.
    */
   const makeNextPlay = () => {
+    if (!startGame) return;
+
     setPosition({ r: 0, c: 4 });
     setCurrentTetromino(nextTetromino);
     setNextTetromino(getRandomTetromino());
@@ -101,7 +116,7 @@ const Tetris = () => {
         r: newR,
         c: newC,
       },
-      currentTetromino.matrix,
+      currentTetromino?.matrix,
       staticBoard
     );
 
@@ -119,7 +134,7 @@ const Tetris = () => {
       setStaticBoard(
         addTetrominoToBoard(
           deepClone(staticBoard),
-          currentTetromino.matrix,
+          currentTetromino?.matrix,
           position.r,
           position.c
         )
@@ -169,6 +184,8 @@ const Tetris = () => {
    * function to be executed as a 'onFinish' function if the index is the last row to be animated.
    */
   useEffect(() => {
+    if (!startGame) return;
+
     const cloneBoard = deepClone(staticBoard);
     /*
      * We sort the indexes ascending so that rows are removed from top to bottom. If descending then the board
@@ -200,19 +217,21 @@ const Tetris = () => {
     } else {
       makeNextPlay();
     }
-  }, [staticBoard]);
+  }, [staticBoard, startGame]);
 
   /*
    * If tetromino cannot move to position 0, 4 when the 'position' is updated that means the pieces have reached
    * the top and it is game over.
    */
   useEffect(() => {
+    if (!startGame) return;
+
     const canMove = canTetrominoMoveToPosition(
       {
         r: 0,
         c: 4,
       },
-      currentTetromino.matrix,
+      currentTetromino?.matrix,
       staticBoard
     );
 
@@ -221,8 +240,9 @@ const Tetris = () => {
       setDelay(null);
       setSpeed(null);
       setGameOver(true);
+      setStartGame(false);
     }
-  }, [position]);
+  }, [position, startGame]);
 
   /*
    * Updates 'displayBoard' every time the position or 'currentTertromino' changes. The position is updated
@@ -230,22 +250,26 @@ const Tetris = () => {
    * is put into play.
    */
   useEffect(() => {
+    if (!startGame) return;
+
     setDisplayBoard(
       addTetrominoToBoard(
         deepClone(staticBoard),
-        currentTetromino.matrix,
+        currentTetromino?.matrix,
         position.r,
         position.c
       )
     );
-  }, [position, staticBoard, currentTetromino]);
+  }, [position, staticBoard, currentTetromino, startGame]);
 
   /*
    * Increase 'level' display everytime the 'delay' for gamespeed is updated
    */
   useEffect(() => {
+    if (!startGame) return;
+
     setLevel((prev) => prev + 1);
-  }, [delay]);
+  }, [delay, startGame]);
 
   /*
    * Event listeners for keypress
@@ -279,19 +303,20 @@ const Tetris = () => {
         </div>
         <div className={style.scoreWrapper}>
           <Panel title={'score'} value={score} />
-        </div>
-        <div className={style.levelWrapper}>
           <Panel title={'level'} value={level} />
-        </div>
-        <div className={style.linesWrapper}>
           <Panel title={'lines'} value={lines} />
         </div>
         <div className={style.nextWrapper}>
-          {gameOver ? (
-            <p className={style.gameOverText}>Game Over</p>
-          ) : (
-            <Next nextTetromino={nextTetromino.matrix} />
+          {gameOver && <p className={style.gameOverText}>Game Over</p>}
+          {!startGame && (
+            <button
+              className={classNames(style.gameOverText, style.startButton)}
+              onClick={() => resetGame()}
+            >
+              Start Game
+            </button>
           )}
+          {startGame && <Next nextTetromino={nextTetromino?.matrix} />}
         </div>
       </div>
 

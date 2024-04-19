@@ -8,7 +8,7 @@
 export const findCompletedRows = (board) => {
   let completeRows = [];
 
-  for (let i = board.length - 1; i >= 0; i--) {
+  for (let i = board?.length - 1; i >= 0; i--) {
     if (board[i].every((row) => row !== 0)) {
       completeRows.push(i);
     }

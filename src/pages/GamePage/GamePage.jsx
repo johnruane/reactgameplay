@@ -38,7 +38,7 @@ const GamePage = () => {
           <div className='gp-intro-wrapper'>
             <div className='gp-heading-wrapper'>
               <button className='gp-game-button' onClick={handleButtonClick}>
-                Play Now
+                <span>Play Now</span>
               </button>
               <h1 className='gp-heading'>
                 {id}

@@ -10,8 +10,8 @@
  * @return {Boolean} Tetromino can be moved to position on @board
  */
 export function canTetrominoMoveToPosition(position, tetro, board) {
-  for (let i = 0, rLen = tetro.length; i < rLen; i++) {
-    for (let j = 0, cLen = tetro[0].length - 1; j <= cLen; j++) {
+  for (let i = 0, rLen = tetro?.length; i < rLen; i++) {
+    for (let j = 0, cLen = tetro?.[0]?.length - 1; j <= cLen; j++) {
       const row = board[position.r + i];
       const col = row && row[position.c + j];
 

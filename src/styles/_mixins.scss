@@ -12,16 +12,25 @@
   all: unset;
   @include iconShadow;
 
-  font-size: clamp($font-size-button-2, 2cqw, $font-size-button-1);
-  line-height: initial;
-  text-transform: uppercase;
   border: 1px solid $color-white;
-  font-weight: $font-weight-bold;
   background-color: $color-black;
   border-radius: $button-border-radius;
 
+  & span {
+    font-weight: $font-weight-bold;
+    font-size: clamp($font-size-button-2, 2cqw, $font-size-button-1);
+    line-height: initial;
+    text-transform: uppercase;
+  }
+
   &:hover {
-    background-color: $color-pink;
+    background-color: $color-white;
+    border: 1px solid $color-black;
+
+    & span,
+    & svg {
+      mix-blend-mode: difference;
+    }
   }
 }
 
