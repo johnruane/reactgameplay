@@ -177,6 +177,13 @@ const Tetris = () => {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      setStartGame(false);
+      setDelay(null);
+    };
+  }, []);
+
   /*
    * When staticBoard is updated, that signals that a play has ended so we need to check for completed
    * rows on the board. Completed rows are returned in an array of indexes. Indexed rows are removed from
@@ -298,16 +305,21 @@ const Tetris = () => {
   return (
     <>
       <div className={style.layoutGrid}>
-        <div className={style.boardWrapper}>
-          <Board board={displayBoard} />
+        <div className={style.boardNextWrapper}>
+          <div className={style.boardWrapper}>
+            <Board board={displayBoard} />
+          </div>
+          <div className={style.nextWrapper}>
+            {startGame && <Next nextTetromino={nextTetromino?.matrix} />}
+            {gameOver && <p className={style.gameOverText}>Game Over</p>}
+          </div>
         </div>
         <div className={style.scoreWrapper}>
           <Panel title={'score'} value={score} />
           <Panel title={'level'} value={level} />
           <Panel title={'lines'} value={lines} />
         </div>
-        <div className={style.nextWrapper}>
-          {gameOver && <p className={style.gameOverText}>Game Over</p>}
+        <div className={style.startOverWrapper}>
           {!startGame && (
             <button
               className={classNames(style.gameOverText, style.startButton)}
@@ -316,7 +328,6 @@ const Tetris = () => {
               Start Game
             </button>
           )}
-          {startGame && <Next nextTetromino={nextTetromino?.matrix} />}
         </div>
       </div>
 

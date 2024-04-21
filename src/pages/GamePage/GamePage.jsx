@@ -84,23 +84,26 @@ const GamePage = () => {
       </div>
 
       <div
-        className={classNames('container background-yellow gp-gamesheet-wrapper', {
-          ['active']: gameSheetToggle,
+        className={classNames('modal-container one background-yellow', {
+          ['out']: !gameSheetToggle,
         })}
       >
-        <div className='grid'>
-          <div className='gp-gamesheet-content-wrapper'>
-            <div className='gp-gamesheet-heading-wrapper'>
-              <h2 className='gp-gamesheet-heading'>{id}</h2>
+        <div className='container gp-gamesheet-wrapper '>
+          <div className='grid'>
+            <div className='gp-gamesheet-content-wrapper'>
+              <div className='gp-gamesheet-heading-wrapper'>
+                <h2 className='gp-gamesheet-heading'>{id}</h2>
 
-              <button className='gp-game-close-button' onClick={handleButtonClick}>
-                <Cross />
-              </button>
+                <button className='gp-game-close-button' onClick={handleButtonClick}>
+                  <Cross />
+                </button>
+              </div>
+              {gameSheetToggle && game}
             </div>
-            {game}
           </div>
         </div>
       </div>
+
       {gameSheetToggle && <RemoveScrollBar />}
     </>
   );

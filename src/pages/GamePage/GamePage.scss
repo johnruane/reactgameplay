@@ -93,6 +93,10 @@
   padding: 1rem 1.5rem;
 }
 
+.gp-game-button-text {
+  @include button1;
+}
+
 .gp-gamesheet-content-wrapper {
   grid-column: 1 / -1;
 }
@@ -119,19 +123,62 @@
   height: 2.5rem;
 }
 
-.gp-gamesheet-wrapper {
+// .gp-gamesheet-wrapper {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   height: calc(var(--vh, 1vh) * 100);
+//   transform: translateX(-100%);
+//   transition: transform ease-out 0.5s;
+// }
+
+// .gp-gamesheet-wrapper.active {
+//   transform: translateX(0);
+//   transition: transform ease-out 0.5s;
+// }
+
+.modal-container {
   position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
   top: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  transform: translateX(-100%);
-  transition: transform ease-out 0.5s;
-  background: $color-yellow;
+  left: 0;
+  transform: scale(0);
+  z-index: 1;
+  &.one {
+    transform: scaleY(0.01) scaleX(0);
+    animation: unfoldIn 0.75s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+    &.out {
+      transform: scale(1);
+      animation: unfoldOut 0.75s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+  }
 }
 
-.gp-gamesheet-wrapper.active {
-  transform: translateX(0);
-  transition: transform ease-out 0.5s;
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
 }

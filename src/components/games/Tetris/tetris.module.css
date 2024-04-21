@@ -52,11 +52,22 @@
 
 .layoutGrid {
   display: grid;
-  row-gap: 1rem;
+  row-gap: 2rem;
+}
+
+.boardNextWrapper {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: minmax(64px, 1fr) 1fr minmax(64px, 1fr);
 }
 
 .boardWrapper {
-  justify-self: center;
+  grid-column: 2;
+}
+
+.nextWrapper {
+  grid-column: 3;
+  align-content: center;
 }
 
 .scoreWrapper {
@@ -74,8 +85,9 @@
   }
 }
 
-.nextWrapper {
+.startOverWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -93,7 +105,15 @@
 
 .startButton {
   all: unset;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .controlsWrapper {
@@ -103,6 +123,8 @@
   position: fixed;
   margin: 0 auto;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
 
   @media (pointer: coarse) and (hover: none) and (max-width: 768px) {
