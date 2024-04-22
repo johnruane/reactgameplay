@@ -8,7 +8,7 @@ import GamesSection from '@sections/home/Games';
 import AboutSection from '@sections/home/About';
 import LevelUpSection from '@sections/home/LevelUp';
 /* Assets */
-import imageUrl from '@assets/homepage_image4.png';
+import imageUrl from '@assets/homepage.png';
 
 import './Home.scss';
 

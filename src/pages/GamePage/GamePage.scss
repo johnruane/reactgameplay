@@ -97,11 +97,8 @@
   @include button1;
 }
 
-.gp-gamesheet-content-wrapper {
-  grid-column: 1 / -1;
-}
-
 .gp-gamesheet-heading-wrapper {
+  grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 0;
@@ -113,6 +110,35 @@
   text-transform: uppercase;
 }
 
+.gp-game-layout {
+  grid-column: 1 / -1;
+  max-width: 45rem;
+  justify-self: center;
+
+  // @include media('>=desktop') {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+}
+
+// @include media('>=desktop') {
+//   .gp-score-wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     row-gap: 1.5rem;
+//     height: fit-content;
+//     justify-items: left;
+//     justify-self: left;
+//     width: 100%;
+
+//     & > * {
+//       padding-bottom: 1.5rem;
+//       justify-items: left;
+//       border-right: none;
+//       border-bottom: 1px solid $color-black;
+//     }
+//   }
+// }
+
 .gp-game-close-button {
   @include button1;
 
@@ -123,62 +149,19 @@
   height: 2.5rem;
 }
 
-// .gp-gamesheet-wrapper {
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   height: calc(var(--vh, 1vh) * 100);
-//   transform: translateX(-100%);
-//   transition: transform ease-out 0.5s;
-// }
-
-// .gp-gamesheet-wrapper.active {
-//   transform: translateX(0);
-//   transition: transform ease-out 0.5s;
-// }
-
 .modal-container {
   position: fixed;
-  display: table;
+  overflow: hidden;
+  height: 1px;
+  width: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: height 0.5s ease, width 0.5s ease 0.5s;
+}
+
+.modal-container.active {
   height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  transform: scale(0);
-  z-index: 1;
-  &.one {
-    transform: scaleY(0.01) scaleX(0);
-    animation: unfoldIn 0.75s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-
-    &.out {
-      transform: scale(1);
-      animation: unfoldOut 0.75s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    }
-  }
-}
-
-@keyframes unfoldIn {
-  0% {
-    transform: scaleY(0.005) scaleX(0);
-  }
-  50% {
-    transform: scaleY(0.005) scaleX(1);
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-  }
-}
-
-@keyframes unfoldOut {
-  0% {
-    transform: scaleY(1) scaleX(1);
-  }
-  50% {
-    transform: scaleY(0.005) scaleX(1);
-  }
-  100% {
-    transform: scaleY(0.005) scaleX(0);
-  }
+  transition: width 0.5s ease, height 0.5s ease 0.5s;
 }

@@ -77,7 +77,7 @@
 
   & > * {
     justify-items: center;
-    border-right: 1px solid black;
+    border-right: 1px solid #1e342c;
   }
 
   & > :last-child {

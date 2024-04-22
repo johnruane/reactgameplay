@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Tabs from '@components/Tabs';
 import pageData from '@data';
 import Cross from '@icons/Cross';
+import NextPrev from '@components/NextPrev';
 
 import './GamePage.scss';
 
@@ -74,6 +75,7 @@ const GamePage = () => {
         <div className='grid'>
           <div className='gp-tabs-wrapper'>
             <Tabs data={tabs} />
+            <NextPrev current={id} />
           </div>
         </div>
       </div>
@@ -84,22 +86,20 @@ const GamePage = () => {
       </div>
 
       <div
-        className={classNames('modal-container one background-yellow', {
-          ['out']: !gameSheetToggle,
+        className={classNames('modal-container background-yellow', {
+          ['active']: gameSheetToggle,
         })}
       >
         <div className='container gp-gamesheet-wrapper '>
           <div className='grid'>
-            <div className='gp-gamesheet-content-wrapper'>
-              <div className='gp-gamesheet-heading-wrapper'>
-                <h2 className='gp-gamesheet-heading'>{id}</h2>
+            <div className='gp-gamesheet-heading-wrapper'>
+              <h2 className='gp-gamesheet-heading'>{id}</h2>
 
-                <button className='gp-game-close-button' onClick={handleButtonClick}>
-                  <Cross />
-                </button>
-              </div>
-              {gameSheetToggle && game}
+              <button className='gp-game-close-button' onClick={handleButtonClick}>
+                <Cross />
+              </button>
             </div>
+            {gameSheetToggle && game}
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Tabs = ({ data }) => {
   return (
     <div className='tb-wrapper'>
       <div className='tb-tabs-wrapper'>
-        {data.map((tab) => (
+        {data?.map((tab) => (
           <button
             key={tab.title}
             className={classNames('tb-tab-button', {
@@ -27,7 +27,7 @@ const Tabs = ({ data }) => {
         ))}
       </div>
       <div className='tb-tabs-content-wrapper'>
-        {data.find((x) => x.id === selectedSection).content}
+        {data?.find((x) => x.id === selectedSection).content}
       </div>
     </div>
   );

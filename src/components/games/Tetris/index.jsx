@@ -304,8 +304,8 @@ const Tetris = () => {
 
   return (
     <>
-      <div className={style.layoutGrid}>
-        <div className={style.boardNextWrapper}>
+      <div className={classNames(style.layoutGrid, 'gp-game-layout')}>
+        <div className={classNames(style.boardNextWrapper, 'gp-board-wrapper')}>
           <div className={style.boardWrapper}>
             <Board board={displayBoard} />
           </div>
@@ -314,12 +314,12 @@ const Tetris = () => {
             {gameOver && <p className={style.gameOverText}>Game Over</p>}
           </div>
         </div>
-        <div className={style.scoreWrapper}>
+        <div className={classNames(style.scoreWrapper, 'gp-score-wrapper')}>
           <Panel title={'score'} value={score} />
           <Panel title={'level'} value={level} />
           <Panel title={'lines'} value={lines} />
         </div>
-        <div className={style.startOverWrapper}>
+        <div className={classNames(style.startOverWrapper, 'gp-message-wrapper')}>
           {!startGame && (
             <button
               className={classNames(style.gameOverText, style.startButton)}
