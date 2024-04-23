@@ -12,9 +12,10 @@
   all: unset;
   @include iconShadow;
 
-  border: 1px solid $color-white;
+  border: 2px solid $color-white;
   background-color: $color-black;
   border-radius: $button-border-radius;
+  user-select: none;
 
   & span {
     font-weight: $font-weight-bold;
@@ -25,7 +26,7 @@
 
   &:hover {
     background-color: $color-white;
-    border: 1px solid $color-black;
+    border: 2px solid transparent;
 
     & span,
     & svg {

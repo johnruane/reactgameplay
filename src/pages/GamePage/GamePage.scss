@@ -54,7 +54,7 @@
 
 .gp-tabs-wrapper {
   @include body1;
-  @include verticalPadding(15, 25);
+  @include verticalPadding(15, 20);
 
   grid-column: 1 / -1;
 
