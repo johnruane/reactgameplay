@@ -1,12 +1,14 @@
 $phone: 425px;
 $tablet: 768px;
 $desktop: 1024px;
+$largedesktop: 1366px;
 $hd: 1920px;
 
 $breakpoints: (
   'phone': $phone,
   'tablet': $tablet,
   'desktop': $desktop,
+  'largedesktop': $largedesktop,
   'hd': $hd,
 ) !default;
 

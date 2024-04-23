@@ -1,11 +1,16 @@
 @mixin display1 {
   font-size: clamp($font-size-display-5, 5vw, $font-size-display-2);
-  line-height: clamp(36px, 6vw, 72px);
+  line-height: clamp($line-height-display-5, 6vw, $line-height-display-2);
+  font-weight: $font-weight-bold;
+
+  &:has(+ *) {
+    margin-bottom: clamp($font-size-display-5, 2vw, $font-size-display-2);
+  }
 }
 
 @mixin body1 {
-  font-size: clamp($font-size-body-3, 2cqw, $font-size-body-2);
-  line-height: clamp(24px, 3vw, 36px);
+  font-size: clamp($font-size-body-3, 2vw, $font-size-body-2);
+  line-height: clamp($line-height-body-3, 3vw, $line-height-body-2);
 }
 
 @mixin button1 {
@@ -51,7 +56,13 @@
   #{'padding-#{$dir}'}: calc(var(--vh, 1vh) * $value);
 }
 
-@mixin verticalPadding($value1, $value2: null, $value3: null) {
+@mixin verticalPadding(
+  $value1,
+  $value2: null,
+  $value3: null,
+  $value4: null,
+  $value5: null
+) {
   #{padding-top}: $value1 * 1vh;
   #{padding-top}: calc(var(--vh, 1vh) * $value1);
   #{padding-bottom}: $value1 * 1vh;
@@ -72,6 +83,24 @@
       #{padding-top}: calc(var(--vh, 1vh) * $value3);
       #{padding-bottom}: $value2 * 1vh;
       #{padding-bottom}: calc(var(--vh, 1vh) * $value3);
+    }
+  }
+
+  @if ($value4) {
+    @include media('>=largedesktop') {
+      #{padding-top}: $value4 * 1vh;
+      #{padding-top}: calc(var(--vh, 1vh) * $value4);
+      #{padding-bottom}: $value4 * 1vh;
+      #{padding-bottom}: calc(var(--vh, 1vh) * $value4);
+    }
+  }
+
+  @if ($value5) {
+    @include media('>=hd') {
+      #{padding-top}: $value5 * 1vh;
+      #{padding-top}: calc(var(--vh, 1vh) * $value5);
+      #{padding-bottom}: $value5 * 1vh;
+      #{padding-bottom}: calc(var(--vh, 1vh) * $value5);
     }
   }
 }

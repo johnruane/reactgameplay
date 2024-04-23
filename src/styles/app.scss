@@ -35,11 +35,14 @@
   background-color: $color-teal;
 }
 
-.vertical-padding-25 {
-  padding-top: 25vh;
-  padding-bottom: 25vh;
-  padding-top: calc(var(--vh, 1vh) * 25);
-  padding-bottom: calc(var(--vh, 1vh) * 25);
+.section-spacing {
+  @include verticalPadding(15, 25, 35, 45);
+
+  row-gap: clamp(192px, 25vw, 332px);
+}
+
+.section-heading-spacing {
+  row-gap: clamp(64px, 10vw, 88px);
 }
 
 .icon-shadow {
@@ -56,8 +59,8 @@
   height: clamp(2.5rem, 6.5cqw, 5rem);
 }
 
-.flip-vertical {
-  transform: rotate(180deg);
+p {
+  max-width: 70ch;
 }
 
 body {
@@ -71,12 +74,3 @@ body {
 button:hover {
   cursor: pointer;
 }
-
-/* .archivo-<uniquifier> {
-  font-family: "Archivo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-} */

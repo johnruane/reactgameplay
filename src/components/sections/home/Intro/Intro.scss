@@ -1,12 +1,16 @@
-.hm-intro-heading {
+.it-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.it-heading {
   @include display1;
 
   color: $color-white;
 }
 
-.hm-intro-subheading {
+.it-subheading {
   @include body1;
 
-  max-width: 75ch;
   color: $color-white;
 }

@@ -1,0 +1,16 @@
+.wave-divider-wrapper {
+  background: url('/src/assets/wave.svg');
+  background-position: center 0;
+  background-color: $color-yellow;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 228px;
+}
+
+.wave-divider-wrapper.vertical {
+  transform: rotate(180deg);
+}
+
+.wave-divider-wrapper.horizontal {
+  transform: scaleX(-1);
+}

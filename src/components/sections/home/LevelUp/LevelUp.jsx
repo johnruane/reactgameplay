@@ -3,7 +3,7 @@ import './LevelUp.scss';
 
 const LevelUp = () => {
   return (
-    <>
+    <div className='hm-levelup-wrapper'>
       <div className='hm-levelup-image-wrapper'>
         <StreetFighter />
       </div>
@@ -16,7 +16,7 @@ const LevelUp = () => {
           for learning React through play.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
