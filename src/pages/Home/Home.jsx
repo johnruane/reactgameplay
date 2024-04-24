@@ -58,7 +58,7 @@ export default function Home() {
 
       <WaveDivider />
 
-      <div className='container background-black'>
+      <div className='container background-black section-spacing'>
         <section className='grid hm-about-section section-heading-spacing'>
           <div className='hm-section-heading-wrapper'>
             <LineCircle />

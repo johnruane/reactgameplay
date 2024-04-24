@@ -79,6 +79,14 @@
 
 .grid.hm-levelup-section {
   @include verticalPadding(15, 25);
+
+  & > * {
+    grid-column: 1 / -1;
+
+    @include media('>=desktop') {
+      grid-column: 2 / -2;
+    }
+  }
 }
 
 .hm-about-wrapper {
@@ -91,8 +99,4 @@
     grid-column: 1 / -1;
     row-gap: 10rem;
   }
-}
-
-.grid.hm-about-section {
-  @include verticalPadding(15, 25);
 }

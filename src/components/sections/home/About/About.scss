@@ -46,6 +46,22 @@
 
 .ab-text {
   @include body1;
+}
 
-  margin: 0;
+.svg-button-wrapper.ab-space-button-wrapper {
+  padding: 0 6rem;
+  width: auto;
+}
+
+.svg-button-wrapper.ab-ctrl-button-wrapper {
+  padding: 0 3rem;
+  width: auto;
+}
+
+.ab-button-text {
+  font-size: $font-size-button-2;
+  color: $color-white;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: $font-weight-bold;
 }

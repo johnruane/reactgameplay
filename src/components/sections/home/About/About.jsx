@@ -1,6 +1,8 @@
+import SVGButton from '@components/SVGButton';
 import ArrowKeys from '@icons/ArrowKeys/ArrowKeys';
 import Space from '@icons/Space';
 import Control from '@icons/Control';
+
 import './About.scss';
 
 const About = () => {
@@ -32,7 +34,10 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <Space className='icon-resp-h icon-shadow' />
+          <SVGButton
+            content={<span className='ab-button-text'>SPACE</span>}
+            className='ab-space-button-wrapper'
+          />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
@@ -47,7 +52,10 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <Control className='icon-resp-h icon-shadow' />
+          <SVGButton
+            content={<span className='ab-button-text'>CTRL</span>}
+            className='ab-ctrl-button-wrapper'
+          />
         </div>
       </div>
     </>

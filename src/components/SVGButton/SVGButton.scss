@@ -1,0 +1,15 @@
+.svg-button-wrapper {
+  @include iconShadow;
+
+  display: flex;
+  place-items: center;
+  background: $color-black;
+  border: 2px solid $color-white;
+  border-radius: 12px;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  & > * {
+    flex: 1;
+  }
+}

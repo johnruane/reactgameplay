@@ -1,16 +1,18 @@
-import DownArrow from '../DownArrow';
-import RightArrow from '../RightArrow';
-import UpArrow from '../UpArrow';
-import LeftArrow from '../LeftArrow';
+import SVGButton from '@components/SVGButton';
+import DownArrow from '@icons/DownArrow';
+import RightArrow from '@icons/RightArrow';
+import UpArrow from '@icons/UpArrow';
+import LeftArrow from '@icons/LeftArrow';
+
 import './ArrowKeys.scss';
 
 const ArrowKeys = ({ className }) => {
   return (
     <div className='ak-wrapper'>
-      <UpArrow className={`${className} ak-up icon-shadow`} />
-      <LeftArrow className={`${className} ak-left icon-shadow`} />
-      <DownArrow className={`${className} ak-down icon-shadow`} />
-      <RightArrow className={`${className} ak-right icon-shadow`} />
+      <SVGButton content={<UpArrow />} className='ak-up' />
+      <SVGButton content={<LeftArrow />} className='ak-left' />
+      <SVGButton content={<DownArrow />} className='ak-down' />
+      <SVGButton content={<RightArrow />} className='ak-right' />
     </div>
   );
 };

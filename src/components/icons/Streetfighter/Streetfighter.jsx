@@ -1,17 +1,18 @@
-import DownArrow from '../DownArrow';
-import DownRightArrow from '../DownRightArrow';
-import RightArrow from '../RightArrow';
-import Plus from '../Plus';
-import Punch from '../Punch';
+import SVGButton from '@components/SVGButton';
+import DownArrow from '@icons/DownArrow';
+import DownRightArrow from '@icons/DownRightArrow';
+import RightArrow from '@icons/RightArrow';
+import Plus from '@icons/Plus';
+import Punch from '@icons/Punch';
 
 const Streetfighter = () => {
   return (
     <>
-      <DownArrow className='icon-resp-w icon-shadow' />
-      <DownRightArrow className='icon-resp-w icon-shadow' />
-      <RightArrow className='icon-resp-w icon-shadow' />
+      <SVGButton content={<DownArrow />} />
+      <SVGButton content={<DownRightArrow />} />
+      <SVGButton content={<RightArrow />} />
       <Plus />
-      <Punch className='icon-resp-w icon-shadow' />
+      <SVGButton content={<Punch />} />
     </>
   );
 };
