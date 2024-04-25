@@ -56,13 +56,8 @@
   grid-area: icon;
   align-self: center;
   justify-self: start;
-  width: 3.15rem;
-  height: 3.15rem;
-
-  @include media('>=tablet') {
-    width: 4.375rem;
-    height: 4.375rem;
-  }
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .gs-title {

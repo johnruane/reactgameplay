@@ -3,7 +3,7 @@ const LineCircle = ({ className }) => (
     width='32'
     height='32'
     stroke='#fefefe'
-    strokeWidth='4'
+    strokeWidth='2'
     xmlns='http://www.w3.org/2000/svg'
     className={className}
   >

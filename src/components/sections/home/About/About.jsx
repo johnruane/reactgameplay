@@ -1,7 +1,5 @@
 import SVGButton from '@components/SVGButton';
 import ArrowKeys from '@icons/ArrowKeys/ArrowKeys';
-import Space from '@icons/Space';
-import Control from '@icons/Control';
 
 import './About.scss';
 

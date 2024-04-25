@@ -78,7 +78,7 @@
 }
 
 .grid.hm-levelup-section {
-  @include verticalPadding(15, 25);
+  @include verticalPadding(10, 15);
 
   & > * {
     grid-column: 1 / -1;

@@ -36,7 +36,7 @@
 }
 
 .section-spacing {
-  @include verticalPadding(15, 25, 35, 45);
+  @include verticalPadding(15, 25, 35, 40);
 
   row-gap: clamp(192px, 25vw, 332px);
 }

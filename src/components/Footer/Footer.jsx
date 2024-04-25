@@ -1,4 +1,6 @@
-import Logo from '../Icons/Logo';
+import Logo from '@icons/Logo';
+import WaveDivider from '@components/WaveDivider';
+
 import './Footer.scss';
 
 const Footer = () => {
@@ -11,6 +13,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      <WaveDivider background='teal' clean flipX />
+
       <footer className='ft-footer'>
         <div className='hm-wavy-wrapper flip-vertical background-teal'>
           <span className='hm-wavy-pink'></span>

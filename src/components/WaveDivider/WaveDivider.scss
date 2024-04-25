@@ -1,16 +1,50 @@
 .wave-divider-wrapper {
-  background: url('/src/assets/wave.svg');
-  background-position: center 0;
-  background-color: $color-yellow;
+  background: url('/src/assets/wave-clean.svg'), url('/src/assets/wave-icons.svg');
+  background-position: center bottom, center 0;
   background-repeat: no-repeat;
   position: relative;
-  height: 228px;
+  height: 188px;
 }
 
-.wave-divider-wrapper.vertical {
+.clean {
+  background: url('/src/assets/wave-clean.svg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 88px;
+}
+
+.icons-teal {
+  background: url('/src/assets/wave-clean.svg'), url('/src/assets/wave-icons-teal.svg');
+  background-position: center bottom, center 0;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 188px;
+}
+
+.top {
+  background: url('/src/assets/wave-top.svg'), url('/src/assets/wave-icons-teal.svg');
+  background-position: center bottom, center top;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 188px;
+}
+
+.vertical {
   transform: rotate(180deg);
 }
 
-.wave-divider-wrapper.horizontal {
+.horizontal {
   transform: scaleX(-1);
+}
+
+.teal {
+  background-color: $color-teal;
+}
+
+.black {
+  background-color: $color-black;
+}
+
+.yellow {
+  background-color: $color-yellow;
 }

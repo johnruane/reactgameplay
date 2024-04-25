@@ -2,21 +2,18 @@
   background-color: $color-teal;
 }
 
-.ft-footer-wrapper {
-  row-gap: 4.5rem;
-}
-
 .grid.ft-footer-wrapper {
-  padding-top: 25vh;
-  padding-top: calc(var(--vh, 1vh) * 25);
-  padding-bottom: 5vh;
-  padding-bottom: calc(var(--vh, 1vh) * 5);
+  @include padding('bottom', 5);
+
+  row-gap: 10rem;
 }
 
 .ft-content-wrapper {
+  @include padding('top', 15);
+
   grid-column: 1 / -1;
   display: grid;
-  row-gap: 3rem;
+  row-gap: clamp(2rem, 2vw, 2.75rem);
 
   @include media('>=desktop') {
     grid-column: 2 / -2;
@@ -24,14 +21,14 @@
 }
 
 .ft-heading {
-  margin: 0;
   font-size: clamp($font-size-display-4, 5vw, $font-size-display-2);
-  line-height: clamp(32px, 6vw, 63px);
+  line-height: clamp($line-height-display-4, 6vw, $line-height-display-2);
   font-weight: $font-weight-bold;
 }
 
 .ft-text-wrapper {
-  @include headingTextSpacing;
+  display: grid;
+  row-gap: clamp(1.5rem, 1vw, 3.375rem);
 }
 
 .ft-text {
@@ -50,6 +47,7 @@
   height: 2px;
   background-color: $color-black;
   position: relative;
+  margin: 0;
 }
 
 .ft-links {
@@ -74,12 +72,11 @@
 }
 
 .grid.ft-gameover-wrapper {
-  @include verticalPadding(5, 10);
+  @include padding('bottom', 5);
 }
 
 .ft-gamerover-text {
   grid-column: 1 / -1;
-  align-self: center;
   justify-self: center;
   color: $color-white;
   font-weight: $font-weight-bold;

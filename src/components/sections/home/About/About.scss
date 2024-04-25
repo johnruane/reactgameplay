@@ -49,17 +49,17 @@
 }
 
 .svg-button-wrapper.ab-space-button-wrapper {
-  padding: 0 6rem;
+  padding: 1rem 6rem;
   width: auto;
 }
 
 .svg-button-wrapper.ab-ctrl-button-wrapper {
-  padding: 0 3rem;
+  padding: 1rem 3rem;
   width: auto;
 }
 
 .ab-button-text {
-  font-size: $font-size-button-2;
+  font-size: clamp($font-size-button-2, 3vw, $font-size-button-1);
   color: $color-white;
   text-transform: uppercase;
   text-align: center;

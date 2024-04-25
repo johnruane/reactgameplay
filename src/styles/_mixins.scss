@@ -42,7 +42,7 @@
 
 @mixin headingTextSpacing {
   display: grid;
-  row-gap: clamp(1.5rem, 2vw, 3rem);
+  row-gap: clamp(1.5rem, 2vw, 3.375rem);
 }
 
 @mixin iconShadow {

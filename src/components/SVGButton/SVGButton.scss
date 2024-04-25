@@ -6,10 +6,16 @@
   background: $color-black;
   border: 2px solid $color-white;
   border-radius: 12px;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: clamp(2.5rem, 6vw, 4rem);
+  height: clamp(2.5rem, 6vw, 4rem);
+  padding: 0.5rem;
 
   & > * {
     flex: 1;
   }
+
+  // @include media('>=tablet') {
+  //   width: 3rem;
+  //   height: 3rem;
+  // }
 }
