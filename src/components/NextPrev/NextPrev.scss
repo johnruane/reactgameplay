@@ -6,7 +6,7 @@
 
 .np-link-wrapper {
   display: flex;
-  row-gap: clamp(1rem, 4vw, 2.5rem);
+  row-gap: clamp(1rem, 4vw, 2rem);
   flex-direction: column;
   text-decoration: none;
   color: $color-black;
@@ -23,19 +23,16 @@
 }
 
 .np-title {
-  text-transform: uppercase;
-  font-size: clamp($font-size-display-4, 4vw, $font-size-display-1);
-  line-height: 1.2;
-  font-weight: $font-weight-bold;
+  @include display3;
 }
 
 .np-next {
   align-items: end;
+  margin-left: auto;
 }
 
 .np-label {
-  font-size: clamp($font-size-body-3, 2cqw, $font-size-body-1);
-  line-height: clamp(24px, 3vw, 48px);
+  @include body1;
 }
 
 .np-text-wrapper {

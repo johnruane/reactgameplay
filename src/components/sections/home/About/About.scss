@@ -5,8 +5,7 @@
 }
 
 .ab-text-heading {
-  font-size: clamp($font-size-display-5, 4vw, $font-size-display-3);
-  line-height: clamp(36px, 5vw, 63px);
+  @include display2;
 }
 
 .ab-text-icon-wrapper {
@@ -61,7 +60,6 @@
 .ab-button-text {
   font-size: clamp($font-size-button-2, 3vw, $font-size-button-1);
   color: $color-white;
-  text-transform: uppercase;
   text-align: center;
   font-weight: $font-weight-bold;
 }

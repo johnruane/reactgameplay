@@ -24,7 +24,6 @@
 
   display: flex;
   column-gap: 1rem;
-  text-transform: capitalize;
 }
 
 .gp-year {
@@ -39,17 +38,12 @@
   row-gap: clamp(32px, 6vw, 100px);
 
   & > div {
-    display: grid;
-    row-gap: clamp(24px, 2vw, 32px);
+    @include spaceText;
   }
 
   @include media('>=desktop') {
     grid-column: 1 / 15;
   }
-}
-
-.gp-details-heading {
-  text-transform: uppercase;
 }
 
 .gp-tabs-wrapper {
@@ -106,13 +100,10 @@
 
 .gp-gamesheet-heading {
   @include display1;
-
-  text-transform: uppercase;
 }
 
 .gp-game-layout {
   grid-column: 1 / -1;
-  max-width: 45rem;
   justify-self: center;
 
   // @include media('>=desktop') {

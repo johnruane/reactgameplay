@@ -23,9 +23,9 @@ const Footer = () => {
         </div>
         <div className='container background-teal'>
           <div className='grid ft-footer-wrapper'>
-            <div className='ft-content-wrapper'>
-              <p className='ft-heading'>Hello, I&apos;m John Ruane.</p>
-              <div className='ft-text-wrapper'>
+            <div className='ft-content-wrapper space-text'>
+              <h2 className='ft-heading'>Hello, I&apos;m John Ruane.</h2>
+              <div className='ft-text-wrapper space-text'>
                 <p className='ft-text'>
                   I&apos;m a Software Engineer living in Manchester.
                 </p>

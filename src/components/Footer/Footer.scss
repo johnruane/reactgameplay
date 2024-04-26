@@ -13,7 +13,6 @@
 
   grid-column: 1 / -1;
   display: grid;
-  row-gap: clamp(2rem, 2vw, 2.75rem);
 
   @include media('>=desktop') {
     grid-column: 2 / -2;
@@ -21,20 +20,11 @@
 }
 
 .ft-heading {
-  font-size: clamp($font-size-display-4, 5vw, $font-size-display-2);
-  line-height: clamp($line-height-display-4, 6vw, $line-height-display-2);
-  font-weight: $font-weight-bold;
-}
-
-.ft-text-wrapper {
-  display: grid;
-  row-gap: clamp(1.5rem, 1vw, 3.375rem);
+  @include display1;
 }
 
 .ft-text {
   @include body1;
-
-  max-width: 75ch;
 }
 
 .ft-logo-wrapper {
@@ -72,7 +62,7 @@
 }
 
 .grid.ft-gameover-wrapper {
-  @include padding('bottom', 5);
+  @include verticalPadding(10, 15);
 }
 
 .ft-gamerover-text {

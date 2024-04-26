@@ -29,13 +29,10 @@
   @include media('>=tablet') {
     grid-column: 2;
   }
-
-  @include media('>=desktop') {
-  }
 }
 
 .hm-levelup-heading {
-  @include display1;
+  @include display2;
 }
 
 .hm-levelup-sub-heading {

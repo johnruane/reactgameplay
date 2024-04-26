@@ -1,16 +1,20 @@
 @mixin display1 {
-  font-size: clamp($font-size-display-5, 5vw, $font-size-display-2);
-  line-height: clamp($line-height-display-5, 6vw, $line-height-display-2);
+  font-size: clamp($font-size-display-4, 5vw, $font-size-display-2);
   font-weight: $font-weight-bold;
+}
 
-  &:has(+ *) {
-    margin-bottom: clamp($font-size-display-5, 2vw, $font-size-display-2);
-  }
+@mixin display2 {
+  font-size: clamp($font-size-display-5, 5vw, $font-size-display-3);
+  font-weight: $font-weight-bold;
+}
+
+@mixin display3 {
+  font-size: clamp($font-size-display-4, 5vw, $font-size-display-1);
+  font-weight: $font-weight-bold;
 }
 
 @mixin body1 {
   font-size: clamp($font-size-body-3, 2vw, $font-size-body-2);
-  line-height: clamp($line-height-body-3, 3vw, $line-height-body-2);
 }
 
 @mixin button1 {
@@ -25,8 +29,6 @@
   & span {
     font-weight: $font-weight-bold;
     font-size: clamp($font-size-button-2, 2cqw, $font-size-button-1);
-    line-height: initial;
-    text-transform: uppercase;
   }
 
   &:hover {
@@ -102,5 +104,11 @@
       #{padding-bottom}: $value5 * 1vh;
       #{padding-bottom}: calc(var(--vh, 1vh) * $value5);
     }
+  }
+}
+
+@mixin spaceText {
+  & > *:has(+ *) {
+    margin-bottom: 0.5em;
   }
 }

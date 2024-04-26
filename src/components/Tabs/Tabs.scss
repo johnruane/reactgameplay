@@ -31,8 +31,6 @@
   color: $color-white;
 }
 
-.tb-tabs-content-wrapper {
-  @include media('>=desktop') {
-    max-width: 75ch;
-  }
+.tb-tabs-content-wrapper ol {
+  @include spaceText;
 }

@@ -8,7 +8,7 @@ const About = () => {
     <>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
-          <p className='ab-text-heading'>Learning Made Exciting and Interactive</p>
+          <h2 className='ab-text-heading'>Learning Made Exciting and Interactive</h2>
           <p className='ab-text'>
             At React Gameplay, I firmly believe that learning should be an engaging and
             hands-on experience. That&apos;s why I&apos;ve meticulously curated a
@@ -22,7 +22,7 @@ const About = () => {
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
-          <p className='ab-text-heading'>Guided Exploration: Your Path to Mastery</p>
+          <h2 className='ab-text-heading'>Guided Exploration: Your Path to Mastery</h2>
           <p className='ab-text'>
             Every game in our collection comes with invaluable insights and practical tips
             on fundamental concepts. From mastering state management to implementing
@@ -33,14 +33,14 @@ const About = () => {
         </div>
         <div className='ab-icon-wrapper'>
           <SVGButton
-            content={<span className='ab-button-text'>SPACE</span>}
+            content={<span className='ab-button-text text-uppercase'>SPACE</span>}
             className='ab-space-button-wrapper'
           />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper'>
-          <p className='ab-text-heading'>Elevate Your Skills While Having Fun</p>
+          <h2 className='ab-text-heading'>Elevate Your Skills While Having Fun</h2>
           <p className='ab-text'>
             Are you prepared to elevate your coding prowess while embarking on an
             exhilarating journey? Take your pick from our array of games, dive deep into
@@ -51,7 +51,7 @@ const About = () => {
         </div>
         <div className='ab-icon-wrapper'>
           <SVGButton
-            content={<span className='ab-button-text'>CTRL</span>}
+            content={<span className='ab-button-text text-uppercase'>CTRL</span>}
             className='ab-ctrl-button-wrapper'
           />
         </div>

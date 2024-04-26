@@ -7,6 +7,7 @@ import Tabs from '@components/Tabs';
 import pageData from '@data';
 import Cross from '@icons/Cross';
 import NextPrev from '@components/NextPrev';
+import WaveDivider from '@components/WaveDivider';
 
 import './GamePage.scss';
 
@@ -34,6 +35,7 @@ const GamePage = () => {
 
   return (
     <>
+      <WaveDivider background='yellow' clean />
       <div className='container background-black'>
         <div className='grid'>
           <div className='gp-intro-wrapper'>
@@ -41,24 +43,24 @@ const GamePage = () => {
               <button className='gp-game-button' onClick={handleButtonClick}>
                 <span>Play Now</span>
               </button>
-              <h1 className='gp-heading'>
+              <h1 className='gp-heading text-uppercase'>
                 {id}
                 <span className='gp-year'>{year}</span>
               </h1>
             </div>
             <div className='gp-details-wrapper'>
               <div>
-                <p className='gp-details-heading'>Complexity</p>
+                <p className='text-uppercase'>Complexity</p>
                 <p>{complexity}</p>
               </div>
 
               <div>
-                <p className='gp-details-heading'>Controls</p>
+                <p className='text-uppercase'>Controls</p>
                 {controls}
               </div>
 
               <div>
-                <p className='gp-details-heading'>Intro</p>
+                <p className='text-uppercase'>Intro</p>
                 {intro}
               </div>
             </div>
@@ -66,10 +68,7 @@ const GamePage = () => {
         </div>
       </div>
 
-      <div className='hm-wavy-wrapper flip-vertical'>
-        <span className='hm-wavy-pink'></span>
-        <span className='hm-wavy-black'></span>
-      </div>
+      <WaveDivider background='yellow' clean flipX />
 
       <div className='container background-yellow'>
         <div className='grid'>
@@ -90,10 +89,10 @@ const GamePage = () => {
           ['active']: gameSheetToggle,
         })}
       >
-        <div className='container gp-gamesheet-wrapper '>
+        <div className='container gp-gamesheet-wrapper'>
           <div className='grid'>
             <div className='gp-gamesheet-heading-wrapper'>
-              <h2 className='gp-gamesheet-heading'>{id}</h2>
+              <h2 className='gp-gamesheet-heading text-uppercase'>{id}</h2>
 
               <button className='gp-game-close-button' onClick={handleButtonClick}>
                 <Cross />
@@ -103,6 +102,8 @@ const GamePage = () => {
           </div>
         </div>
       </div>
+
+      <WaveDivider background='yellow' clean />
 
       {gameSheetToggle && <RemoveScrollBar />}
     </>

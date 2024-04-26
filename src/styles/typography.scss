@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  max-width: 40ch;
+}
+
+p,
+li {
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+a {
+  line-height: 1;
+}
+
+button,
+button > * {
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.space-text > *:has(+ *) {
+  margin-bottom: 0.5em;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}

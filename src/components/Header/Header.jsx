@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import Logo from '../Icons/Logo';
+
 import './Header.scss';
 
 const Header = () => {
@@ -6,7 +9,9 @@ const Header = () => {
     <div className='container background-yellow'>
       <header className='grid '>
         <div className='h-logo'>
-          <Logo />
+          <Link to='/' className='h-logo'>
+            <Logo />
+          </Link>
         </div>
       </header>
       <div className='hm-wavy-wrapper'>
