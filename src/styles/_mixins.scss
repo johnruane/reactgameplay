@@ -108,7 +108,13 @@
 }
 
 @mixin spaceText {
-  & > *:has(+ *) {
-    margin-bottom: 0.5em;
+  & > * + * {
+    margin-top: 1em;
+  }
+}
+
+@mixin spaceElement {
+  & > * + * {
+    margin-top: clamp(5rem, 5vw, 10rem);
   }
 }

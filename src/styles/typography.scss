@@ -22,8 +22,8 @@ button > * {
   text-transform: uppercase;
 }
 
-.space-text > *:has(+ *) {
-  margin-bottom: 0.5em;
+.space-text > * + * {
+  margin-top: 1.2em;
 }
 
 .text-uppercase {

@@ -105,7 +105,7 @@ const tabs = [
     content: (
       <>
         <p>The game is made up of the following major components:</p>
-        <ul>
+        <ul role='list'>
           <li>
             <code>displayBoard</code>
           </li>

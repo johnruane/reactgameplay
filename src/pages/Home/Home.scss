@@ -1,6 +1,6 @@
 .hm-section-wrapper {
   @include padding('top', 10);
-  @include padding('bottom', 25);
+  @include padding('bottom', 20);
 
   display: grid;
   grid-template-columns: minmax(1.2rem, 1fr) minmax(auto, 80vw) minmax(1.2rem, 1fr);
@@ -44,16 +44,25 @@
   }
 }
 
+.hm-enter-wrapper {
+  @include padding('bottom', 15);
+
+  grid-column: 1 / -1;
+  justify-self: center;
+  position: relative;
+  margin-top: -20vw;
+}
+
 .hm-enter-icon {
   @include iconShadow;
 
-  transform: translateY(-30%);
+  // transform: translateY(-30%);
   width: clamp(5.75rem, 10vw, 10.6rem);
   height: auto;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate3d(-50%, 20%, 0);
+  // position: absolute;
+  // left: 50%;
+  // top: 0;
+  // transform: translate3d(-50%, 20%, 0);
 }
 
 .hm-section-heading-wrapper {
@@ -90,13 +99,13 @@
 }
 
 .hm-about-wrapper {
+  @include spaceElement;
+
   display: grid;
-  row-gap: 5rem;
 
   @include media('>=tablet') {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
-    row-gap: 10rem;
   }
 }

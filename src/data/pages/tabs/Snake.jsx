@@ -62,7 +62,7 @@ const tabs = [
     content: (
       <>
         <p>The game is made up of the following major components:</p>
-        <ul>
+        <ul role='list'>
           <li>
             <code>displayBoard</code>
           </li>
@@ -107,7 +107,7 @@ const tabs = [
             The <code>snakeBody</code> is represented by an <code>Array</code> of numbers
             i.e <code>{'[1, 2, 4]'}</code>. The numbers represent the direction the body
             takes relative to the previous position. In my case:
-            <ul>
+            <ul role='list'>
               <li>
                 <code>1</code> = Down,
               </li>

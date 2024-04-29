@@ -26,12 +26,13 @@ export default function Home() {
         </section>
       </div>
 
-      <WaveDivider background='yellow'>
-        <Enter className='hm-enter-icon' />
-      </WaveDivider>
+      <WaveDivider background='yellow' />
 
       <div className='container background-black section-spacing'>
-        <section className='hm-intro-section grid '>
+        <section className='hm-intro-section grid'>
+          <div className='hm-enter-wrapper'>
+            <Enter className='hm-enter-icon' />
+          </div>
           <div className='hm-intro-wrapper'>
             <IntroSection />
           </div>

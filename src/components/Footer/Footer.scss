@@ -60,20 +60,3 @@
   font-size: $font-size-link;
   font-weight: $font-weight-bold;
 }
-
-.grid.ft-gameover-wrapper {
-  @include verticalPadding(10, 15);
-}
-
-.ft-gamerover-text {
-  grid-column: 1 / -1;
-  justify-self: center;
-  color: $color-white;
-  font-weight: $font-weight-bold;
-  font-size: clamp($font-size-display-3, 4vw, $font-size-display-1);
-  line-height: initial;
-}
-
-.ft-gamerover-text-thin {
-  font-weight: $font-weight-light;
-}

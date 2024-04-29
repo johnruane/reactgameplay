@@ -6,14 +6,6 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-      <div className='container background-black'>
-        <div className='grid ft-gameover-wrapper'>
-          <p className='ft-gamerover-text'>
-            <span>GAME</span>&nbsp;<span className='ft-gamerover-text-thin'>OVER</span>
-          </p>
-        </div>
-      </div>
-
       <WaveDivider background='teal' clean flipX />
 
       <footer className='ft-footer'>

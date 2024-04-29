@@ -1,6 +1,7 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Header from '@components/Header';
-import Footer from '../../../components/Footer';
+import Footer from '@components/Footer';
+import Gameover from '@components/Gameover';
 import GetKey from '../../../utils/GetKey';
 
 export default function DefaultLayout() {
@@ -8,6 +9,7 @@ export default function DefaultLayout() {
     <>
       <Header />
       <Outlet />
+      <Gameover />
       <Footer />
       <ScrollRestoration getKey={GetKey()} />
     </>
