@@ -23,7 +23,7 @@
 }
 
 .np-title {
-  @include display3;
+  @include display1;
 }
 
 .np-next {
@@ -32,7 +32,7 @@
 }
 
 .np-label {
-  @include body1;
+  @include body;
 }
 
 .np-text-wrapper {

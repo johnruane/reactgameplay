@@ -73,7 +73,7 @@
 }
 
 .hm-section-heading {
-  @include body1;
+  @include body;
 
   color: $color-white;
 }
@@ -87,8 +87,6 @@
 }
 
 .grid.hm-levelup-section {
-  @include verticalPadding(10, 15);
-
   & > * {
     grid-column: 1 / -1;
 

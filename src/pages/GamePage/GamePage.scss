@@ -1,5 +1,5 @@
 .gp-intro-wrapper {
-  @include body1;
+  @include body;
   @include padding('top', 5);
   @include padding('bottom', 15);
 
@@ -27,9 +27,8 @@
 }
 
 .gp-year {
-  font-size: clamp($font-size-caption-3, 2cqw, $font-size-caption-1);
+  font-size: $font--1;
   font-weight: $font-weight-regular;
-  line-height: clamp(18px, 3vw, 36px);
 }
 
 .gp-details-wrapper {
@@ -37,17 +36,13 @@
   display: grid;
   row-gap: clamp(32px, 6vw, 100px);
 
-  & > div {
-    @include spaceText;
-  }
-
   @include media('>=desktop') {
     grid-column: 1 / 15;
   }
 }
 
 .gp-tabs-wrapper {
-  @include body1;
+  @include body;
   @include verticalPadding(15, 20);
 
   grid-column: 1 / -1;
@@ -81,78 +76,18 @@
 }
 
 .gp-game-button {
-  @include button1;
+  @include buttonStyle;
 
   width: fit-content;
   padding: 1rem 1.5rem;
 }
 
-.gp-game-button-text {
-  @include button1;
-}
-
-.gp-gamesheet-heading-wrapper {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem 0;
-}
-
-.gp-gamesheet-heading {
-  @include display1;
-}
-
 .gp-game-layout {
   grid-column: 1 / -1;
   justify-self: center;
-
-  // @include media('>=desktop') {
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
 }
 
-// @include media('>=desktop') {
-//   .gp-score-wrapper {
-//     display: flex;
-//     flex-direction: column;
-//     row-gap: 1.5rem;
-//     height: fit-content;
-//     justify-items: left;
-//     justify-self: left;
-//     width: 100%;
-
-//     & > * {
-//       padding-bottom: 1.5rem;
-//       justify-items: left;
-//       border-right: none;
-//       border-bottom: 1px solid $color-black;
-//     }
-//   }
-// }
-
-.gp-game-close-button {
-  @include button1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.modal-container {
-  position: fixed;
-  overflow: hidden;
-  height: 1px;
-  width: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: height 0.5s ease, width 0.5s ease 0.5s;
-}
-
-.modal-container.active {
-  height: 100%;
-  width: 100%;
-  transition: width 0.5s ease, height 0.5s ease 0.5s;
+.gp-details-title {
+  font-size: $font-0;
+  font-weight: $font-weight-bold;
 }

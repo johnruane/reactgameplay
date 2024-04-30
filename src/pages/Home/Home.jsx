@@ -28,11 +28,11 @@ export default function Home() {
 
       <WaveDivider background='yellow' />
 
-      <div className='container background-black section-spacing'>
+      <div className='container background-black spacing1'>
         <section className='hm-intro-section grid'>
-          <div className='hm-enter-wrapper'>
+          {/* <div className='hm-enter-wrapper'>
             <Enter className='hm-enter-icon' />
-          </div>
+          </div> */}
           <div className='hm-intro-wrapper'>
             <IntroSection />
           </div>
@@ -51,7 +51,7 @@ export default function Home() {
 
       <WaveDivider background='yellow' flipX clean />
 
-      <div className='container background-yellow'>
+      <div className='container background-yellow spacing2'>
         <section className='grid hm-levelup-section'>
           <LevelUpSection />
         </section>
@@ -59,7 +59,7 @@ export default function Home() {
 
       <WaveDivider background='yellow' />
 
-      <div className='container background-black section-spacing'>
+      <div className='container background-black spacing1'>
         <section className='grid hm-about-section section-heading-spacing'>
           <div className='hm-section-heading-wrapper'>
             <LineCircle />

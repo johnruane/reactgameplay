@@ -1,16 +1,10 @@
-.ab-content-wrapper {
-  display: grid;
-  row-gap: 5rem;
-  color: $color-white;
-}
-
 .ab-text-heading {
   @include display2;
 }
 
 .ab-text-icon-wrapper {
   display: grid;
-  row-gap: 5rem;
+  row-gap: $space-2xl;
   justify-items: center;
 
   @include media('>=tablet') {
@@ -44,7 +38,7 @@
 }
 
 .ab-text {
-  @include body1;
+  @include body;
 }
 
 .svg-button-wrapper.ab-space-button-wrapper {
@@ -58,8 +52,8 @@
 }
 
 .ab-button-text {
-  font-size: clamp($font-size-button-2, 3vw, $font-size-button-1);
+  @include button;
+
   color: $color-white;
   text-align: center;
-  font-weight: $font-weight-bold;
 }

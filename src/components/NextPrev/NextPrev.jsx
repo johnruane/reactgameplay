@@ -18,7 +18,7 @@ const NextPrev = ({ current }) => {
           key={gameLinks[linkIndex - 1]?.link}
         >
           <PolygonLeft />
-          <div className='np-text-wrapper space-text'>
+          <div className='np-text-wrapper'>
             <span className='np-label'>Previous</span>
             <span className='np-title text-uppercase'>
               {gameLinks[linkIndex - 1]?.id}
@@ -33,7 +33,7 @@ const NextPrev = ({ current }) => {
           key={gameLinks[linkIndex + 1]?.link}
         >
           <PolygonRight />
-          <div className='np-text-wrapper np-next space-text'>
+          <div className='np-text-wrapper np-next'>
             <span className='np-label'>Next</span>
             <span className='np-title text-uppercase'>
               {gameLinks[linkIndex + 1]?.id}

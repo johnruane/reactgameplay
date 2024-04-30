@@ -8,6 +8,7 @@ import pageData from '@data';
 import Cross from '@icons/Cross';
 import NextPrev from '@components/NextPrev';
 import WaveDivider from '@components/WaveDivider';
+import Modal from '@components/Modal';
 
 import './GamePage.scss';
 
@@ -49,18 +50,18 @@ const GamePage = () => {
               </h1>
             </div>
             <div className='gp-details-wrapper'>
-              <div>
-                <p className='text-uppercase'>Complexity</p>
+              <div className='space-text'>
+                <p className='gp-details-title text-uppercase'>Complexity</p>
                 <p>{complexity}</p>
               </div>
 
-              <div>
-                <p className='text-uppercase'>Controls</p>
+              <div className='space-text'>
+                <p className='gp-details-title text-uppercase'>Controls</p>
                 {controls}
               </div>
 
-              <div>
-                <p className='text-uppercase'>Intro</p>
+              <div className='space-text'>
+                <p className='gp-details-title text-uppercase'>Intro</p>
                 {intro}
               </div>
             </div>
@@ -84,24 +85,9 @@ const GamePage = () => {
         <span className='hm-wavy-black'></span>
       </div>
 
-      <div
-        className={classNames('modal-container background-yellow', {
-          ['active']: gameSheetToggle,
-        })}
-      >
-        <div className='container gp-gamesheet-wrapper'>
-          <div className='grid'>
-            <div className='gp-gamesheet-heading-wrapper'>
-              <h2 className='gp-gamesheet-heading text-uppercase'>{id}</h2>
-
-              <button className='gp-game-close-button' onClick={handleButtonClick}>
-                <Cross />
-              </button>
-            </div>
-            {gameSheetToggle && game}
-          </div>
-        </div>
-      </div>
+      <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
+        {gameSheetToggle && game}
+      </Modal>
 
       <WaveDivider background='yellow' clean />
 

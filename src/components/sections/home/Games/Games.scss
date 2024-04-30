@@ -47,9 +47,9 @@
   background-color: $color-pink;
   border-radius: 0.75rem 0rem 0.25rem 0rem;
   color: $color-white;
-  font-size: $font-size-caption-3;
+  font-size: $font--2;
   top: -1px;
-  left: 0;
+  left: -2px;
 }
 
 .gs-icon {
@@ -61,7 +61,8 @@
 }
 
 .gs-title {
-  font-size: clamp($font-size-display-6, 10vw, $font-size-display-3);
+  @include display2;
+
   line-height: 1;
   grid-area: heading;
   justify-self: end;
@@ -76,9 +77,9 @@
 }
 
 .gs-level {
-  font-size: $font-size-body-3;
+  font-size: $font-0;
+  color: $color-white;
   grid-area: text;
   justify-self: end;
   align-self: end;
-  color: $color-white;
 }

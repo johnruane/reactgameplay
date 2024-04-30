@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
         <div className='container background-teal'>
           <div className='grid ft-footer-wrapper'>
-            <div className='ft-content-wrapper space-text'>
+            <div className='ft-content-wrapper'>
               <h2 className='ft-heading'>Hello, I&apos;m John Ruane.</h2>
               <div className='ft-text-wrapper space-text'>
                 <p className='ft-text'>
@@ -35,9 +35,9 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className='ft-logo-wrapper'>
-              <Logo />
-            </div>
+          </div>
+          <div className='ft-logo-wrapper'>
+            <Logo />
           </div>
         </div>
         <hr className='ft-divider' />

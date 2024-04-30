@@ -3,16 +3,14 @@
 }
 
 .grid.ft-footer-wrapper {
-  @include padding('bottom', 5);
-
-  row-gap: 10rem;
+  padding-top: $space-3xl-4xl;
+  padding-bottom: $space-3xl-4xl;
 }
 
 .ft-content-wrapper {
-  @include padding('top', 15);
-
   grid-column: 1 / -1;
   display: grid;
+  row-gap: $space-l;
 
   @include media('>=desktop') {
     grid-column: 2 / -2;
@@ -20,16 +18,17 @@
 }
 
 .ft-heading {
-  @include display1;
+  @include display2;
 }
 
 .ft-text {
-  @include body1;
+  @include body;
 }
 
 .ft-logo-wrapper {
   grid-column: 1 / -1;
   justify-self: center;
+  padding-bottom: $space-xl;
 }
 
 .ft-divider {
@@ -45,18 +44,17 @@
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  padding: 4rem 1rem 2rem;
+  padding: 3rem 1rem 3rem;
 
   @include media('>=tablet') {
     flex-direction: row;
     justify-content: space-around;
-    padding: 2.6rem 0;
   }
 }
 
 .ft-links a {
+  @include link;
+
   text-decoration: none;
   color: $color-black;
-  font-size: $font-size-link;
-  font-weight: $font-weight-bold;
 }

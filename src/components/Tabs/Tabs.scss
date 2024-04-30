@@ -12,17 +12,16 @@
 
 .tb-tab-button {
   all: unset;
+  @include body;
+
   background-color: $color-yellow;
   border-radius: 3.125rem;
   border: 2px solid $color-black;
   color: $color-black;
-  font-size: clamp($font-size-body-3, 4vw, $font-size-body-2);
-  line-height: initial;
   font-weight: $font-weight-bold;
   justify-self: center;
   align-self: center;
-  margin: 0;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1.25rem;
 }
 
 .tb-tab-button-active {
@@ -34,4 +33,5 @@
 
 .tb-tabs-content-wrapper ol {
   @include spaceText;
+  @include body;
 }

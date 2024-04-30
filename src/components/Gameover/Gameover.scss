@@ -3,12 +3,11 @@
 }
 
 .go-text {
+  font-size: $font-4;
+
   grid-column: 1 / -1;
   justify-self: center;
   color: $color-white;
-  font-weight: $font-weight-bold;
-  font-size: clamp($font-size-display-3, 4vw, $font-size-display-1);
-  line-height: initial;
 }
 
 .go-text-thin {

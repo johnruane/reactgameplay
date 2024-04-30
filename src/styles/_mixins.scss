@@ -1,26 +1,35 @@
 @mixin display1 {
-  font-size: clamp($font-size-display-4, 5vw, $font-size-display-2);
+  font-size: $font-3;
   font-weight: $font-weight-bold;
 }
 
 @mixin display2 {
-  font-size: clamp($font-size-display-5, 5vw, $font-size-display-3);
+  font-size: $font-2;
   font-weight: $font-weight-bold;
 }
 
-@mixin display3 {
-  font-size: clamp($font-size-display-4, 5vw, $font-size-display-1);
+@mixin body {
+  font-size: $font-0;
+  font-weight: $font-weight-regular;
+}
+
+@mixin link {
+  font-size: $font--2;
+  font-weight: $font-weight-bold;
+}
+@mixin button {
+  font-size: $font-0;
   font-weight: $font-weight-bold;
 }
 
-@mixin body1 {
-  font-size: clamp($font-size-body-3, 2vw, $font-size-body-2);
-}
-
-@mixin button1 {
+@mixin buttonStyle {
   all: unset;
+  @include button;
   @include iconShadow;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid $color-white;
   background-color: $color-black;
   border-radius: $button-border-radius;
@@ -28,17 +37,10 @@
 
   & span {
     font-weight: $font-weight-bold;
-    font-size: clamp($font-size-button-2, 2cqw, $font-size-button-1);
+    font-size: $font-0;
   }
 
   &:hover {
-    background-color: $color-white;
-    border: 2px solid transparent;
-
-    & span,
-    & svg {
-      mix-blend-mode: difference;
-    }
   }
 }
 
@@ -115,6 +117,6 @@
 
 @mixin spaceElement {
   & > * + * {
-    margin-top: clamp(5rem, 5vw, 10rem);
+    margin-top: $space-3xl-5xl;
   }
 }

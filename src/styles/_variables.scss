@@ -1,39 +1,20 @@
-/* Display */
-$font-size-display-1: 5.25rem;
-$font-size-display-2: 3.375rem;
-$font-size-display-3: 2.625rem;
-$font-size-display-4: 2rem;
-$font-size-display-5: 1.5rem;
-$font-size-display-6: 1rem;
+/* Font sizes */
+$font--2: clamp(0.64rem, 0.5775rem + 0.3123vi, 0.8442rem);
+$font--1: clamp(0.8rem, 0.7005rem + 0.4976vi, 1.1253rem);
+$font-0: clamp(1rem, 0.847rem + 0.7648vi, 1.5rem);
+$font-1: clamp(1.25rem, 1.0207rem + 1.1465vi, 1.9995rem);
+$font-2: clamp(1.5625rem, 1.2251rem + 1.6869vi, 2.6653rem);
+$font-3: clamp(1.9531rem, 1.4637rem + 2.4471vi, 3.5529rem);
+$font-4: clamp(2.4414rem, 1.7394rem + 3.5099vi, 4.736rem);
+$font-5: clamp(3.0518rem, 2.054rem + 4.9887vi, 6.3131rem);
 
-/* Special */
-$font-size-homepage-heading-1: 10rem;
-$font-size-homepage-heading-2: 4.375rem;
-$font-size-homepage-heading-3: 2rem;
+/* Fonts */
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
 
-/* Headings */
-$font-size-heading-1: 2.625rem;
-$font-size-heading-2: 1.5rem;
-$font-size-heading-3: 1rem;
-
-/* Body */
-$font-size-body-1: 2rem;
-$font-size-body-2: 1.5rem;
-$font-size-body-3: 1rem;
-
-/* Button */
-$font-size-button-1: 1.5rem;
-$font-size-button-2: 1rem;
-
+/* Borders */
 $button-border-radius: 0.75rem;
-
-/* Link */
-$font-size-link: 1rem;
-
-/* Caption */
-$font-size-caption-1: 1.5rem;
-$font-size-caption-2: 1rem;
-$font-size-caption-3: 0.75rem;
 
 /* Colours */
 $color-yellow: #f4d34b;
@@ -46,11 +27,6 @@ $color-white: #fefefe;
 $grid-phone: repeat(2, 1fr);
 $grid-tablet: repeat(12, 1fr);
 $grid-desktop: repeat(18, 1fr);
-
-/* Fonts */
-$font-weight-light: 100;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
 
 /* Margins */
 $margin-horizontal-1: 1rem;
