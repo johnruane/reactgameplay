@@ -3,6 +3,12 @@ import TetrisGame from '@components/Games/tetris';
 
 const gamePageData = {
   id: 'minesweeper',
+  title: (
+    <>
+      <span>Mine</span>
+      <span>sweeper</span>
+    </>
+  ),
   year: '1984',
   complexity: 'Level 3',
   controls: (

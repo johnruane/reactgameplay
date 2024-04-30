@@ -3,6 +3,7 @@ import TetrisGame from '@components/Games/tetris';
 
 const gamePageData = {
   id: 'tetris',
+  title: <>Tetris</>,
   year: '1984',
   complexity: 'Level 3',
   controls: (

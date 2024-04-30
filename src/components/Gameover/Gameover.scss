@@ -3,9 +3,8 @@
 }
 
 .go-text {
-  font-size: $font-4;
-
   grid-column: 1 / -1;
+  font-size: $font-4;
   justify-self: center;
   color: $color-white;
 }

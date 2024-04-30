@@ -29,8 +29,6 @@
 }
 
 .hm-image {
-  grid-column: 1 / -1;
-
   @include media('>=tablet') {
     grid-column: 2;
   }
@@ -66,16 +64,7 @@
 }
 
 .hm-section-heading-wrapper {
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
   grid-column: 1 / -1;
-}
-
-.hm-section-heading {
-  @include body;
-
-  color: $color-white;
 }
 
 .hm-section-content-wrapper {
@@ -97,9 +86,11 @@
 }
 
 .hm-about-wrapper {
-  @include spaceElement;
-
   display: grid;
+
+  & > * + * {
+    margin-top: $space-3xl-5xl;
+  }
 
   @include media('>=tablet') {
     display: grid;

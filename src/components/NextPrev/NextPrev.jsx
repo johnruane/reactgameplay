@@ -21,7 +21,7 @@ const NextPrev = ({ current }) => {
           <div className='np-text-wrapper'>
             <span className='np-label'>Previous</span>
             <span className='np-title text-uppercase'>
-              {gameLinks[linkIndex - 1]?.id}
+              {gameLinks[linkIndex - 1]?.title}
             </span>
           </div>
         </Link>
@@ -36,7 +36,7 @@ const NextPrev = ({ current }) => {
           <div className='np-text-wrapper np-next'>
             <span className='np-label'>Next</span>
             <span className='np-title text-uppercase'>
-              {gameLinks[linkIndex + 1]?.id}
+              {gameLinks[linkIndex + 1]?.title}
             </span>
           </div>
         </Link>

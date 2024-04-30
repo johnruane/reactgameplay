@@ -1,57 +1,3 @@
-.gp-intro-wrapper {
-  @include body;
-  @include padding('top', 5);
-  @include padding('bottom', 15);
-
-  grid-column: 1 / -1;
-  color: $color-white;
-  display: grid;
-  grid-template-columns: subgrid;
-  row-gap: 2rem;
-
-  @include media('>=tablet') {
-    @include padding('top', 15);
-    @include padding('bottom', 25);
-  }
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
-  }
-}
-
-.gp-heading {
-  @include display1;
-
-  display: flex;
-  column-gap: 1rem;
-}
-
-.gp-year {
-  font-size: $font--1;
-  font-weight: $font-weight-regular;
-}
-
-.gp-details-wrapper {
-  grid-column: 1 / -1;
-  display: grid;
-  row-gap: clamp(32px, 6vw, 100px);
-
-  @include media('>=desktop') {
-    grid-column: 1 / 15;
-  }
-}
-
-.gp-tabs-wrapper {
-  @include body;
-  @include verticalPadding(15, 20);
-
-  grid-column: 1 / -1;
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
-  }
-}
-
 .gp-heading-wrapper {
   grid-column: 1 / -1;
   display: grid;
@@ -68,18 +14,69 @@
       grid-column: 1;
     }
 
-    & > .gp-game-button {
+    & > .button {
       justify-self: end;
+      align-self: baseline;
       grid-column: 2;
     }
   }
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
 }
 
-.gp-game-button {
-  @include buttonStyle;
+.gp-heading {
+  @include display1;
 
-  width: fit-content;
-  padding: 1rem 1.5rem;
+  color: $color-white;
+  display: flex;
+  column-gap: 1rem;
+}
+
+.gp-year {
+  font-size: $font--1;
+  font-weight: $font-weight-regular;
+}
+
+.gp-details-wrapper {
+  @include body;
+
+  grid-column: 1 / -1;
+  display: grid;
+  row-gap: clamp(32px, 6vw, 100px);
+  color: $color-white;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
+}
+
+.gp-intro-wrapper {
+  grid-column: 1 / -1;
+}
+
+.gp-intro-text {
+  @include body;
+
+  grid-column: 1 / -1;
+  color: $color-white;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
+}
+
+.gp-tabs-wrapper {
+  @include body;
+
+  grid-column: 1 / -1;
+  display: grid;
+  row-gap: $space-2xl-3xl;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
 }
 
 .gp-game-layout {

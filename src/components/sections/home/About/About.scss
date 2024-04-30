@@ -24,8 +24,7 @@
 }
 
 .ab-text-wrapper {
-  @include headingTextSpacing;
-
+  display: grid;
   color: $color-white;
 
   @include media('>=tablet') {

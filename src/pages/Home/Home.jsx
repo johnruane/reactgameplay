@@ -6,6 +6,7 @@ import IntroSection from '@sections/home/Intro';
 import GamesSection from '@sections/home/Games';
 import AboutSection from '@sections/home/About';
 import LevelUpSection from '@sections/home/LevelUp';
+import Heading from '@sections/Heading';
 
 import WaveDivider from '@components/WaveDivider';
 
@@ -28,7 +29,7 @@ export default function Home() {
 
       <WaveDivider background='yellow' />
 
-      <div className='container background-black spacing1'>
+      <div className='container background-black space-section-xl'>
         <section className='hm-intro-section grid'>
           {/* <div className='hm-enter-wrapper'>
             <Enter className='hm-enter-icon' />
@@ -39,10 +40,7 @@ export default function Home() {
         </section>
 
         <section className='grid hm-games-section section-heading-spacing'>
-          <div className='hm-section-heading-wrapper'>
-            <LineCircle />
-            <p className='hm-section-heading'>GAMES</p>
-          </div>
+          <Heading title='GAMES' className='hm-section-heading-wrapper' />
           <div className='hm-section-content-wrapper'>
             <GamesSection />
           </div>
@@ -51,7 +49,7 @@ export default function Home() {
 
       <WaveDivider background='yellow' flipX clean />
 
-      <div className='container background-yellow spacing2'>
+      <div className='container background-yellow space-section-l'>
         <section className='grid hm-levelup-section'>
           <LevelUpSection />
         </section>
@@ -61,10 +59,7 @@ export default function Home() {
 
       <div className='container background-black spacing1'>
         <section className='grid hm-about-section section-heading-spacing'>
-          <div className='hm-section-heading-wrapper'>
-            <LineCircle />
-            <p className='hm-section-heading'>ABOUT</p>
-          </div>
+          <Heading title='GAMES' className='hm-section-heading-wrapper' />
           <div className='hm-section-content-wrapper hm-about-wrapper'>
             <AboutSection />
           </div>

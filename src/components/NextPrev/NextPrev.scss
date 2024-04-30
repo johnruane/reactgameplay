@@ -1,12 +1,11 @@
 .np-wrapper {
   display: flex;
-  justify-content: space-between;
-  @include padding('top', 15);
+  justify-content: space-around;
 }
 
 .np-link-wrapper {
   display: flex;
-  row-gap: clamp(1rem, 4vw, 2rem);
+  row-gap: $space-s;
   flex-direction: column;
   text-decoration: none;
   color: $color-black;
@@ -38,4 +37,5 @@
 .np-text-wrapper {
   display: flex;
   flex-direction: column;
+  row-gap: $space-3xs;
 }

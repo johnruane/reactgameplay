@@ -1,14 +1,14 @@
 import { useCallback, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
-import classNames from 'classnames';
 
-import Tabs from '@components/Tabs';
 import pageData from '@data';
-import Cross from '@icons/Cross';
+import Tabs from '@components/Tabs';
 import NextPrev from '@components/NextPrev';
 import WaveDivider from '@components/WaveDivider';
 import Modal from '@components/Modal';
+import Heading from '@components/sections/Heading';
+import Button from '@components/Button';
 
 import './GamePage.scss';
 
@@ -37,41 +37,37 @@ const GamePage = () => {
   return (
     <>
       <WaveDivider background='yellow' clean />
-      <div className='container background-black'>
-        <div className='grid'>
-          <div className='gp-intro-wrapper'>
-            <div className='gp-heading-wrapper'>
-              <button className='gp-game-button' onClick={handleButtonClick}>
-                <span>Play Now</span>
-              </button>
-              <h1 className='gp-heading text-uppercase'>
-                {id}
-                <span className='gp-year'>{year}</span>
-              </h1>
+      <div className='container background-black space-section-xl'>
+        <section className='grid'>
+          <div className='gp-heading-wrapper'>
+            <Button text='PLAY NOW' />
+            <h1 className='gp-heading text-uppercase'>
+              {id}
+              <span className='gp-year'>{year}</span>
+            </h1>
+          </div>
+          <div className='gp-details-wrapper'>
+            <div className='text-stack'>
+              <p className='gp-details-title text-uppercase'>Complexity</p>
+              <p>{complexity}</p>
             </div>
-            <div className='gp-details-wrapper'>
-              <div className='space-text'>
-                <p className='gp-details-title text-uppercase'>Complexity</p>
-                <p>{complexity}</p>
-              </div>
 
-              <div className='space-text'>
-                <p className='gp-details-title text-uppercase'>Controls</p>
-                {controls}
-              </div>
-
-              <div className='space-text'>
-                <p className='gp-details-title text-uppercase'>Intro</p>
-                {intro}
-              </div>
+            <div className='text-stack'>
+              <p className='gp-details-title text-uppercase'>Controls</p>
+              {controls}
             </div>
           </div>
-        </div>
+        </section>
+
+        <section className='grid'>
+          <Heading title='INTRO' className='gp-intro-wrapper' />
+          <div className='gp-intro-text'>{intro}</div>
+        </section>
       </div>
 
       <WaveDivider background='yellow' clean flipX />
 
-      <div className='container background-yellow'>
+      <div className='container background-yellow space-section-xl'>
         <div className='grid'>
           <div className='gp-tabs-wrapper'>
             <Tabs data={tabs} />

@@ -13,7 +13,9 @@ $space-5xl: clamp(10rem, 8.4704rem + 7.6482vi, 15rem);
 $space-6xl: clamp(12rem, 10.1644rem + 9.1778vi, 18rem);
 
 /* Custom pairs */
+$space-l-xl: clamp(2rem, 1.2352rem + 3.8241vi, 4.5rem);
+$space-xl-2xl: clamp(3rem, 2.0822rem + 4.5889vi, 6rem);
+$space-2xl-3xl: clamp(4rem, 2.4704rem + 7.6482vi, 9rem);
 $space-3xl-4xl: clamp(6rem, 4.1644rem + 9.1778vi, 12rem);
 $space-3xl-5xl: clamp(6rem, 3.2467rem + 13.7667vi, 15rem);
 $space-4xl-6xl: clamp(8rem, 4.9407rem + 15.2964vi, 18rem);
-$space-xl-2xl: clamp(3rem, 2.0822rem + 4.5889vi, 6rem);

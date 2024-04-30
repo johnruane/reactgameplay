@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <div className='ab-text-icon-wrapper'>
-        <div className='ab-text-wrapper'>
+        <div className='ab-text-wrapper text-stack'>
           <h2 className='ab-text-heading'>Learning Made Exciting and Interactive</h2>
           <p className='ab-text'>
             At React Gameplay, I firmly believe that learning should be an engaging and
@@ -21,7 +21,7 @@ const About = () => {
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
-        <div className='ab-text-wrapper'>
+        <div className='ab-text-wrapper text-stack'>
           <h2 className='ab-text-heading'>Guided Exploration: Your Path to Mastery</h2>
           <p className='ab-text'>
             Every game in our collection comes with invaluable insights and practical tips
@@ -39,7 +39,7 @@ const About = () => {
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
-        <div className='ab-text-wrapper'>
+        <div className='ab-text-wrapper text-stack'>
           <h2 className='ab-text-heading'>Elevate Your Skills While Having Fun</h2>
           <p className='ab-text'>
             Are you prepared to elevate your coding prowess while embarking on an

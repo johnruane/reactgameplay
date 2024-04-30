@@ -7,9 +7,9 @@ import './Header.scss';
 const Header = () => {
   return (
     <div className='container background-yellow'>
-      <header className='grid '>
+      <header className='grid'>
         <div className='h-logo'>
-          <Link to='/' className='h-logo'>
+          <Link to='/'>
             <Logo />
           </Link>
         </div>

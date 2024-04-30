@@ -22,14 +22,21 @@ button > * {
   text-transform: uppercase;
 }
 
-.space-text > * + * {
-  margin-top: 1.2em;
-}
-
 .text-uppercase {
   text-transform: uppercase;
 }
 
 .text-capitalize {
   text-transform: capitalize;
+}
+
+ol {
+  @include body;
+
+  list-style-position: inside;
+  padding: 0;
+
+  & > * + * {
+    margin-top: $space-xs;
+  }
 }

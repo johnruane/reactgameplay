@@ -1,0 +1,6 @@
+.button {
+  @include buttonStyle;
+
+  width: fit-content;
+  padding: 1rem 1.5rem;
+}

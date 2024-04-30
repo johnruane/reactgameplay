@@ -2,7 +2,7 @@ import './Intro.scss';
 
 const Intro = () => {
   return (
-    <div className='it-wrapper space-text'>
+    <div className='it-wrapper text-stack'>
       <h2 className='it-heading'>
         Welcome to React Gameplay, where coding meets gaming in the most playful way
         possible!

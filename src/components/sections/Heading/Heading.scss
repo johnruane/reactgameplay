@@ -1,0 +1,11 @@
+.h-heading-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.h-heading {
+  @include body;
+
+  color: $color-white;
+}

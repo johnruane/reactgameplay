@@ -3,6 +3,7 @@ import SnakeGame from '@components/Games/snake';
 
 const gamePageData = {
   id: 'snake',
+  title: <>Snake</>,
   year: '1998',
   complexity: 'Level 1',
   controls: (
