@@ -1,5 +1,4 @@
 import tabs from './tabs/Tetris';
-import TetrisGame from '@components/Games/tetris';
 
 const gamePageData = {
   id: 'minesweeper',

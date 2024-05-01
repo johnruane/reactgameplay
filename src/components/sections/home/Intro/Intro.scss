@@ -1,4 +1,6 @@
 .it-wrapper {
+  --stack-override: 1em;
+
   display: flex;
   flex-direction: column;
   color: $color-white;

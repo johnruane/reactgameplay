@@ -13,21 +13,21 @@
   & svg {
     @include iconShadow;
   }
-
-  &:hover {
-    svg path {
-      fill: $color-white;
-    }
-  }
 }
 
 .np-title {
   @include display1;
 }
 
+.np-prev {
+  align-items: start;
+  margin-right: auto;
+}
+
 .np-next {
   align-items: end;
   margin-left: auto;
+  text-align: right;
 }
 
 .np-label {

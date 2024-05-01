@@ -17,7 +17,7 @@ const Footer = () => {
           <div className='grid ft-footer-wrapper'>
             <div className='ft-content-wrapper grid-m1-d2'>
               <h2 className='ft-heading'>Hello, I&apos;m John Ruane.</h2>
-              <div className='ft-text-wrapper text-stack'>
+              <div className='ft-text-wrapper stack'>
                 <p className='ft-text'>
                   I&apos;m a Software Engineer living in Manchester.
                 </p>

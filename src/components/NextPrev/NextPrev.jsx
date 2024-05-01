@@ -3,41 +3,34 @@ import { Link } from 'react-router-dom';
 import PolygonLeft from '@icons/PolygonLeft';
 import PolygonRight from '@icons/PolygonRight';
 
-import gameLinks from '@data/games/gameLinks';
 import './NextPrev.scss';
 
-const NextPrev = ({ current }) => {
-  const linkIndex = gameLinks.findIndex(({ id }) => id === current);
-
+const NextPrev = ({ prev, next }) => {
   return (
     <div className='np-wrapper'>
-      {linkIndex !== 0 && (
+      {prev?.id && (
         <Link
-          to={'/' + gameLinks[linkIndex - 1]?.link}
-          className='np-link-wrapper'
-          key={gameLinks[linkIndex - 1]?.link}
+          to={'/gamepage/' + prev.id}
+          className='np-link-wrapper np-prev'
+          key={prev.id}
         >
           <PolygonLeft />
           <div className='np-text-wrapper'>
             <span className='np-label'>Previous</span>
-            <span className='np-title text-uppercase'>
-              {gameLinks[linkIndex - 1]?.title}
-            </span>
+            <span className='np-title text-uppercase'>{prev?.title}</span>
           </div>
         </Link>
       )}
-      {linkIndex !== gameLinks.length - 1 && (
+      {next?.id && (
         <Link
-          to={'/' + gameLinks[linkIndex + 1]?.link}
+          to={'/gamepage/' + next?.id}
           className='np-link-wrapper np-next'
-          key={gameLinks[linkIndex + 1]?.link}
+          key={next?.id}
         >
           <PolygonRight />
-          <div className='np-text-wrapper np-next'>
+          <div className='np-text-wrapper'>
             <span className='np-label'>Next</span>
-            <span className='np-title text-uppercase'>
-              {gameLinks[linkIndex + 1]?.title}
-            </span>
+            <span className='np-title text-uppercase'>{next?.title}</span>
           </div>
         </Link>
       )}

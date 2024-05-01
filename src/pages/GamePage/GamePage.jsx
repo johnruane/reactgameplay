@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
+
 import { useCallback, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
-import pageData from '@data';
+import pages from '@data/pages';
 import Tabs from '@components/Tabs';
 import NextPrev from '@components/NextPrev';
 import WaveDivider from '@components/WaveDivider';
@@ -18,17 +20,30 @@ const GamePage = () => {
   const { title } = useParams();
   const navigate = useNavigate();
 
-  const data = pageData.find(({ id }) => id === title);
+  const pageIndex = pages.findIndex(({ id }) => id === title);
+  const pageData = pages[pageIndex];
+
+  const prevPage = {
+    id: pages[pageIndex - 1]?.id,
+    title: pages[pageIndex - 1]?.title,
+  };
+
+  const nextPage = {
+    id: pages[pageIndex + 1]?.id,
+    title: pages[pageIndex + 1]?.title,
+  };
 
   /*
    * Redirect to 404 if dynamic param title does not match id in page data
    */
 
-  if (!data) {
-    navigate('/404');
-  }
+  useEffect(() => {
+    if (!pageData) {
+      navigate('/404');
+    }
+  }, [pageData]);
 
-  const { id, year, complexity, controls, intro, tabs, game } = data || {};
+  const { id, year, complexity, controls, intro, tabs, game } = pageData || {};
 
   const handleButtonClick = useCallback(() => {
     setGameSheetToggle((prev) => !prev);
@@ -47,12 +62,12 @@ const GamePage = () => {
             </h1>
           </div>
           <div className='gp-details-wrapper'>
-            <div className='text-stack'>
+            <div className='stack'>
               <p className='gp-details-title text-uppercase'>Complexity</p>
               <p>{complexity}</p>
             </div>
 
-            <div className='text-stack'>
+            <div className='stack'>
               <p className='gp-details-title text-uppercase'>Controls</p>
               {controls}
             </div>
@@ -71,7 +86,7 @@ const GamePage = () => {
         <div className='grid'>
           <div className='gp-tabs-wrapper'>
             <Tabs data={tabs} />
-            <NextPrev current={id} />
+            <NextPrev prev={prevPage} next={nextPage} />
           </div>
         </div>
       </div>

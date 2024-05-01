@@ -2,6 +2,11 @@
 @import './typography.scss';
 @import './utilities.scss';
 
+:root {
+  --space-3xl-4xl: #{$space-3xl-4xl};
+  --space-l-xl: #{$space-l-xl};
+}
+
 body {
   font-family: 'Archivo', sans-serif;
   font-optical-sizing: auto;

@@ -29,9 +29,7 @@
 }
 
 .hm-image {
-  @include media('>=tablet') {
-    grid-column: 2;
-  }
+  grid-column: 2;
 }
 
 .hm-intro-wrapper {
@@ -63,6 +61,11 @@
   // transform: translate3d(-50%, 20%, 0);
 }
 
+.hm-into {
+  @include verticalPadding($space-4xl-6xl);
+  --stack-override: var(--space-3xl-4xl);
+}
+
 .hm-section-heading-wrapper {
   grid-column: 1 / -1;
 }
@@ -75,6 +78,10 @@
   }
 }
 
+.hm-level-up {
+  @include verticalPadding($space-2xl-3xl);
+}
+
 .grid.hm-levelup-section {
   & > * {
     grid-column: 1 / -1;
@@ -83,6 +90,10 @@
       grid-column: 2 / -2;
     }
   }
+}
+
+.hm-about {
+  @include verticalPadding($space-4xl-6xl);
 }
 
 .hm-about-wrapper {

@@ -7,7 +7,7 @@ const LevelUp = () => {
       <div className='hm-levelup-image-wrapper'>
         <StreetFighter />
       </div>
-      <div className='hm-levelup-text-wrapper text-stack'>
+      <div className='hm-levelup-text-wrapper stack'>
         <h2 className='hm-levelup-heading'>
           Ready to level up your coding skills while having a blast?
         </h2>

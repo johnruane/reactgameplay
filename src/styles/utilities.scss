@@ -24,16 +24,8 @@
   height: clamp(2.5rem, 6vw, 5rem);
 }
 
-.text-stack > * + * {
-  margin-top: 1.2em;
-}
-
-.space-section-l {
-  @include spaceSectionL;
-}
-
-.space-section-xl {
-  @include spaceSectionXL;
+.stack > * + * {
+  padding-top: var(--stack-override, 1.2em);
 }
 
 .g-m1-1 {
@@ -46,4 +38,8 @@
   @include media('>=desktop') {
     grid-column: 2 / -2;
   }
+}
+
+.heading-stack > * + * {
+  --stack-override: var(--space-l-xl);
 }
