@@ -1,5 +1,5 @@
 .grid.go-text-wrapper {
-  // @include verticalPadding(10, 15);
+  @include verticalPadding($space-2xl-3xl);
 }
 
 .go-text {

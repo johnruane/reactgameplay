@@ -25,7 +25,7 @@
 }
 
 .stack > * + * {
-  padding-top: var(--stack-override, 1.2em);
+  padding-top: var(--stack-override, var(--space-default));
 }
 
 .g-m1-1 {

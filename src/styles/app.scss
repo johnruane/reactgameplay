@@ -1,10 +1,13 @@
+@import './essential.scss';
 @import './grid.scss';
 @import './typography.scss';
 @import './utilities.scss';
 
 :root {
+  --space-default: 1.2em;
   --space-3xl-4xl: #{$space-3xl-4xl};
   --space-l-xl: #{$space-l-xl};
+  --space-m-l: #{$space-m-l};
 }
 
 body {

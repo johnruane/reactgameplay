@@ -52,8 +52,8 @@ const GamePage = () => {
   return (
     <>
       <WaveDivider background='yellow' clean />
-      <div className='container background-black space-section-xl'>
-        <section className='grid'>
+      <div className='container background-black gp-intro stack'>
+        <section className='grid heading-stack stack'>
           <div className='gp-heading-wrapper'>
             <Button text='PLAY NOW' />
             <h1 className='gp-heading text-uppercase'>
@@ -61,28 +61,28 @@ const GamePage = () => {
               <span className='gp-year'>{year}</span>
             </h1>
           </div>
-          <div className='gp-details-wrapper'>
-            <div className='stack'>
+          <div className='gp-details-wrapper stack'>
+            <div className='gp-heading-stack stack'>
               <p className='gp-details-title text-uppercase'>Complexity</p>
               <p>{complexity}</p>
             </div>
 
-            <div className='stack'>
+            <div className='gp-heading-stack stack'>
               <p className='gp-details-title text-uppercase'>Controls</p>
               {controls}
             </div>
           </div>
         </section>
 
-        <section className='grid'>
+        <section className='grid heading-stack stack'>
           <Heading title='INTRO' className='gp-intro-wrapper' />
           <div className='gp-intro-text'>{intro}</div>
         </section>
       </div>
 
-      <WaveDivider background='yellow' clean flipX />
+      <WaveDivider background='yellow' clean flipWaveX />
 
-      <div className='container background-yellow space-section-xl'>
+      <div className='container background-yellow'>
         <div className='grid'>
           <div className='gp-tabs-wrapper'>
             <Tabs data={tabs} />

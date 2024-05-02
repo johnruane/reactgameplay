@@ -27,9 +27,9 @@ export default function Home() {
         </div>
       </section>
 
-      <WaveDivider background='yellow' />
+      <WaveDivider background='yellow' icons='black' />
 
-      <section className='container background-black stack hm-into'>
+      <section className='container background-black stack hm-intro'>
         <div className='grid'>
           {/* <div className='hm-enter-wrapper'>
             <Enter className='hm-enter-icon' />
@@ -47,7 +47,7 @@ export default function Home() {
         </div>
       </section>
 
-      <WaveDivider background='yellow' flipX clean />
+      <WaveDivider background='yellow' flipWaveX />
 
       <section className='container background-yellow hm-level-up'>
         <div className='grid hm-levelup-section'>
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </section>
 
-      <WaveDivider background='yellow' />
+      <WaveDivider background='yellow' icons='black' />
 
       <section className='container background-black hm-about'>
         <div className='grid heading-stack stack'>

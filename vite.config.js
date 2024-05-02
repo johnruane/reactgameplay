@@ -9,10 +9,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @import './src/styles/breakpoints';
-          @import './src/styles/variables';
-          @import './src/styles/spacing';
-          @import './src/styles/mixins';
+          @import './src/styles/essential';
         `,
       },
     },

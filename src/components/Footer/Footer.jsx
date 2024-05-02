@@ -6,7 +6,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-      <WaveDivider background='teal' clean flipX />
+      <WaveDivider background='teal' icons='teal' flipWaveX flipIconsY />
 
       <footer className='ft-footer'>
         <div className='hm-wavy-wrapper flip-vertical background-teal'>

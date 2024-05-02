@@ -1,11 +1,16 @@
 .hm-levelup-wrapper {
-  row-gap: 15vw;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: subgrid;
+  row-gap: $space-2xl;
 
-  @include media('>=tablet') {
-    grid-template-columns: 2fr 3fr;
-    column-gap: 3rem;
+  & > * {
+    grid-column: 1 / -1;
+  }
+
+  @include media('>=desktop') {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
   }
 }
 
@@ -13,21 +18,18 @@
   justify-self: center;
   display: flex;
   align-items: center;
-  column-gap: 1.5rem;
-
-  @include media('>=tablet') {
-    grid-column: 1;
-  }
+  column-gap: 1rem;
 
   @include media('>=desktop') {
+    grid-column: 1 / 8;
   }
 }
 
 .hm-levelup-text-wrapper {
   grid-row: 1;
 
-  @include media('>=tablet') {
-    grid-column: 2;
+  @include media('>=desktop') {
+    grid-column: 9 / -2;
   }
 }
 

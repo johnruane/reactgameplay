@@ -61,7 +61,7 @@
   // transform: translate3d(-50%, 20%, 0);
 }
 
-.hm-into {
+.hm-intro {
   @include verticalPadding($space-4xl-6xl);
   --stack-override: var(--space-3xl-4xl);
 }
@@ -85,10 +85,6 @@
 .grid.hm-levelup-section {
   & > * {
     grid-column: 1 / -1;
-
-    @include media('>=desktop') {
-      grid-column: 2 / -2;
-    }
   }
 }
 

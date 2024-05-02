@@ -1,18 +1,37 @@
 import classNames from 'classnames';
 import './WaveDivider.scss';
 
-const WaveDivider = ({ children, flipX, flipY, background, icons, clean, top }) => {
+const WaveDivider = ({
+  children,
+  flipWaveX,
+  flipWaveY,
+  flipIconsX,
+  flipIconsY,
+  background,
+  icons,
+  flipOrder,
+}) => {
+  const WaveElement = () => {
+    return <span className='wave-wrapper'></span>;
+  };
+
+  const IconsElement = () => {
+    return <span className='icons-wrapper'></span>;
+  };
+
+  const elements = [<IconsElement key={2} />, <WaveElement key={1} />];
   return (
     <div
       className={classNames('wave-divider-wrapper', background, icons, {
-        ['clean']: clean,
-        ['vertical']: flipX,
-        ['horizontal']: flipY,
+        ['flipwave-x']: flipWaveX,
+        ['flipwave-y']: flipWaveY,
+        ['flipicons-x']: flipIconsX,
+        ['flipicons-y']: flipIconsY,
         [`icons-${icons}`]: icons,
-        ['top']: top,
+        ['flipOrder']: flipOrder,
       })}
     >
-      <span className='wave-wrapper'></span>
+      {flipOrder ? elements.reverse() : elements}
       {children}
     </div>
   );

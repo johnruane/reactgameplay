@@ -1,3 +1,5 @@
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1366,24,1.333,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8|10|12,4xl-6xl|3xl-4xl|3xl-5xl|xl-2xl|2xl-3xl|l-xl&g=s,l,xl,12 */
+
 /* Spacing */
 $space-3xs: clamp(0.25rem, 0.2118rem + 0.1912vi, 0.375rem);
 $space-2xs: clamp(0.5rem, 0.4235rem + 0.3824vi, 0.75rem);
@@ -13,9 +15,12 @@ $space-5xl: clamp(10rem, 8.4704rem + 7.6482vi, 15rem);
 $space-6xl: clamp(12rem, 10.1644rem + 9.1778vi, 18rem);
 
 /* Custom pairs */
+$space-m-l: clamp(1.5rem, 1.0411rem + 2.2945vi, 3rem);
 $space-l-xl: clamp(2rem, 1.2352rem + 3.8241vi, 4.5rem);
 $space-xl-2xl: clamp(3rem, 2.0822rem + 4.5889vi, 6rem);
 $space-2xl-3xl: clamp(4rem, 2.4704rem + 7.6482vi, 9rem);
 $space-3xl-4xl: clamp(6rem, 4.1644rem + 9.1778vi, 12rem);
 $space-3xl-5xl: clamp(6rem, 3.2467rem + 13.7667vi, 15rem);
 $space-4xl-6xl: clamp(8rem, 4.9407rem + 15.2964vi, 18rem);
+
+$space-default: 1.2em;

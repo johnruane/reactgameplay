@@ -1,3 +1,16 @@
+.gp-intro {
+  @include verticalPadding($space-4xl-6xl);
+  --stack-override: var(--space-3xl-4xl);
+}
+
+.gp-details-wrapper > * + * {
+  --stack-override: var(--space-m-l);
+}
+
+.gp-heading-stack > * + * {
+  --stack-override: var(--space-default);
+}
+
 .gp-heading-wrapper {
   grid-column: 1 / -1;
   display: grid;
@@ -44,7 +57,6 @@
 
   grid-column: 1 / -1;
   display: grid;
-  row-gap: clamp(32px, 6vw, 100px);
   color: $color-white;
 
   @include media('>=desktop') {
@@ -69,6 +81,8 @@
 
 .gp-tabs-wrapper {
   @include body;
+  @include verticalPadding($space-4xl-6xl);
+  --stack-override: var(--space-3xl-4xl);
 
   grid-column: 1 / -1;
   display: grid;
