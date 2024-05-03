@@ -11,6 +11,9 @@ import { deepClone, createBoard } from '../utils';
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
 
+/* Styles */
+import style from './snake.module.css';
+
 const SNAKE_DIRECTIONS = {
   ARROW_UP: 'ArrowUp',
   ARROW_DOWN: 'ArrowDown',
@@ -172,7 +175,7 @@ const Snake = () => {
   }, 180);
 
   return (
-    <div>
+    <div className={style.layoutGrid}>
       <Board board={displayBoard} />
       <Panel title='Score' value={score} />
     </div>

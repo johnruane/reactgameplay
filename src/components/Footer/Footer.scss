@@ -10,6 +10,11 @@
 .ft-content-wrapper {
   display: grid;
   row-gap: $space-l;
+  grid-column: 1 / -1;
+
+  @include media('>=desktop') {
+    grid-column: 2 / -2;
+  }
 }
 
 .ft-heading {
@@ -38,7 +43,7 @@
   grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: $space-l;
   padding: 3rem 1rem 3rem;
 
   @include media('>=tablet') {

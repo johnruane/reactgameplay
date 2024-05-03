@@ -39,9 +39,10 @@ import style from './tetris.module.css';
  *
  * @score: Score in the game. Multiplier is added when completing more than one row.
  * @lines: Number of completed rows achieved.
- * @level: Level in the game. Level is increased every @speed interval.
+ * @level: Level in the game. Level is increased every @levelInterval milliseconds.
  *
- * @delay: Interval at which the game runs and the tetromino is moved downwards. This is reduced
+ * @levelInterval: Milliseconds the speed of the game is increased at.
+ * @speed: Milliseconds at which the game runs and the tetromino is moved downwards. This is reduced
  * over time which increases the speed the tetrominos fall at.
  *
  * @gameStatus: String for 'Game Over' message
@@ -61,8 +62,8 @@ const Tetris = () => {
   const [lines, setLines] = useState(0);
   const [level, setLevel] = useState(0);
 
-  const [delay, setDelay] = useState(null);
   const [speed, setSpeed] = useState(null);
+  const [levelInterval, setLevelInterval] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
   const [startGame, setStartGame] = useState(false);
@@ -74,8 +75,10 @@ const Tetris = () => {
     setStaticBoard(createBoard(...boardConfig));
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
-    setDelay(1000);
-    setSpeed(30000);
+    setSpeed(1000);
+    setLevelInterval(5000);
+    setLines(0);
+    setLevel(0);
   };
 
   /*
@@ -180,7 +183,7 @@ const Tetris = () => {
   useEffect(() => {
     return () => {
       setStartGame(false);
-      setDelay(null);
+      setSpeed(null);
     };
   }, []);
 
@@ -200,22 +203,22 @@ const Tetris = () => {
      */
     const indexesOfCompleteRows = findCompletedRows(cloneBoard).sort((a, b) => a - b);
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
-    const previousDelay = delay;
+    const previousSpeed = speed;
 
     // Callback function to be executed after the last animation
     function updateStaticBoardCallback() {
       setStaticBoard(updatedBoard);
-      setDelay(previousDelay);
+      setSpeed(previousSpeed);
       makeNextPlay();
     }
 
     /*
      * Animate each complete row or start next playing piece.
-     * In order to stop play whilst the winning rows are animated we can setDelay(null). We need a reference to the
+     * In order to stop play whilst the winning rows are animated we can setSpeed(null). We need a reference to the
      * previous value in order to resume play.
      */
     if (indexesOfCompleteRows.length > 0) {
-      setDelay(null);
+      setSpeed(null);
       indexesOfCompleteRows.forEach((element) => {
         animateCompleteRow(element, updateStaticBoardCallback);
         setLines((current) => current + 1);
@@ -244,8 +247,8 @@ const Tetris = () => {
 
     // End current game.
     if (!canMove) {
-      setDelay(null);
       setSpeed(null);
+      setLevelInterval(null);
       setGameOver(true);
       setStartGame(false);
     }
@@ -270,13 +273,12 @@ const Tetris = () => {
   }, [position, staticBoard, currentTetromino, startGame]);
 
   /*
-   * Increase 'level' display everytime the 'delay' for gamespeed is updated
+   * Increase 'level' display everytime the 'speed' for gamespeed is updated
    */
   useEffect(() => {
-    if (!startGame) return;
-
+    // if (!startGame) return;
     setLevel((prev) => prev + 1);
-  }, [delay, startGame]);
+  }, [speed, startGame]);
 
   /*
    * Event listeners for keypress
@@ -289,23 +291,23 @@ const Tetris = () => {
   }, [keyPress]);
 
   /*
-   * Interval to move tetrominos every 'delay' milliseconds
+   * Interval to move tetrominos every 'speed' milliseconds
    */
   useInterval(() => {
     moveTetrominoInDirection();
-  }, delay);
+  }, speed);
 
   /*
-   * Interval to speed up gameplay every 30 seconds
+   * Interval to levelInterval up gameplay every 30 seconds
    */
   useInterval(() => {
-    setDelay((prev) => prev * 0.9);
-  }, speed);
+    setSpeed((prev) => prev * 0.9);
+  }, levelInterval);
 
   return (
     <>
-      <div className={classNames(style.layoutGrid, 'gp-game-layout')}>
-        <div className={classNames(style.boardNextWrapper, 'gp-board-wrapper')}>
+      <div className={style.layoutGrid}>
+        <div className={style.boardNextWrapper}>
           <div className={style.boardWrapper}>
             <Board board={displayBoard} />
           </div>
@@ -314,12 +316,12 @@ const Tetris = () => {
             {gameOver && <p className={style.gameOverText}>Game Over</p>}
           </div>
         </div>
-        <div className={classNames(style.scoreWrapper, 'gp-score-wrapper')}>
+        <div className={style.scoreWrapper}>
           <Panel title={'score'} value={score} />
           <Panel title={'level'} value={level} />
           <Panel title={'lines'} value={lines} />
         </div>
-        <div className={classNames(style.startOverWrapper, 'gp-message-wrapper')}>
+        <div className={style.startOverWrapper}>
           {!startGame && (
             <button
               className={classNames(style.gameOverText, style.startButton)}

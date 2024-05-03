@@ -52,29 +52,29 @@ const GamePage = () => {
   return (
     <>
       <WaveDivider background='yellow' clean />
-      <div className='container background-black gp-intro stack'>
-        <section className='grid heading-stack stack'>
+      <div className='container background-black gp-intro' data-stack='space-3xl-4xl'>
+        <section className='grid' data-stack='space-l-xl'>
           <div className='gp-heading-wrapper'>
-            <Button text='PLAY NOW' />
+            <Button text='PLAY NOW' onClickCallback={handleButtonClick} />
             <h1 className='gp-heading text-uppercase'>
               {id}
               <span className='gp-year'>{year}</span>
             </h1>
           </div>
-          <div className='gp-details-wrapper stack'>
-            <div className='gp-heading-stack stack'>
+          <div className='gp-details-wrapper' data-stack='space-m-l'>
+            <div data-stack='space-default'>
               <p className='gp-details-title text-uppercase'>Complexity</p>
               <p>{complexity}</p>
             </div>
 
-            <div className='gp-heading-stack stack'>
+            <div data-stack='space-default'>
               <p className='gp-details-title text-uppercase'>Controls</p>
               {controls}
             </div>
           </div>
         </section>
 
-        <section className='grid heading-stack stack'>
+        <section className='grid' data-stack='space-l-xl'>
           <Heading title='INTRO' className='gp-intro-wrapper' />
           <div className='gp-intro-text'>{intro}</div>
         </section>

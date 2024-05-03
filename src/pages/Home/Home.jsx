@@ -29,7 +29,7 @@ export default function Home() {
 
       <WaveDivider background='yellow' icons='black' />
 
-      <section className='container background-black stack hm-intro'>
+      <section className='container background-black hm-intro' data-stack='space-3xl-4xl'>
         <div className='grid'>
           {/* <div className='hm-enter-wrapper'>
             <Enter className='hm-enter-icon' />
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='grid heading-stack stack'>
+        <div className='grid' data-stack='space-l-xl'>
           <Heading title='GAMES' className='hm-section-heading-wrapper' />
           <div className='hm-section-content-wrapper'>
             <GamesSection />
@@ -58,7 +58,7 @@ export default function Home() {
       <WaveDivider background='yellow' icons='black' />
 
       <section className='container background-black hm-about'>
-        <div className='grid heading-stack stack'>
+        <div className='grid' data-stack='space-l-xl'>
           <Heading title='ABOUT' className='hm-section-heading-wrapper' />
           <div className='hm-section-content-wrapper hm-about-wrapper'>
             <AboutSection />

@@ -63,7 +63,6 @@
 
 .hm-intro {
   @include verticalPadding($space-4xl-6xl);
-  --stack-override: var(--space-3xl-4xl);
 }
 
 .hm-section-heading-wrapper {

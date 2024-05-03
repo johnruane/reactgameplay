@@ -23,23 +23,3 @@
   width: auto;
   height: clamp(2.5rem, 6vw, 5rem);
 }
-
-.stack > * + * {
-  padding-top: var(--stack-override, var(--space-default));
-}
-
-.g-m1-1 {
-  grid-column: 1 / -1;
-}
-
-.grid-m1-d2 {
-  grid-column: 1 / -1;
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
-  }
-}
-
-.heading-stack > * + * {
-  --stack-override: var(--space-l-xl);
-}

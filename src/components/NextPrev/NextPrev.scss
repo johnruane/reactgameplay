@@ -17,6 +17,9 @@
 
 .np-title {
   @include display1;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .np-prev {

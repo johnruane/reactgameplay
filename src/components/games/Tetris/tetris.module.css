@@ -1,58 +1,8 @@
-/* .main {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  font-family: var(--font-family);
-  align-items: start;
-
-  @media (min-width: 768px) {
-    height: calc(100vh - 3.25rem);
-  }
-}
-
-@media (pointer: coarse) and (hover: none) and (max-width: 768px) {
-  .main {
-    height: calc(100vh - 9.25rem);
-  }
-} */
-
-/* .main {
-  display: flex;
-  flex-direction: column-reverse;
-
-  @media (min-width: 768px) {
-  flex-direction: row;
-  }
-} */
-
-/* .layoutGrid {
-  display: grid;
-  grid-template-columns: auto 6rem;
-  grid-template-rows: repeat(3, 6rem) auto;
-  grid-template-areas: 
-    "board score"
-    "board level"
-    "board lines"
-    "board next";
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-  width: fit-content;
-
-  @media (min-width: 768px) {
-    grid-template-columns: auto 8rem;
-    grid-template-rows: repeat(3, 6rem) auto;
-    grid-template-areas: 
-    "board score"
-    "board level"
-    "board lines"
-    "board next";
-  }
-} */
-
 .layoutGrid {
   display: grid;
   row-gap: 2rem;
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 .boardNextWrapper {

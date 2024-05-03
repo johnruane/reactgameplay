@@ -1,0 +1,15 @@
+@use 'sass:meta';
+@use './spacing' as spacing;
+
+$spacingMap: meta.module-variables('spacing');
+
+// Loop SCSS 'spacing' variables to create data-stack CSS
+@each $name, $space in $spacingMap {
+  [data-stack='#{$name}'] > * + * {
+    --stack-override: #{$space};
+  }
+}
+
+[data-stack] > * + * {
+  margin-top: var(--stack-override, var(--space-default));
+}

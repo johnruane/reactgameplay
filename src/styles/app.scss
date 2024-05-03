@@ -1,13 +1,18 @@
-@import './essential.scss';
+@use 'sass:meta';
+@use './spacing' as spacing;
+
 @import './grid.scss';
 @import './typography.scss';
 @import './utilities.scss';
+@import './stack.scss';
 
+$spacingMap: meta.module-variables('spacing');
+
+// Generate CSS Custom Properties from SCSS 'spacing' variables
 :root {
-  --space-default: 1.2em;
-  --space-3xl-4xl: #{$space-3xl-4xl};
-  --space-l-xl: #{$space-l-xl};
-  --space-m-l: #{$space-m-l};
+  @each $name, $space in $spacingMap {
+    --#{$name}: #{$space};
+  }
 }
 
 body {
