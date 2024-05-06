@@ -8,7 +8,7 @@
 import { deepClone } from '../../../utils/deepClone';
 
 export const removeRowsFromBoard = (board, indexes) => {
-  if (!indexes) return board;
+  if (!indexes || !board) return board;
 
   const cloneBoard = deepClone(board);
   // Create an array of zeros to the length of the number of elements in a row.

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 /* Utils */
@@ -62,11 +62,14 @@ const Tetris = () => {
   const [lines, setLines] = useState(0);
   const [level, setLevel] = useState(0);
 
-  const [speed, setSpeed] = useState(null);
+  const [speed, setSpeed] = useState(1000);
   const [levelInterval, setLevelInterval] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
   const [startGame, setStartGame] = useState(false);
+
+  const staticBoardRef = useRef(null);
+  const previousSpeedRef = useRef(null);
 
   const resetGame = () => {
     setStartGame(true);
@@ -195,21 +198,22 @@ const Tetris = () => {
    */
   useEffect(() => {
     if (!startGame) return;
+    if (JSON.stringify(displayBoard) !== JSON.stringify(staticBoard)) return;
 
     const cloneBoard = deepClone(staticBoard);
+
     /*
      * We sort the indexes ascending so that rows are removed from top to bottom. If descending then the board
      * indexes would be wrong as we shift the rows downwards after removing a row.
      */
     const indexesOfCompleteRows = findCompletedRows(cloneBoard).sort((a, b) => a - b);
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
-    const previousSpeed = speed;
 
     // Callback function to be executed after the last animation
     function updateStaticBoardCallback() {
       setStaticBoard(updatedBoard);
-      setSpeed(previousSpeed);
       makeNextPlay();
+      setSpeed(previousSpeedRef.current);
     }
 
     /*
@@ -217,17 +221,24 @@ const Tetris = () => {
      * In order to stop play whilst the winning rows are animated we can setSpeed(null). We need a reference to the
      * previous value in order to resume play.
      */
+
     if (indexesOfCompleteRows.length > 0) {
+      previousSpeedRef.current = speed;
       setSpeed(null);
-      indexesOfCompleteRows.forEach((element) => {
-        animateCompleteRow(element, updateStaticBoardCallback);
+
+      indexesOfCompleteRows.forEach((element, index) => {
+        animateCompleteRow(
+          element,
+          index === indexesOfCompleteRows.length - 1,
+          updateStaticBoardCallback
+        );
         setLines((current) => current + 1);
       });
       setScore(convertScore(score, indexesOfCompleteRows.length));
     } else {
       makeNextPlay();
     }
-  }, [staticBoard, startGame]);
+  }, [staticBoard]);
 
   /*
    * If tetromino cannot move to position 0, 4 when the 'position' is updated that means the pieces have reached
@@ -252,7 +263,7 @@ const Tetris = () => {
       setGameOver(true);
       setStartGame(false);
     }
-  }, [position, startGame]);
+  }, [position]);
 
   /*
    * Updates 'displayBoard' every time the position or 'currentTertromino' changes. The position is updated
@@ -270,15 +281,15 @@ const Tetris = () => {
         position.c
       )
     );
-  }, [position, staticBoard, currentTetromino, startGame]);
+  }, [position, currentTetromino]);
 
   /*
    * Increase 'level' display everytime the 'speed' for gamespeed is updated
    */
-  useEffect(() => {
-    // if (!startGame) return;
-    setLevel((prev) => prev + 1);
-  }, [speed, startGame]);
+  // useEffect(() => {
+  //   // if (!startGame) return;
+  //   setLevel((prev) => prev + 1);
+  // }, [speed, startGame]);
 
   /*
    * Event listeners for keypress
@@ -301,7 +312,8 @@ const Tetris = () => {
    * Interval to levelInterval up gameplay every 30 seconds
    */
   useInterval(() => {
-    setSpeed((prev) => prev * 0.9);
+    setSpeed((prev) => Math.round(prev * 0.9));
+    setLevel((prev) => prev + 1);
   }, levelInterval);
 
   return (

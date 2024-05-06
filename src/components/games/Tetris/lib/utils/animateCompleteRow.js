@@ -3,7 +3,7 @@
  * then this is executed when animation finishes.
  * The cancel() call removes the effects of the animation, restoring the cell scale.
  */
-export const animateCompleteRow = (index, onFinishCallback) => {
+export const animateCompleteRow = (index, isLastRow, onFinishCallback) => {
   // Gets the DOM row passed as an index
   const rowDOM = document.querySelectorAll('[data-animate="row"]').item(index);
 
@@ -29,9 +29,9 @@ export const animateCompleteRow = (index, onFinishCallback) => {
    * Iterate through each element in the row and perform scale & rotate transform on the ::after element. We don't animate
    * the DOM element itself as that would effect the layout of the board. The ::after element is what contains the block colours.
    */
-  const animations = Array.from(rowDOM.children).map((element, index, array) => {
+  const animations = Array.from(rowDOM.children).map((element, index) => {
     const rabbitDownAnimation = element.animate([{ opacity: 1 }, { opacity: 0 }], {
-      duration: 100,
+      duration: 500,
       fill: 'forwards',
       easing: 'ease-out',
       pseudoElement: '::after',
@@ -46,9 +46,9 @@ export const animateCompleteRow = (index, onFinishCallback) => {
   });
 
   Promise.all(animations).then(() => {
-    if (onFinishCallback) {
+    animationsReset();
+    if (isLastRow) {
       onFinishCallback();
-      animationsReset();
     }
   });
 };

@@ -43,6 +43,7 @@ const Snake = () => {
   const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
 
   const [score, setScore] = useState(0);
+  const [speed, setSpeed] = useState(1000);
 
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
@@ -174,10 +175,18 @@ const Snake = () => {
     moveSnake();
   }, 180);
 
+  /*
+   * Interval to speed up gameplay every 30 seconds
+   */
+  useInterval(() => {
+    setDelay((prev) => prev * 0.9);
+  }, speed);
+
   return (
     <div className={style.layoutGrid}>
       <Board board={displayBoard} />
       <Panel title='Score' value={score} />
+      <Panel title='Speed' value={score} />
     </div>
   );
 };
