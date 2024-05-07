@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 /* Utils */
@@ -68,8 +68,8 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
   const [startGame, setStartGame] = useState(false);
 
-  const staticBoardRef = useRef(null);
   const previousSpeedRef = useRef(null);
+  const previousLevelIntervalRef = useRef(null);
 
   const resetGame = () => {
     setStartGame(true);
@@ -198,7 +198,6 @@ const Tetris = () => {
    */
   useEffect(() => {
     if (!startGame) return;
-    if (JSON.stringify(displayBoard) !== JSON.stringify(staticBoard)) return;
 
     const cloneBoard = deepClone(staticBoard);
 
@@ -210,11 +209,12 @@ const Tetris = () => {
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
 
     // Callback function to be executed after the last animation
-    function updateStaticBoardCallback() {
+    const updateStaticBoardCallback = () => {
       setStaticBoard(updatedBoard);
-      makeNextPlay();
       setSpeed(previousSpeedRef.current);
-    }
+      setLevelInterval(previousLevelIntervalRef.current);
+      makeNextPlay();
+    };
 
     /*
      * Animate each complete row or start next playing piece.
@@ -224,7 +224,9 @@ const Tetris = () => {
 
     if (indexesOfCompleteRows.length > 0) {
       previousSpeedRef.current = speed;
+      previousLevelIntervalRef.current = levelInterval;
       setSpeed(null);
+      setLevelInterval(null);
 
       indexesOfCompleteRows.forEach((element, index) => {
         animateCompleteRow(
