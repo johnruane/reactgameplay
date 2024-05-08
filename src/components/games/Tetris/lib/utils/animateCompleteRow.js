@@ -14,14 +14,11 @@ export const animateCompleteRow = (index, isLastRow, onFinishCallback) => {
    */
   function animationsReset() {
     Array.from(rowDOM.children).forEach((element) => {
-      const rabbitDownAnimation = element.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 0,
-        fill: 'forwards',
-        easing: 'ease-out',
+      element.animate([{ opacity: 1 }], {
+        duration: 10,
+        fill: 'both',
         pseudoElement: '::after',
       });
-
-      rabbitDownAnimation.play();
     });
   }
 
@@ -45,6 +42,10 @@ export const animateCompleteRow = (index, isLastRow, onFinishCallback) => {
     });
   });
 
+  /*
+   * Once all animations have resolved, call the callback function passed in, but only on the last animation as there may be
+   * more than 1 row animated and we don't want to continue play until after the last row has animated.
+   */
   Promise.all(animations).then(() => {
     animationsReset();
     if (isLastRow) {

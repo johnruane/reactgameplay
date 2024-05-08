@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 /* Utils */
@@ -62,31 +62,44 @@ const Tetris = () => {
   const [lines, setLines] = useState(0);
   const [level, setLevel] = useState(0);
 
-  const [speed, setSpeed] = useState(1000);
+  const [speed, setSpeed] = useState(null);
   const [levelInterval, setLevelInterval] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
-  const [startGame, setStartGame] = useState(false);
+  const [hasGameStarted, setHasGameStarted] = useState(false);
 
   const previousSpeedRef = useRef(null);
   const previousLevelIntervalRef = useRef(null);
 
-  const resetGame = () => {
-    setStartGame(true);
-    setGameOver(false);
-    setDisplayBoard(createBoard(...boardConfig));
-    setStaticBoard(createBoard(...boardConfig));
+  const startGame = () => {
+    setHasGameStarted(true);
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
     setSpeed(1000);
-    setLevelInterval(5000);
-    setLines(0);
-    setLevel(0);
+    setLevelInterval(30000);
   };
 
   /*
-   * Function to reset position and cycle tetrominos. Done this way in order to have control of when this
-   * occurs, like when there is a need to wait for an animation to complete.
+   * Setting these two intervals to 'null' stops the useInterval hook from executing and effectively
+   * pauses the game.
+   */
+  const pauseGameplay = () => {
+    setSpeed(null);
+    setLevelInterval(null);
+  };
+
+  /*
+   * As pausing and resuming may occur in a callback, state may be stale. Using useRef ensures stale state
+   * is not a problem.
+   */
+  const restoreGameplay = () => {
+    setSpeed(previousSpeedRef.current);
+    setLevelInterval(previousLevelIntervalRef.current);
+  };
+
+  /*
+   * Function to reset position and cycle tetrominos. Done as a function in order to control when this
+   * occurs in the execution cycle e.g. like when there is a need to wait for an animation to complete.
    */
   const makeNextPlay = () => {
     if (!startGame) return;
@@ -183,13 +196,6 @@ const Tetris = () => {
     }
   };
 
-  useEffect(() => {
-    return () => {
-      setStartGame(false);
-      setSpeed(null);
-    };
-  }, []);
-
   /*
    * When staticBoard is updated, that signals that a play has ended so we need to check for completed
    * rows on the board. Completed rows are returned in an array of indexes. Indexed rows are removed from
@@ -197,8 +203,6 @@ const Tetris = () => {
    * function to be executed as a 'onFinish' function if the index is the last row to be animated.
    */
   useEffect(() => {
-    if (!startGame) return;
-
     const cloneBoard = deepClone(staticBoard);
 
     /*
@@ -208,25 +212,22 @@ const Tetris = () => {
     const indexesOfCompleteRows = findCompletedRows(cloneBoard).sort((a, b) => a - b);
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
 
-    // Callback function to be executed after the last animation
+    // Callback function to be executed after the last animation has completed.
     const updateStaticBoardCallback = () => {
       setStaticBoard(updatedBoard);
-      setSpeed(previousSpeedRef.current);
-      setLevelInterval(previousLevelIntervalRef.current);
       makeNextPlay();
+      restoreGameplay();
     };
 
     /*
      * Animate each complete row or start next playing piece.
-     * In order to stop play whilst the winning rows are animated we can setSpeed(null). We need a reference to the
-     * previous value in order to resume play.
      */
-
     if (indexesOfCompleteRows.length > 0) {
+      // Preserve these values as they need to be restored afterwards
       previousSpeedRef.current = speed;
       previousLevelIntervalRef.current = levelInterval;
-      setSpeed(null);
-      setLevelInterval(null);
+
+      pauseGameplay(); // We do this so the animation can run
 
       indexesOfCompleteRows.forEach((element, index) => {
         animateCompleteRow(
@@ -236,6 +237,7 @@ const Tetris = () => {
         );
         setLines((current) => current + 1);
       });
+
       setScore(convertScore(score, indexesOfCompleteRows.length));
     } else {
       makeNextPlay();
@@ -243,12 +245,10 @@ const Tetris = () => {
   }, [staticBoard]);
 
   /*
-   * If tetromino cannot move to position 0, 4 when the 'position' is updated that means the pieces have reached
+   * If tetromino cannot be placed at position {0, 4} that means the pieces have reached
    * the top and it is game over.
    */
   useEffect(() => {
-    if (!startGame) return;
-
     const canMove = canTetrominoMoveToPosition(
       {
         r: 0,
@@ -260,21 +260,18 @@ const Tetris = () => {
 
     // End current game.
     if (!canMove) {
-      setSpeed(null);
-      setLevelInterval(null);
+      pauseGameplay();
       setGameOver(true);
-      setStartGame(false);
+      setHasGameStarted(false);
     }
   }, [position]);
 
   /*
    * Updates 'displayBoard' every time the position or 'currentTertromino' changes. The position is updated
-   * every interval. The 'currentTetromino' is updated either via 'rotate' or when the 'nextTetromino'
+   * every interval & the 'currentTetromino' is updated either via 'rotate' or when the 'nextTetromino'
    * is put into play.
    */
   useEffect(() => {
-    if (!startGame) return;
-
     setDisplayBoard(
       addTetrominoToBoard(
         deepClone(staticBoard),
@@ -284,14 +281,6 @@ const Tetris = () => {
       )
     );
   }, [position, currentTetromino]);
-
-  /*
-   * Increase 'level' display everytime the 'speed' for gamespeed is updated
-   */
-  // useEffect(() => {
-  //   // if (!startGame) return;
-  //   setLevel((prev) => prev + 1);
-  // }, [speed, startGame]);
 
   /*
    * Event listeners for keypress
@@ -311,7 +300,8 @@ const Tetris = () => {
   }, speed);
 
   /*
-   * Interval to levelInterval up gameplay every 30 seconds
+   * Interval to increase game speed every 30 seconds by 10%. Each increase denotes the
+   * next level of the game.
    */
   useInterval(() => {
     setSpeed((prev) => Math.round(prev * 0.9));
@@ -326,7 +316,7 @@ const Tetris = () => {
             <Board board={displayBoard} />
           </div>
           <div className={style.nextWrapper}>
-            {startGame && <Next nextTetromino={nextTetromino?.matrix} />}
+            {hasGameStarted && <Next nextTetromino={nextTetromino?.matrix} />}
             {gameOver && <p className={style.gameOverText}>Game Over</p>}
           </div>
         </div>
@@ -336,10 +326,10 @@ const Tetris = () => {
           <Panel title={'lines'} value={lines} />
         </div>
         <div className={style.startOverWrapper}>
-          {!startGame && (
+          {!hasGameStarted && (
             <button
               className={classNames(style.gameOverText, style.startButton)}
-              onClick={() => resetGame()}
+              onClick={() => startGame()}
             >
               Start Game
             </button>
