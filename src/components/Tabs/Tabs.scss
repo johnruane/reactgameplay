@@ -9,6 +9,10 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding-bottom: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   & > * {
     flex: 1;
@@ -32,11 +36,11 @@
   border: 2px solid $color-black;
   color: $color-black;
   font-weight: $font-weight-bold;
-  justify-self: center;
   align-self: center;
   padding: 0.75rem 1.25rem;
   white-space: nowrap;
   scroll-snap-align: center;
+  user-select: none;
 }
 
 .tb-tab-button-active {
@@ -46,13 +50,13 @@
   color: $color-white;
 }
 
-// .tb-tabs-content-wrapper ol {
-//   @include body;
+.tb-tabs-content-wrapper {
+  & ol,
+  & ul {
+    @include body;
 
-//   list-style-position: inside;
-//   padding: 0;
-
-//   & > * + * {
-//     margin-top: $space-s;
-//   }
-// }
+    margin-block-end: 1rem;
+    margin-block-start: 1rem;
+    list-style-position: inside;
+  }
+}

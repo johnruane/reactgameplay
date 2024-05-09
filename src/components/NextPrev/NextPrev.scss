@@ -5,13 +5,15 @@
 
 .np-link-wrapper {
   display: flex;
-  row-gap: $space-s;
+  row-gap: $space-m;
   flex-direction: column;
   text-decoration: none;
   color: $color-black;
 
   & svg {
     @include iconShadow;
+    width: clamp(2.5rem, 6vw, 4rem);
+    height: clamp(2.5rem, 6vw, 4rem);
   }
 }
 

@@ -15,7 +15,7 @@ const NextPrev = ({ prev, next }) => {
           key={prev.id}
         >
           <PolygonLeft />
-          <div className='np-text-wrapper'>
+          <div className='np-text-wrapper' data-stack='space-3xs'>
             <span className='np-label'>Previous</span>
             <span className='np-title text-uppercase'>{prev?.title}</span>
           </div>
@@ -28,7 +28,7 @@ const NextPrev = ({ prev, next }) => {
           key={next?.id}
         >
           <PolygonRight />
-          <div className='np-text-wrapper'>
+          <div className='np-text-wrapper' data-stack='space-3xs'>
             <span className='np-label'>Next</span>
             <span className='np-title text-uppercase'>{next?.title}</span>
           </div>

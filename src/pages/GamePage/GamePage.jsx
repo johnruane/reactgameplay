@@ -82,9 +82,9 @@ const GamePage = () => {
 
       <WaveDivider background='yellow' clean flipWaveX />
 
-      <div className='container background-yellow'>
+      <div className='container background-yellow gp-tabs'>
         <div className='grid'>
-          <div className='gp-tabs-wrapper'>
+          <div className='gp-tabs-wrapper' data-stack='space-3xl-4xl'>
             <Tabs data={tabs} />
             <NextPrev prev={prevPage} next={nextPage} />
           </div>
