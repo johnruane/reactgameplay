@@ -59,4 +59,8 @@
     margin-block-start: 1rem;
     list-style-position: inside;
   }
+
+  & > :first-child {
+    margin-block-start: 0;
+  }
 }

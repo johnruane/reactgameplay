@@ -29,11 +29,11 @@ export default function Home() {
 
       <WaveDivider background='yellow' icons='black' />
 
+      <div className='hm-enter-wrapper'>
+        <Enter className='hm-enter-icon' />
+      </div>
       <section className='container background-black hm-intro' data-stack='space-3xl-4xl'>
         <div className='grid'>
-          {/* <div className='hm-enter-wrapper'>
-            <Enter className='hm-enter-icon' />
-          </div> */}
           <div className='hm-intro-wrapper'>
             <IntroSection />
           </div>

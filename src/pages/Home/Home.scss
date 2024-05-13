@@ -41,24 +41,17 @@
 }
 
 .hm-enter-wrapper {
-  @include padding('bottom', 15);
-
-  grid-column: 1 / -1;
-  justify-self: center;
-  position: relative;
-  margin-top: -20vw;
+  display: flex;
+  justify-content: center;
+  background: $color-black;
+  padding-top: $space-2xl-3xl;
 }
 
 .hm-enter-icon {
   @include iconShadow;
 
-  // transform: translateY(-30%);
-  width: clamp(5.75rem, 10vw, 10.6rem);
+  width: $space-2xl-3xl;
   height: auto;
-  // position: absolute;
-  // left: 50%;
-  // top: 0;
-  // transform: translate3d(-50%, 20%, 0);
 }
 
 .hm-intro {

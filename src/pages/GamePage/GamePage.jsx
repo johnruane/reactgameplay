@@ -5,12 +5,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 import pages from '@data/pages';
+
+import DownArrow from '@icons/DownArrow';
+
 import Tabs from '@components/Tabs';
 import NextPrev from '@components/NextPrev';
 import WaveDivider from '@components/WaveDivider';
 import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
+import SVGButton from '@components/SVGButton';
 
 import './GamePage.scss';
 
@@ -85,6 +89,7 @@ const GamePage = () => {
       <div className='container background-yellow gp-tabs'>
         <div className='grid'>
           <div className='gp-tabs-wrapper' data-stack='space-3xl-4xl'>
+            <SVGButton className='gp-down-icon' content={<DownArrow />} />
             <Tabs data={tabs} />
             <NextPrev prev={prevPage} next={nextPage} />
           </div>

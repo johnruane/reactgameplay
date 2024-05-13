@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 /* Utils */
@@ -70,13 +70,24 @@ const Tetris = () => {
 
   const previousSpeedRef = useRef(null);
   const previousLevelIntervalRef = useRef(null);
+  const nextTetrominolRef = useRef(null);
 
   const startGame = () => {
-    setHasGameStarted(true);
+    setDisplayBoard(createBoard(...boardConfig));
+    setStaticBoard(createBoard(...boardConfig));
+
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
+
+    setScore('000000');
+    setLines(0);
+    setLevel(0);
+
     setSpeed(1000);
     setLevelInterval(30000);
+
+    setGameOver(false);
+    setHasGameStarted(true);
   };
 
   /*
@@ -92,10 +103,11 @@ const Tetris = () => {
    * As pausing and resuming may occur in a callback, state may be stale. Using useRef ensures stale state
    * is not a problem.
    */
-  const restoreGameplay = () => {
+  const restoreGameplay = useCallback(() => {
     setSpeed(previousSpeedRef.current);
     setLevelInterval(previousLevelIntervalRef.current);
-  };
+    setNextTetromino(nextTetrominolRef.current);
+  }, [previousSpeedRef, previousLevelIntervalRef]);
 
   /*
    * Function to reset position and cycle tetrominos. Done as a function in order to control when this
@@ -226,6 +238,7 @@ const Tetris = () => {
       // Preserve these values as they need to be restored afterwards
       previousSpeedRef.current = speed;
       previousLevelIntervalRef.current = levelInterval;
+      nextTetrominolRef.current = nextTetromino;
 
       pauseGameplay(); // We do this so the animation can run
 
@@ -314,10 +327,10 @@ const Tetris = () => {
         <div className={style.boardNextWrapper}>
           <div className={style.boardWrapper}>
             <Board board={displayBoard} />
+            {gameOver && <p className={style.gameOverText}>Game Over</p>}
           </div>
           <div className={style.nextWrapper}>
             {hasGameStarted && <Next nextTetromino={nextTetromino?.matrix} />}
-            {gameOver && <p className={style.gameOverText}>Game Over</p>}
           </div>
         </div>
         <div className={style.scoreWrapper}>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 /* Components */
 import Board from './Board';
 import Panel from './Panel';
+import Controls from './Controls';
 
 /* Utils */
 import { addSnakeToBoard, growSnake, getRandomEmptyBoardPosition } from './lib/utils';
@@ -43,13 +45,33 @@ const Snake = () => {
   const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
 
   const [score, setScore] = useState(0);
-  const [speed, setSpeed] = useState(1000);
+  const [gameOver, setGameOver] = useState(false);
+  const [hasGameStarted, setHasGameStarted] = useState(false);
+
+  const [speed, setSpeed] = useState(null);
+  const [levelInterval, setLevelInterval] = useState(null);
 
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
     ArrowLeft: SNAKE_DIRECTIONS.ARROW_RIGHT,
     ArrowRight: SNAKE_DIRECTIONS.ARROW_LEFT,
     ArrowDown: SNAKE_DIRECTIONS.ARROW_UP,
+  };
+
+  const startGame = () => {
+    setSnakeBody([1, 1, 1]);
+    setSnakeHeadPosition({ r: 10, c: 10 });
+    setProposedSnakeDirection(SNAKE_DIRECTIONS.ARROW_UP);
+    setCurrentSnakeDirection(SNAKE_DIRECTIONS.ARROW_UP);
+
+    setFoodBoard(initialFoodBoard);
+    setFoodBoardPosition({ r: 5, c: 5 });
+
+    setScore(0);
+    setGameOver(false);
+    setHasGameStarted(true);
+
+    setSpeed(180);
   };
 
   /*
@@ -109,6 +131,9 @@ const Snake = () => {
 
       setSnakeBody(newSnake);
       setCurrentSnakeDirection(newDirection);
+    } else {
+      setGameOver(true);
+      setHasGameStarted(false);
     }
   };
 
@@ -173,21 +198,41 @@ const Snake = () => {
    */
   useInterval(() => {
     moveSnake();
-  }, 180);
+  }, speed);
 
   /*
    * Interval to speed up gameplay every 30 seconds
    */
   useInterval(() => {
-    setDelay((prev) => prev * 0.9);
-  }, speed);
+    setLevelInterval((prev) => prev * 0.9);
+  }, levelInterval);
 
   return (
-    <div className={style.layoutGrid}>
-      <Board board={displayBoard} />
-      <Panel title='Score' value={score} />
-      <Panel title='Speed' value={score} />
-    </div>
+    <>
+      <div className={style.layoutGrid}>
+        <div className={style.boardWrapper}>
+          <Board board={displayBoard} />
+          {gameOver && <p className={style.gameOverText}>Game Over</p>}
+        </div>
+        <div className={style.scoreWrapper}>
+          <Panel title='Score' value={score} />
+        </div>
+        <div className={style.startOverWrapper}>
+          {!hasGameStarted && (
+            <button
+              className={classNames(style.gameOverText, style.startButton)}
+              onClick={() => startGame()}
+            >
+              Start Game
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className={style.controlsWrapper}>
+        <Controls move={setProposedSnakeDirection} />
+      </div>
+    </>
   );
 };
 
