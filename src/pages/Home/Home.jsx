@@ -1,6 +1,5 @@
 import Enter from '@icons/Enter';
-import Logo from '@icons/Logo';
-import LineCircle from '@icons/LineCircle';
+// import Logo from '@icons/Logo';
 
 import IntroSection from '@sections/home/Intro';
 import GamesSection from '@sections/home/Games';
@@ -8,6 +7,7 @@ import AboutSection from '@sections/home/About';
 import LevelUpSection from '@sections/home/LevelUp';
 import Heading from '@sections/Heading';
 
+import TextLogo from '@components/TextLogo';
 import WaveDivider from '@components/WaveDivider';
 
 import imageUrl from '@assets/homepage.png';
@@ -19,10 +19,12 @@ export default function Home() {
     <>
       <section className='container background-yellow'>
         <div className='hm-section-wrapper'>
-          <div className='hm-logo-wrapper'>
+          {/* <div className='hm-logo-wrapper'>
             <Logo className='hm-logo' />
+          </div> */}
+          <div className='hm-text-positioning'>
+            <TextLogo />
           </div>
-
           <img className='hm-image' src={imageUrl} alt='' />
         </div>
       </section>
