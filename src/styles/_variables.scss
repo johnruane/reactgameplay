@@ -1,12 +1,13 @@
 /* Font sizes */
-$font--2: clamp(0.64rem, 0.5775rem + 0.3123vi, 0.8442rem);
-$font--1: clamp(0.8rem, 0.7005rem + 0.4976vi, 1.1253rem);
-$font-0: clamp(1rem, 0.847rem + 0.7648vi, 1.5rem);
-$font-1: clamp(1.25rem, 1.0207rem + 1.1465vi, 1.9995rem);
-$font-2: clamp(1.5625rem, 1.2251rem + 1.6869vi, 2.6653rem);
-$font-3: clamp(1.9531rem, 1.4637rem + 2.4471vi, 3.5529rem);
-$font-4: clamp(2.4414rem, 1.7394rem + 3.5099vi, 4.736rem);
-$font-5: clamp(3.0518rem, 2.054rem + 4.9887vi, 6.3131rem);
+$font--2: clamp(0.64rem, 0.5775rem + 0.3123cqi, 0.8442rem);
+$font--1: clamp(0.8rem, 0.7005rem + 0.4976cqi, 1.1253rem);
+$font-0: clamp(1rem, 0.847rem + 0.7648cqi, 1.5rem);
+$font-1: clamp(1.25rem, 1.0207rem + 1.1465cqi, 1.9995rem);
+$font-2: clamp(1.5625rem, 1.2251rem + 1.6869cqi, 2.6653rem);
+$font-3: clamp(1.9531rem, 1.4637rem + 2.4471cqi, 3.5529rem);
+$font-4: clamp(2.4414rem, 1.7394rem + 3.5099cqi, 4.736rem);
+$font-5: clamp(3.0518rem, 2.054rem + 4.9887cqi, 6.3131rem);
+$font-6: clamp(3.8147rem, 2.4072rem + 7.0373cqi, 8.4153rem);
 
 /* Fonts */
 $font-weight-light: 100;
@@ -32,3 +33,5 @@ $grid-desktop: repeat(18, 1fr);
 $margin-horizontal-1: 1rem;
 $margin-horizontal-2: 2rem;
 $margin-horizontal-3: 3.75rem;
+
+$pink-decoration: clamp(1rem, 2.5vw, 2.5rem);

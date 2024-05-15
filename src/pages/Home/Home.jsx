@@ -1,5 +1,4 @@
 import Enter from '@icons/Enter';
-// import Logo from '@icons/Logo';
 
 import IntroSection from '@sections/home/Intro';
 import GamesSection from '@sections/home/Games';
@@ -19,9 +18,6 @@ export default function Home() {
     <>
       <section className='container background-yellow'>
         <div className='hm-section-wrapper'>
-          {/* <div className='hm-logo-wrapper'>
-            <Logo className='hm-logo' />
-          </div> */}
           <div className='hm-text-positioning'>
             <TextLogo />
           </div>

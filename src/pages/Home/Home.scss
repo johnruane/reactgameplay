@@ -8,6 +8,8 @@
 
   @include media('>=tablet') {
     grid-template-columns: 5fr 6fr;
+    column-gap: 2rem;
+    margin-left: 2rem;
   }
 }
 
@@ -40,7 +42,6 @@
 
   @include media('>=tablet') {
     grid-column: 1;
-    justify-content: end;
   }
 }
 
