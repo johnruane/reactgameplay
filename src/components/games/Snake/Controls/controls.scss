@@ -1,0 +1,31 @@
+.snake-controls {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: repeat(1fr, 3);
+  grid-template-rows: repeat(1fr, 3);
+
+  & svg {
+    width: auto;
+    height: 1.5rem;
+  }
+}
+
+.snake-controls-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.snake-controls-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.snake-controls-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.snake-controls-up {
+  grid-column: 2;
+  grid-row: 1;
+}

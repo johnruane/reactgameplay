@@ -18,12 +18,13 @@
   font-size: clamp(3.2rem, 9vw, 9rem);
   font-weight: $font-weight-bold;
   color: $color-black;
-  letter-spacing: clamp(1rem, 2vw, 1.6rem);
+  letter-spacing: clamp(1rem, 1.8vw, 1.6rem);
   line-height: 0.7;
   z-index: 2;
 
   & > span {
     display: inline-block;
+    backface-visibility: hidden;
   }
 }
 

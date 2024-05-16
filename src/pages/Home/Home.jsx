@@ -9,7 +9,9 @@ import Heading from '@sections/Heading';
 import TextLogo from '@components/TextLogo';
 import WaveDivider from '@components/WaveDivider';
 
-import imageUrl from '@assets/homepage.png';
+// import imageUrl from '@assets/homepage.png';
+
+import Pacman from '@icons/Pacman';
 
 import './Home.scss';
 
@@ -21,7 +23,10 @@ export default function Home() {
           <div className='hm-text-positioning'>
             <TextLogo />
           </div>
-          <img className='hm-image' src={imageUrl} alt='' />
+          {/* <img className='hm-image' src={imageUrl} alt='' /> */}
+          <div className='hm-image'>
+            <Pacman />
+          </div>
         </div>
       </section>
 

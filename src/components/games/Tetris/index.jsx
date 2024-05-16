@@ -16,10 +16,10 @@ import { deepClone, createBoard } from '../utils';
 import { getRandomTetromino } from './lib/randomTetromino';
 
 /* Components */
-import Board from './Board';
 import Next from './Next';
-import Controls from './Controls';
-import Panel from './Panel';
+import Board from '../Components/Board';
+import Controls from '../Components/Controls';
+import Panel from '../Components/Panel';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';

@@ -8,11 +8,13 @@ const TextLogo = () => {
   const mainTextRef = useRef();
 
   useGSAP(() => {
-    gsap.to('.gsap-main-text > span', {
-      rotation: 360, // start rotation from 0 degrees
-      stagger: 0.3, // stagger the animation
-      duration: 1, // duration of the animation
-      ease: 'power4.out',
+    gsap.from('.gsap-main-text > span', {
+      rotationY: 180,
+      stagger: 0.3,
+      duration: 0.5,
+      scaleX: -1,
+      transformOrigin: '40% 50%',
+      ease: 'power1.out',
     });
   });
 

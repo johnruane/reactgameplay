@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 /* Components */
-import Board from './Board';
-import Panel from './Panel';
-import Controls from './Controls';
+import Board from '../Components/Board';
+import Controls from '../Components/Controls';
+import Panel from '../Components/Panel';
 
 /* Utils */
 import { addSnakeToBoard, growSnake, getRandomEmptyBoardPosition } from './lib/utils';
