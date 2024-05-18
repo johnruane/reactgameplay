@@ -68,6 +68,10 @@
   @include media('>=desktop') {
     grid-column: 2 / -2;
   }
+
+  & > * {
+    --stack-override: var(--space-default);
+  }
 }
 
 .gp-tabs {

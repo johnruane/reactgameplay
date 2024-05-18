@@ -1,4 +1,4 @@
-.controls {
+.tetris-controls {
   display: grid;
   width: 100vw;
   grid-template-columns: repeat(1fr, 3);
@@ -10,22 +10,22 @@
   }
 }
 
-.left {
+.tetris-left {
   grid-column: 1;
   grid-row: 2;
-  }
+}
 
-.right {
+.tetris-right {
   grid-column: 2;
   grid-row: 2;
-  }
+}
 
-.down {
+.tetris-down {
   grid-column: 3;
   grid-row: 2;
-  }
+}
 
-.rotate {
+.tetris-rotate {
   grid-column: 3;
   grid-row: 1;
-  }
+}

@@ -80,7 +80,9 @@ const GamePage = () => {
 
         <section className='grid' data-stack='space-l-xl'>
           <Heading title='INTRO' className='gp-intro-wrapper' />
-          <div className='gp-intro-text'>{intro}</div>
+          <div className='gp-intro-text' data-stack>
+            {intro}
+          </div>
         </section>
       </div>
 

@@ -17,15 +17,17 @@ import { getRandomTetromino } from './lib/randomTetromino';
 
 /* Components */
 import Next from './Next';
+import Controls from './Controls';
+
 import Board from '../Components/Board';
-import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
 
 /* Styles */
-import style from './tetris.module.css';
+import '../Components/style.scss';
+import './tetris.scss';
 
 /*
  * @position: Current r & c position to place the top left corner of the tetromino on a board.
@@ -323,25 +325,25 @@ const Tetris = () => {
 
   return (
     <>
-      <div className={style.layoutGrid}>
-        <div className={style.boardNextWrapper}>
-          <div className={style.boardWrapper}>
+      <div className='layout-grid'>
+        <div className='board-next-wrapper'>
+          <div className='board-wrapper tetris-board-wrapper'>
             <Board board={displayBoard} />
-            {gameOver && <p className={style.gameOverText}>Game Over</p>}
+            {gameOver && <p className='game-over-text'>Game Over</p>}
           </div>
-          <div className={style.nextWrapper}>
+          <div className='next-wrapper'>
             {hasGameStarted && <Next nextTetromino={nextTetromino?.matrix} />}
           </div>
         </div>
-        <div className={style.scoreWrapper}>
+        <div className='score-wrapper'>
           <Panel title={'score'} value={score} />
           <Panel title={'level'} value={level} />
           <Panel title={'lines'} value={lines} />
         </div>
-        <div className={style.startOverWrapper}>
+        <div className='start-over-wrapper'>
           {!hasGameStarted && (
             <button
-              className={classNames(style.gameOverText, style.startButton)}
+              className={classNames('game-over-text', 'start-button')}
               onClick={() => startGame()}
             >
               Start Game
@@ -350,7 +352,7 @@ const Tetris = () => {
         </div>
       </div>
 
-      <div className={style.controlsWrapper}>
+      <div className='controls-wrapper'>
         <Controls move={move} />
       </div>
     </>

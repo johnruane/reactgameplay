@@ -1,11 +1,61 @@
-.layoutGrid {
+.layout-grid {
   display: grid;
   row-gap: 2rem;
   grid-column: 1 / -1;
   justify-self: center;
 }
 
-.scoreWrapper {
+.start-over-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-over-text {
+  position: absolute;
+  place-self: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.start-button {
+  all: unset;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.controls-wrapper {
+  display: none;
+  justify-content: space-around;
+  align-items: flex-end;
+  position: fixed;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  @media (pointer: coarse) and (hover: none) and (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.score-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
@@ -20,62 +70,8 @@
   }
 }
 
-.scoreWrapper > * {
-  grid-column: 2;
-}
-
-.startOverWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gameOverText {
-  position: absolute;
-  place-self: center;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  color: #FFF;
-  -webkit-text-stroke: 1px #000;
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
-  }
-}
-
-.startButton {
-  all: unset;
-  align-self: center;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
-  }
-}
-
-.boardWrapper {
+.board-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
-}
-
-.controlsWrapper {
-  display: none;
-  justify-content: space-around;
-  align-items: flex-end;
-  position: fixed;
-  margin: 0 auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-
-  @media (pointer: coarse) and (hover: none) and (max-width: 768px) {
-    display: flex;
-  }
 }

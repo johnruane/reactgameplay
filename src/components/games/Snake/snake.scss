@@ -1,0 +1,13 @@
+.score-wrapper > * {
+  grid-column: 2;
+}
+
+/* Snake colour */
+[data-value='1']::after {
+  background: #fff;
+}
+
+/* Food colour */
+[data-value='2']::after {
+  background: green;
+}

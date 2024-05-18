@@ -24,19 +24,7 @@
   outline: 1px solid $cell-outline-color;
 
   @include media('>=tablet') {
-    &::after {
-      width: $cell-md;
-      height: $cell-md;
-    }
+    width: $cell-md;
+    height: $cell-md;
   }
-}
-
-/* Snake colour */
-[data-value='1']::after {
-  background: #fff;
-}
-
-/* Food colour */
-[data-value='2']::after {
-  background: green;
 }

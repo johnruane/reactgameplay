@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 /* Components */
+import Controls from './Controls';
+
 import Board from '../Components/Board';
-import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
 
 /* Utils */
@@ -14,7 +15,7 @@ import { deepClone, createBoard } from '../utils';
 import { useInterval } from './hooks/useInterval';
 
 /* Styles */
-import style from './snake.module.css';
+import './snake.scss';
 
 const SNAKE_DIRECTIONS = {
   ARROW_UP: 'ArrowUp',
@@ -209,18 +210,18 @@ const Snake = () => {
 
   return (
     <>
-      <div className={style.layoutGrid}>
-        <div className={style.boardWrapper}>
+      <div className='layout-grid'>
+        <div className='board-wrapper'>
           <Board board={displayBoard} />
-          {gameOver && <p className={style.gameOverText}>Game Over</p>}
+          {gameOver && <p className='game-over-text'>Game Over</p>}
         </div>
-        <div className={style.scoreWrapper}>
+        <div className='score-wrapper'>
           <Panel title='Score' value={score} />
         </div>
-        <div className={style.startOverWrapper}>
+        <div className='start-over-wrapper'>
           {!hasGameStarted && (
             <button
-              className={classNames(style.gameOverText, style.startButton)}
+              className={classNames('game-over-text', 'start-button')}
               onClick={() => startGame()}
             >
               Start Game
@@ -229,7 +230,7 @@ const Snake = () => {
         </div>
       </div>
 
-      <div className={style.controlsWrapper}>
+      <div className='controls-wrapper'>
         <Controls move={setProposedSnakeDirection} />
       </div>
     </>

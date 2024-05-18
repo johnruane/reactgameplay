@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import PropTypes from 'prop-types';
 import './board.scss';
 
 const Cell = memo(function Cell(props) {
@@ -20,11 +19,3 @@ export default function Board({ board }) {
     </div>
   );
 }
-
-Board.propTypes = {
-  board: PropTypes.array,
-};
-
-Cell.propTypes = {
-  value: PropTypes.number,
-};

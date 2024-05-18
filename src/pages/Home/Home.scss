@@ -34,9 +34,10 @@
   grid-column: 2;
   display: flex;
   justify-content: center;
+  container-type: inline-size;
 
   & svg {
-    width: 70%;
+    width: 60cqw;
     max-width: 30rem;
     height: auto;
     filter: drop-shadow(30px 40px 0px rgba(0, 0, 0, 0.4))
