@@ -1,2 +1,2 @@
 export { deepClone } from './deepClone';
-export { createBoard } from './createBoard';
+export { create2dArray } from './create2dArray';

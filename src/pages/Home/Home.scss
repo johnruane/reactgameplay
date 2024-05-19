@@ -31,22 +31,38 @@
 }
 
 .hm-image {
+  position: relative;
   grid-column: 2;
   display: flex;
   justify-content: center;
   container-type: inline-size;
 
   & svg {
+    display: block;
     width: 60cqw;
     max-width: 30rem;
     height: auto;
-    filter: drop-shadow(30px 40px 0px rgba(0, 0, 0, 0.4))
-      drop-shadow(30px 40px 0px rgba(229, 84, 150));
-    opacity: 0.9;
+    // filter: drop-shadow(30px 40px 0px rgba(0, 0, 0, 0.4))
+    //   drop-shadow(30px 40px 0px rgba(229, 84, 150));
   }
 
-  & svg path {
-    fill: $color-teal;
+  & :nth-child(1) {
+    position: relative;
+    z-index: 3;
+  }
+
+  & :nth-child(2) {
+    position: absolute;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    z-index: 2;
+  }
+
+  & :nth-child(3) {
+    position: absolute;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    z-index: 1;
   }
 }
 

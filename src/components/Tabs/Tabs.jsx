@@ -15,19 +15,19 @@ const Tabs = ({ data }) => {
       <div className='tb-tabs-wrapper'>
         {data?.map((tab) => (
           <button
-            key={tab.title}
+            key={tab?.title}
             className={classNames('tb-tab-button', {
-              ['tb-tab-button-active']: tab.id === selectedSection,
+              ['tb-tab-button-active']: tab?.id === selectedSection,
             })}
-            value={tab.id}
+            value={tab?.id}
             onClick={handleClick}
           >
-            {tab.title}
+            {tab?.title}
           </button>
         ))}
       </div>
       <div className='tb-tabs-content-wrapper'>
-        {data?.find((x) => x.id === selectedSection).content}
+        {data?.find((x) => x.id === selectedSection)?.content}
       </div>
     </div>
   );

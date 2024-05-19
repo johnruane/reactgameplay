@@ -9,7 +9,7 @@ import Panel from '../Components/Panel';
 
 /* Utils */
 import { addSnakeToBoard, growSnake, getRandomEmptyBoardPosition } from './lib/utils';
-import { deepClone, createBoard } from '../utils';
+import { deepClone, create2dArray } from '../utils';
 
 /* Hooks */
 import { useInterval } from './hooks/useInterval';
@@ -27,7 +27,7 @@ const SNAKE_DIRECTIONS = {
 const FOOD_VALUE = 2;
 
 const Snake = () => {
-  const emptyBoard = createBoard(20, 20, 0);
+  const emptyBoard = create2dArray(20, 20);
   const initialFoodBoard = deepClone(emptyBoard);
   initialFoodBoard[5][5] = FOOD_VALUE;
 
@@ -165,7 +165,7 @@ const Snake = () => {
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
       const { row, col } = getRandomEmptyBoardPosition(displayBoard);
-      const newFoodBoard = createBoard(20, 20, 0);
+      const newFoodBoard = create2dArray(20, 20);
       newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });

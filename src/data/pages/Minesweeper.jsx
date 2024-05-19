@@ -1,4 +1,4 @@
-import tabs from './tabs/Tetris';
+import MinesweeperGame from '@components/Games/Minesweeper';
 
 const gamePageData = {
   id: 'minesweeper',
@@ -45,8 +45,8 @@ const gamePageData = {
       </p>
     </>
   ),
-  tabs: tabs,
-  game: <></>,
+  tabs: [],
+  game: <MinesweeperGame />,
 };
 
 export default gamePageData;

@@ -10,7 +10,7 @@ import { animateCompleteRow } from './lib/utils/animateCompleteRow';
 import { findCompletedRows } from './lib/utils/findCompletedRows';
 import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
 import { convertScore } from './lib/utils/convertScore';
-import { deepClone, createBoard } from '../utils';
+import { deepClone, create2dArray } from '../utils';
 
 /* Lib */
 import { getRandomTetromino } from './lib/randomTetromino';
@@ -54,8 +54,8 @@ const Tetris = () => {
   const boardConfig = [19, 10, 0];
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
-  const [displayBoard, setDisplayBoard] = useState(createBoard(...boardConfig));
-  const [staticBoard, setStaticBoard] = useState(createBoard(...boardConfig));
+  const [displayBoard, setDisplayBoard] = useState(create2dArray(...boardConfig));
+  const [staticBoard, setStaticBoard] = useState(create2dArray(...boardConfig));
 
   const [currentTetromino, setCurrentTetromino] = useState(null);
   const [nextTetromino, setNextTetromino] = useState(null);
@@ -75,8 +75,8 @@ const Tetris = () => {
   const nextTetrominolRef = useRef(null);
 
   const startGame = () => {
-    setDisplayBoard(createBoard(...boardConfig));
-    setStaticBoard(createBoard(...boardConfig));
+    setDisplayBoard(create2dArray(...boardConfig));
+    setStaticBoard(create2dArray(...boardConfig));
 
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());

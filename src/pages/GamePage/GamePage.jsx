@@ -49,6 +49,8 @@ const GamePage = () => {
 
   const { id, year, complexity, controls, intro, tabs, game } = pageData || {};
 
+  console.log(pageData);
+
   const handleButtonClick = useCallback(() => {
     setGameSheetToggle((prev) => !prev);
   }, [setGameSheetToggle]);

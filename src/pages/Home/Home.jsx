@@ -1,3 +1,6 @@
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
 import Enter from '@icons/Enter';
 
 import IntroSection from '@sections/home/Intro';
@@ -12,10 +15,60 @@ import WaveDivider from '@components/WaveDivider';
 // import imageUrl from '@assets/homepage.png';
 
 import Pacman from '@icons/Pacman';
+import PacmanShadow1 from '@icons/PacmanShadow1';
+import PacmanShadow2 from '@icons/PacmanShadow2';
 
 import './Home.scss';
 
 export default function Home() {
+  useGSAP(() => {
+    let tl1 = gsap.timeline({ repeat: -1, yoyo: true });
+    let tl2 = gsap.timeline({ repeat: -1, yoyo: true, delay: 0.3 });
+    let tl3 = gsap.timeline({ repeat: -1, yoyo: true, delay: 0.6 });
+
+    tl1
+      .to('.pacman1', {
+        y: -30,
+        duration: 2,
+        ease: 'power1.inOut',
+      })
+      .to('.pacman1', {
+        y: 30,
+        duration: 2,
+        ease: 'power1.inOut',
+      });
+
+    // Animation for the second SVG with a delay
+    tl2
+      .to('.pacman2', {
+        y: -30,
+        duration: 2,
+        ease: 'power1.inOut',
+      })
+      .to('.pacman2', {
+        y: 30,
+        duration: 2,
+        ease: 'power1.inOut',
+      });
+
+    // Animation for the third SVG with a longer delay
+    tl3
+      .to('.pacman3', {
+        y: -30,
+        duration: 2,
+        ease: 'power1.inOut',
+      })
+      .to('.pacman3', {
+        y: 30,
+        duration: 2,
+        ease: 'power1.inOut',
+      });
+
+    tl1.play();
+    tl2.play();
+    tl3.play();
+  });
+
   return (
     <>
       <section className='container background-yellow'>
@@ -25,7 +78,9 @@ export default function Home() {
           </div>
           {/* <img className='hm-image' src={imageUrl} alt='' /> */}
           <div className='hm-image'>
-            <Pacman />
+            <Pacman className='pacman1' />
+            <PacmanShadow1 className='pacman2' />
+            <PacmanShadow2 className='pacman3' />
           </div>
         </div>
       </section>
