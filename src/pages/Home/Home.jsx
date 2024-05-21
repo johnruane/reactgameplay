@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { useGSAP } from '@gsap/react';
 
 import Enter from '@icons/Enter';
@@ -20,54 +21,93 @@ import PacmanShadow2 from '@icons/PacmanShadow2';
 
 import './Home.scss';
 
+gsap.registerPlugin(MotionPathPlugin);
+
 export default function Home() {
   useGSAP(() => {
-    let tl1 = gsap.timeline({ repeat: -1, yoyo: true });
-    let tl2 = gsap.timeline({ repeat: -1, yoyo: true, delay: 0.3 });
-    let tl3 = gsap.timeline({ repeat: -1, yoyo: true, delay: 0.6 });
+    const timeline = gsap.timeline({ repeat: -1 });
 
-    tl1
-      .to('.pacman1', {
-        y: -30,
-        duration: 2,
+    timeline.to(
+      '.pacman',
+      {
+        y: '+=10',
+        duration: 1,
         ease: 'power1.inOut',
-      })
-      .to('.pacman1', {
-        y: 30,
-        duration: 2,
+        stagger: 0.3,
+      },
+      0
+    );
+    timeline.to(
+      '.pacman',
+      {
+        y: '-=10',
+        duration: 1,
         ease: 'power1.inOut',
-      });
-
-    // Animation for the second SVG with a delay
-    tl2
-      .to('.pacman2', {
-        y: -30,
-        duration: 2,
+        stagger: 0.3,
+      },
+      1
+    );
+    timeline.to(
+      '.pacman',
+      {
+        y: '+=10',
+        duration: 1,
         ease: 'power1.inOut',
-      })
-      .to('.pacman2', {
-        y: 30,
-        duration: 2,
+        stagger: 0.3,
+      },
+      2
+    );
+    timeline.to(
+      '.pacman',
+      {
+        y: '-=10',
+        duration: 1,
         ease: 'power1.inOut',
-      });
-
-    // Animation for the third SVG with a longer delay
-    tl3
-      .to('.pacman3', {
-        y: -30,
-        duration: 2,
+        stagger: 0.3,
+      },
+      3
+    );
+    timeline.to(
+      '.pacman',
+      {
+        y: '+=10',
+        duration: 1,
         ease: 'power1.inOut',
-      })
-      .to('.pacman3', {
-        y: 30,
-        duration: 2,
+        stagger: 0.3,
+      },
+      4
+    );
+    timeline.to(
+      '.pacman',
+      {
+        y: '-=10',
+        duration: 1,
         ease: 'power1.inOut',
-      });
-
-    tl1.play();
-    tl2.play();
-    tl3.play();
-  });
+        stagger: 0.3,
+      },
+      5
+    );
+    timeline.to(
+      '.pacman',
+      {
+        x: '+=20',
+        duration: 2.5,
+        ease: 'power1.inOut',
+        stagger: 0.3,
+      },
+      0
+    );
+    timeline.to(
+      '.pacman',
+      {
+        x: '-=20',
+        duration: 2.5,
+        ease: 'power1.inOut',
+        stagger: 0.3,
+      },
+      2.5
+    );
+  }, []);
 
   return (
     <>
@@ -78,9 +118,9 @@ export default function Home() {
           </div>
           {/* <img className='hm-image' src={imageUrl} alt='' /> */}
           <div className='hm-image'>
-            <Pacman className='pacman1' />
-            <PacmanShadow1 className='pacman2' />
-            <PacmanShadow2 className='pacman3' />
+            <Pacman className='pacman' />
+            <PacmanShadow1 className='pacman' />
+            <PacmanShadow2 className='pacman' />
           </div>
         </div>
       </section>
