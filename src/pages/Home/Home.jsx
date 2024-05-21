@@ -24,88 +24,46 @@ import './Home.scss';
 gsap.registerPlugin(MotionPathPlugin);
 
 export default function Home() {
-  useGSAP(() => {
-    const timeline = gsap.timeline({ repeat: -1 });
+  const timeline = gsap.timeline({ repeat: -1 });
 
+  useGSAP(() => {
     timeline.to(
       '.pacman',
       {
         y: '+=10',
         duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
+        ease: 'sine.inOut',
+        stagger: {
+          each: 0.3,
+          repeat: -1,
+          yoyo: true,
+        },
       },
       0
     );
-    timeline.to(
-      '.pacman',
-      {
-        y: '-=10',
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      1
-    );
-    timeline.to(
-      '.pacman',
-      {
-        y: '+=10',
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      2
-    );
-    timeline.to(
-      '.pacman',
-      {
-        y: '-=10',
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      3
-    );
-    timeline.to(
-      '.pacman',
-      {
-        y: '+=10',
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      4
-    );
-    timeline.to(
-      '.pacman',
-      {
-        y: '-=10',
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      5
-    );
-    timeline.to(
-      '.pacman',
-      {
-        x: '+=20',
-        duration: 2.5,
-        ease: 'power1.inOut',
-        stagger: 0.3,
-      },
-      0
-    );
-    timeline.to(
+    timeline.fromTo(
       '.pacman',
       {
         x: '-=20',
-        duration: 2.5,
-        ease: 'power1.inOut',
-        stagger: 0.3,
+        duration: 6,
+        ease: 'sine.inOut',
+        stagger: {
+          each: 0.6,
+          repeat: -1,
+          yoyo: true,
+        },
       },
-      2.5
+      {
+        x: '+=40',
+        duration: 6,
+        ease: 'sine.inOut',
+        stagger: {
+          each: 0.6,
+          repeat: -1,
+          yoyo: true,
+        },
+      },
+      0
     );
   }, []);
 
