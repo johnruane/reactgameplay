@@ -3,7 +3,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  row-gap: 0.6rem;
 }
 
 .tl-text-logo-wrapper {
@@ -19,12 +18,13 @@
   font-weight: $font-weight-bold;
   color: $color-black;
   letter-spacing: clamp(1rem, 1.8vw, 1.6rem);
-  line-height: 0.7;
+  line-height: 1;
   z-index: 2;
+  overflow: hidden;
 
   & > span {
     display: inline-block;
-    backface-visibility: hidden;
+    backface-visibility: visible;
   }
 }
 
@@ -41,10 +41,10 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.3rem;
+  bottom: 0.3rem;
 
   @include media('>=tablet') {
-    bottom: -0.5rem;
+    bottom: 0.5rem;
   }
 }
 

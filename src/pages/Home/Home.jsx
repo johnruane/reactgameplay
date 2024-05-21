@@ -44,9 +44,9 @@ export default function Home() {
     timeline.fromTo(
       '.pacman',
       {
-        x: '-=20',
+        x: '-=30',
         duration: 6,
-        ease: 'sine.inOut',
+        ease: 'power3.inOut',
         stagger: {
           each: 0.6,
           repeat: -1,
@@ -54,9 +54,9 @@ export default function Home() {
         },
       },
       {
-        x: '+=40',
+        x: '+=50',
         duration: 6,
-        ease: 'sine.inOut',
+        ease: 'power3.inOut',
         stagger: {
           each: 0.6,
           repeat: -1,
@@ -65,6 +65,16 @@ export default function Home() {
       },
       0
     );
+  }, []);
+
+  useGSAP(() => {
+    gsap.to('.enter-arrow', {
+      y: '+=5',
+      repeat: -1,
+      ease: 'sine.inOut',
+      duration: 1,
+      yoyo: true,
+    });
   }, []);
 
   return (

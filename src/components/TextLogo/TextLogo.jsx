@@ -1,27 +1,34 @@
-import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 import './TextLogo.scss';
 
 const TextLogo = () => {
-  const mainTextRef = useRef();
+  const timeline = gsap.timeline({ ease: 'power1.out' });
 
   useGSAP(() => {
-    gsap.from('.gsap-main-text > span', {
-      rotationY: 180,
-      stagger: 0.3,
-      duration: 0.5,
-      scaleX: -1,
-      transformOrigin: '40% 50%',
-      ease: 'power1.out',
-    });
-  });
+    timeline
+      .from('.tl-logo-main-text > :first-child', {
+        rotationY: 180,
+        transformOrigin: '40% 50%',
+      })
+      .from('.tl-logo-main-text > span', {
+        y: -100,
+        stagger: 0.2,
+        duration: 0.3,
+      })
+      .to('.tl-logo-main-text > :first-child', {
+        rotationY: 0,
+        transformOrigin: '40% 50%',
+        duration: 3,
+        ease: 'elastic.inOut(2,0.4)',
+      });
+  }, []);
 
   return (
     <div className='tl-text-container'>
       <div className='tl-text-logo-wrapper'>
-        <div className='tl-logo-main-text gsap-main-text' ref={mainTextRef}>
+        <div className='tl-logo-main-text'>
           <span>R</span>
           <span>E</span>
           <span>A</span>
