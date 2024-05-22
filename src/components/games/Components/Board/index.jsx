@@ -1,13 +1,7 @@
-import { memo } from 'react';
-import './board.scss';
 import classNames from 'classnames';
+import './board.scss';
 
-const Cell = memo(function Cell(props) {
-  const { value } = props;
-  return <div className='board-cell' data-value={value}></div>;
-});
-
-export default function Board({ board, className }) {
+export default function Board({ board, Cell, className }) {
   return (
     <div className={classNames('board', className)}>
       {board?.map((boardRow, i) => (

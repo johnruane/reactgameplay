@@ -10,21 +10,3 @@
     border-bottom: none;
   }
 }
-
-.board-cell::after {
-  content: '';
-  display: block;
-}
-
-.board-cell,
-.board-cell::after {
-  width: $cell-sm;
-  height: $cell-sm;
-  background: $cell-background-color;
-  outline: 1px solid $cell-outline-color;
-
-  @include media('>=tablet') {
-    width: $cell-md;
-    height: $cell-md;
-  }
-}

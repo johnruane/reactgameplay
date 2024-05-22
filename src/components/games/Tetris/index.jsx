@@ -20,6 +20,7 @@ import Next from './Next';
 import Controls from './Controls';
 
 import Board from '../Components/Board';
+import Cell from '../Components/Cell';
 import Panel from '../Components/Panel';
 
 /* Hooks */
@@ -328,14 +329,14 @@ const Tetris = () => {
       <div className='layout-grid'>
         <div className='board-next-wrapper'>
           <div className='board-wrapper tetris-board-wrapper'>
-            <Board board={displayBoard} />
+            <Board board={displayBoard} Cell={Cell} className='tetris-board' />
             {gameOver && <p className='game-over-text'>Game Over</p>}
           </div>
           <div className='next-wrapper'>
             {hasGameStarted && <Next nextTetromino={nextTetromino?.matrix} />}
           </div>
         </div>
-        <div className='score-wrapper'>
+        <div className='tetris-score-wrapper'>
           <Panel title={'score'} value={score} />
           <Panel title={'level'} value={level} />
           <Panel title={'lines'} value={lines} />

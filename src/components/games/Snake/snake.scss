@@ -1,13 +1,27 @@
-.score-wrapper > * {
-  grid-column: 2;
+.snake-score-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+
+  & > * {
+    grid-column: 2;
+    justify-items: center;
+    border-right: 1px solid #1e342c;
+  }
+
+  & > :last-child {
+    border: none;
+  }
 }
 
-/* Snake colour */
-[data-value='1']::after {
-  background: #fff;
-}
+.snake-board {
+  /* Snake colour */
+  [data-value='1']::after {
+    background: #fff;
+  }
 
-/* Food colour */
-[data-value='2']::after {
-  background: green;
+  /* Food colour */
+  [data-value='2']::after {
+    background: #008000;
+  }
 }

@@ -55,21 +55,6 @@
   }
 }
 
-.score-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
-
-  & > * {
-    justify-items: center;
-    border-right: 1px solid #1e342c;
-  }
-
-  & > :last-child {
-    border: none;
-  }
-}
-
 .board-wrapper {
   position: relative;
   display: flex;

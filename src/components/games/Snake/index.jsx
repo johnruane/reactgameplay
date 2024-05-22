@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Controls from './Controls';
 
 import Board from '../Components/Board';
+import Cell from '../Components/Cell';
 import Panel from '../Components/Panel';
 
 /* Utils */
@@ -212,10 +213,10 @@ const Snake = () => {
     <>
       <div className='layout-grid'>
         <div className='board-wrapper'>
-          <Board board={displayBoard} />
+          <Board board={displayBoard} Cell={Cell} className='snake-board' />
           {gameOver && <p className='game-over-text'>Game Over</p>}
         </div>
-        <div className='score-wrapper'>
+        <div className='snake-score-wrapper'>
           <Panel title='Score' value={score} />
         </div>
         <div className='start-over-wrapper'>

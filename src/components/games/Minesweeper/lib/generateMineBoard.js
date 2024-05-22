@@ -5,7 +5,7 @@ export const generateMineBoard = (board, mineCount) => {
 
   for (let i = 0; i <= mineCount; i += 1) {
     const { row, col } = getRandomEmptyBoardPosition(mineBoard);
-    mineBoard[row][col] = 1;
+    mineBoard[row][col] = 9;
   }
   return mineBoard;
 };
