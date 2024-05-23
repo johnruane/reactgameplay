@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
 import { create2dArray } from '../utils/create2dArray';
 import { deepClone } from '../utils/deepClone';
 import { generateCluesBoard } from './lib/generateCluesBoard';
+import { updateDisplayBoard } from './lib/updateDisplayBoard';
 
 /* Components */
 import Board from '../Components/Board';
@@ -16,11 +17,26 @@ import './minsweeper.scss';
 const Minesweeper = () => {
   const mineCount = 9;
   const mineBoard = generateMineBoard(create2dArray(9, 9), mineCount);
-  const numberedMineBoard = generateCluesBoard(mineBoard);
+  const cluesBoard = generateCluesBoard(mineBoard);
 
-  const [displayBoard, setDisplayBoard] = useState(deepClone(numberedMineBoard));
+  const [gameplayBoard, setGameplayBoard] = useState();
+  const [displayBoard, setDisplayBoard] = useState(deepClone(create2dArray(9, 9)));
 
-  console.log(numberedMineBoard);
+  console.log(gameplayBoard);
+
+  function handleCellClick(e) {
+    const selectedCellPos = e.target.getAttribute('data-pos');
+    console.log(selectedCellPos);
+    setDisplayBoard(updateDisplayBoard(displayBoard, gameplayBoard, selectedCellPos));
+  }
+
+  function initialiseGame() {
+    setGameplayBoard(cluesBoard);
+  }
+
+  useEffect(() => {
+    initialiseGame();
+  }, []);
 
   /*
    * 9x9 board = 10 mines
@@ -30,8 +46,12 @@ const Minesweeper = () => {
 
   return (
     <div className='layout-grid'>
-      <div className='test'></div>
-      <Board board={displayBoard} Cell={Cell} className='minesweeper-board' />
+      <Board
+        board={displayBoard}
+        Cell={Cell}
+        className='minesweeper-board'
+        onClickCellCallback={handleCellClick}
+      />
     </div>
   );
 };
