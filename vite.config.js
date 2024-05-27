@@ -21,14 +21,14 @@ export default defineConfig({
   baseUrl: './',
   resolve: {
     alias: {
-      '@icons': resolve(__dirname, '/src/components/Icons'),
-      '@sections': resolve(__dirname, '/src/components/sections'),
-      '@assets': resolve(__dirname, '/src/assets'),
-      '@components': resolve(__dirname, '/src/components'),
-      '@layouts': resolve(__dirname, '/src/components/Layouts'),
-      '@pages': resolve(__dirname, '/src/pages'),
-      '@templates': resolve(__dirname, '/src/templates'),
-      '@data': resolve(__dirname, '/src/data'),
+      '@icons': resolve(__dirname, './src/components/Icons'),
+      '@sections': resolve(__dirname, './src/components/sections'),
+      '@assets': resolve(__dirname, './src/assets'),
+      '@components': resolve(__dirname, './src/components'),
+      '@layouts': resolve(__dirname, './src/components/Layouts'),
+      '@pages': resolve(__dirname, './src/pages'),
+      '@templates': resolve(__dirname, './src/templates'),
+      '@data': resolve(__dirname, './src/data'),
     },
   },
 });
