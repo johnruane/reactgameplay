@@ -18,6 +18,7 @@ export default defineConfig({
     include: ['**/*.test.js'],
     globals: true,
   },
+  baseUrl: './',
   resolve: {
     alias: {
       '@icons': resolve(__dirname, '/src/components/Icons'),
