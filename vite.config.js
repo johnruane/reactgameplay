@@ -2,8 +2,17 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
+console.log(
+  'Alias @layouts resolves to:',
+  resolve(__dirname, './src/components/Layouts')
+);
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  publicDir: 'public',
+  build: {
+    outDir: 'dist',
+  },
   plugins: [react()],
   css: {
     preprocessorOptions: {
