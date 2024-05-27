@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react';
-import alias from '@rollup/plugin-alias';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
@@ -8,21 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  plugins: [
-    react(),
-    alias({
-      entries: {
-        '@icons': '/src/components/Icons',
-        '@sections': '/src/components/sections',
-        '@assets': '/src/assets',
-        '@components': '/src/components',
-        '@layouts': '/src/components/Layouts',
-        '@pages': '/src/pages',
-        '@templates': '/src/templates',
-        '@data': '/src/data',
-      },
-    }),
-  ],
+  plugins: [react()],
   css: {
     preprocessorOptions: {
       scss: {
@@ -35,5 +21,17 @@ export default defineConfig({
   test: {
     include: ['**/*.test.js'],
     globals: true,
+  },
+  resolve: {
+    alias: {
+      '@icons': resolve(__dirname, './src/components/Icons'),
+      '@sections': resolve(__dirname, './src/components/sections'),
+      '@assets': resolve(__dirname, './src/assets'),
+      '@components': resolve(__dirname, './src/components'),
+      '@layouts': resolve(__dirname, './src/components/Layouts'),
+      '@pages': resolve(__dirname, './src/pages'),
+      '@templates': resolve(__dirname, './src/templates'),
+      '@data': resolve(__dirname, './src/data'),
+    },
   },
 });
