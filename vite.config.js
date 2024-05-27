@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,14 +20,14 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@icons': '/src/components/Icons',
-      '@sections': '/src/components/sections',
-      '@assets': '/src/assets',
-      '@components': '/src/components',
-      '@layouts': '/src/components/Layouts',
-      '@pages': '/src/pages',
-      '@templates': '/src/templates',
-      '@data': '/src/data',
+      '@icons': resolve(__dirname, '/src/components/Icons'),
+      '@sections': resolve(__dirname, '/src/components/sections'),
+      '@assets': resolve(__dirname, '/src/assets'),
+      '@components': resolve(__dirname, '/src/components'),
+      '@layouts': resolve(__dirname, '/src/components/Layouts'),
+      '@pages': resolve(__dirname, '/src/pages'),
+      '@templates': resolve(__dirname, '/src/templates'),
+      '@data': resolve(__dirname, '/src/data'),
     },
   },
 });
