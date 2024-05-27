@@ -26,14 +26,14 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@icons': resolve(baseDir, './src/components/Icons'),
-      '@sections': resolve(baseDir, './src/components/sections'),
-      '@assets': resolve(baseDir, './src/assets'),
-      '@components': resolve(baseDir, './src/components'),
-      '@layouts': resolve(baseDir, './src/components/Layouts'),
-      '@pages': resolve(baseDir, './src/pages'),
-      '@templates': resolve(baseDir, './src/templates'),
-      '@data': resolve(baseDir, './src/data'),
+      '@icons': resolve(baseDir, 'src/components/Icons'),
+      '@sections': resolve(baseDir, 'src/components/sections'),
+      '@assets': resolve(baseDir, 'src/assets'),
+      '@components': resolve(baseDir, 'src/components'),
+      '@layouts': resolve(baseDir, 'src/components/Layouts'),
+      '@pages': resolve(baseDir, 'src/pages'),
+      '@templates': resolve(baseDir, 'src/templates'),
+      '@data': resolve(baseDir, 'src/data'),
     },
   },
 });
