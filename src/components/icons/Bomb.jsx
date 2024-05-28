@@ -1,4 +1,4 @@
-const Bomb = ({ className }) => {
+const Bomb = () => {
   return (
     <svg
       width='120'

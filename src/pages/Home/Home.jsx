@@ -13,8 +13,6 @@ import Heading from '@sections/Heading';
 import TextLogo from '@components/TextLogo';
 import WaveDivider from '@components/WaveDivider';
 
-// import imageUrl from '@assets/homepage.png';
-
 import Pacman from '@icons/Pacman';
 import PacmanShadow1 from '@icons/PacmanShadow1';
 import PacmanShadow2 from '@icons/PacmanShadow2';

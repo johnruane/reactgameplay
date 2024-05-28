@@ -6,7 +6,7 @@ import LeftArrow from '@icons/LeftArrow';
 
 import './ArrowKeys.scss';
 
-const ArrowKeys = ({ className }) => {
+const ArrowKeys = () => {
   return (
     <div className='ak-wrapper'>
       <SVGButton content={<UpArrow />} className='ak-up' />
