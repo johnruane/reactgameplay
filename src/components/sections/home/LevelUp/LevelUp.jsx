@@ -1,4 +1,4 @@
-import StreetFighter from '@icons/Streetfighter';
+import StreetFighter from '@icons/StreetFighter';
 import './LevelUp.scss';
 
 const LevelUp = () => {
