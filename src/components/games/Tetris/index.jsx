@@ -326,10 +326,10 @@ const Tetris = () => {
 
   return (
     <>
-      <div className='layout-grid'>
+      <div className='layout-grid tetris'>
         <div className='board-next-wrapper'>
           <div className='board-wrapper tetris-board-wrapper'>
-            <Board board={displayBoard} Cell={Cell} className='tetris-board' />
+            <Board board={displayBoard} Cell={Cell} />
             {gameOver && <p className='game-over-text'>Game Over</p>}
           </div>
           <div className='next-wrapper'>

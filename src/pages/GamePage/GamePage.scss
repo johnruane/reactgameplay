@@ -2,14 +2,14 @@
   @include verticalPadding($space-4xl-6xl);
 }
 
+.gp-play-button {
+  justify-self: center;
+}
+
 .gp-heading-wrapper {
   grid-column: 1 / -1;
   display: grid;
   row-gap: 5rem;
-
-  & > button {
-    justify-self: center;
-  }
 
   @include media('>=tablet') {
     grid-auto-flow: column;
@@ -75,7 +75,7 @@
 }
 
 .gp-tabs {
-  @include verticalPadding($space-4xl-6xl);
+  @include verticalPadding($space-3xl-5xl);
 }
 
 .gp-tabs-wrapper {

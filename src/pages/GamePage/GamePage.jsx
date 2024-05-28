@@ -57,9 +57,13 @@ const GamePage = () => {
     <>
       <WaveDivider background='yellow' clean />
       <div className='container background-black gp-intro' data-stack='space-3xl-4xl'>
+        <Button
+          text='PLAY NOW'
+          onClickCallback={handleButtonClick}
+          className='gp-play-button'
+        />
         <section className='grid' data-stack='space-l-xl'>
           <div className='gp-heading-wrapper'>
-            <Button text='PLAY NOW' onClickCallback={handleButtonClick} />
             <h1 className='gp-heading text-uppercase'>
               {id}
               <span className='gp-year'>{year}</span>

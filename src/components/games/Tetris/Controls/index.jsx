@@ -9,16 +9,16 @@ import './controls.scss';
 export default function Controls({ move }) {
   return (
     <div className='tetris-controls'>
-      <Button buttonClass='tetris-left' onClick={() => move('ArrowLeft')}>
+      <Button className='tetris-left' onClick={() => move('ArrowLeft')}>
         <LeftArrow />
       </Button>
-      <Button buttonClass='tetris-down' onClick={() => move('ArrowDown')}>
+      <Button className='tetris-down' onClick={() => move('ArrowDown')}>
         <DownArrow />
       </Button>
-      <Button buttonClass='tetris-rotate' onClick={() => move('Space')}>
+      <Button className='tetris-rotate' onClick={() => move('Space')}>
         <RotateArrow />
       </Button>
-      <Button buttonClass='tetris-right' onClick={() => move('ArrowRight')}>
+      <Button className='tetris-right' onClick={() => move('ArrowRight')}>
         <RightArrow />
       </Button>
     </div>

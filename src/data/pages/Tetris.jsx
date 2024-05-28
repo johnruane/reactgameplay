@@ -8,8 +8,13 @@ const gamePageData = {
   complexity: 'Level 3',
   controls: (
     <ol>
-      <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the falling piece.</li>
-      <li>Press the Spacebar to rotate.</li>
+      <li>
+        Use the arrow keys <code>Left</code>, <code>Down</code> & <code>Right</code> to
+        move the falling piece.
+      </li>
+      <li>
+        Press the <code>Spacebar</code> to rotate.
+      </li>
     </ol>
   ),
   intro: (

@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import './Button.scss';
 
-const Button = ({ text, onClickCallback }) => {
+const Button = ({ text, onClickCallback, className }) => {
   return (
-    <button className='button' onClick={onClickCallback}>
+    <button className={classNames('button', className)} onClick={onClickCallback}>
       <span>{text}</span>
     </button>
   );

@@ -8,7 +8,10 @@ const gamePageData = {
   complexity: 'Level 1',
   controls: (
     <ol>
-      <li>Use the Arrow Keys ⬅ ⬇ ➡ to move the snake.</li>
+      <li>
+        Use the arrow keys <code>Left</code>, <code>Right</code>, <code>Up</code> &{' '}
+        <code>Down</code> to move the snake.
+      </li>
     </ol>
   ),
   intro: (
