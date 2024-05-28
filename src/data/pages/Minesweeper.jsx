@@ -1,4 +1,4 @@
-import MinesweeperGame from '@components/Games/Minesweeper';
+import MinesweeperGame from '@games/Minesweeper';
 
 const gamePageData = {
   id: 'minesweeper',

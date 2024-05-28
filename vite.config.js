@@ -24,6 +24,7 @@ export default defineConfig({
       { find: '@sections', replacement: '/src/components/sections' },
       { find: '@assets', replacement: '/src/assets' },
       { find: '@components', replacement: '/src/components' },
+      { find: '@games', replacement: '/src/components/games' },
       { find: '@layouts', replacement: '/src/components/Layouts' },
       { find: '@pages', replacement: '/src/pages' },
       { find: '@templates', replacement: '/src/templates' },

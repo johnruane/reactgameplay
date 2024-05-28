@@ -1,5 +1,5 @@
 import tabs from './tabs/Snake';
-import SnakeGame from '@components/Games/Snake';
+import SnakeGame from '@games/Snake';
 
 const gamePageData = {
   id: 'snake',
