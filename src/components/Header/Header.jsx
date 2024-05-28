@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Logo from '../Icons/Logo';
+import Logo from '@icons/Logo';
 
 import './Header.scss';
 
