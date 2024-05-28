@@ -1,10 +1,10 @@
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import eslint from 'vite-plugin-eslint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), eslint()],
   css: {
     preprocessorOptions: {
       scss: {
@@ -19,15 +19,15 @@ export default defineConfig({
     globals: true,
   },
   resolve: {
-    alias: {
-      '@icons': resolve(__dirname, './src/components/Icons'),
-      '@sections': resolve(__dirname, './src/components/sections'),
-      '@assets': resolve(__dirname, './src/assets'),
-      '@components': resolve(__dirname, './src/components'),
-      '@layouts': resolve(__dirname, './src/components/Layouts'),
-      '@pages': resolve(__dirname, './src/pages'),
-      '@templates': resolve(__dirname, './src/templates'),
-      '@data': resolve(__dirname, './src/data'),
-    },
+    alias: [
+      { find: '@icons', replacement: '/src/components/Icons' },
+      { find: '@sections', replacement: '/src/components/sections' },
+      { find: '@assets', replacement: '/src/assets' },
+      { find: '@components', replacement: '/src/components' },
+      { find: '@layouts', replacement: '/src/components/Layouts' },
+      { find: '@pages', replacement: '/src/pages' },
+      { find: '@templates', replacement: '/src/templates' },
+      { find: '@data', replacement: '/src/data' },
+    ],
   },
 });
