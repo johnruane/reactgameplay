@@ -20,7 +20,7 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: '@icons', replacement: '/src/components/Icons' },
+      { find: '@icons', replacement: '/src/components/icons' },
       { find: '@sections', replacement: '/src/components/sections' },
       { find: '@assets', replacement: '/src/assets' },
       { find: '@components', replacement: '/src/components' },
