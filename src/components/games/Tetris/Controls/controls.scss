@@ -10,22 +10,98 @@
   }
 }
 
+.tetris-controls-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.direction-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 12.5rem;
+}
+
 .tetris-left {
   grid-column: 1;
   grid-row: 2;
+  background-color: $color-black;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  & svg * {
+    fill: $color-white;
+  }
 }
 
 .tetris-right {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2;
+  background-color: $color-black;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  & svg * {
+    fill: $color-white;
+  }
 }
 
 .tetris-down {
-  grid-column: 3;
-  grid-row: 2;
+  grid-column: 2;
+  grid-row: 3;
+  background-color: $color-black;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  & svg * {
+    fill: $color-white;
+  }
 }
 
-.tetris-rotate {
-  grid-column: 3;
+.tetris-up {
+  grid-column: 2;
   grid-row: 1;
+  background-color: $color-black;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
+  & svg * {
+    fill: $color-white;
+  }
+}
+
+.tetris-pad-spacer {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: $color-black;
+}
+
+.control-buttons {
+  display: flex;
+  column-gap: 2rem;
+  height: 6rem;
+}
+
+.tetris-a {
+  align-self: flex-end;
+  color: $color-white;
+  background-color: $color-black;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.tetris-b {
+  align-self: flex-start;
+  color: $color-white;
+  background-color: $color-black;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }

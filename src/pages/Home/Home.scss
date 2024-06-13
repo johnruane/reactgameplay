@@ -54,15 +54,11 @@
 
   & :nth-child(2) {
     position: absolute;
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
     z-index: 2;
   }
 
   & :nth-child(3) {
     position: absolute;
-    margin-left: 2.5rem;
-    margin-top: 1.5rem;
     z-index: 1;
   }
 }

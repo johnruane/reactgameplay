@@ -42,7 +42,7 @@ export default function Home() {
     timeline.fromTo(
       '.pacman',
       {
-        x: '-=30',
+        x: '-=40',
         duration: 6,
         ease: 'power3.inOut',
         stagger: {
@@ -52,7 +52,7 @@ export default function Home() {
         },
       },
       {
-        x: '+=50',
+        x: '+=60',
         duration: 6,
         ease: 'power3.inOut',
         stagger: {
