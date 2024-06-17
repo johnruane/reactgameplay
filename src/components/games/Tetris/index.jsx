@@ -332,15 +332,19 @@ const Tetris = () => {
             <Board board={displayBoard} Cell={Cell} />
             {gameOver && <p className='game-over-text'>Game Over</p>}
           </div>
-          <div className='next-wrapper'>
-            {hasGameStarted && <Next nextTetromino={nextTetromino?.matrix} />}
+
+          <div className='tetris-score-wrapper'>
+            <Panel title={'score'} value={score} />
+            <Panel title={'level'} value={level} />
+            <Panel title={'lines'} value={lines} />
+            
+            <div className='next-wrapper'>
+              <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted}/>
+            </div>
+     
           </div>
         </div>
-        <div className='tetris-score-wrapper'>
-          <Panel title={'score'} value={score} />
-          <Panel title={'level'} value={level} />
-          <Panel title={'lines'} value={lines} />
-        </div>
+ 
         <div className='start-over-wrapper'>
           {!hasGameStarted && (
             <button

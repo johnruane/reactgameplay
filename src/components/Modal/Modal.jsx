@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import Cross from '@icons/Cross';
+// import Cross from '@icons/Cross';
 
 import './Modal.scss';
 
-const Modal = ({ children, title, isActive, onCloseCallback }) => {
+const Modal = ({ children, title, isActive }) => {
   return (
     <div
       className={classNames('modal-container background-yellow', {
@@ -14,9 +14,9 @@ const Modal = ({ children, title, isActive, onCloseCallback }) => {
         <div className='grid'>
           <div className='modal-heading-wrapper'>
             <h2 className='modal-heading text-uppercase'>{title}</h2>
-            <button className='modal-close-button' onClick={onCloseCallback}>
+            {/* <button className='modal-close-button' onClick={onCloseCallback}>
               <Cross />
-            </button>
+            </button> */}
           </div>
           {children}
         </div>

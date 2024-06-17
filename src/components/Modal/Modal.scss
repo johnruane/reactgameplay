@@ -2,11 +2,12 @@
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 1rem;
 }
 
 .modal-heading {
-  @include display1;
+  font-size: $font-1;
+  font-weight: $font-weight-bold;
 }
 
 .modal-close-button {
