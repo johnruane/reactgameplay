@@ -207,10 +207,18 @@ const Snake = ({onSelectClickHandler}) => {
 
   return (
     <>
-      <div className='layout-grid'>
-        <div className='board-wrapper'>
+      <div className='layout-grid '>
+        <div className='board-wrapper snake-board-wrapper'>
           <Board board={displayBoard} Cell={Cell} className='snake-board' />
           {gameOver && <p className='game-over-text'>Game Over</p>}
+        {!hasGameStarted && 
+          <button
+            className='overlay-text start-button'
+            onClick={() => startGame()}
+          >
+            START GAME
+          </button>
+        }
         </div>
       </div>
       <div className='controls-wrapper'>

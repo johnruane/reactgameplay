@@ -107,7 +107,7 @@ const GamePage = () => {
         <span className='hm-wavy-black'></span>
       </div>
 
-      <Modal title={id} isActive={gameSheetToggle}>
+      <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
         {gameSheetToggle && <GameComponent onSelectClickHandler={handleButtonClick} />}
       </Modal>
 

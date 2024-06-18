@@ -2,36 +2,59 @@
   display: grid;
   row-gap: 2rem;
   grid-column: 1 / -1;
-  justify-self: center;
+  // justify-self: center;
 }
 
-.game-over-text {
-  position: absolute;
-  place-self: center;
+.start-button {
+  all: unset;
+  color: $color-black;
+  align-self: baseline;
+
+  @include media('>=tablet') {
+    font-size: 1.5rem;
+  }
+
+  @include media('<=desktop') {
+    display: none;
+  }
+}
+
+.overlay-text {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
-  -webkit-text-stroke: 1px #000;
 
-  @media (min-width: 768px) {
+  @include media('>=tablet') {
     font-size: 1.5rem;
   }
 }
 
+.game-over-text {
+  color: $color-white;
+}
+
+.overlay-text-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .controls-wrapper {
+  align-self: end;
   grid-column: 1 / -1;
   display: none;
-  padding-bottom: 6rem;
 
-  @media (pointer: coarse) and (hover: none) and (max-width: 768px) {
+  @supports(padding: max(0px)) {
+    padding-bottom: max(1.5rem, env(safe-area-inset-left));
+}
+
+  @media (pointer: coarse) and (hover: none) and (max-width: 1024px) {
     display: flex;
   }
 }
 
 .board-wrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
 }

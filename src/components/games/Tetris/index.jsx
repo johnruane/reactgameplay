@@ -329,7 +329,9 @@ const Tetris = ({ onSelectClickHandler }) => {
         <div className='board-next-wrapper'>
           <div className='board-wrapper tetris-board-wrapper'>
             <Board board={displayBoard} Cell={Cell} />
-            {gameOver && <p className='game-over-text'>Game Over</p>}
+            <div className='overlay-text-wrapper'>
+              {gameOver && <p className='overlay-text game-over-text'>Game Over</p>}
+            </div>
           </div>
 
           <div className='tetris-score-wrapper'>
@@ -340,7 +342,14 @@ const Tetris = ({ onSelectClickHandler }) => {
             <div className='next-wrapper'>
               <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted}/>
             </div>
-     
+            {!hasGameStarted && 
+                <button
+                  className='overlay-text start-button'
+                  onClick={() => startGame()}
+                >
+                  START GAME
+                </button>
+              }
           </div>
         </div>
       </div>

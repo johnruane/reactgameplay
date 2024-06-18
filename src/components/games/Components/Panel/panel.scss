@@ -19,7 +19,7 @@
   font-weight: bold;
   text-transform: uppercase;
 
-  @media (min-width: 768px) {
+  @include media('>=tablet') {
     font-size: 1rem;
   }
 }
@@ -29,7 +29,7 @@
   font-weight: 100;
   margin: 0;
 
-  @media (min-width: 768px) {
+  @include media('>=tablet') {
     font-size: 1.5rem;
   }
 }

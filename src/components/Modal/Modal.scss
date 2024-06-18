@@ -15,6 +15,11 @@
 
   width: 2.5rem;
   height: 2.5rem;
+  display: none;
+
+  @include media('>=desktop') {
+    display: flex;
+  }
 }
 
 .modal-container {
