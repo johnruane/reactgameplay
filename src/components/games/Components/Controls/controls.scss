@@ -23,6 +23,7 @@
   grid-template-rows: repeat(3, 1fr);
   width: 8.25rem;
   height: 8.25rem;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4))
 }
 
 .tetris-left {
@@ -81,6 +82,8 @@
 }
 
 .tetris-a {
+  font-size: $font--1;
+  font-weight: $font-weight-bold;
   align-self: flex-end;
   color: $color-white;
   background-color: $color-black;
@@ -91,6 +94,8 @@
 }
 
 .tetris-b {
+  font-size: $font--1;
+  font-weight: $font-weight-bold;
   align-self: flex-start;
   color: $color-white;
   background-color: $color-black;
@@ -98,4 +103,25 @@
   width: 2.75rem;
   height: 2.75rem;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.game-controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 1rem;
+}
+
+.game-controls-button {
+  width: 3.5rem;
+  height: 1rem;
+  background-color: $color-black;
+  border-radius: 2rem;
+  padding: 0;
+}
+
+.game-controls-button-text {
+  font-size: $font--1;
+  font-weight: $font-weight-bold;
 }

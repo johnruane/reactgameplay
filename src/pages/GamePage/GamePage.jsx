@@ -47,7 +47,7 @@ const GamePage = () => {
     }
   }, [pageData]);
 
-  const { id, year, complexity, controls, intro, tabs, game } = pageData || {};
+  const { id, year, complexity, controls, intro, tabs, game: GameComponent } = pageData || {};
 
   const handleButtonClick = useCallback(() => {
     setGameSheetToggle((prev) => !prev);
@@ -107,8 +107,8 @@ const GamePage = () => {
         <span className='hm-wavy-black'></span>
       </div>
 
-      <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
-        {gameSheetToggle && game}
+      <Modal title={id} isActive={gameSheetToggle}>
+        {gameSheetToggle && <GameComponent onSelectClickHandler={handleButtonClick} />}
       </Modal>
 
       <WaveDivider background='yellow' clean />

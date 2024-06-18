@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef, useCallback } from 'react';
-import classNames from 'classnames';
 
 /* Utils */
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
@@ -17,7 +16,7 @@ import { getRandomTetromino } from './lib/randomTetromino';
 
 /* Components */
 import Next from './Next';
-import Controls from './Controls';
+import Controls from '../Components/Controls';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
@@ -51,7 +50,7 @@ import './tetris.scss';
  * @gameStatus: String for 'Game Over' message
  */
 
-const Tetris = () => {
+const Tetris = ({ onSelectClickHandler }) => {
   const boardConfig = [19, 10, 0];
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
@@ -344,21 +343,10 @@ const Tetris = () => {
      
           </div>
         </div>
- 
-        <div className='start-over-wrapper'>
-          {!hasGameStarted && (
-            <button
-              className={classNames('game-over-text', 'start-button')}
-              onClick={() => startGame()}
-            >
-              Start Game
-            </button>
-          )}
-        </div>
       </div>
 
       <div className='controls-wrapper'>
-        <Controls move={move} />
+        <Controls move={move} onStartClickHandler={startGame} onSelectClickHandler={onSelectClickHandler} />
       </div>
     </>
   );

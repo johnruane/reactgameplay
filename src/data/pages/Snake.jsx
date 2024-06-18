@@ -47,7 +47,7 @@ const gamePageData = {
     </>
   ),
   tabs: tabs,
-  game: <SnakeGame />,
+  game: (props) => <SnakeGame {...props} />,
 };
 
 export default gamePageData;

@@ -51,7 +51,7 @@ const gamePageData = {
     </>
   ),
   tabs: tabs,
-  game: <TetrisGame />,
+  game: (props) => <TetrisGame {...props} />,
 };
 
 export default gamePageData;

@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
-import classNames from 'classnames';
 
 /* Components */
-import Controls from './Controls';
+import Controls from '../Components/Controls';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
-import Panel from '../Components/Panel';
-
 /* Utils */
 import { addSnakeToBoard, growSnake, getRandomEmptyBoardPosition } from './lib/utils';
 import { deepClone, create2dArray } from '../utils';
@@ -27,7 +24,7 @@ const SNAKE_DIRECTIONS = {
 
 const FOOD_VALUE = 2;
 
-const Snake = () => {
+const Snake = ({onSelectClickHandler}) => {
   const emptyBoard = create2dArray(20, 20);
   const initialFoodBoard = deepClone(emptyBoard);
   initialFoodBoard[5][5] = FOOD_VALUE;
@@ -46,7 +43,6 @@ const Snake = () => {
   const [foodBoardPosition, setFoodBoardPosition] = useState({ r: 5, c: 5 });
   const [foodBoard, setFoodBoard] = useState(initialFoodBoard);
 
-  const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [hasGameStarted, setHasGameStarted] = useState(false);
 
@@ -69,7 +65,6 @@ const Snake = () => {
     setFoodBoard(initialFoodBoard);
     setFoodBoardPosition({ r: 5, c: 5 });
 
-    setScore(0);
     setGameOver(false);
     setHasGameStarted(true);
 
@@ -85,6 +80,8 @@ const Snake = () => {
    *
    */
   const moveSnake = () => {
+    if (!hasGameStarted) return;
+
     let { r: newR, c: newC } = snakeHeadPosition;
 
     let newDirection =
@@ -180,7 +177,6 @@ const Snake = () => {
   useEffect(() => {
     const newLongerSnake = growSnake(snakeBody);
     setSnakeBody(newLongerSnake);
-    setScore((prev) => prev + 1);
   }, [foodBoard]);
 
   /*
@@ -216,23 +212,9 @@ const Snake = () => {
           <Board board={displayBoard} Cell={Cell} className='snake-board' />
           {gameOver && <p className='game-over-text'>Game Over</p>}
         </div>
-        <div className='snake-score-wrapper'>
-          <Panel title='Score' value={score} />
-        </div>
-        <div className='start-over-wrapper'>
-          {!hasGameStarted && (
-            <button
-              className={classNames('game-over-text', 'start-button')}
-              onClick={() => startGame()}
-            >
-              Start Game
-            </button>
-          )}
-        </div>
       </div>
-
       <div className='controls-wrapper'>
-        <Controls move={setProposedSnakeDirection} />
+        <Controls move={setProposedSnakeDirection} onStartClickHandler={startGame} onSelectClickHandler={onSelectClickHandler} />
       </div>
     </>
   );
