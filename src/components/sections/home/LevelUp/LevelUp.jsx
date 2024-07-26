@@ -1,11 +1,11 @@
-import StreetFighter from '@icons/StreetFighter';
+import Potion from '@icons/Potion';
 import './LevelUp.scss';
 
 const LevelUp = () => {
   return (
     <div className='hm-levelup-wrapper'>
       <div className='hm-levelup-image-wrapper'>
-        <StreetFighter />
+        <Potion />
       </div>
       <div className='hm-levelup-text-wrapper' data-stack>
         <h2 className='hm-levelup-heading'>

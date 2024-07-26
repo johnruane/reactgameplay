@@ -23,6 +23,13 @@
   }
 }
 
+.ab-icon-wrapper svg {
+  display: block;
+  width: 50cqw;
+  max-width: 20rem;
+  height: auto;
+}
+
 .ab-text-wrapper {
   display: grid;
   color: $color-white;

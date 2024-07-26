@@ -1,6 +1,5 @@
 .background-black {
   background-color: $color-black;
-  outline: 1px solid $color-black;
 }
 
 .background-yellow {
@@ -9,6 +8,10 @@
 
 .background-teal {
   background-color: $color-teal;
+}
+
+.background-grey {
+  background-color: $color-grey;
 }
 
 .icon-shadow {

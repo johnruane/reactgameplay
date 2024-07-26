@@ -25,6 +25,13 @@
   }
 }
 
+.hm-levelup-image-wrapper svg {
+  display: block;
+  width: 40cqw;
+  max-width: 10rem;
+  height: auto;
+}
+
 .hm-levelup-text-wrapper {
   grid-row: 1;
 

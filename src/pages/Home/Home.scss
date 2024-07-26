@@ -1,6 +1,6 @@
 .hm-section-wrapper {
-  @include padding('top', 10);
-  @include padding('bottom', 20);
+  @include padding('top', 15);
+  @include padding('bottom', 5);
 
   display: grid;
   grid-template-columns: minmax(1.2rem, 1fr) minmax(auto, 80vw) minmax(1.2rem, 1fr);
@@ -83,7 +83,7 @@
   padding-bottom: 1rem;
 }
 
-.hm-intro {
+.hm-intro, .hm-games {
   @include verticalPadding($space-4xl-6xl);
 }
 

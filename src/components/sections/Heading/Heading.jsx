@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
-import LineCircle from '@icons/LineCircle';
+import HeadingIcon from '@icons/Heading';
 
 import './Heading.scss';
 
 const Heading = ({ title, className }) => {
   return (
     <h3 className={classNames('h-heading-wrapper', className)}>
-      <LineCircle />
+      <HeadingIcon />
       <span className='h-heading'>{title}</span>
     </h3>
   );

@@ -1,19 +1,17 @@
-import Logo from '@icons/Logo';
-import WaveDivider from '@components/WaveDivider';
+import ScrollBar from '@components/ScrollBar';
+
+import Invader from '@icons/Invader';
+import Shadow from '@icons/Shadow';
 
 import './Footer.scss';
 
 const Footer = () => {
   return (
     <>
-      <WaveDivider background='teal' icons='teal' flipWaveX flipIconsY />
+      <ScrollBar text='game-over' />
 
       <footer className='ft-footer'>
-        <div className='hm-wavy-wrapper flip-vertical background-teal'>
-          <span className='hm-wavy-pink'></span>
-          <span className='hm-wavy-black'></span>
-        </div>
-        <div className='container background-teal'>
+        <section className='container background-teal'>
           <div className='grid ft-footer-wrapper'>
             <div className='ft-content-wrapper'>
               <h2 className='ft-heading'>Hello, I&apos;m John Ruane.</h2>
@@ -35,19 +33,25 @@ const Footer = () => {
                 </p>
               </div>
             </div>
+            <div className='ft-image'>
+              <Invader />
+              <Shadow />
+            </div>
           </div>
-          <div className='ft-logo-wrapper'>
-            <Logo />
-          </div>
-        </div>
-        <hr className='ft-divider' />
-        <div className='container'>
-          <div className='grid ft-links-wrapper'>
-            <div className='ft-links'>
-              <a href='#'>GITHUB</a>
-              <a href='#'>LINKEDIN</a>
-              <a href='#'>EMAIL</a>
-              <a href='#'>BUY ME A COFFEE</a>
+        </section>
+
+        <div className='container ft-footer-links'>
+          <div className='grid'>
+            <div className='ft-links-wrapper'>
+              <a className='ft-links' href='#'>
+                GITHUB
+              </a>
+              <a className='ft-links' href='#'>
+                LINKEDIN
+              </a>
+              <a className='ft-links' href='#'>
+                EMAIL
+              </a>
             </div>
           </div>
         </div>

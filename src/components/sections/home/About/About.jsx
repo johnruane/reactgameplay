@@ -1,5 +1,6 @@
-import SVGButton from '@components/SVGButton';
-import ArrowKeys from '@icons/ArrowKeys/ArrowKeys';
+import Cherries from '@icons/Cherries'
+import Mushroom from '@icons/Mushroom';
+import Key from '@icons/Key';
 
 import './About.scss';
 
@@ -17,7 +18,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <ArrowKeys className='icon-resp-w' />
+          <Cherries />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
@@ -32,10 +33,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <SVGButton
-            content={<span className='ab-button-text text-uppercase'>SPACE</span>}
-            className='ab-space-button-wrapper'
-          />
+          <Mushroom />
         </div>
       </div>
       <div className='ab-text-icon-wrapper'>
@@ -50,10 +48,7 @@ const About = () => {
           </p>
         </div>
         <div className='ab-icon-wrapper'>
-          <SVGButton
-            content={<span className='ab-button-text text-uppercase'>CTRL</span>}
-            className='ab-ctrl-button-wrapper'
-          />
+          <Key />
         </div>
       </div>
     </>

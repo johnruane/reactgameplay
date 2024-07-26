@@ -1,0 +1,13 @@
+.divider {
+  background-repeat: repeat-x;
+  background-position: center top;
+  height: 3.875rem;
+}
+
+.divider-yellow {
+  background-image: url('/src/assets/circle-halves-yellow.svg');
+}
+
+.divider-black {
+  background-image: url('/src/assets/circle-halves-black.svg');
+}
