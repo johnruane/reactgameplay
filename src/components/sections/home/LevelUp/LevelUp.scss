@@ -14,6 +14,16 @@
   }
 }
 
+.hm-levelup-svg {
+  width: 80%;
+  max-width: 10rem;
+  justify-self: center;
+
+  @include media('>=desktop') {
+    grid-column: 1 / 8;
+  }
+}
+
 .hm-levelup-image-wrapper {
   justify-self: center;
   display: flex;

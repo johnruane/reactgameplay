@@ -13,9 +13,9 @@ const Footer = () => {
       <footer className='ft-footer'>
         <section className='container background-teal'>
           <div className='grid ft-footer-wrapper'>
-            <div className='ft-content-wrapper'>
+            <div className='ft-content-wrapper' data-stack='space-m'>
               <h2 className='ft-heading'>Hello, I&apos;m John Ruane.</h2>
-              <div className='ft-text-wrapper' data-stack>
+              <div data-stack='space-default'>
                 <p className='ft-text'>
                   I&apos;m a Software Engineer living in Manchester.
                 </p>

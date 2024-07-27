@@ -10,7 +10,6 @@
 
 .ft-content-wrapper {
   display: grid;
-  row-gap: $space-l;
   grid-column: 1 / -1;
 
   @include media('>=largedesktop') {

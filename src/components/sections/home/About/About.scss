@@ -13,7 +13,10 @@
     grid-column: 1 / -1;
   }
 }
-.ab-icon-wrapper {
+.ab-svg {
+  width: 80%;
+  max-width: 18rem;
+
   @include media('>=tablet') {
     grid-column: 1 / 5;
     grid-row: 1;
@@ -21,13 +24,6 @@
   @include media('>=desktop') {
     grid-column: 1 / 8;
   }
-}
-
-.ab-icon-wrapper svg {
-  display: block;
-  width: 50cqw;
-  max-width: 20rem;
-  height: auto;
 }
 
 .ab-text-wrapper {

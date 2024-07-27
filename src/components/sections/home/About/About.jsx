@@ -1,4 +1,4 @@
-import Cherries from '@icons/Cherries'
+import Cherries from '@icons/Cherries';
 import Mushroom from '@icons/Mushroom';
 import Key from '@icons/Key';
 
@@ -17,9 +17,7 @@ const About = () => {
             levels. Get ready to immerse yourself in a world where fun meets learning.
           </p>
         </div>
-        <div className='ab-icon-wrapper'>
-          <Cherries />
-        </div>
+        <Cherries className='ab-svg' />
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper' data-stack='space-default'>
@@ -32,9 +30,8 @@ const About = () => {
             confidence.
           </p>
         </div>
-        <div className='ab-icon-wrapper'>
-          <Mushroom />
-        </div>
+
+        <Mushroom className='ab-svg' />
       </div>
       <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper' data-stack='space-default'>
@@ -47,9 +44,8 @@ const About = () => {
             learning experience.
           </p>
         </div>
-        <div className='ab-icon-wrapper'>
-          <Key />
-        </div>
+
+        <Key className='ab-svg' />
       </div>
     </>
   );

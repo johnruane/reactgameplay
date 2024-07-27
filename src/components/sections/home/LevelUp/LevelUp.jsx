@@ -4,9 +4,8 @@ import './LevelUp.scss';
 const LevelUp = () => {
   return (
     <div className='hm-levelup-wrapper'>
-      <div className='hm-levelup-image-wrapper'>
-        <Potion />
-      </div>
+      <Potion className='hm-levelup-svg' />
+
       <div className='hm-levelup-text-wrapper' data-stack>
         <h2 className='hm-levelup-heading'>
           Ready to level up your coding skills while having a blast?

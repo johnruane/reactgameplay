@@ -6,15 +6,17 @@ const gameLinks = [
   {
     id: 'tetris',
     title: <span className='gs-title'>TETRIS</span>,
+    intro: 'Tetris, the exhilarating 1984 Russian classic.',
     icon: <Tetris className='gs-icon' />,
-    level: 'L3',
+    level: 3,
     link: 'gamepage/tetris',
   },
   {
     id: 'snake',
     title: <span className='gs-title'>SNAKE</span>,
+    intro: 'Snake, the iconic 1997 mobile phone game.',
     icon: <Snake className='gs-icon' />,
-    level: 'L1',
+    level: 1,
     link: 'gamepage/snake',
   },
   {
@@ -25,8 +27,9 @@ const gameLinks = [
         <span>SWEEPER</span>
       </span>
     ),
+    intro: 'Minesweeper, the classic desktop puzzle game.',
     icon: <Bomb className='gs-icon' />,
-    level: 'L3',
+    level: 3,
     link: 'gamepage/minesweeper',
     inDev: true,
   },
