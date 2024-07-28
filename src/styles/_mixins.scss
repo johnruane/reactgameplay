@@ -57,3 +57,12 @@
   padding-top: $padding;
   padding-bottom: $padding;
 }
+
+@mixin tileColor($color) {
+  border-color: $color;
+  background-color: darken($color, 30%);
+
+  & > :first-child {
+    background-color: $color;
+  }
+}

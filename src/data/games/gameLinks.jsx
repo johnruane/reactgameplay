@@ -1,6 +1,6 @@
 import Tetris from '@icons/Tetris';
 import Snake from '@icons/Snake';
-import Bomb from '@icons/Bomb';
+import Minesweeper from '@icons/Minesweeper';
 
 const gameLinks = [
   {
@@ -22,13 +22,12 @@ const gameLinks = [
   {
     id: 'minesweeper',
     title: (
-      <span className='gs-title gs-long-title'>
-        <span>MINE</span>
-        <span>SWEEPER</span>
+      <span className='gs-title'>
+        <span>MINESWEEPER</span>
       </span>
     ),
     intro: 'Minesweeper, the classic desktop puzzle game.',
-    icon: <Bomb className='gs-icon' />,
+    icon: <Minesweeper className='gs-icon' />,
     level: 3,
     link: 'gamepage/minesweeper',
     inDev: true,

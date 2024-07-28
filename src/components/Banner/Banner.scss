@@ -1,0 +1,51 @@
+.b-wrapper {
+  background-color: $color-black;
+  color: $color-white;
+  gap: $space-s;
+
+  & svg {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: $space-4xl;
+    height: auto;
+  }
+}
+
+.b-text {
+  grid-column: 1 / -1;
+  font-size: $font-3;
+  font-weight: $font-weight-black;
+  text-align: center;
+
+  @include media('>=desktop') {
+    grid-column: 4 / 16;
+  }
+}
+
+.b-spaceship-wrapper {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: flex;
+  gap: $space-l;
+
+  & svg {
+    width: $space-3xl;
+    height: auto;
+  }
+}
+
+.b-spaceship-red path {
+  fill: $color-ship-red;
+}
+
+.b-spaceship-grey path {
+  fill: $color-ship-grey;
+}
+
+.b-spaceship-orange path {
+  fill: $color-ship-orange;
+}
+
+.b-spaceship-black path {
+  fill: $color-ship-black;
+}

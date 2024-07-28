@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import gameLinks from '@data/games/gameLinks';
+
+import RightArrow from '@icons/RightArrow';
 import Circle from '@icons/Circle';
 import './Games.scss';
 
-const Games = () => {
+const Games = ({ additionalClasses }) => {
   return (
-    <div className='gs-main'>
+    <div className={classNames('gs-main', additionalClasses)}>
       {gameLinks.map((game) => {
         const { link, title, intro, icon, level, inDev = false } = game || {};
         return (
@@ -21,8 +25,16 @@ const Games = () => {
               ))}
             </div>
 
-            <span className='gs-link'>{inDev ? 'In Dev' : 'Play Game'}</span>
-            {/* <span className='gs-level'>{game.level}</span>  */}
+            <span className='gs-link'>
+              {inDev ? (
+                'In Dev'
+              ) : (
+                <span className='gs-play-link'>
+                  Play Game
+                  <RightArrow />
+                </span>
+              )}
+            </span>
           </Link>
         );
       })}

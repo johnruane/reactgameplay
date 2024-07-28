@@ -83,7 +83,8 @@
   padding-bottom: 1rem;
 }
 
-.hm-intro, .hm-games {
+.hm-intro,
+.hm-games {
   @include verticalPadding($space-4xl-6xl);
 }
 
@@ -93,6 +94,10 @@
 
 .hm-section-content-wrapper {
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: $space-s;
+  row-gap: $space-m;
 
   @include media('>=desktop') {
     grid-column: 2 / -2;

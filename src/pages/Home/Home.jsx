@@ -6,6 +6,7 @@ import Heading from '@sections/Heading';
 
 import TextLogo from '@components/TextLogo';
 import Divider from '@components/Divider';
+import Banner from '@components/Banner';
 
 import Pacman from '@icons/Pacman';
 import Shadow from '@icons/Shadow';
@@ -43,11 +44,11 @@ export default function Home() {
       <section className='container background-black hm-games' data-stack='space-3xl-4xl'>
         <div className='grid' data-stack='space-l-xl'>
           <Heading title='GAMES' className='hm-section-heading-wrapper' />
-          <div className='hm-section-content-wrapper'>
-            <GamesSection />
-          </div>
+          <GamesSection additionalClasses='hm-section-content-wrapper' />
         </div>
       </section>
+
+      <Banner />
 
       <section className='container background-black hm-about'>
         <div className='grid' data-stack='space-l-xl'>
