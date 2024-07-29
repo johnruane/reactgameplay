@@ -32,10 +32,8 @@ export default function Home() {
         className='container background-yellow hm-intro'
         data-stack='space-3xl-4xl'
       >
-        <div className='grid'>
-          <div className='hm-intro-wrapper'>
-            <IntroSection />
-          </div>
+        <div className='grid hm-intro-wrapper' data-stack>
+          <IntroSection />
         </div>
       </section>
 

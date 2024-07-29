@@ -1,9 +1,12 @@
 import tabs from './tabs/Snake';
+import SnakeHead from '@icons/SnakeHead';
 import SnakeGame from '@games/Snake';
 
 const gamePageData = {
   id: 'snake',
   title: <>Snake</>,
+  link: 'Snake',
+  icon: <SnakeHead />,
   year: '1998',
   complexity: 'Level 1',
   controls: (

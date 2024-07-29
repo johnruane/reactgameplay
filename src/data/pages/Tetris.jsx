@@ -1,9 +1,12 @@
 import tabs from './tabs/Tetris';
 import TetrisGame from '@games/Tetris';
+import TetrisHead from '@icons/TetrisHead';
 
 const gamePageData = {
   id: 'tetris',
   title: <>Tetris</>,
+  link: 'Tetris',
+  icon: <TetrisHead />,
   year: '1984',
   complexity: 'Level 3',
   controls: (

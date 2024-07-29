@@ -1,26 +1,8 @@
-.tb-wrapper {
-  display: grid;
-  row-gap: $space-l;
-}
-
 .tb-tabs-wrapper {
   display: flex;
   flex-wrap: wrap;
   row-gap: $space-s;
   column-gap: $space-xs;
-  padding-bottom: 1rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  & > * {
-    flex: 1;
-  }
-
-  @include media('>=tablet') {
-    flex-flow: row wrap;
-  }
 }
 
 .tb-tabs-wrapper::-webkit-scrollbar {
@@ -39,7 +21,6 @@
   align-self: center;
   padding: 0.75rem 1.25rem;
   white-space: nowrap;
-  scroll-snap-align: center;
   user-select: none;
 }
 
@@ -49,7 +30,7 @@
   transform: rotate(-6deg);
 }
 
-.tb-tabs-content-wrapper {
+.tb-tabs-content {
   & ol,
   & ul {
     @include body;

@@ -1,18 +1,29 @@
+import tabs from './tabs/Minesweeper';
 import MinesweeperGame from '@games/Minesweeper';
+import MineSweeperHead from '@icons/MineSweeperHead';
 
 const gamePageData = {
   id: 'minesweeper',
   title: (
     <>
       <span>Mine</span>
+      <br />
       <span>sweeper</span>
     </>
   ),
+  link: 'MineSweeper',
+  icon: <MineSweeperHead />,
   year: '1989',
   complexity: 'Level 2',
   controls: (
     <ol>
-      <li></li>
+      <li>
+        On a touch device you can either tap the square you wish to reveal, or use the
+        d-pad to move the selection pointer <code>Left</code>, <code>Right</code>,{' '}
+        <code>Up</code> & <code>Down</code>. You can select a square to reveal by pressing
+        the <code>A</code> key.
+      </li>
+      <li>If viewing on a desktop use the Mouse and click a square to reveal it.</li>
     </ol>
   ),
   intro: (
@@ -45,8 +56,8 @@ const gamePageData = {
       </p>
     </>
   ),
-  tabs: [],
-  game: <MinesweeperGame />,
+  tabs: tabs,
+  game: (props) => <MinesweeperGame {...props} />,
 };
 
 export default gamePageData;

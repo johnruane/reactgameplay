@@ -13,8 +13,8 @@ import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
 
-import SnakeHead from '@icons/SnakeHead';
 import Shadow from '@icons/Shadow';
+import Ghost from '@icons/Ghost';
 
 import './GamePage.scss';
 
@@ -29,12 +29,12 @@ const GamePage = () => {
 
   const prevPage = {
     id: pages[pageIndex - 1]?.id,
-    title: pages[pageIndex - 1]?.title,
+    title: pages[pageIndex - 1]?.link,
   };
 
   const nextPage = {
     id: pages[pageIndex + 1]?.id,
-    title: pages[pageIndex + 1]?.title,
+    title: pages[pageIndex + 1]?.link,
   };
 
   /*
@@ -49,6 +49,8 @@ const GamePage = () => {
 
   const {
     id,
+    title: gameTitle,
+    icon,
     year,
     complexity,
     controls,
@@ -64,11 +66,11 @@ const GamePage = () => {
   return (
     <>
       <section className='container background-black'>
-        <div className='hm-section-wrapper'>
-          <div className='hm-text-positioning'>
+        <div className='grid gp-section-wrapper'>
+          <div className='gp-text-positioning'>
             <h1 className='gp-heading text-uppercase'>
-              {id}
               <span className='gp-year'>{year}</span>
+              <span className='gp-title'>{gameTitle}</span>
             </h1>
             <Button
               text='PLAY NOW'
@@ -76,8 +78,8 @@ const GamePage = () => {
               className='gp-play-button'
             />
           </div>
-          <div className='hm-image'>
-            <SnakeHead className='pacman' />
+          <div className='gp-image'>
+            {icon}
             <Shadow />
           </div>
         </div>
@@ -110,9 +112,15 @@ const GamePage = () => {
       <Divider color='black' background='grey' />
 
       <section className='container background-grey gp-tabs'>
-        <div className='grid' data-stack='space-l-xl'>
-          <Heading title='DETAILS' className='gp-intro-wrapper' />
-          <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
+        <div className='gp-ghost-wrapper'>
+          <Ghost />
+          <Shadow />
+        </div>
+        <div data-stack='space-2xl-3xl'>
+          <div className='grid' data-stack='space-l-xl'>
+            <Heading title='DETAILS' className='gp-intro-wrapper' />
+            <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
+          </div>
           <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
         </div>
       </section>

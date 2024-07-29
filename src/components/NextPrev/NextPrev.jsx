@@ -7,25 +7,19 @@ import './NextPrev.scss';
 import classNames from 'classnames';
 
 const NextPrev = ({ prev, next, additionalClasses }) => {
+  const { id: prevId, title: prevTitle } = prev || {};
+  const { id: nextId, title: nextTitle } = next || {};
   return (
     <div className={classNames('np-wrapper', additionalClasses)}>
-      {prev?.id && (
-        <Link
-          to={'/gamepage/' + prev.id}
-          className='np-link-wrapper np-prev'
-          key={prev.id}
-        >
-          <span className='np-title text-uppercase'>{prev?.title}</span>
+      {prevId && (
+        <Link to={'/gamepage/' + prevId} className='np-link-wrapper np-prev' key={prevId}>
           <ArrowCircleLeft />
+          <span className='np-title text-uppercase'>{prevTitle}</span>
         </Link>
       )}
-      {next?.id && (
-        <Link
-          to={'/gamepage/' + next?.id}
-          className='np-link-wrapper np-next'
-          key={next?.id}
-        >
-          <span className='np-title text-uppercase'>{next?.title}</span>
+      {nextId && (
+        <Link to={'/gamepage/' + nextId} className='np-link-wrapper np-next' key={nextId}>
+          <span className='np-title text-uppercase'>{nextTitle}</span>
           <ArrowCircleRight />
         </Link>
       )}

@@ -2,7 +2,7 @@ import './Intro.scss';
 
 const Intro = () => {
   return (
-    <div className='it-wrapper' data-stack>
+    <>
       <h2 className='it-heading'>
         Welcome to React Gameplay, where coding meets gaming in the most playful way
         possible!
@@ -14,7 +14,7 @@ const Intro = () => {
         complexities one line of code at a time and bring them to life before your very
         eyes.
       </p>
-    </div>
+    </>
   );
 };
 

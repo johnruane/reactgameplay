@@ -1,12 +1,14 @@
 .np-wrapper {
-  display: flex;
+  display: grid;
+  row-gap: $space-m;
   justify-content: space-around;
 }
 
 .np-link-wrapper {
   display: flex;
   align-items: center;
-  gap: $space-m;
+  justify-content: center;
+  gap: $space-s;
   text-decoration: none;
   color: $color-black;
 }
@@ -16,13 +18,5 @@
 
   display: flex;
   flex-direction: column;
-}
-
-.np-prev {
-  align-items: start;
-  margin-right: auto;
-}
-
-.np-next {
-  margin-left: auto;
+  white-space: nowrap;
 }
