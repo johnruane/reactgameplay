@@ -6,15 +6,15 @@ import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 import pages from '@data/pages';
 
-import DownArrow from '@icons/DownArrow';
-
 import Tabs from '@components/Tabs';
 import NextPrev from '@components/NextPrev';
-import WaveDivider from '@components/WaveDivider';
+import Divider from '@components/Divider';
 import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
-import SVGButton from '@components/SVGButton';
+
+import SnakeHead from '@icons/SnakeHead';
+import Shadow from '@icons/Shadow';
 
 import './GamePage.scss';
 
@@ -47,7 +47,15 @@ const GamePage = () => {
     }
   }, [pageData]);
 
-  const { id, year, complexity, controls, intro, tabs, game: GameComponent } = pageData || {};
+  const {
+    id,
+    year,
+    complexity,
+    controls,
+    intro,
+    tabs,
+    game: GameComponent,
+  } = pageData || {};
 
   const handleButtonClick = useCallback(() => {
     setGameSheetToggle((prev) => !prev);
@@ -55,20 +63,29 @@ const GamePage = () => {
 
   return (
     <>
-      <WaveDivider background='yellow' clean />
-      <div className='container background-black gp-intro' data-stack='space-3xl-4xl'>
-        <Button
-          text='PLAY NOW'
-          onClickCallback={handleButtonClick}
-          className='gp-play-button'
-        />
-        <section className='grid' data-stack='space-l-xl'>
-          <div className='gp-heading-wrapper'>
+      <section className='container background-black'>
+        <div className='hm-section-wrapper'>
+          <div className='hm-text-positioning'>
             <h1 className='gp-heading text-uppercase'>
               {id}
               <span className='gp-year'>{year}</span>
             </h1>
+            <Button
+              text='PLAY NOW'
+              onClickCallback={handleButtonClick}
+              className='gp-play-button'
+            />
           </div>
+          <div className='hm-image'>
+            <SnakeHead className='pacman' />
+            <Shadow />
+          </div>
+        </div>
+      </section>
+
+      <div className='container background-black gp-intro' data-stack='space-3xl-4xl'>
+        <section className='grid' data-stack='space-l-xl'>
+          <div className='gp-heading-wrapper'></div>
           <div className='gp-details-wrapper' data-stack='space-m-l'>
             <div data-stack='space-default'>
               <p className='gp-details-title text-uppercase'>Complexity</p>
@@ -90,28 +107,19 @@ const GamePage = () => {
         </section>
       </div>
 
-      <WaveDivider background='yellow' clean flipWaveX />
+      <Divider color='black' background='grey' />
 
-      <div className='container background-yellow gp-tabs'>
-        <div className='grid'>
-          <div className='gp-tabs-wrapper' data-stack='space-3xl-4xl'>
-            <SVGButton className='gp-down-icon' content={<DownArrow />} />
-            <Tabs data={tabs} />
-            <NextPrev prev={prevPage} next={nextPage} />
-          </div>
+      <section className='container background-grey gp-tabs'>
+        <div className='grid' data-stack='space-l-xl'>
+          <Heading title='DETAILS' className='gp-intro-wrapper' />
+          <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
+          <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
         </div>
-      </div>
-
-      <div className='hm-wavy-wrapper'>
-        <span className='hm-wavy-pink'></span>
-        <span className='hm-wavy-black'></span>
-      </div>
+      </section>
 
       <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
         {gameSheetToggle && <GameComponent onSelectClickHandler={handleButtonClick} />}
       </Modal>
-
-      <WaveDivider background='yellow' clean />
 
       {gameSheetToggle && <RemoveScrollBar />}
     </>

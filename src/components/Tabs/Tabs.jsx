@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import './Tabs.scss';
 import classNames from 'classnames';
 
-const Tabs = ({ data }) => {
+const Tabs = ({ data, additionalClasses }) => {
   const [selectedSection, setSelectedSection] = useState(1);
 
   const handleClick = useCallback((e) => {
@@ -11,7 +11,7 @@ const Tabs = ({ data }) => {
   }, []);
 
   return (
-    <div className='tb-wrapper'>
+    <div className={classNames('tb-wrapper', additionalClasses)}>
       <div className='tb-tabs-wrapper'>
         {data?.map((tab) => (
           <button

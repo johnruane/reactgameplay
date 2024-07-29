@@ -5,9 +5,9 @@
 
 .tb-tabs-wrapper {
   display: flex;
-  gap: $space-xs;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  flex-wrap: wrap;
+  row-gap: $space-s;
+  column-gap: $space-xs;
   padding-bottom: 1rem;
   margin-left: -1rem;
   margin-right: -1rem;
@@ -31,9 +31,9 @@
   all: unset;
   @include body;
 
-  background-color: $color-yellow;
+  background-color: $color-grey;
   border-radius: 3.125rem;
-  border: 2px solid $color-black;
+  border: 3px solid $color-black;
   color: $color-black;
   font-weight: $font-weight-bold;
   align-self: center;
@@ -44,10 +44,9 @@
 }
 
 .tb-tab-button-active {
-  @include iconShadow;
-
   background-color: $color-black;
   color: $color-white;
+  transform: rotate(-6deg);
 }
 
 .tb-tabs-content-wrapper {

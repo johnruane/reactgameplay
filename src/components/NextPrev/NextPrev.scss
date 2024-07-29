@@ -5,16 +5,10 @@
 
 .np-link-wrapper {
   display: flex;
-  row-gap: $space-m;
-  flex-direction: column;
+  align-items: center;
+  gap: $space-m;
   text-decoration: none;
   color: $color-black;
-
-  & svg {
-    @include iconShadow;
-    width: clamp(2.5rem, 6vw, 4rem);
-    height: clamp(2.5rem, 6vw, 4rem);
-  }
 }
 
 .np-title {
@@ -30,17 +24,5 @@
 }
 
 .np-next {
-  align-items: end;
   margin-left: auto;
-  text-align: right;
-}
-
-.np-label {
-  @include body;
-}
-
-.np-text-wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: $space-3xs;
 }

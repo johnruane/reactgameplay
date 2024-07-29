@@ -11,6 +11,7 @@
 .ft-content-wrapper {
   display: grid;
   grid-column: 1 / -1;
+  grid-template-rows: min-content;
 
   @include media('>=largedesktop') {
     grid-column: 2 / 10;

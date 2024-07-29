@@ -1,15 +1,13 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
-import Header from '@components/Header';
+import ScrollBar from '../../../components/ScrollBar';
 import Footer from '@components/Footer';
-import Gameover from '@components/Gameover';
 import GetKey from '../../../utils/GetKey';
 
 export default function DefaultLayout() {
   return (
     <>
-      <Header />
+      <ScrollBar text='insert-coin' />
       <Outlet />
-      <Gameover />
       <Footer />
       <ScrollRestoration getKey={GetKey()} />
     </>

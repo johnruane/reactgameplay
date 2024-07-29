@@ -76,6 +76,14 @@
 
 .gp-tabs {
   @include verticalPadding($space-3xl-5xl);
+
+  & .h-heading {
+    color: $color-black;
+  }
+
+  & svg rect {
+    fill: $color-black;
+  }
 }
 
 .gp-tabs-wrapper {
@@ -87,6 +95,10 @@
   @include media('>=desktop') {
     grid-column: 2 / -2;
   }
+}
+
+.gp-np-wrapper {
+  grid-column: 2 / -2;
 }
 
 .gp-game-layout {

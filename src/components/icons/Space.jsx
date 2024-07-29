@@ -1,4 +1,4 @@
-const Snake = ({ className }) => {
+const Space = ({ className }) => {
   return (
     <svg
       width='200'
@@ -21,4 +21,4 @@ const Snake = ({ className }) => {
   );
 };
 
-export default Snake;
+export default Space;

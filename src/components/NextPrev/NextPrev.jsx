@@ -1,24 +1,22 @@
 import { Link } from 'react-router-dom';
 
-import PolygonLeft from '@icons/PolygonLeft';
-import PolygonRight from '@icons/PolygonRight';
+import ArrowCircleLeft from '@icons/ArrowCircleLeft';
+import ArrowCircleRight from '@icons/ArrowCircleRight';
 
 import './NextPrev.scss';
+import classNames from 'classnames';
 
-const NextPrev = ({ prev, next }) => {
+const NextPrev = ({ prev, next, additionalClasses }) => {
   return (
-    <div className='np-wrapper'>
+    <div className={classNames('np-wrapper', additionalClasses)}>
       {prev?.id && (
         <Link
           to={'/gamepage/' + prev.id}
           className='np-link-wrapper np-prev'
           key={prev.id}
         >
-          <PolygonLeft />
-          <div className='np-text-wrapper' data-stack='space-3xs'>
-            <span className='np-label'>Previous</span>
-            <span className='np-title text-uppercase'>{prev?.title}</span>
-          </div>
+          <span className='np-title text-uppercase'>{prev?.title}</span>
+          <ArrowCircleLeft />
         </Link>
       )}
       {next?.id && (
@@ -27,11 +25,8 @@ const NextPrev = ({ prev, next }) => {
           className='np-link-wrapper np-next'
           key={next?.id}
         >
-          <PolygonRight />
-          <div className='np-text-wrapper' data-stack='space-3xs'>
-            <span className='np-label'>Next</span>
-            <span className='np-title text-uppercase'>{next?.title}</span>
-          </div>
+          <span className='np-title text-uppercase'>{next?.title}</span>
+          <ArrowCircleRight />
         </Link>
       )}
     </div>
