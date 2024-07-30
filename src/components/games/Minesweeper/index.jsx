@@ -12,6 +12,7 @@ import Board from '../Components/Board';
 import Cell from './Cell';
 
 /* Styles */
+import '../style.scss';
 import './minsweeper.scss';
 
 const Minesweeper = () => {

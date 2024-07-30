@@ -69,7 +69,7 @@
   justify-self: center;
   grid-column: 1 / -1;
   display: grid;
-  gap: 4cqw;
+  gap: $space-xl;
 
   @include media('>=largedesktop') {
     grid-row: 1;

@@ -26,8 +26,9 @@ import Panel from '../Components/Panel';
 import { useInterval } from './hooks/useInterval';
 
 /* Styles */
-import '../Components/style.scss';
+import '../style.scss';
 import './tetris.scss';
+import classNames from 'classnames';
 
 /*
  * @position: Current r & c position to place the top left corner of the tetromino on a board.
@@ -50,7 +51,7 @@ import './tetris.scss';
  * @gameStatus: String for 'Game Over' message
  */
 
-const Tetris = ({ onSelectClickHandler }) => {
+const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
   const boardConfig = [19, 10, 0];
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
@@ -325,37 +326,42 @@ const Tetris = ({ onSelectClickHandler }) => {
 
   return (
     <>
-      <div className='layout-grid tetris'>
-        <div className='board-next-wrapper'>
-          <div className='board-wrapper tetris-board-wrapper'>
-            <Board board={displayBoard} Cell={Cell} />
-            <div className='overlay-text-wrapper'>
-              {gameOver && <p className='overlay-text game-over-text'>Game Over</p>}
-            </div>
+      <div className={classNames('tetris-board-wrapper', additionalClasses)}>
+        <div className='game-side-details'>
+          <h2 className='text-uppercase'>TETRIS</h2>
+          <div className='controls-text-wrapper'>
+            <p className='controls-text'>CONTROLS</p>
+            <ul className='controls-list'>
+              <li>A = Rotate</li>
+              <li>B = Inactive</li>
+              <li>D-pad = Move</li>
+            </ul>
           </div>
+        </div>
+        <div className='overlay-wrapper'>
+          <Board board={displayBoard} Cell={Cell} className='tetris' />
+          <div className='overlay-text-wrapper'>
+            {gameOver && <p className='overlay-text'>Game Over</p>}
+          </div>
+        </div>
 
-          <div className='tetris-score-wrapper'>
-            <Panel title={'score'} value={score} />
-            <Panel title={'level'} value={level} />
-            <Panel title={'lines'} value={lines} />
-            
-            <div className='next-wrapper'>
-              <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted}/>
-            </div>
-            {!hasGameStarted && 
-                <button
-                  className='overlay-text start-button'
-                  onClick={() => startGame()}
-                >
-                  START GAME
-                </button>
-              }
+        <div className='tetris-score-wrapper'>
+          <Panel title={'score'} value={score} />
+          <Panel title={'level'} value={level} />
+          <Panel title={'lines'} value={lines} />
+
+          <div className='next-wrapper'>
+            <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted} />
           </div>
         </div>
       </div>
 
-      <div className='controls-wrapper'>
-        <Controls move={move} onStartClickHandler={startGame} onSelectClickHandler={onSelectClickHandler} />
+      <div className='game-controls-wrapper'>
+        <Controls
+          move={move}
+          onStartClickHandler={startGame}
+          onSelectClickHandler={onSelectClickHandler}
+        />
       </div>
     </>
   );

@@ -2,7 +2,6 @@
   display: grid;
   row-gap: 2rem;
   grid-column: 1 / -1;
-  // justify-self: center;
 }
 
 .start-button {
@@ -30,31 +29,57 @@
   }
 }
 
-.game-over-text {
-  color: $color-white;
-}
-
 .overlay-text-wrapper {
+  color: $color-white;
+  white-space: nowrap;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.controls-wrapper {
+.game-controls-wrapper {
   align-self: end;
   grid-column: 1 / -1;
   display: none;
 
-  @supports(padding: max(0px)) {
+  @supports (padding: max(0px)) {
     padding-bottom: max(1.5rem, env(safe-area-inset-left));
-}
+  }
 
   @media (pointer: coarse) and (hover: none) and (max-width: 1024px) {
     display: flex;
   }
 }
 
-.board-wrapper {
+.overlay-wrapper {
   position: relative;
+}
+
+.game-side-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  row-gap: $space-xs;
+}
+
+.controls-text {
+  font-size: $font--1;
+  font-weight: $font-weight-bold;
+}
+
+.controls-list {
+  font-size: $font--1;
+  list-style: none;
+  padding: 0;
+
+  & li {
+    line-height: 1.5;
+  }
 }

@@ -8,6 +8,7 @@
 
 .game-panel {
   display: grid;
+  row-gap: $space-3xs;
   height: 100%;
   grid-template-rows: repeat(2, min-content);
   align-content: center;

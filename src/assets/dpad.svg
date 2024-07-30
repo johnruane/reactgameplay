@@ -1,7 +1,7 @@
 
 
 <svg width="132" height="132" viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M88 18C88 8.05888 79.9411 0 70 0H62C52.0589 0 44 8.05887 44 18V44H18C8.05888 44 0 52.0589 0 62V70C0 79.9411 8.05887 88 18 88H44V114C44 123.941 52.0589 132 62 132H70C79.9411 132 88 123.941 88 114V88H114C123.941 88 132 79.9411 132 70V62C132 52.0589 123.941 44 114 44H88V18Z" fill="#1E342C"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M88 18C88 8.05888 79.9411 0 70 0H62C52.0589 0 44 8.05887 44 18V44H18C8.05888 44 0 52.0589 0 62V70C0 79.9411 8.05887 88 18 88H44V114C44 123.941 52.0589 132 62 132H70C79.9411 132 88 123.941 88 114V88H114C123.941 88 132 79.9411 132 70V62C132 52.0589 123.941 44 114 44H88V18Z" fill="#959595"/>
 <rect x="13" y="64" width="20" height="4" fill="white"/>
 <rect x="98" y="64" width="20" height="4" fill="white"/>
 <rect x="68" y="13" width="20" height="4" transform="rotate(90 68 13)" fill="white"/>

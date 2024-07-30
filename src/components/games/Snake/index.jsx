@@ -13,6 +13,7 @@ import { deepClone, create2dArray } from '../utils';
 import { useInterval } from './hooks/useInterval';
 
 /* Styles */
+import '../style.scss';
 import './snake.scss';
 
 const SNAKE_DIRECTIONS = {
@@ -24,7 +25,7 @@ const SNAKE_DIRECTIONS = {
 
 const FOOD_VALUE = 2;
 
-const Snake = ({onSelectClickHandler}) => {
+const Snake = ({ onSelectClickHandler }) => {
   const emptyBoard = create2dArray(20, 20);
   const initialFoodBoard = deepClone(emptyBoard);
   initialFoodBoard[5][5] = FOOD_VALUE;
@@ -208,21 +209,17 @@ const Snake = ({onSelectClickHandler}) => {
   return (
     <>
       <div className='layout-grid '>
-        <div className='board-wrapper snake-board-wrapper'>
+        <div className='overlay-wrapper snake-board-wrapper'>
           <Board board={displayBoard} Cell={Cell} className='snake-board' />
-          {gameOver && <p className='game-over-text'>Game Over</p>}
-        {!hasGameStarted && 
-          <button
-            className='overlay-text start-button'
-            onClick={() => startGame()}
-          >
-            START GAME
-          </button>
-        }
+          {gameOver && <p className='overlay-text'>Game Over</p>}
         </div>
       </div>
-      <div className='controls-wrapper'>
-        <Controls move={setProposedSnakeDirection} onStartClickHandler={startGame} onSelectClickHandler={onSelectClickHandler} />
+      <div className='game-controls-wrapper'>
+        <Controls
+          move={setProposedSnakeDirection}
+          onStartClickHandler={startGame}
+          onSelectClickHandler={onSelectClickHandler}
+        />
       </div>
     </>
   );

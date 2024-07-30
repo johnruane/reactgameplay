@@ -35,7 +35,7 @@
   display: grid;
   justify-content: center;
   container-type: inline-size;
-  gap: 4cqw;
+  gap: $space-xl;
 
   & svg {
     display: block;

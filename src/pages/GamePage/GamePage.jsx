@@ -126,7 +126,12 @@ const GamePage = () => {
       </section>
 
       <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
-        {gameSheetToggle && <GameComponent onSelectClickHandler={handleButtonClick} />}
+        {gameSheetToggle && (
+          <GameComponent
+            additionalClasses='gp-game-wrapper'
+            onSelectClickHandler={handleButtonClick}
+          />
+        )}
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}

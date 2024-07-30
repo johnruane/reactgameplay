@@ -6,7 +6,7 @@
   grid-column: 1 / -1;
   justify-self: center;
   display: grid;
-  gap: 4cqw;
+  gap: $space-xl;
 
   & svg {
     display: block;
@@ -200,7 +200,12 @@
 .gp-ghost-wrapper {
   justify-self: center;
   display: grid;
-  gap: 4cqw;
+  gap: $space-xl;
   width: clamp(9rem, 20vw, 22rem);
   padding-bottom: $space-3xl-4xl;
+}
+
+.gp-game-wrapper {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
