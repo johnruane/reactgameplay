@@ -14,16 +14,11 @@
   background-color: $color-grey;
 }
 
-.icon-shadow {
-  @include iconShadow;
+.fluid-img svg {
+  width: 100%;
+  height: 100%;
 }
 
-.icon-resp-w {
-  width: clamp(2.5rem, 6vw, 5rem);
-  height: auto;
-}
-
-.icon-resp-h {
-  width: auto;
-  height: clamp(2.5rem, 6vw, 5rem);
+.display-contents {
+  display: contents;
 }

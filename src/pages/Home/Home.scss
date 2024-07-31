@@ -75,14 +75,6 @@
   padding-top: $space-2xl-3xl;
 }
 
-.hm-enter-icon {
-  @include iconShadow;
-
-  width: $space-2xl-3xl;
-  height: auto;
-  padding-bottom: 1rem;
-}
-
 .hm-intro,
 .hm-games {
   @include verticalPadding($space-4xl-6xl);

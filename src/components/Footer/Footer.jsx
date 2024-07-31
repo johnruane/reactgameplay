@@ -1,7 +1,6 @@
 import ScrollBar from '@components/ScrollBar';
 
 import Invader from '@icons/Invader';
-import Shadow from '@icons/Shadow';
 
 import './Footer.scss';
 
@@ -33,9 +32,8 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className='ft-image'>
+            <div className='ft-image fluid-img'>
               <Invader />
-              <Shadow />
             </div>
           </div>
         </section>

@@ -13,7 +13,6 @@ import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
 
-import Shadow from '@icons/Shadow';
 import Ghost from '@icons/Ghost';
 
 import './GamePage.scss';
@@ -78,10 +77,7 @@ const GamePage = () => {
               className='gp-play-button'
             />
           </div>
-          <div className='gp-image'>
-            {icon}
-            <Shadow />
-          </div>
+          <div className='gp-image fluid-img'>{icon}</div>
         </div>
       </section>
 
@@ -112,9 +108,8 @@ const GamePage = () => {
       <Divider color='black' background='grey' />
 
       <section className='container background-grey gp-tabs'>
-        <div className='gp-ghost-wrapper'>
+        <div className='gp-ghost-wrapper fluid-img'>
           <Ghost />
-          <Shadow />
         </div>
         <div data-stack='space-2xl-3xl'>
           <div className='grid' data-stack='space-l-xl'>
@@ -126,12 +121,10 @@ const GamePage = () => {
       </section>
 
       <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
-        {gameSheetToggle && (
-          <GameComponent
-            additionalClasses='gp-game-wrapper'
-            onSelectClickHandler={handleButtonClick}
-          />
-        )}
+        <GameComponent
+          additionalClasses='gp-game-wrapper'
+          onSelectClickHandler={handleButtonClick}
+        />
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}

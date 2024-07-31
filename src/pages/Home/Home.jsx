@@ -9,7 +9,6 @@ import Divider from '@components/Divider';
 import Banner from '@components/Banner';
 
 import Pacman from '@icons/Pacman';
-import Shadow from '@icons/Shadow';
 
 import './Home.scss';
 
@@ -21,9 +20,8 @@ export default function Home() {
           <div className='hm-text-positioning'>
             <TextLogo />
           </div>
-          <div className='hm-image'>
-            <Pacman className='pacman' />
-            <Shadow />
+          <div className='hm-image fluid-img'>
+            <Pacman />
           </div>
         </div>
       </section>

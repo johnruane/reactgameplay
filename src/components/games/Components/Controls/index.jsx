@@ -23,7 +23,7 @@ export default function Controls({ move, onStartClickHandler, onSelectClickHandl
             ></Button>
           </span>
           <span className='game-controls-button-text-wrapper'>
-            <p className='game-controls-button-text'>SELECT</p>
+            <p className='game-controls-button-text'>QUIT</p>
             <Button
               className='game-controls-button'
               onClick={onSelectClickHandler}

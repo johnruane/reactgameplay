@@ -73,14 +73,7 @@
 
   @include media('>=largedesktop') {
     grid-row: 1;
-    grid-column: 10 / -1;
+    grid-column: 11 / -1;
     align-self: center;
   }
-}
-
-.ft-image svg {
-  display: block;
-  width: 60cqw;
-  max-width: 30rem;
-  height: auto;
 }

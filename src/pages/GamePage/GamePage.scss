@@ -8,13 +8,6 @@
   display: grid;
   gap: $space-xl;
 
-  & svg {
-    display: block;
-    width: 100%;
-    max-width: 30rem;
-    height: auto;
-  }
-
   & :last-child {
     opacity: 0.9;
   }

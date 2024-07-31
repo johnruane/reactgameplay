@@ -50,23 +50,20 @@
   @media (pointer: coarse) and (hover: none) and (max-width: 1024px) {
     display: flex;
   }
+
+  @include media('>=desktop') {
+    display: none;
+  }
 }
 
 .overlay-wrapper {
   position: relative;
+  height: fit-content;
 }
 
 .game-side-details {
   display: flex;
   flex-direction: column;
-}
-
-.controls-text-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  row-gap: $space-xs;
 }
 
 .controls-text {

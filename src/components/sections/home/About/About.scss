@@ -43,16 +43,6 @@
   @include body;
 }
 
-.svg-button-wrapper.ab-space-button-wrapper {
-  padding: 1rem 6rem;
-  width: auto;
-}
-
-.svg-button-wrapper.ab-ctrl-button-wrapper {
-  padding: 1rem 3rem;
-  width: auto;
-}
-
 .ab-button-text {
   @include button;
 
