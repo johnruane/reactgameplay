@@ -1,9 +1,14 @@
+import classNames from 'classnames';
 import './ScrollBar.scss';
 
-const ScrollBar = ({text}) => {
+const ScrollBar = ({ text, additionalClasses }) => {
   return (
-    <div className={`sb-scrollbar sb-${text}`}/>
-  )
-}
+    <div
+      className={classNames(`sb-scrollbar`, additionalClasses, {
+        [`sb-${text}`]: text,
+      })}
+    />
+  );
+};
 
 export default ScrollBar;

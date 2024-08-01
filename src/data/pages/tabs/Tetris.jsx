@@ -6,30 +6,28 @@ const tabs = [
       <ol>
         <li>
           Drop the falling blocks into the game board. Arrange them in horizontal lines
-          without any gaps to clear those lines.
+          without any gaps. Completed lines disappear, making room for new blocks!
         </li>
         <li>
           Use the arrow keys on your keyboard to move the falling tetrominoes left or
-          right, rotate them clockwise or counterclockwise, or accelerate their descent.
+          right, rotate them or accelerate their descent.
         </li>
         <li>
           Anticipate where each tetromino will land and strategically place them to create
-          complete lines. Think ahead to avoid creating gaps that cannot be filled.
+          complete lines. Look at the next piece preview to plan where you&apos;ll place
+          upcoming Tetrominoes.
         </li>
         <li>
-          The level of the game will increase every 30 seconds, making the tetrominoes
-          fall at a faster rate. As you reach each level the game speed will speed up by
-          10%, so don&apos;t hang about.
+          The level of the game increases every 30 seconds making the tetrominoes fall at
+          a faster and faster rate, so don&apos;t hang about.
         </li>
         <li>
-          Clearing lines earns you points, and as you accumulate points, you advance to
-          higher levels. With each level increase, the game speed increases, making it
-          more challenging.
+          Earn points by clearing lines. The more lines you clear at once, the higher your
+          score!
         </li>
         <li>
-          If the stack of tetrominoes reaches the top of the game board, the game ends.
-          Keep an eye on the upcoming tetrominoes and plan your moves accordingly to
-          prevent the game from ending prematurely.
+          Avoid letting the stack reach the top of the screen. If it does, it&apos;s game
+          over!
         </li>
       </ol>
     ),

@@ -50,6 +50,8 @@ const Snake = ({ onSelectClickHandler }) => {
   const [speed, setSpeed] = useState(null);
   const [levelInterval, setLevelInterval] = useState(null);
 
+  const [score, setScore] = useState(null);
+
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
     ArrowLeft: SNAKE_DIRECTIONS.ARROW_RIGHT,
@@ -69,6 +71,7 @@ const Snake = ({ onSelectClickHandler }) => {
     setGameOver(false);
     setHasGameStarted(true);
 
+    setScore(0);
     setSpeed(180);
   };
 
@@ -164,10 +167,11 @@ const Snake = ({ onSelectClickHandler }) => {
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
       const { row, col } = getRandomEmptyBoardPosition(displayBoard);
-      const newFoodBoard = create2dArray(20, 20);
+      const newFoodBoard = create2dArray(18, 20);
       newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });
+      setScore(parseInt(score + 1));
     }
   }, [displayBoard]);
 
@@ -208,10 +212,27 @@ const Snake = ({ onSelectClickHandler }) => {
 
   return (
     <>
-      <div className='layout-grid '>
-        <div className='overlay-wrapper snake-board-wrapper'>
+      <div className='gp-game-wrapper snake-game-wrapper'>
+        <div className='game-side-details'>
+          <h2 className='text-uppercase'>TETRIS</h2>
+          <div className='controls-text-wrapper' data-stack='space-xs'>
+            <p className='controls-text'>CONTROLS</p>
+            <ul className='controls-list'>
+              <li>A = Rotate</li>
+              <li>B = Inactive</li>
+              <li>d-pad = Move</li>
+            </ul>
+          </div>
+          <div>
+            <p className='controls-text'>SCORE</p>
+            <p>{score?.toString() | 0}</p>
+          </div>
+        </div>
+        <div className='overlay-wrapper'>
           <Board board={displayBoard} Cell={Cell} className='snake-board' />
-          {gameOver && <p className='overlay-text'>Game Over</p>}
+          <div className='overlay-text-wrapper'>
+            {gameOver && <p className='overlay-text'>Game Over</p>}
+          </div>
         </div>
       </div>
       <div className='game-controls-wrapper'>

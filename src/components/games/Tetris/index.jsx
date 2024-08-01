@@ -326,15 +326,15 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
 
   return (
     <>
-      <div className={classNames('tetris tetris-board-wrapper', additionalClasses)}>
-        <div className='game-side-details' data-stack='space-m'>
+      <div className={classNames('tetris tetris-game-wrapper', additionalClasses)}>
+        <div className='game-side-details'>
           <h2 className='text-uppercase'>TETRIS</h2>
-          <div>
+          <div className='controls-text-wrapper' data-stack='space-xs'>
             <p className='controls-text'>CONTROLS</p>
             <ul className='controls-list'>
               <li>A = Rotate</li>
               <li>B = Inactive</li>
-              <li>D-pad = Move</li>
+              <li>d-pad = Move</li>
             </ul>
           </div>
         </div>

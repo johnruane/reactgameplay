@@ -5,31 +5,30 @@ const tabs = [
     content: (
       <ol>
         <li>
-          Drop the falling blocks into the game board. Arrange them in horizontal lines
-          without any gaps to clear those lines.
+          The object of the game is to clear the entire board without triggering any
+          mines. It&apos;s like walking through a minefield, but way more fun!
         </li>
         <li>
-          Use the arrow keys on your keyboard to move the falling tetrominoes left or
-          right, rotate them clockwise or counterclockwise, or accelerate their descent.
+          Click or tap a square reveal what&apos;s hidding underneath. Hold your breath
+          and hope it&apos;s not a mine!
         </li>
         <li>
-          Anticipate where each tetromino will land and strategically place them to create
-          complete lines. Think ahead to avoid creating gaps that cannot be filled.
+          Numbers are Clues: Each revealed number indicates how many mines are touching
+          that square. Use these hints to deduce safe spots.
         </li>
         <li>
-          The level of the game will increase every 30 seconds, making the tetrominoes
-          fall at a faster rate. As you reach each level the game speed will speed up by
-          10%, so don&apos;t hang about.
+          If playing using a mouse then you can place a flag where you suspect a mine is
+          lurking by using the <code>Right</code> mouse button. This helps keep track of
+          potential dangers.
+        </li>
+        <li>Use logic to figure out where the mines are hiding.</li>
+        <li>
+          To help you find your way if you uncover a square with no adjacent mines then
+          this area will open up revealing all non-mine spaces.
         </li>
         <li>
-          Clearing lines earns you points, and as you accumulate points, you advance to
-          higher levels. With each level increase, the game speed increases, making it
-          more challenging.
-        </li>
-        <li>
-          If the stack of tetrominoes reaches the top of the game board, the game ends.
-          Keep an eye on the upcoming tetrominoes and plan your moves accordingly to
-          prevent the game from ending prematurely.
+          If you hit a mine, don&apos;t sweat it! The more you play, the better you get.
+          Each game is a fresh new challenge.
         </li>
       </ol>
     ),

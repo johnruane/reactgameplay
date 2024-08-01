@@ -4,10 +4,30 @@ const tabs = [
     title: 'How to play',
     content: (
       <ol>
-        <li>Catch as much food 🟩 as you can.</li>
-        <li>The snake will get longer each time you eat the food.</li>
-        <li>Avoid hitting the walls of the play area, or running into your own tail.</li>
-        <li>Survival is the name of the game - how long can you last?</li>
+        <li>
+          Use the <code>Arrow</code> keys (or <code>d-pad</code> on mobile) to steer your
+          snake in different directions.
+        </li>
+        <li>
+          Remember, you can&apos;t make a U-turn. Plan your moves wisely to avoid
+          collisions!
+        </li>
+        <li>
+          The Objective of the game is to eat as many pieces of food as possible to grow
+          your snake. The longer the snake, the higher the score!
+        </li>
+        <li>
+          Avoid walls and yourself. Crashing into the walls or your own tail means game
+          over. Stay sharp!
+        </li>
+        <li>
+          Plan your path and anticipate your moves to avoid running into obstacles or
+          getting trapped by your own tail.
+        </li>
+        <li>
+          There&apos;s no definitive end—aim to beat your high score! Every bite brings
+          you closer to Snake greatness.
+        </li>
       </ol>
     ),
   },
@@ -33,8 +53,8 @@ const tabs = [
           <code>eventListeners</code> for keypresses to change direction.
         </li>
         <li>
-          <code>Arrays</code> & loops make up most of the utility functions, as well as
-          storing and accessing a matrix.
+          <code>Arrays</code> & <code>loops</code> make up most of the utility functions
+          as well as storing and accessing a matrix.
         </li>
       </ol>
     ),
@@ -45,8 +65,8 @@ const tabs = [
     content: (
       <ol>
         <li>
-          Preventing the user from directing the snake in the opposite direction, whilst
-          allowing it to continue in the current direction of travel.
+          Preventing the user from making a U-turn and allowing it to continue in the
+          current direction of travel.
         </li>
         <li>
           Generating a new food position on an unoccupied cell. You can&apos;t just use a

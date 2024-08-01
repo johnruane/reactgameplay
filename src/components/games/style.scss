@@ -41,18 +41,19 @@
 .game-controls-wrapper {
   align-self: end;
   grid-column: 1 / -1;
-  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 
   @supports (padding: max(0px)) {
     padding-bottom: max(1.5rem, env(safe-area-inset-left));
   }
 
   @media (pointer: coarse) and (hover: none) and (max-width: 1024px) {
-    display: flex;
+    opacity: 1;
   }
 
   @include media('>=desktop') {
-    display: none;
+    opacity: 0;
   }
 }
 
@@ -62,8 +63,8 @@
 }
 
 .game-side-details {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .controls-text {
@@ -79,4 +80,8 @@
   & li {
     line-height: 1.5;
   }
+}
+
+.controls-text-wrapper {
+  align-self: center;
 }
