@@ -1,10 +1,13 @@
 .b-wrapper {
+  grid-column: 1 / -1;
   background-color: $color-black;
   color: $color-white;
   gap: $space-s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   & svg {
-    grid-column: 1 / -1;
     justify-self: center;
     width: $space-4xl;
     height: auto;
@@ -12,10 +15,10 @@
 }
 
 .b-text {
-  grid-column: 1 / -1;
-  font-size: $font-3;
+  font-size: $font-2;
   font-weight: $font-weight-black;
   text-align: center;
+  max-width: 80rem;
 
   @include media('>=desktop') {
     grid-column: 4 / 16;
@@ -23,14 +26,13 @@
 }
 
 .b-spaceship-wrapper {
-  grid-column: 1 / -1;
   justify-self: center;
   display: flex;
   gap: $space-l;
+  margin-top: $space-l;
 
   & svg {
-    width: $space-3xl;
-    height: auto;
+    max-width: 5rem;
   }
 }
 

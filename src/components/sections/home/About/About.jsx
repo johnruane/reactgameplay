@@ -7,7 +7,7 @@ import './About.scss';
 const About = () => {
   return (
     <>
-      <div className='ab-text-icon-wrapper'>
+      <div className='ab-text-icon-wrapper fluid-img'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Learning Made Exciting and Interactive</h2>
           <p className='ab-text'>
@@ -17,9 +17,9 @@ const About = () => {
             levels. Get ready to immerse yourself in a world where fun meets learning.
           </p>
         </div>
-        <Cherries className='ab-svg' />
+        <Cherries className='ab-svg fluid-img' />
       </div>
-      <div className='ab-text-icon-wrapper'>
+      <div className='ab-text-icon-wrapper ab-text-icon-wrapper-flip fluid-img'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Guided Exploration: Your Path to Mastery</h2>
           <p className='ab-text'>
@@ -33,7 +33,7 @@ const About = () => {
 
         <Mushroom className='ab-svg' />
       </div>
-      <div className='ab-text-icon-wrapper'>
+      <div className='ab-text-icon-wrapper fluid-img'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Elevate Your Skills While Having Fun</h2>
           <p className='ab-text'>

@@ -98,7 +98,7 @@ const GamePage = () => {
         </section>
 
         <section className='grid' data-stack='space-l-xl'>
-          <Heading title='INTRO' className='gp-intro-wrapper' />
+          <Heading title='INTRO' className='section-heading' />
           <div className='gp-intro-text' data-stack>
             {intro}
           </div>
@@ -113,7 +113,7 @@ const GamePage = () => {
         </div>
         <div data-stack='space-2xl-3xl'>
           <div className='grid' data-stack='space-l-xl'>
-            <Heading title='DETAILS' className='gp-intro-wrapper' />
+            <Heading title='DETAILS' className='section-heading' />
             <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
           </div>
           <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
