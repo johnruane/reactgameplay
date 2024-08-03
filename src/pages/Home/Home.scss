@@ -24,21 +24,6 @@
 .hm-image {
   position: relative;
   grid-column: 2 / -2;
-  display: grid;
-  justify-content: center;
-  container-type: inline-size;
-  gap: $space-xl;
-
-  & svg {
-    display: block;
-    width: 60cqw;
-    max-width: 40rem;
-    height: auto;
-  }
-
-  & :last-child {
-    opacity: 0.9;
-  }
 
   @include media('>=tablet') {
     grid-column: 7 / -1;
@@ -83,6 +68,10 @@
 
 .hm-level-up {
   @include verticalPadding($space-2xl-3xl);
+
+  & .grid {
+    row-gap: $space-2xl-3xl;
+  }
 }
 
 .hm-about {

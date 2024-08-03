@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-
 import { useCallback, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
@@ -12,6 +11,7 @@ import Divider from '@components/Divider';
 import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
+import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Ghost from '@icons/Ghost';
 
@@ -77,7 +77,7 @@ const GamePage = () => {
               className='gp-play-button'
             />
           </div>
-          <div className='gp-image fluid-img'>{icon}</div>
+          <ResponsiveSVG additionalClasses='gp-image'>{icon}</ResponsiveSVG>
         </div>
       </section>
 
@@ -108,10 +108,13 @@ const GamePage = () => {
       <Divider color='black' background='grey' />
 
       <section className='container background-grey gp-tabs'>
-        <div className='gp-ghost-wrapper fluid-img'>
-          <Ghost />
+        <div className='grid'>
+          <ResponsiveSVG additionalClasses='gp-ghost-wrapper'>
+            <Ghost />
+          </ResponsiveSVG>
         </div>
-        <div data-stack='space-2xl-3xl'>
+
+        <div data-stack='space-xl-2xl'>
           <div className='grid' data-stack='space-l-xl'>
             <Heading title='DETAILS' className='section-heading' />
             <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />

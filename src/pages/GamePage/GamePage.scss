@@ -4,13 +4,6 @@
 
 .gp-image {
   grid-column: 2 / -2;
-  justify-self: center;
-  display: grid;
-  gap: $space-xl;
-
-  & :last-child {
-    opacity: 0.9;
-  }
 
   @include media('>=tablet') {
     grid-column: 8 / -1;
@@ -18,7 +11,6 @@
 
   @include media('>=desktop') {
     grid-column: 12 / -2;
-    justify-self: auto;
   }
 }
 
@@ -187,11 +179,16 @@
 }
 
 .gp-ghost-wrapper {
-  justify-self: center;
-  display: grid;
-  gap: $space-xl;
-  width: clamp(9rem, 20vw, 22rem);
+  grid-column: 3 / span 2;
   padding-bottom: $space-3xl-4xl;
+
+  @include media('>=tablet') {
+    grid-column: 5 / span 4;
+  }
+
+  @include media('>=desktop') {
+    grid-column: 8 / span 4;
+  }
 }
 
 .gp-game-wrapper {

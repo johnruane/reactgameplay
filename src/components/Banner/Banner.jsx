@@ -1,5 +1,6 @@
 import Stars from '@icons/Stars';
 import Spaceshop from '@icons/Spaceship';
+import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import './Banner.scss';
 
@@ -7,7 +8,9 @@ const Banner = () => {
   return (
     <div className='grid background-black'>
       <div className='b-wrapper'>
-        <Stars />
+        <ResponsiveSVG>
+          <Stars />
+        </ResponsiveSVG>
         <p className='b-text nice-wrap'>
           “Code your way to the stars and beyond with our gaming adventures.”
         </p>

@@ -198,11 +198,6 @@ const tabs = [
       </ol>
     ),
   },
-  {
-    id: 7,
-    title: 'Sourcecode',
-    content: <></>,
-  },
 ];
 
 export default tabs;

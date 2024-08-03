@@ -5,7 +5,8 @@
 }
 
 .np-link-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr clamp(3.75rem, 6cqw, 6.25rem);
   align-items: center;
   justify-content: center;
   gap: $space-s;

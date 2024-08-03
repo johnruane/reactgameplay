@@ -1,5 +1,5 @@
 import ScrollBar from '@components/ScrollBar';
-
+import ResponsiveSVG from '@components/ResponsiveSVG';
 import Invader from '@icons/Invader';
 
 import './Footer.scss';
@@ -32,9 +32,9 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className='ft-image fluid-img'>
+            <ResponsiveSVG additionalClasses='ft-image'>
               <Invader />
-            </div>
+            </ResponsiveSVG>
           </div>
         </section>
 

@@ -2,12 +2,14 @@ import Cherries from '@icons/Cherries';
 import Mushroom from '@icons/Mushroom';
 import Key from '@icons/Key';
 
+import ResponsiveSVG from '@components/ResponsiveSVG';
+
 import './About.scss';
 
 const About = () => {
   return (
     <>
-      <div className='ab-text-icon-wrapper fluid-img'>
+      <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Learning Made Exciting and Interactive</h2>
           <p className='ab-text'>
@@ -17,7 +19,9 @@ const About = () => {
             levels. Get ready to immerse yourself in a world where fun meets learning.
           </p>
         </div>
-        <Cherries className='ab-svg fluid-img' />
+        <ResponsiveSVG additionalClasses='ab-svg'>
+          <Cherries />
+        </ResponsiveSVG>
       </div>
       <div className='ab-text-icon-wrapper ab-text-icon-wrapper-flip fluid-img'>
         <div className='ab-text-wrapper' data-stack='space-default'>

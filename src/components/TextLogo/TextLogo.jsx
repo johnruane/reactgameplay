@@ -1,6 +1,31 @@
+import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { useGSAP } from '@gsap/react';
+
 import './TextLogo.scss';
 
+gsap.registerPlugin(MotionPathPlugin);
+
 const TextLogo = () => {
+  const timeline = gsap.timeline({ repeat: -1 });
+
+  useGSAP(() => {
+    timeline.to(
+      '.tl-pink-ball',
+      {
+        y: '-=20',
+        duration: 0.4,
+        ease: 'ease.inOut',
+        stagger: {
+          each: 0.2,
+          repeat: -1,
+          yoyo: true,
+        },
+      },
+      0
+    );
+  }, []);
+
   return (
     <div className='tl-text-logo-wrapper'>
       <div className='tl-pink-ball-wrapper'>

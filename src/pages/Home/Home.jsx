@@ -7,6 +7,7 @@ import Heading from '@sections/Heading';
 import TextLogo from '@components/TextLogo';
 import Divider from '@components/Divider';
 import Banner from '@components/Banner';
+import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Pacman from '@icons/Pacman';
 
@@ -20,9 +21,10 @@ export default function Home() {
           <div className='hm-text-positioning'>
             <TextLogo />
           </div>
-          <div className='hm-image fluid-img'>
+
+          <ResponsiveSVG additionalClasses='hm-image' maxWidth='40'>
             <Pacman />
-          </div>
+          </ResponsiveSVG>
         </div>
       </section>
 

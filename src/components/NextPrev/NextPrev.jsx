@@ -13,14 +13,14 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
     <div className={classNames('np-wrapper', additionalClasses)}>
       {prevId && (
         <Link to={'/gamepage/' + prevId} className='np-link-wrapper np-prev' key={prevId}>
-          <ArrowCircleLeft />
+          <ArrowCircleLeft className='fluid-img' />
           <span className='np-title text-uppercase'>{prevTitle}</span>
         </Link>
       )}
       {nextId && (
         <Link to={'/gamepage/' + nextId} className='np-link-wrapper np-next' key={nextId}>
           <span className='np-title text-uppercase'>{nextTitle}</span>
-          <ArrowCircleRight />
+          <ArrowCircleRight className='fluid-img' />
         </Link>
       )}
     </div>
