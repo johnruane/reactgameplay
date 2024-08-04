@@ -27,10 +27,10 @@ const Games = ({ additionalClasses }) => {
 
             <span className='gs-link'>
               {inDev ? (
-                'In Dev'
+                'IN DEVELOPMENT'
               ) : (
                 <span className='gs-play-link'>
-                  Play Game
+                  PLAY GAME
                   <RightArrow />
                 </span>
               )}

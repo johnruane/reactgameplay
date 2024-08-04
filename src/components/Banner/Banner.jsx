@@ -12,7 +12,7 @@ const Banner = () => {
           <Stars />
         </ResponsiveSVG>
         <p className='b-text nice-wrap'>
-          “Code your way to the stars and beyond with our gaming adventures.”
+          “Code your way to the stars and beyond with our gaming challenges.”
         </p>
         <div className='b-spaceship-wrapper fluid-img'>
           <Spaceshop className='b-spaceship-red' />

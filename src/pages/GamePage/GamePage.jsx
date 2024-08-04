@@ -14,8 +14,10 @@ import Button from '@components/Button';
 import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Ghost from '@icons/Ghost';
+import ArrowCircleLeft from '@icons/ArrowCircleLeft';
 
 import './GamePage.scss';
+import classNames from 'classnames';
 
 const GamePage = () => {
   const [gameSheetToggle, setGameSheetToggle] = useState(false);
@@ -122,6 +124,14 @@ const GamePage = () => {
           <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
         </div>
       </section>
+      <button
+        className={classNames('modal-close-btn', {
+          ['hide']: !gameSheetToggle,
+        })}
+        onClick={() => handleButtonClick()}
+      >
+        <ArrowCircleLeft className='modal-close-svg' />
+      </button>
 
       <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
         <GameComponent

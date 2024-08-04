@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   row-gap: $space-s;
   column-gap: $space-xs;
+  position: sticky;
+  top: $space-m;
 }
 
 .tb-tabs-wrapper::-webkit-scrollbar {

@@ -21,7 +21,7 @@ const LevelUp = () => {
         </div>
 
         <Link to='#' className='l-up-link'>
-          View code repository
+          TO CODE REPOSITORY
           <ExternalLinkArrow />
         </Link>
       </div>

@@ -11,11 +11,23 @@ const TextLogo = () => {
 
   useGSAP(() => {
     timeline.to(
-      '.tl-pink-ball',
+      '.tl-pink-ball-wrapper > :nth-child(even)',
       {
         y: '-=20',
         duration: 0.4,
-        ease: 'ease.inOut',
+        stagger: {
+          each: 0.2,
+          repeat: -1,
+          yoyo: true,
+        },
+      },
+      0
+    );
+    timeline.from(
+      '.tl-pink-ball-wrapper > :nth-child(odd)',
+      {
+        y: '-=20',
+        duration: 0.4,
         stagger: {
           each: 0.2,
           repeat: -1,
