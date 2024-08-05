@@ -26,7 +26,7 @@ const SNAKE_DIRECTIONS = {
 const FOOD_VALUE = 2;
 
 const Snake = ({ onSelectClickHandler }) => {
-  const emptyBoard = create2dArray(20, 20);
+  const emptyBoard = create2dArray(15, 15);
   const initialFoodBoard = deepClone(emptyBoard);
   initialFoodBoard[5][5] = FOOD_VALUE;
 
@@ -167,7 +167,7 @@ const Snake = ({ onSelectClickHandler }) => {
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
       const { row, col } = getRandomEmptyBoardPosition(displayBoard);
-      const newFoodBoard = create2dArray(18, 20);
+      const newFoodBoard = create2dArray(15, 15);
       newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });
@@ -214,13 +214,11 @@ const Snake = ({ onSelectClickHandler }) => {
     <>
       <div className='gp-game-wrapper snake-game-wrapper'>
         <div className='game-side-details'>
-          <h2 className='text-uppercase'>TETRIS</h2>
+          <h2 className='text-uppercase'>SNAKE</h2>
           <div className='controls-text-wrapper' data-stack='space-xs'>
             <p className='controls-text'>CONTROLS</p>
             <ul className='controls-list'>
-              <li>A = Rotate</li>
-              <li>B = Inactive</li>
-              <li>d-pad = Move</li>
+              <li>D-pad = Move</li>
             </ul>
           </div>
           <div>

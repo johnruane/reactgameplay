@@ -1,12 +1,21 @@
 .np-wrapper {
   display: grid;
+  grid-template-rows: min-content min-content;
   row-gap: $space-m;
   justify-content: space-around;
+  justify-items: center;
+}
+
+.np-prev {
+  grid-template-columns: clamp(3.75rem, 6cqw, 6.25rem) 1fr;
+}
+
+.np-next {
+  grid-template-columns: 1fr clamp(3.75rem, 6cqw, 6.25rem);
 }
 
 .np-link-wrapper {
   display: grid;
-  grid-template-columns: 1fr clamp(3.75rem, 6cqw, 6.25rem);
   align-items: center;
   justify-content: center;
   gap: $space-s;

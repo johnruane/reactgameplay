@@ -129,6 +129,7 @@ const GamePage = () => {
           ['hide']: !gameSheetToggle,
         })}
         onClick={() => handleButtonClick()}
+        aria-label='Close modal'
       >
         <ArrowCircleLeft className='modal-close-svg' />
       </button>

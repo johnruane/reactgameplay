@@ -10,6 +10,7 @@ import { updateDisplayBoard } from './lib/updateDisplayBoard';
 /* Components */
 import Board from '../Components/Board';
 import Cell from './Cell';
+import Controls from '../Components/Controls';
 
 /* Styles */
 import '../style.scss';
@@ -46,14 +47,41 @@ const Minesweeper = () => {
    */
 
   return (
-    <div className='layout-grid'>
-      <Board
-        board={displayBoard}
-        Cell={Cell}
-        className='minesweeper-board'
-        onClickCellCallback={handleCellClick}
-      />
-    </div>
+    <>
+      <div className='gp-game-wrapper snake-game-wrapper'>
+        <div className='game-side-details'>
+          <h2 className='text-uppercase'>MINESWEEPER</h2>
+          <div className='controls-text-wrapper' data-stack='space-xs'>
+            <p className='controls-text'>CONTROLS</p>
+            <ul className='controls-list'>
+              <li>D-pad = Move</li>
+            </ul>
+          </div>
+          <div>
+            <p className='controls-text'>SCORE</p>
+            <p>{0}</p>
+          </div>
+        </div>
+        <div className='overlay-wrapper'>
+          <Board
+            board={displayBoard}
+            Cell={Cell}
+            className='minesweeper-board'
+            onClickCellCallback={handleCellClick}
+          />
+          <div className='overlay-text-wrapper'>
+            {/* {gameOver && <p className='overlay-text'>Game Over</p>} */}
+          </div>
+        </div>
+      </div>
+      <div className='game-controls-wrapper'>
+        <Controls
+        // move={setProposedSnakeDirection}
+        // onStartClickHandler={startGame}
+        // onSelectClickHandler={onSelectClickHandler}
+        />
+      </div>
+    </>
   );
 };
 

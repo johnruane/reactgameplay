@@ -7,10 +7,26 @@ export default function Controls({ move, onStartClickHandler, onSelectClickHandl
     <div className='game-controls'>
       <div className='game-controls-elements-wrapper'>
         <div className='game-controls-d-pad'>
-          <Button className='pad-left' onClick={() => move('ArrowLeft')} />
-          <Button className='pad-down' onClick={() => move('ArrowDown')} />
-          <Button className='pad-up' onClick={() => move('ArrowUp')} />
-          <Button className='pad-right' onClick={() => move('ArrowRight')} />
+          <Button
+            className='pad-left'
+            onClick={() => move('ArrowLeft')}
+            ariaLabel='Move left'
+          />
+          <Button
+            className='pad-down'
+            onClick={() => move('ArrowDown')}
+            ariaLabel='Move down'
+          />
+          <Button
+            className='pad-up'
+            onClick={() => move('ArrowUp')}
+            ariaLabel='Move up'
+          />
+          <Button
+            className='pad-right'
+            onClick={() => move('ArrowRight')}
+            ariaLabel='Move right'
+          />
 
           <div className='game-controls-d-pad-spacer'></div>
         </div>
@@ -20,6 +36,7 @@ export default function Controls({ move, onStartClickHandler, onSelectClickHandl
             <Button
               className='game-controls-button'
               onClick={onStartClickHandler}
+              ariaLabel='Start game'
             ></Button>
           </span>
           <span className='game-controls-button-text-wrapper'>
@@ -27,12 +44,17 @@ export default function Controls({ move, onStartClickHandler, onSelectClickHandl
             <Button
               className='game-controls-button'
               onClick={onSelectClickHandler}
+              ariaLabel='Quit game'
             ></Button>
           </span>
         </div>
         <div className='control-buttons'>
-          <Button className='button-a' onClick={() => move('Space')} />
-          <Button className='button-b' />
+          <Button
+            className='button-a'
+            onClick={() => move('Space')}
+            ariaLabel='A button'
+          />
+          <Button className='button-b' ariaLabel='B button' />
         </div>
       </div>
     </div>

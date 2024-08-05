@@ -85,7 +85,7 @@ const tabs = [
           For newbies the key concept to learn is how to gamify React so that you can give
           the appearence of movement to coloured squares on a screen. This is detailed in
           the next section, but understanding that these games are built with changing
-          numbers in a<code>Matrix</code> is the biggest concept here.
+          numbers in a <code>Matrix</code> is the biggest concept here.
         </li>
         <li>
           Updating the game on an interval. This is complicated, but the{' '}
@@ -190,10 +190,12 @@ const tabs = [
             simulates the motion of the blocks falling downwards.
           </li>
         </ol>
-        This is obviously a fairly high-level description of the game mechanics but these
-        steps should give a good insight into the game architecture, states and actions
-        are required to get a good start on coding the basic stages of the game cycle. If
-        you get stuck have a look at the code repo for some inspiration.
+        <p>
+          This is obviously a fairly high-level description of the game mechanics but
+          these steps should give a good insight into the game architecture, states and
+          actions are required to get a good start on coding the basic stages of the game
+          cycle. If you get stuck have a look at the code repo for some inspiration.
+        </p>
       </>
     ),
   },

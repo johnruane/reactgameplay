@@ -41,6 +41,14 @@ ol {
   }
 }
 
-code {
-  color: $color-pink;
+.background-black {
+  code {
+    color: $color-code-light;
+  }
+}
+
+.background-grey {
+  code {
+    color: $color-code-dark;
+  }
 }

@@ -1,12 +1,12 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
-import ScrollBar from '../../../components/ScrollBar';
+import Ticker from '../../../components/Ticker';
 import Footer from '../../../components/Footer';
 import GetKey from '../../../utils/GetKey';
 
 export default function DefaultLayout() {
   return (
     <>
-      <ScrollBar text="insert-coin" />
+      <Ticker textOne='INSERT' textTwo='COIN' numberOfItems={16} />
       <Outlet />
       <Footer />
       <ScrollRestoration getKey={GetKey()} />

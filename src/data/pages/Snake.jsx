@@ -28,7 +28,6 @@ const gamePageData = {
         1990s, particularly with the release of the Nokia 6110 in 1997.
       </p>
       <p>
-        {' '}
         The gameplay of Snake is simple yet addictive. Players control a snake that moves
         around a bordered plane, with the goal of consuming food items that appear
         randomly on the screen. Each time the snake eats a piece of food, it grows longer,
@@ -37,7 +36,6 @@ const gamePageData = {
         highest possible score by consuming as many food items as possible.
       </p>
       <p>
-        {' '}
         Culturally, Snake has had a significant impact, particularly due to its
         association with Nokia mobile phones. It became one of the most-played mobile
         games globally, introducing countless people to mobile gaming and becoming a

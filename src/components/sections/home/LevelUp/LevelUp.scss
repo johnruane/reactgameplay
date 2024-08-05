@@ -14,6 +14,9 @@
 
 .l-up-svg-wrapper {
   grid-column: 3 / span 2;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
 
   @include media('>=tablet') {
     grid-column: 5 / span 4;
@@ -22,7 +25,6 @@
   @include media('>=desktop') {
     grid-row: 1;
     grid-column: 3 / span 3;
-    align-self: center;
     justify-self: end;
   }
 }
@@ -44,7 +46,7 @@
 .l-up-link {
   @include textDecoration;
 
-  font-size: $font-0;
+  font-size: $font--1;
   font-weight: $font-weight-bold;
   display: flex;
   justify-content: end;

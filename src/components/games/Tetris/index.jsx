@@ -333,8 +333,7 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
             <p className='controls-text'>CONTROLS</p>
             <ul className='controls-list'>
               <li>A = Rotate</li>
-              <li>B = Inactive</li>
-              <li>d-pad = Move</li>
+              <li>D-pad = Move</li>
             </ul>
           </div>
         </div>

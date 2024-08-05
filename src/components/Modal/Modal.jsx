@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import ScrollBar from '@components/ScrollBar';
+import Ticker from '@components/Ticker';
 
 import './Modal.scss';
 
@@ -19,7 +19,12 @@ const Modal = ({ children, isActive }) => {
         <div className='container'>
           <div className='modal-wrapper'>
             {children}
-            <ScrollBar text='game-loaded' additionalClasses='modal-scrollbar' />
+            <Ticker
+              textOne='GAME'
+              textTwo='LOADED'
+              numberOfItems={16}
+              additionalClasses='modal-scrollbar'
+            />
           </div>
         </div>
       </div>

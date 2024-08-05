@@ -1,4 +1,4 @@
-import ScrollBar from '@components/ScrollBar';
+import Ticker from '@components/Ticker';
 import ResponsiveSVG from '@components/ResponsiveSVG';
 import Invader from '@icons/Invader';
 
@@ -7,7 +7,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-      <ScrollBar text='game-over' />
+      <Ticker textOne='GAME' textTwo='OVER' numberOfItems={16} direction='RTL' />
 
       <footer className='ft-footer'>
         <section className='container background-teal'>
@@ -40,14 +40,29 @@ const Footer = () => {
         <div className='container ft-footer-links'>
           <div className='grid'>
             <div className='ft-links-wrapper'>
-              <a className='ft-links' href='#'>
+              <a
+                className='ft-links'
+                href='https://github.com/johnruane/reactgameplay'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 GITHUB
               </a>
-              <a className='ft-links' href='#'>
+              <a
+                className='ft-links'
+                href='https://www.linkedin.com/in/john-ruane-587749103'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 LINKEDIN
               </a>
-              <a className='ft-links' href='#'>
-                EMAIL
+              <a
+                className='ft-links'
+                href='https://www.instagram.com/jbruane'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                INSTAGRAM
               </a>
             </div>
           </div>
