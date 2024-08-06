@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-
 import Potion from '@icons/Potion';
 import ExternalLinkArrow from '@icons/ExternalLinkArrow';
+
 import ResponsiveSVG from '@components/ResponsiveSVG';
+import LinkComponent from '@components/LinkComponent';
 
 import './LevelUp.scss';
 
@@ -19,11 +19,14 @@ const LevelUp = () => {
             for learning React through play.
           </p>
         </div>
-
-        <Link to='#' className='l-up-link'>
-          TO CODE REPOSITORY
+        <LinkComponent
+          label='To code repository'
+          to='https://github.com/johnruane/reactgameplay'
+          newWindow={true}
+          additionalClasses='l-up-link'
+        >
           <ExternalLinkArrow />
-        </Link>
+        </LinkComponent>
       </div>
 
       <ResponsiveSVG additionalClasses='l-up-svg-wrapper' maxWidth='14'>

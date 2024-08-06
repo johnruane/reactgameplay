@@ -1,0 +1,19 @@
+.lc-link {
+  @include link;
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: end;
+  gap: $space-2xs;
+  color: $color-black;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+
+  & svg {
+    width: 1rem;
+    height: auto;
+  }
+}

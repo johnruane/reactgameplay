@@ -1,3 +1,7 @@
+import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { useGSAP } from '@gsap/react';
+
 import IntroSection from '@sections/home/Intro';
 import GamesSection from '@sections/home/Games';
 import AboutSection from '@sections/home/About';
@@ -13,7 +17,36 @@ import Pacman from '@icons/Pacman';
 
 import './Home.scss';
 
+gsap.registerPlugin(MotionPathPlugin);
+
 export default function Home() {
+  const timeline = gsap.timeline({ repeat: -1 });
+
+  useGSAP(() => {
+    timeline.to(
+      '.pacman-body',
+      {
+        y: '-=30',
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+      },
+      0
+    );
+
+    timeline.to(
+      '.pacman-shadow',
+      {
+        transformOrigin: '50% 50%',
+        scaleX: '0.9',
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+      },
+      0
+    );
+  }, []);
+
   return (
     <>
       <section className='container background-yellow'>
@@ -40,7 +73,7 @@ export default function Home() {
       <Divider color='yellow' background='black' />
 
       <section className='container background-black hm-games' data-stack='space-3xl-4xl'>
-        <div className='grid' data-stack='space-l-xl'>
+        <div id='games-section' className='grid' data-stack='space-l-xl'>
           <Heading title='GAMES' className='section-heading' />
           <GamesSection additionalClasses='hm-games-content-wrapper' />
         </div>

@@ -1,5 +1,7 @@
 import Ticker from '@components/Ticker';
 import ResponsiveSVG from '@components/ResponsiveSVG';
+import LinkComponent from '@components/LinkComponent';
+
 import Invader from '@icons/Invader';
 
 import './Footer.scss';
@@ -40,30 +42,24 @@ const Footer = () => {
         <div className='container ft-footer-links'>
           <div className='grid'>
             <div className='ft-links-wrapper'>
-              <a
-                className='ft-links'
-                href='https://github.com/johnruane/reactgameplay'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                GITHUB
-              </a>
-              <a
-                className='ft-links'
-                href='https://www.linkedin.com/in/john-ruane-587749103'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                LINKEDIN
-              </a>
-              <a
-                className='ft-links'
-                href='https://www.instagram.com/jbruane'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                INSTAGRAM
-              </a>
+              <LinkComponent
+                label='Github'
+                to='https://github.com/johnruane/reactgameplay'
+                newWindow={true}
+                additionalClasses='ft-links'
+              />
+              <LinkComponent
+                label='LinkedIn'
+                to='https://www.linkedin.com/in/john-ruane-587749103'
+                newWindow={true}
+                additionalClasses='ft-links'
+              />
+              <LinkComponent
+                label='Instagram'
+                to='https://www.instagram.com/jbruane'
+                newWindow={true}
+                additionalClasses='ft-links'
+              />
             </div>
           </div>
         </div>

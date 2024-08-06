@@ -22,13 +22,11 @@
 }
 
 .gp-play-button {
-  grid-column: 1 / -1;
   white-space: nowrap;
-  justify-self: center;
   column-gap: $space-xs;
 
   & svg {
-    width: 2.5rem;
+    width: 1.5rem;
     height: auto;
   }
 }
@@ -227,4 +225,12 @@
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
+}
+
+.grid.gp-back-wrapper {
+  @include padding('top', 5);
+
+  & > a {
+    grid-column: 1 / span 1;
+  }
 }

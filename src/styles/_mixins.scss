@@ -14,19 +14,13 @@
 }
 
 @mixin link {
-  font-size: $font--2;
+  font-size: $font--1;
   font-weight: $font-weight-bold;
 }
 
 @mixin button {
   font-size: $font-0;
   font-weight: $font-weight-bold;
-}
-
-@mixin textDecoration {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 8px;
 }
 
 @mixin buttonStyle {

@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
+import LinkComponent from '@components/LinkComponent';
 import ExternalLinkArrow from '@icons/ExternalLinkArrow';
 
 import './Tabs.scss';
@@ -32,10 +32,14 @@ const Tabs = ({ data }) => {
       </div>
       <div className='tb-tabs-content' data-stack='space-xl-2xl'>
         {data?.find((x) => x.id === selectedSection)?.content}
-        <Link to='#' className='l-up-link'>
-          View code repository
+        <LinkComponent
+          label='View code in repository'
+          to='https://github.com/johnruane/reactgameplay'
+          newWindow={true}
+          additionalClasses='l-up-link'
+        >
           <ExternalLinkArrow />
-        </Link>
+        </LinkComponent>
       </div>
     </>
   );

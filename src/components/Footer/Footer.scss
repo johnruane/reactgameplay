@@ -46,23 +46,15 @@
 .ft-links-wrapper {
   grid-column: 1 / -1;
   display: flex;
-
-  justify-content: space-between;
+  justify-content: space-around;
 
   @include media('>=tablet') {
     grid-column: 2 / -2;
   }
 
-  @include media('>=desktop') {
-    grid-column: 4 / 16;
+  & .ft-links {
+    color: $color-white;
   }
-}
-
-.ft-links {
-  @include link;
-
-  text-decoration: none;
-  color: $color-white;
 }
 
 .ft-image {

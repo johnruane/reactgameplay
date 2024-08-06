@@ -42,14 +42,3 @@
 .l-up-sub-heading {
   @include body;
 }
-
-.l-up-link {
-  @include textDecoration;
-
-  font-size: $font--1;
-  font-weight: $font-weight-bold;
-  display: flex;
-  justify-content: end;
-  gap: $space-3xs;
-  color: $color-black;
-}

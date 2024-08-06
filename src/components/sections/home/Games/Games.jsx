@@ -3,6 +3,8 @@ import classNames from 'classnames';
 
 import gameLinks from '@data/games/gameLinks';
 
+import LinkComponent from '@components/LinkComponent';
+
 import RightArrow from '@icons/RightArrow';
 import Circle from '@icons/Circle';
 import './Games.scss';
@@ -25,16 +27,13 @@ const Games = ({ additionalClasses }) => {
               ))}
             </div>
 
-            <span className='gs-link'>
-              {inDev ? (
-                'IN DEVELOPMENT'
-              ) : (
-                <span className='gs-play-link'>
-                  PLAY GAME
-                  <RightArrow />
-                </span>
-              )}
-            </span>
+            {inDev ? (
+              <span className='gs-link'>IN DEVELOPMENT</span>
+            ) : (
+              <LinkComponent label='Play game' additionalClasses='gs-link'>
+                <RightArrow className='fluid-img' />
+              </LinkComponent>
+            )}
           </Link>
         );
       })}

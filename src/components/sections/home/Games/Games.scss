@@ -41,7 +41,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: min-content min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
   grid-template-areas:
     'title title title title'
     'text text text icon'
@@ -59,10 +59,9 @@
   align-self: baseline;
   justify-self: end;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 
   & > svg {
-    justify-self: end;
     max-width: 80%;
     height: auto;
   }
@@ -111,21 +110,9 @@
 .gs-link {
   @include link;
 
+  font-size: $font--2;
+  color: $color-white;
   grid-area: link;
-  justify-self: flex-end;
-  align-self: flex-end;
-}
-
-.gs-play-link {
-  @include textDecoration;
-
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  gap: $space-3xs;
-
-  & > svg {
-    width: 1.5rem;
-    height: auto;
-  }
+  justify-self: end;
+  align-self: center;
 }

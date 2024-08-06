@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-import { useCallback, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useCallback, useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 import pages from '@data/pages';
@@ -14,6 +13,7 @@ import Button from '@components/Button';
 import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Ghost from '@icons/Ghost';
+import Back from '@icons/Back';
 import ArrowCircleLeft from '@icons/ArrowCircleLeft';
 
 import './GamePage.scss';
@@ -66,6 +66,12 @@ const GamePage = () => {
 
   return (
     <>
+      <div className='grid background-black gp-back-wrapper'>
+        <Link to='/#games-section'>
+          <Back className='fluid-img' />
+        </Link>
+      </div>
+
       <section className='container background-black'>
         <div className='grid gp-section-wrapper'>
           <div className='gp-text-positioning'>
