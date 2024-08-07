@@ -1,42 +1,8 @@
-import gsap from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { useGSAP } from '@gsap/react';
-
+import useLogoAnimation from './useLogoAnimation';
 import './TextLogo.scss';
 
-gsap.registerPlugin(MotionPathPlugin);
-
 const TextLogo = () => {
-  const timeline = gsap.timeline({ repeat: -1 });
-
-  useGSAP(() => {
-    timeline.to(
-      '.tl-pink-ball-wrapper > :nth-child(even)',
-      {
-        y: '-=20',
-        duration: 0.4,
-        stagger: {
-          each: 0.2,
-          repeat: -1,
-          yoyo: true,
-        },
-      },
-      0
-    );
-    timeline.from(
-      '.tl-pink-ball-wrapper > :nth-child(odd)',
-      {
-        y: '-=20',
-        duration: 0.4,
-        stagger: {
-          each: 0.2,
-          repeat: -1,
-          yoyo: true,
-        },
-      },
-      0
-    );
-  }, []);
+  useLogoAnimation();
 
   return (
     <div className='tl-text-logo-wrapper'>

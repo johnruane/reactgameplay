@@ -1,6 +1,6 @@
 import Tetris from '@icons/Tetris';
 import Snake from '@icons/Snake';
-import Minesweeper from '@icons/Minesweeper';
+import Minesweeper from '@icons/MineSweeper';
 
 const gameLinks = [
   {

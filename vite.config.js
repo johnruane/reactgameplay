@@ -29,6 +29,7 @@ export default defineConfig({
       { find: '@pages', replacement: '/src/pages' },
       { find: '@templates', replacement: '/src/templates' },
       { find: '@data', replacement: '/src/data' },
+      { find: '@utils', replacement: '/src/utils' },
     ],
   },
 });
