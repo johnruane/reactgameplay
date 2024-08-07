@@ -79,12 +79,15 @@ export default function Home() {
         </div>
       </section>
 
-      <Banner />
+      <Banner additionalClasses='hm-banner' />
 
       <section className='container background-black hm-about'>
         <div className='grid' data-stack='space-l-xl'>
           <Heading title='ABOUT' className='section-heading' />
-          <div className='hm-section-content-wrapper hm-about-wrapper'>
+          <div
+            className='hm-section-content-wrapper hm-about-wrapper'
+            data-stack='space-4xl-6xl'
+          >
             <AboutSection />
           </div>
         </div>

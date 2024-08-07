@@ -60,3 +60,11 @@
     background-color: $color;
   }
 }
+
+@mixin gridColumnUtil {
+  grid-column: 1 / -1;
+
+  @include media('>=tablet') {
+    grid-column: 2 / -2;
+  }
+}

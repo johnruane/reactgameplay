@@ -3,10 +3,11 @@ import Spaceshop from '@icons/Spaceship';
 import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import './Banner.scss';
+import classNames from 'classnames';
 
-const Banner = () => {
+const Banner = ({ additionalClasses }) => {
   return (
-    <div className='grid background-black'>
+    <div className={classNames('grid background-black', additionalClasses)}>
       <div className='b-wrapper'>
         <ResponsiveSVG>
           <Stars />

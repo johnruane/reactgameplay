@@ -50,8 +50,9 @@
 }
 
 .hm-intro,
-.hm-games {
-  @include verticalPadding($space-4xl-6xl);
+.hm-games,
+.hm-about {
+  @include verticalPadding($space-5xl-6xl);
 }
 
 .hm-games-content-wrapper {
@@ -67,23 +68,19 @@
 }
 
 .hm-level-up {
-  @include verticalPadding($space-2xl-3xl);
+  @include verticalPadding($space-3xl-4xl);
 
   & .grid {
     row-gap: $space-2xl-3xl;
   }
 }
 
-.hm-about {
-  @include verticalPadding($space-4xl-6xl);
-}
-
 .hm-about-wrapper {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
+}
 
-  & > * + * {
-    margin-top: $space-3xl-5xl;
-  }
+.grid.hm-banner {
+  @include verticalPadding($space-2xl-3xl);
 }

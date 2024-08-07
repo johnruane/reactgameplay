@@ -3,8 +3,7 @@
 }
 
 .grid.ft-footer-wrapper {
-  padding-top: $space-3xl-4xl;
-  padding-bottom: $space-3xl-4xl;
+  @include verticalPadding($space-5xl-6xl);
   row-gap: 16vw;
 }
 
@@ -44,13 +43,10 @@
 }
 
 .ft-links-wrapper {
-  grid-column: 1 / -1;
+  @include gridColumnUtil;
+
   display: flex;
   justify-content: space-around;
-
-  @include media('>=tablet') {
-    grid-column: 2 / -2;
-  }
 
   & .ft-links {
     color: $color-white;

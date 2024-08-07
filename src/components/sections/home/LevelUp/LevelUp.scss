@@ -1,9 +1,5 @@
 .l-up-text-wrapper {
-  grid-column: 1 / -1;
-
-  @include media('>=tablet') {
-    grid-column: 2 / -2;
-  }
+  @include gridColumnUtil;
 
   @include media('>=desktop') {
     grid-column: 9 / -2;

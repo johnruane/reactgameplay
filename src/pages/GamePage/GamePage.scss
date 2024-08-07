@@ -15,10 +15,9 @@
 }
 
 .grid.gp-section-wrapper {
-  @include padding('top', 15);
-  @include padding('bottom', 5);
+  @include padding('top', 5);
 
-  row-gap: 16vw;
+  row-gap: $space-3xl;
 }
 
 .gp-play-button {
@@ -92,27 +91,19 @@
 
 .gp-details-wrapper {
   @include body;
+  @include gridColumnUtil;
 
-  grid-column: 1 / -1;
   display: grid;
   color: $color-white;
   padding-left: $space-m-l;
   border-left: clamp(0.375rem, 1vw, 0.75rem) solid $color-white;
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
-  }
 }
 
 .gp-intro-text {
   @include body;
+  @include gridColumnUtil;
 
-  grid-column: 1 / -1;
   color: $color-white;
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
-  }
 
   & > * {
     --stack-override: var(--space-default);
@@ -120,6 +111,7 @@
 }
 
 .gp-tabs {
+  @include body;
   @include verticalPadding($space-3xl-5xl);
 
   & .h-heading {
@@ -128,17 +120,6 @@
 
   & svg rect {
     fill: $color-black;
-  }
-}
-
-.gp-tabs {
-  @include body;
-
-  grid-column: 1 / -1;
-  display: grid;
-
-  @include media('>=desktop') {
-    grid-column: 2 / -2;
   }
 
   & .tb-tabs-wrapper {

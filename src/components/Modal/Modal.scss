@@ -27,11 +27,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content minmax(9.75rem, 1fr);
-  padding: $space-s 1rem 0;
 }
 
 .modal-container.active {
   transform: none;
+}
+
+.modal-game-wrapper {
+  grid-column: 1 / -1;
+  grid-template-rows: min-content minmax(9.75rem, 1fr);
+  padding: $space-s 1rem 0;
+  height: calc(100vh - 2.625rem);
 }
 
 .modal-heading {
@@ -61,6 +67,4 @@
 
 .modal-scrollbar {
   grid-column: 1 / -1;
-  margin-left: -1rem;
-  margin-right: -1rem;
 }
