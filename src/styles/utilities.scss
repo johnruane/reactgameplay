@@ -14,10 +14,10 @@
   background-color: $color-grey;
 }
 
-.fluid-img,
-.fluid-img svg {
+svg {
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .display-contents {

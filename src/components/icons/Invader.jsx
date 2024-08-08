@@ -1,4 +1,4 @@
-const Invader = () => {
+const Invader = ({ className }) => {
   return (
     <svg
       width='600'
@@ -6,6 +6,7 @@ const Invader = () => {
       viewBox='0 0 600 696'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={className}
     >
       <ellipse
         cx='297.5'

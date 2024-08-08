@@ -2,8 +2,6 @@ import Cherries from '@icons/Cherries';
 import Mushroom from '@icons/Mushroom';
 import Key from '@icons/Key';
 
-import ResponsiveSVG from '@components/ResponsiveSVG';
-
 import './About.scss';
 
 const About = () => {
@@ -19,11 +17,10 @@ const About = () => {
             to find yourself in a project where fun and learning come together.
           </p>
         </div>
-        <ResponsiveSVG additionalClasses='ab-svg'>
-          <Cherries />
-        </ResponsiveSVG>
+
+        <Cherries className='ab-svg fluid-img' />
       </div>
-      <div className='ab-text-icon-wrapper ab-text-icon-wrapper-flip fluid-img'>
+      <div className='ab-text-icon-wrapper ab-text-icon-wrapper-flip'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Guided exploration: Your path to mastery</h2>
           <p className='ab-text'>
@@ -35,9 +32,9 @@ const About = () => {
           </p>
         </div>
 
-        <Mushroom className='ab-svg' />
+        <Mushroom className='ab-svg fluid-img' />
       </div>
-      <div className='ab-text-icon-wrapper fluid-img'>
+      <div className='ab-text-icon-wrapper'>
         <div className='ab-text-wrapper' data-stack='space-default'>
           <h2 className='ab-text-heading'>Elevate your skills while having fun</h2>
           <p className='ab-text'>
@@ -48,7 +45,7 @@ const About = () => {
           </p>
         </div>
 
-        <Key className='ab-svg' />
+        <Key className='ab-svg fluid-img' />
       </div>
     </>
   );

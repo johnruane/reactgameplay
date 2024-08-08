@@ -19,12 +19,7 @@ const Modal = ({ children, isActive }) => {
         <div className='container'>
           <div className='modal-wrapper'>
             <div className='modal-game-wrapper'>{children}</div>
-            <Ticker
-              textOne='GAME'
-              textTwo='LOADED'
-              numberOfItems={16}
-              additionalClasses='modal-scrollbar'
-            />
+            <Ticker textOne='GAME' textTwo='LOADED' additionalClasses='modal-scrollbar' />
           </div>
         </div>
       </div>

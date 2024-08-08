@@ -25,7 +25,6 @@
 
 .modal-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content minmax(9.75rem, 1fr);
 }
 
@@ -34,7 +33,7 @@
 }
 
 .modal-game-wrapper {
-  grid-column: 1 / -1;
+  display: grid;
   grid-template-rows: min-content minmax(9.75rem, 1fr);
   padding: $space-s 1rem 0;
   height: calc(100vh - 2.625rem);

@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
+import classNames from 'classnames';
 
 import pages from '@data/pages';
 
@@ -10,20 +11,22 @@ import Divider from '@components/Divider';
 import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
-import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Ghost from '@icons/Ghost';
 import Back from '@icons/Back';
-import ArrowCircleLeft from '@icons/ArrowCircleLeft';
+import ArrowCircleRight from '@icons/ArrowCircleRight';
+
+import useBouncingHead from '@hooks/useBouncingHead';
 
 import './GamePage.scss';
-import classNames from 'classnames';
 
 const GamePage = () => {
   const [gameSheetToggle, setGameSheetToggle] = useState(false);
 
   const { title } = useParams();
   const navigate = useNavigate();
+
+  useBouncingHead();
 
   const pageIndex = pages.findIndex(({ id }) => id === title);
   const pageData = pages[pageIndex];
@@ -85,7 +88,7 @@ const GamePage = () => {
               className='gp-play-button'
             />
           </div>
-          <ResponsiveSVG additionalClasses='gp-image'>{icon}</ResponsiveSVG>
+          <div className='gp-image fluid-img'>{icon}</div>
         </div>
       </section>
 
@@ -117,12 +120,10 @@ const GamePage = () => {
 
       <section className='container background-grey gp-tabs'>
         <div className='grid'>
-          <ResponsiveSVG additionalClasses='gp-ghost-wrapper'>
-            <Ghost />
-          </ResponsiveSVG>
+          <Ghost className='gp-ghost-wrapper fluid-img' />
         </div>
 
-        <div data-stack='space-xl-2xl'>
+        <div data-stack='space-3xl-4xl'>
           <div className='grid' data-stack='space-l-xl'>
             <Heading title='DETAILS' className='section-heading' />
             <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
@@ -137,14 +138,11 @@ const GamePage = () => {
         onClick={() => handleButtonClick()}
         aria-label='Close modal'
       >
-        <ArrowCircleLeft className='modal-close-svg' />
+        <ArrowCircleRight className='modal-close-svg' />
       </button>
 
       <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
-        <GameComponent
-          additionalClasses='gp-game-wrapper'
-          onSelectClickHandler={handleButtonClick}
-        />
+        <GameComponent onSelectClickHandler={handleButtonClick} />
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}

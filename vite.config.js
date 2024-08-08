@@ -30,6 +30,11 @@ export default defineConfig({
       { find: '@templates', replacement: '/src/templates' },
       { find: '@data', replacement: '/src/data' },
       { find: '@utils', replacement: '/src/utils' },
+      { find: '@hooks', replacement: '/src/components/hooks' },
     ],
+  },
+  server: {
+    host: true,
+    port: 5173,
   },
 });

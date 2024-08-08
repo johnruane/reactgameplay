@@ -1,18 +1,11 @@
 import classNames from 'classnames';
 import './Ticker.scss';
 
-const Ticker = ({
-  textOne,
-  textTwo,
-  numberOfItems,
-  direction = 'LTR',
-  additionalClasses,
-}) => {
-  const tickerArray = Array.from({ length: numberOfItems });
+const Ticker = ({ textOne, textTwo, direction = 'LTR', additionalClasses }) => {
   return (
     <div className={classNames(`t-wrapper`, additionalClasses)}>
       <div className={classNames('t-ticker', `ticker-${direction}`)}>
-        {tickerArray.map(() => {
+        {Array.from({ length: 16 }).map(() => {
           return (
             <>
               <span key={`${textOne}-${textTwo}`}>
@@ -25,7 +18,7 @@ const Ticker = ({
         })}
       </div>
       <div className={classNames('t-ticker', `ticker-${direction}`)} aria-hidden='true'>
-        {tickerArray.map(() => {
+        {Array.from({ length: 16 }).map(() => {
           return (
             <>
               <span key={`${textOne}-${textTwo}`}>

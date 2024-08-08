@@ -1,7 +1,6 @@
 import Potion from '@icons/Potion';
 import ExternalLinkArrow from '@icons/ExternalLinkArrow';
 
-import ResponsiveSVG from '@components/ResponsiveSVG';
 import LinkComponent from '@components/LinkComponent';
 
 import './LevelUp.scss';
@@ -28,10 +27,7 @@ const LevelUp = () => {
           <ExternalLinkArrow />
         </LinkComponent>
       </div>
-
-      <ResponsiveSVG additionalClasses='l-up-svg-wrapper' maxWidth='14'>
-        <Potion />
-      </ResponsiveSVG>
+      <Potion className='l-up-svg fluid-img' />
     </>
   );
 };

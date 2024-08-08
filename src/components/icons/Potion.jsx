@@ -1,10 +1,11 @@
-const Potion = () => (
+const Potion = ({ className }) => (
   <svg
     width='75'
     height='113'
     viewBox='0 0 75 113'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    className={className}
   >
     <ellipse cx='37.03' cy='75.3699' rx='37.03' ry='37.03' fill='#90CCF1' />
     <path

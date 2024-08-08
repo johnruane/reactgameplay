@@ -8,14 +8,14 @@
   }
 }
 
-.l-up-svg-wrapper {
+.l-up-svg {
   grid-column: 3 / span 2;
-  align-self: center;
   justify-self: center;
-  width: 100%;
+  max-width: 10rem;
 
   @include media('>=tablet') {
     grid-column: 5 / span 4;
+    align-self: center;
   }
 
   @include media('>=desktop') {
@@ -23,12 +23,6 @@
     grid-column: 3 / span 3;
     justify-self: end;
   }
-}
-
-.l-up-svg {
-  width: 80%;
-  height: auto;
-  max-width: 10rem;
 }
 
 .l-up-heading {

@@ -1,12 +1,13 @@
-const Pacman = () => (
+const Pacman = ({ className }) => (
   <svg
     width='600'
     height='773'
     viewBox='0 0 600 773'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    className={className}
   >
-    <g className='pacman-body'>
+    <g className='bouncing-head'>
       <path
         d='M600 300.679C600 350.815 600 524.894 600 567.413C545.651 567.413 405.31 567.413 289.648 567.413C173.986 567.413 61.4405 567.413 0.00219246 567.413C-0.00250853 541.022 0.001813 350.815 0.001813 300.679C0.001813 134.618 134.316 0 300.001 0C465.686 0 600 134.618 600 300.679Z'
         fill='#26E7CE'
@@ -51,7 +52,7 @@ const Pacman = () => (
       />
     </g>
     <ellipse
-      className='pacman-shadow'
+      className='bouncing-shadow'
       cx='300'
       cy='743'
       rx='285'

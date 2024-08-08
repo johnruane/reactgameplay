@@ -1,17 +1,15 @@
+import classNames from 'classnames';
+
 import Stars from '@icons/Stars';
 import Spaceshop from '@icons/Spaceship';
-import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import './Banner.scss';
-import classNames from 'classnames';
 
 const Banner = ({ additionalClasses }) => {
   return (
     <div className={classNames('grid background-black', additionalClasses)}>
       <div className='b-wrapper'>
-        <ResponsiveSVG>
-          <Stars />
-        </ResponsiveSVG>
+        <Stars />
         <p className='b-text nice-wrap'>
           “Code your way to the stars and beyond with our gaming challenges.”
         </p>

@@ -21,9 +21,10 @@
   }
 }
 
-.hm-image {
+.hm-pacman-svg {
   position: relative;
   grid-column: 2 / -2;
+  max-width: 40rem;
 
   @include media('>=tablet') {
     grid-column: 7 / -1;

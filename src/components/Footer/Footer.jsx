@@ -1,5 +1,4 @@
 import Ticker from '@components/Ticker';
-import ResponsiveSVG from '@components/ResponsiveSVG';
 import LinkComponent from '@components/LinkComponent';
 
 import Invader from '@icons/Invader';
@@ -9,7 +8,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-      <Ticker textOne='GAME' textTwo='OVER' numberOfItems={16} direction='RTL' />
+      <Ticker textOne='GAME' textTwo='OVER' direction='RTL' />
 
       <footer className='ft-footer'>
         <section className='container background-teal'>
@@ -33,9 +32,8 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <ResponsiveSVG additionalClasses='ft-image'>
-              <Invader />
-            </ResponsiveSVG>
+
+            <Invader className='ft-image fluid-img' />
           </div>
         </section>
 

@@ -6,7 +6,7 @@ import GetKey from '../../../utils/GetKey';
 export default function DefaultLayout() {
   return (
     <>
-      <Ticker textOne='INSERT' textTwo='COIN' numberOfItems={16} />
+      <Ticker textOne='INSERT' textTwo='COIN' />
       <Outlet />
       <Footer />
       <ScrollRestoration getKey={GetKey()} />

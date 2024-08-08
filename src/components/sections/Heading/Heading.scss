@@ -1,11 +1,11 @@
 .h-heading-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: $space-m-l 1fr;
   align-items: center;
   column-gap: $space-s;
 }
 
 .h-heading {
-  @include body;
-
+  font-size: $font-0;
   color: $color-white;
 }

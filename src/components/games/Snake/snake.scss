@@ -1,6 +1,7 @@
 .snake-game-wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
+  margin: 0 auto;
   gap: $space-s;
   color: $color-white;
 }

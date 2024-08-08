@@ -1,7 +1,3 @@
-import gsap from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { useGSAP } from '@gsap/react';
-
 import IntroSection from '@sections/home/Intro';
 import GamesSection from '@sections/home/Games';
 import AboutSection from '@sections/home/About';
@@ -11,41 +7,14 @@ import Heading from '@sections/Heading';
 import TextLogo from '@components/TextLogo';
 import Divider from '@components/Divider';
 import Banner from '@components/Banner';
-import ResponsiveSVG from '@components/ResponsiveSVG';
 
 import Pacman from '@icons/Pacman';
 
+import useBouncingHead from '@hooks/useBouncingHead';
 import './Home.scss';
 
-gsap.registerPlugin(MotionPathPlugin);
-
 export default function Home() {
-  const timeline = gsap.timeline({ repeat: -1 });
-
-  useGSAP(() => {
-    timeline.to(
-      '.pacman-body',
-      {
-        y: '-=30',
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-      },
-      0
-    );
-
-    timeline.to(
-      '.pacman-shadow',
-      {
-        transformOrigin: '50% 50%',
-        scaleX: '0.9',
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-      },
-      0
-    );
-  }, []);
+  useBouncingHead();
 
   return (
     <>
@@ -55,9 +24,7 @@ export default function Home() {
             <TextLogo />
           </div>
 
-          <ResponsiveSVG additionalClasses='hm-image' maxWidth='40'>
-            <Pacman />
-          </ResponsiveSVG>
+          <Pacman className='hm-pacman-svg fluid-img' />
         </div>
       </section>
 
@@ -86,7 +53,7 @@ export default function Home() {
           <Heading title='ABOUT' className='section-heading' />
           <div
             className='hm-section-content-wrapper hm-about-wrapper'
-            data-stack='space-4xl-6xl'
+            data-stack='space-2xl'
           >
             <AboutSection />
           </div>
