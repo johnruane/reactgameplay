@@ -5,6 +5,8 @@ const Ghost = () => (
     viewBox='0 0 600 831'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    preserveAspectRatio='xMinYMin meet'
+    shapeRendering='crispEdges'
   >
     <path
       d='M600 300.68V567.4H0V300.68C0 134.62 134.32 0 300 0 465.7 0 600 134.62 600 300.68Z'
@@ -22,6 +24,7 @@ const Ghost = () => (
       d='m90 495 18.77-27.44c24.9-35.41 49.8-35.41 74.7 0 24.89 35.4 49.79 35.4 74.68 0 24.9-35.41 49.8-35.41 74.7 0 24.9 35.4 49.79 35.4 74.69 0 24.9-35.41 49.8-35.41 74.69 0L501 493.23'
       stroke='#9796B5'
       strokeWidth='16'
+      vectorEffect='non-scaling-stroke'
     />
     <ellipse cx='299.5' cy='801' rx='242.5' ry='30' fill='#000' fillOpacity='.5' />
   </svg>
