@@ -97,15 +97,8 @@
   grid-area: level;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   gap: 0.25rem;
-
-  & svg {
-    transform: scale(0.75);
-  }
-
-  & circle {
-    fill: $color-white;
-  }
 }
 
 .gs-link {

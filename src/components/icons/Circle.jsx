@@ -1,11 +1,20 @@
 const Circle = ({ className }) => (
   <svg
-    width='24px'
-    height='24px'
+    width='15'
+    height='15'
+    viewBox='0 0 15 15'
+    fill='none'
     xmlns='http://www.w3.org/2000/svg'
     className={className}
   >
-    <circle cx='12' cy='12' r='12' fill='#E55496' />
+    <circle
+      cx='7.25423'
+      cy='7.25423'
+      r='5.75423'
+      fill='white'
+      stroke='white'
+      strokeWidth='3'
+    />
   </svg>
 );
 
