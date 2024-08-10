@@ -1,4 +1,4 @@
-const SnakeHead = () => {
+const SnakeHead = ({ className }) => {
   return (
     <svg
       width='600'
@@ -6,6 +6,7 @@ const SnakeHead = () => {
       viewBox='0 0 600 862'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={className}
     >
       <g className='bouncing-head'>
         <rect x='270.031' y='609.883' width='65.3757' height='48.2233' fill='#ED1C24' />

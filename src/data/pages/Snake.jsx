@@ -6,7 +6,7 @@ const gamePageData = {
   id: 'snake',
   title: <>Snake</>,
   link: 'Snake',
-  icon: <SnakeHead />,
+  icon: <SnakeHead className='gsap-bouncing fluid-img' />,
   year: '1998',
   complexity: 'Level 1',
   controls: (

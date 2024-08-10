@@ -12,7 +12,7 @@ const gamePageData = {
     </>
   ),
   link: 'MineSweeper',
-  icon: <MineSweeperHead />,
+  icon: <MineSweeperHead className='gsap-bouncing fluid-img' />,
   year: '1989',
   complexity: 'Level 2',
   controls: (

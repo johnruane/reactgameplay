@@ -1,4 +1,4 @@
-const MineSweeperHead = () => {
+const MineSweeperHead = ({ className }) => {
   return (
     <svg
       width='600'
@@ -6,6 +6,7 @@ const MineSweeperHead = () => {
       viewBox='0 0 600 749'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={className}
     >
       <g className='bouncing-head'>
         <path

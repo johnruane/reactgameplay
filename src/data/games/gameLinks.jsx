@@ -1,13 +1,13 @@
-import Tetris from '@icons/Tetris';
-import Snake from '@icons/Snake';
-import Minesweeper from '@icons/MineSweeper';
+import TetrisHead from '@icons/TetrisHead';
+import SnakeHead from '@icons/SnakeHead';
+import MineSweeperHead from '@icons/MineSweeperHead';
 
 const gameLinks = [
   {
     id: 'tetris',
     title: <span className='gs-title'>TETRIS</span>,
     intro: 'The greatest thing to come out of Russian since Dotstevsky.',
-    icon: <Tetris className='gs-icon' />,
+    icon: <TetrisHead className='gs-icon' />,
     level: 3,
     link: 'gamepage/tetris',
   },
@@ -15,7 +15,7 @@ const gameLinks = [
     id: 'snake',
     title: <span className='gs-title'>SNAKE</span>,
     intro: "The iconic 90's Nokia phone game everyone played.",
-    icon: <Snake className='gs-icon' />,
+    icon: <SnakeHead className='gs-icon' />,
     level: 1,
     link: 'gamepage/snake',
   },
@@ -27,7 +27,7 @@ const gameLinks = [
       </span>
     ),
     intro: 'The most nerve racking office distraction.',
-    icon: <Minesweeper className='gs-icon' />,
+    icon: <MineSweeperHead className='gs-icon' />,
     level: 3,
     link: 'gamepage/minesweeper',
     inDev: true,

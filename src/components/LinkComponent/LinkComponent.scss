@@ -3,14 +3,16 @@
 
   display: grid;
   grid-auto-flow: column;
+  grid-auto-columns: max-content;
   align-items: center;
-  justify-content: end;
+  justify-items: start;
   gap: $space-2xs;
   color: $color-black;
   text-transform: uppercase;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
+  padding-bottom: 0.5rem;
 
   & svg {
     width: 1rem;

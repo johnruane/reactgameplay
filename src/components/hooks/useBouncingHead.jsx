@@ -9,8 +9,8 @@ const useBouncingHead = () => {
   const location = useLocation();
   const tl = gsap.timeline();
 
-  const bouncingHead = '.bouncing-head';
-  const bouncingShadow = '.bouncing-shadow';
+  const bouncingHead = '.gsap-bouncing .bouncing-head';
+  const bouncingShadow = '.gsap-bouncing .bouncing-shadow';
 
   useGSAP(() => {
     tl.to(

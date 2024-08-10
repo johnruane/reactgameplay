@@ -24,7 +24,7 @@ export default function Home() {
             <TextLogo />
           </div>
 
-          <Pacman className='hm-pacman-svg fluid-img' />
+          <Pacman className='hm-pacman-svg fluid-img gsap-bouncing' />
         </div>
       </section>
 

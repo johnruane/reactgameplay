@@ -108,6 +108,7 @@
   display: grid;
   justify-items: center;
   gap: $space-3xs;
+  user-select: none;
 }
 
 .game-controls-button {

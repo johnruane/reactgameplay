@@ -15,11 +15,11 @@
   }
 
   & > :nth-child(5n + 2) {
-    @include tileColor($color-game-tile-green);
+    @include tileColor($color-game-tile-teal);
   }
 
   & > :nth-child(5n + 3) {
-    @include tileColor($color-game-tile-teal);
+    @include tileColor($color-game-tile-green);
   }
 
   & > :nth-child(5n + 4) {
@@ -63,8 +63,12 @@
   justify-content: flex-end;
 
   & > svg {
-    max-width: 80%;
+    width: clamp(1.5rem, 10cqw, 4rem);
     height: auto;
+  }
+
+  & .bouncing-shadow {
+    display: none;
   }
 }
 

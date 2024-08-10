@@ -6,7 +6,7 @@ const gamePageData = {
   id: 'tetris',
   title: <>Tetris</>,
   link: 'Tetris',
-  icon: <TetrisHead />,
+  icon: <TetrisHead className='gsap-bouncing fluid-img' />,
   year: '1984',
   complexity: 'Level 3',
   controls: (
