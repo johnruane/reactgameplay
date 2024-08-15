@@ -12,7 +12,7 @@ const Modal = ({ children, isActive }) => {
         })}
       ></div>
       <div
-        className={classNames('modal-container background-black', {
+        className={classNames('modal-container background-blue', {
           ['active']: isActive,
         })}
       >

@@ -5,6 +5,8 @@ import Controls from '../Components/Controls';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
+import Panel from '../Components/Panel';
+
 /* Utils */
 import { addSnakeToBoard, growSnake, getRandomEmptyBoardPosition } from './lib/utils';
 import { deepClone, create2dArray } from '../utils';
@@ -213,19 +215,18 @@ const Snake = ({ onSelectClickHandler }) => {
   return (
     <>
       <div className='gp-game-wrapper snake-game-wrapper'>
-        <div className='game-side-details'>
-          <h2 className='text-uppercase'>SNAKE</h2>
-          <div className='controls-text-wrapper' data-stack='space-xs'>
-            <p className='controls-text'>CONTROLS</p>
-            <ul className='controls-list'>
-              <li>D-pad = Move</li>
-            </ul>
-          </div>
-          <div>
-            <p className='controls-text'>SCORE</p>
-            <p>{score?.toString() | 0}</p>
-          </div>
+        <div className='snake-panel-wrapper'>
+          <Panel sections={[{ heading: 'score', value: score?.toString() | 0 }]} />
+          <Panel
+            sections={[
+              {
+                heading: 'Controls',
+                value: <span className='panel-text'>Pad = Move</span>,
+              },
+            ]}
+          />
         </div>
+
         <div className='overlay-wrapper'>
           <Board board={displayBoard} Cell={Cell} className='snake-board' />
           <div className='overlay-text-wrapper'>

@@ -11,6 +11,7 @@
  */
 const SNAKE_VALUE = 1;
 export function addSnakeToBoard(board, snake, pos) {
+  console.log(board);
   let localR = pos.r;
   let localC = pos.c;
   let localBoard = [...board];
@@ -33,6 +34,8 @@ export function addSnakeToBoard(board, snake, pos) {
         localC = localC + 1;
         break;
     }
+
+    if (localBoard?.[localR]?.[localC] === undefined) return;
 
     // Snake body
     localBoard[localR][localC] = SNAKE_VALUE;

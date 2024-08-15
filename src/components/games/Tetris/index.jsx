@@ -328,13 +328,27 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
     <>
       <div className={classNames('tetris tetris-game-wrapper', additionalClasses)}>
         <div className='game-side-details'>
-          <h2 className='text-uppercase'>TETRIS</h2>
-          <div className='controls-text-wrapper' data-stack='space-xs'>
-            <p className='controls-text'>CONTROLS</p>
-            <ul className='controls-list'>
-              <li>A = Rotate</li>
-              <li>D-pad = Move</li>
-            </ul>
+          <div className='tetris-panel-wrapper'>
+            <Panel
+              sections={[
+                { heading: 'score', value: score },
+                { heading: 'level', value: level },
+                { heading: 'lines', value: lines },
+              ]}
+            />
+            <Panel
+              sections={[
+                {
+                  heading: 'controls',
+                  value: (
+                    <>
+                      <span className='panel-text'>A = Rotate</span>
+                      <span className='panel-text'>Pad = Move</span>
+                    </>
+                  ),
+                },
+              ]}
+            />
           </div>
         </div>
         <div className='overlay-wrapper'>
@@ -345,10 +359,6 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
         </div>
 
         <div className='tetris-score-wrapper' data-stack='space-xs'>
-          <Panel title={'score'} value={score} />
-          <Panel title={'level'} value={level} />
-          <Panel title={'lines'} value={lines} />
-
           <div className='next-wrapper'>
             <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted} />
           </div>

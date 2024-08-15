@@ -1,16 +1,8 @@
-.next-content {
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  grid-row-gap: 0.5rem;
-}
+.next-board {
+  box-shadow: none;
 
-.next-title {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: $font-weight-bold;
-  text-transform: uppercase;
-
-  @include media('>=tablet') {
-    font-size: 1rem;
+  & .board-cell[data-value='0'],
+  & .board-cell[data-value='0']::after {
+    outline: none;
   }
 }

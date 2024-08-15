@@ -47,6 +47,16 @@ $color-controls-grey: #959595;
 $color-controls-red: #ed1c24;
 $color-controls-yellow: #f8d441;
 
+/* Games */
+$cell-sm: 1rem;
+$cell-md: 2rem;
+$cell-background-color: #161616;
+$cell-outline-color: #454545;
+
+/* Modal */
+$modal-blue: #083f88;
+$modal-black: $cell-background-color;
+
 /* Grid */
 $grid-phone: repeat(6, 1fr);
 $grid-tablet: repeat(12, 1fr);
@@ -58,9 +68,3 @@ $margin-horizontal-2: 2rem;
 $margin-horizontal-3: 3.75rem;
 
 $pink-decoration: clamp(1rem, 2.5vw, 2.5rem);
-
-/* Games */
-$cell-sm: 1rem;
-$cell-md: 2rem;
-$cell-background-color: #161616;
-$cell-outline-color: #454545;
