@@ -1,5 +1,6 @@
 .panel-wrapper {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   row-gap: 1rem;
   background-color: $modal-black;
   padding: 0.5rem;
@@ -14,14 +15,17 @@
 .panel {
   display: grid;
   row-gap: 0.25rem;
-  height: 100%;
-  align-content: center;
+
+  & > :first-child {
+    border-bottom: 0.5px solid $color-not-white;
+    padding-bottom: 0.35rem;
+  }
 }
 
 .panel-text {
   display: block;
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.5rem;
 
   @include media('>=tablet') {
     font-size: 1rem;
@@ -29,6 +33,11 @@
 }
 
 .panel-text-bold {
+  font-size: 0.5rem;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
+
+  @include media('>=tablet') {
+    font-size: 1rem;
+  }
 }

@@ -28,6 +28,8 @@ $color-white: #fefefe;
 $color-grey: #ececec;
 $color-code-light: lighten($color-pink, 20%);
 $color-code-dark: darken($color-pink, 20%);
+$color-not-black: #0b1215;
+$color-not-white: #fffafa;
 
 /* Colours Game Tiles */
 $color-game-tile-red: #c9353e;
@@ -43,9 +45,9 @@ $color-ship-orange: #f2994e;
 $color-ship-black: #758ecd;
 
 /* Colours controls */
-$color-controls-grey: #959595;
-$color-controls-red: #ed1c24;
-$color-controls-yellow: #f8d441;
+$color-controls-grey: $color-black;
+$color-controls-red: #d82900;
+$color-controls-yellow: #f7f945;
 
 /* Games */
 $cell-sm: 1rem;

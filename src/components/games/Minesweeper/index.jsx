@@ -11,6 +11,7 @@ import { updateDisplayBoard } from './lib/updateDisplayBoard';
 import Board from '../Components/Board';
 import Cell from './Cell';
 import Controls from '../Components/Controls';
+import Panel from '../Components/Panel';
 
 /* Styles */
 import '../style.scss';
@@ -23,12 +24,19 @@ const Minesweeper = () => {
 
   const [gameplayBoard, setGameplayBoard] = useState();
   const [displayBoard, setDisplayBoard] = useState(deepClone(create2dArray(9, 9)));
+  const [cellSelected, setCellSelected] = useState({ r: null, c: null });
 
-  console.log(gameplayBoard);
+  const [gameOver, setGameOver] = useState(false);
 
   function handleCellClick(e) {
+    if (gameOver) return;
+
+    console.log('test');
     const selectedCellPos = e.target.getAttribute('data-pos');
-    console.log(selectedCellPos);
+    setCellSelected({
+      r: selectedCellPos.split('-')[0],
+      c: selectedCellPos.split('-')[1],
+    });
     setDisplayBoard(updateDisplayBoard(displayBoard, gameplayBoard, selectedCellPos));
   }
 
@@ -37,41 +45,47 @@ const Minesweeper = () => {
   }
 
   useEffect(() => {
+    if (gameplayBoard && gameplayBoard[cellSelected.r][cellSelected.c] === 9) {
+      setGameOver(true);
+    }
+  }, [cellSelected]);
+
+  useEffect(() => {
     initialiseGame();
   }, []);
 
-  /*
-   * 9x9 board = 10 mines
-   * randomly place 10 mines on a board
-   * loop each square and add a number based on how many mies it is touching
-   */
-
   return (
     <>
-      <div className='gp-game-wrapper snake-game-wrapper'>
-        <div className='game-side-details'>
-          <h2 className='text-uppercase'>MINESWEEPER</h2>
-          <div className='controls-text-wrapper' data-stack='space-xs'>
-            <p className='controls-text'>CONTROLS</p>
-            <ul className='controls-list'>
-              <li>D-pad = Move</li>
-            </ul>
-          </div>
-          <div>
-            <p className='controls-text'>SCORE</p>
-            <p>{0}</p>
-          </div>
-        </div>
+      <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='overlay-wrapper'>
           <Board
             board={displayBoard}
             Cell={Cell}
             className='minesweeper-board'
             onClickCellCallback={handleCellClick}
+            isGameOver={gameOver}
           />
           <div className='overlay-text-wrapper'>
-            {/* {gameOver && <p className='overlay-text'>Game Over</p>} */}
+            {gameOver && <p className='overlay-text'>Game Over</p>}
           </div>
+        </div>
+
+        <div className='minesweeper-panel-wrapper'>
+          <Panel sections={[{ heading: 'time', value: 0 }]} />
+          <Panel
+            sections={[
+              {
+                heading: 'Controls',
+                value: (
+                  <>
+                    <span className='panel-text'>A = REVEAL</span>
+                    <span className='panel-text'>B = FLAG</span>
+                    <span className='panel-text'>PAD = MOVE</span>
+                  </>
+                ),
+              },
+            ]}
+          />
         </div>
       </div>
       <div className='game-controls-wrapper'>

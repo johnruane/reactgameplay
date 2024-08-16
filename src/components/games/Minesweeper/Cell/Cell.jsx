@@ -5,9 +5,11 @@ const Cell = memo(function Cell(props) {
   const [isRevealed, setIsRevealed] = useState(false);
 
   const cellRef = useRef(null);
-  const { value, pos, onClickCellCallback } = props;
+  const { value, pos, onClickCellCallback, isGameOver } = props;
 
   function onClick(e) {
+    if (isGameOver) return;
+
     onClickCellCallback(e);
     setIsRevealed(true);
   }

@@ -214,14 +214,14 @@ const Snake = ({ onSelectClickHandler }) => {
 
   return (
     <>
-      <div className='gp-game-wrapper snake-game-wrapper'>
+      <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='snake-panel-wrapper'>
           <Panel sections={[{ heading: 'score', value: score?.toString() | 0 }]} />
           <Panel
             sections={[
               {
                 heading: 'Controls',
-                value: <span className='panel-text'>Pad = Move</span>,
+                value: <span className='panel-text'>PAD = MOVE</span>,
               },
             ]}
           />

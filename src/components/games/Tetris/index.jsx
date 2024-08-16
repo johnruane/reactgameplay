@@ -342,8 +342,8 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
                   heading: 'controls',
                   value: (
                     <>
-                      <span className='panel-text'>A = Rotate</span>
-                      <span className='panel-text'>Pad = Move</span>
+                      <span className='panel-text'>A = ROTATE</span>
+                      <span className='panel-text'>PAD = MOVE</span>
                     </>
                   ),
                 },

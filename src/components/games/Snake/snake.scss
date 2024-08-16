@@ -2,23 +2,14 @@
   display: grid;
   grid-template-rows: auto auto;
   margin: 0 auto;
-  gap: 0.5rem;
+  gap: 1rem;
   color: $color-white;
-
-  @include media('>=tablet') {
-    grid-template-rows: unset;
-    grid-template-columns: auto auto;
-  }
 }
 
 .snake-panel-wrapper {
   grid-row: 2;
-  display: grid;
+  display: flex;
   gap: 0.5rem;
-
-  @include media('>=tablet') {
-    grid-row: unset;
-  }
 }
 
 .snake-score-wrapper {

@@ -5,36 +5,21 @@
     justify-content: center;
     color: #fff;
 
-    // &[data-value]::before {
-    //   display: block;
-    //   color: #fff;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   z-index: 1;
-    // }
-
     &[data-value='0'] {
       background-color: #808080;
     }
 
     &[data-value='9'] {
-      background-image: url('data:image/svg+xml,<svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M28.6325 2.20617C29.2861 2.38141 29.6741 3.05338 29.4991 3.70704L29.437 3.93876L29.6704 4.00403C30.322 4.18632 30.7027 4.86243 30.5206 5.51416C30.3386 6.16589 29.6627 6.54644 29.011 6.36416L28.8031 6.30601L28.7465 6.51738C28.5715 7.17104 27.8998 7.55886 27.2462 7.38362C26.5926 7.20837 26.2046 6.5364 26.3797 5.88275L26.4431 5.64584L26.2092 5.58041C25.5575 5.39812 25.1768 4.72202 25.3589 4.07029C25.541 3.41856 26.2169 3.038 26.8685 3.22029L27.077 3.27859L27.1322 3.0724C27.3072 2.41874 27.9789 2.03092 28.6325 2.20617ZM23.2341 17.676C23.2341 23.9176 18.4807 28.9774 12.617 28.9774C6.75341 28.9774 2 23.9176 2 17.676C2 11.4344 6.75341 6.37456 12.617 6.37456C14.336 6.37456 15.9595 6.8094 17.3959 7.58138C17.4685 7.45851 17.5555 7.34241 17.6569 7.23576C18.3706 6.48472 19.5262 6.48629 20.2379 7.23925L20.6327 7.65699C21.3245 7.07935 22.1104 6.55582 23.2386 6.07892C23.7473 5.86388 24.334 6.10194 24.549 6.61064C24.7641 7.11934 24.526 7.70604 24.0173 7.92108C23.131 8.29574 22.5516 8.66433 22.0084 9.11245L22.2774 9.39696C22.9891 10.1499 22.9874 11.3692 22.2737 12.1202C22.1855 12.213 22.0906 12.2943 21.9906 12.3641C22.7842 13.9476 23.2341 15.7559 23.2341 17.676Z" fill="white"/></svg>');
+      background-image: url('/src/assets/mine.svg');
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: calc(50% - 1px) calc(50% - 1px);
+      background-size: 1.4rem;
     }
 
     &[data-value='9']::after {
       background-color: transparent;
       display: contents;
     }
-
-    // & [data-reveal='false']::after {
-    //   position: relative;
-    //   background-color: grey;
-    //   z-index: 2;
-    // }
 
     &:hover {
       cursor: pointer;

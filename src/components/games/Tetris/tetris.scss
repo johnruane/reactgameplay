@@ -1,13 +1,9 @@
 .tetris-game-wrapper {
   display: grid;
-  grid-template-columns: auto auto 5rem;
+  grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
   column-gap: 0.5rem;
   color: $color-white;
   margin: 0 auto;
-
-  @include media('>=tablet') {
-    grid-template-columns: auto auto 8rem;
-  }
 }
 
 .tetris-panel-wrapper {

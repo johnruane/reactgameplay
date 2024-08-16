@@ -1,0 +1,13 @@
+.minesweeper-game-wrapper {
+  display: grid;
+  grid-template-rows: auto auto;
+  margin: 0 auto;
+  gap: 1rem;
+  color: $color-white;
+}
+
+.minesweeper-panel-wrapper {
+  grid-row: 2;
+  display: flex;
+  gap: 0.5rem;
+}
