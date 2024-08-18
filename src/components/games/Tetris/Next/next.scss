@@ -1,8 +1,19 @@
 .next-board {
+  --board-cell-sm: calc(#{$cell-sm} * 4);
+  --board-cell-md: calc(#{$cell-md} * 4);
+
   box-shadow: none;
+  margin-top: 0.5rem;
+  width: var(--board-cell-sm);
+  height: var(--board-cell-sm);
 
   & .board-cell[data-value='0'],
   & .board-cell[data-value='0']::after {
     outline: none;
+  }
+
+  @include media('>=tablet') {
+    width: var(--board-cell-md);
+    height: var(--board-cell-md);
   }
 }

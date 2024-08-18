@@ -4,9 +4,10 @@ import Panel from '../../Components/Panel';
 import './next.scss';
 
 const emptyBoard = [
-  [0, 0, 0],
-  [0, 0, 0],
-  [0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
 ];
 
 export default function Next({ nextTetromino, show }) {

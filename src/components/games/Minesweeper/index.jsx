@@ -6,6 +6,7 @@ import { create2dArray } from '../utils/create2dArray';
 import { deepClone } from '../utils/deepClone';
 import { generateCluesBoard } from './lib/generateCluesBoard';
 import { updateDisplayBoard } from './lib/updateDisplayBoard';
+import { convertRowColStringToObject } from './lib/convertRowColStringToObject';
 
 /* Components */
 import Board from '../Components/Board';
@@ -24,7 +25,7 @@ const Minesweeper = () => {
 
   const [gameplayBoard, setGameplayBoard] = useState();
   const [displayBoard, setDisplayBoard] = useState(deepClone(create2dArray(9, 9)));
-  const [cellSelected, setCellSelected] = useState({ r: null, c: null });
+  const [cellSelected, setCellSelected] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
 
@@ -33,10 +34,7 @@ const Minesweeper = () => {
 
     console.log('test');
     const selectedCellPos = e.target.getAttribute('data-pos');
-    setCellSelected({
-      r: selectedCellPos.split('-')[0],
-      c: selectedCellPos.split('-')[1],
-    });
+    setCellSelected(selectedCellPos);
     setDisplayBoard(updateDisplayBoard(displayBoard, gameplayBoard, selectedCellPos));
   }
 
@@ -45,10 +43,14 @@ const Minesweeper = () => {
   }
 
   useEffect(() => {
-    if (gameplayBoard && gameplayBoard[cellSelected.r][cellSelected.c] === 9) {
+    const { r, c } = convertRowColStringToObject(cellSelected) || {};
+
+    if (gameplayBoard && gameplayBoard?.[r]?.[c] === 9) {
       setGameOver(true);
     }
   }, [cellSelected]);
+
+  console.log(gameplayBoard);
 
   useEffect(() => {
     initialiseGame();
@@ -59,7 +61,7 @@ const Minesweeper = () => {
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='overlay-wrapper'>
           <Board
-            board={displayBoard}
+            board={gameplayBoard}
             Cell={Cell}
             className='minesweeper-board'
             onClickCellCallback={handleCellClick}

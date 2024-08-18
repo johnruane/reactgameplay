@@ -16,7 +16,7 @@ export default function Board({
             <Cell
               key={`c-${i}-${j}`}
               value={cell}
-              pos={`${i}-${j}`}
+              pos={`${i}|${j}`}
               onClickCellCallback={onClickCellCallback}
               isGameOver={isGameOver}
             />
