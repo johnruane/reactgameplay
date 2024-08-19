@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
 import { create2dArray } from '../utils/create2dArray';
-import { deepClone } from '../utils/deepClone';
 import { generateCluesBoard } from './lib/generateCluesBoard';
 import { updateDisplayBoard } from './lib/updateDisplayBoard';
-import { convertRowColStringToObject } from './lib/convertRowColStringToObject';
+import { getCellValue } from './lib/getCellValue';
+import { depthFirstSearch } from './lib/depthFirstSearch';
+import { findNumberedNeighbours } from './lib/findNumberedNeighbours';
 
 /* Components */
 import Board from '../Components/Board';
@@ -20,22 +21,29 @@ import './minsweeper.scss';
 
 const Minesweeper = () => {
   const mineCount = 9;
-  const mineBoard = generateMineBoard(create2dArray(9, 9), mineCount);
-  const cluesBoard = generateCluesBoard(mineBoard);
+  const emptyCellValue = -1;
+  const mineBoard = generateMineBoard(create2dArray(9, 9, emptyCellValue), mineCount);
+  const cluesBoard = generateCluesBoard(mineBoard, emptyCellValue);
 
   const [gameplayBoard, setGameplayBoard] = useState();
-  const [displayBoard, setDisplayBoard] = useState(deepClone(create2dArray(9, 9)));
+  const [displayBoard, setDisplayBoard] = useState(create2dArray(9, 9, emptyCellValue));
   const [cellSelected, setCellSelected] = useState(null);
 
   const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
   function handleCellClick(e) {
-    if (gameOver) return;
+    if (gameOver || gameWon) return;
 
-    console.log('test');
-    const selectedCellPos = e.target.getAttribute('data-pos');
+    const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
+    const dfsCells = depthFirstSearch(gameplayBoard, selectedCellPos);
+    const numberedCells = findNumberedNeighbours(gameplayBoard, dfsCells);
+
+    const combinedCells = dfsCells.length > 1 ? dfsCells.concat(numberedCells) : dfsCells;
+    const newBoard = updateDisplayBoard(displayBoard, gameplayBoard, combinedCells);
+
+    setDisplayBoard(newBoard);
     setCellSelected(selectedCellPos);
-    setDisplayBoard(updateDisplayBoard(displayBoard, gameplayBoard, selectedCellPos));
   }
 
   function initialiseGame() {
@@ -43,14 +51,24 @@ const Minesweeper = () => {
   }
 
   useEffect(() => {
-    const { r, c } = convertRowColStringToObject(cellSelected) || {};
-
-    if (gameplayBoard && gameplayBoard?.[r]?.[c] === 9) {
+    if (getCellValue(gameplayBoard, cellSelected) === 9) {
       setGameOver(true);
     }
   }, [cellSelected]);
 
-  console.log(gameplayBoard);
+  useEffect(() => {
+    let mineCount = 0;
+    displayBoard.forEach((row, i) => {
+      row.forEach((cell, j) => {
+        if (cell === -1) {
+          mineCount += 1;
+        }
+      });
+    });
+    if (mineCount === 9) {
+      setGameWon(true);
+    }
+  }, [displayBoard]);
 
   useEffect(() => {
     initialiseGame();
@@ -61,7 +79,7 @@ const Minesweeper = () => {
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='overlay-wrapper'>
           <Board
-            board={gameplayBoard}
+            board={displayBoard}
             Cell={Cell}
             className='minesweeper-board'
             onClickCellCallback={handleCellClick}
@@ -69,6 +87,7 @@ const Minesweeper = () => {
           />
           <div className='overlay-text-wrapper'>
             {gameOver && <p className='overlay-text'>Game Over</p>}
+            {gameWon && <p className='overlay-text'>You win!</p>}
           </div>
         </div>
 

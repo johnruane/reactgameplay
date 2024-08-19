@@ -2,8 +2,9 @@ import { useEffect, useState, useRef, memo } from 'react';
 import './Cell.scss';
 
 const Cell = memo(function Cell(props) {
-  const [isRevealed, setIsRevealed] = useState(false);
+  // const [isRevealed, setIsRevealed] = useState(false);
 
+  const hiddenValues = [-1, 0, 9];
   const cellRef = useRef(null);
   const { value, pos, onClickCellCallback, isGameOver } = props;
 
@@ -11,7 +12,7 @@ const Cell = memo(function Cell(props) {
     if (isGameOver) return;
 
     onClickCellCallback(e);
-    setIsRevealed(true);
+    // setIsRevealed(true);
   }
 
   useEffect(() => {
@@ -27,11 +28,11 @@ const Cell = memo(function Cell(props) {
     <div
       ref={cellRef}
       className='board-cell mine-cell'
-      data-reveal={isRevealed}
+      data-reveal={false}
       data-value={value}
       data-pos={pos}
     >
-      {value !== 0 && value !== 9 && value}
+      {!hiddenValues.includes(value) && value}
     </div>
   );
 });

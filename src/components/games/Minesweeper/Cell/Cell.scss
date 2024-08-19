@@ -5,7 +5,7 @@
     justify-content: center;
     color: #fff;
 
-    &[data-value='0'] {
+    &[data-value='-1'] {
       background-color: #808080;
     }
 
@@ -21,17 +21,9 @@
       display: contents;
     }
 
-    &:hover {
+    &[data-value='-1']:hover {
       cursor: pointer;
       background-color: #b6b6b6;
-    }
-
-    &[data-reveal='true'] {
-      background-color: #000;
-    }
-
-    &[data-reveal='true']:hover {
-      background-color: #000;
     }
 
     &:after {
