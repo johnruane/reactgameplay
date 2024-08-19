@@ -19,10 +19,15 @@ export const findNeighbourCells = (
   const { r, c } = p || {};
 
   const newDirections = [
-    { r: r - 1, c: c },
-    { r: r + 1, c: c },
-    { r: r, c: c - 1 },
-    { r: r, c: c + 1 },
+    { r: r - 1, c: c }, // top
+    { r: r - 1, c: c - 1 }, // top left
+    { r: r + 1, c: c }, // bottom
+    { r: r + 1, c: c + 1 }, // bottom right
+    { r: r + 1, c: c - 1 }, // bottom left
+    { r: r, c: c - 1 }, // left
+    { r: r - 1, c: c - 1 }, // top left
+    { r: r, c: c + 1 }, // right
+    { r: r - 1, c: c + 1 }, // top right
   ];
 
   let neighbours = [];

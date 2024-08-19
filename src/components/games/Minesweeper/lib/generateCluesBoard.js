@@ -24,6 +24,9 @@ export const generateCluesBoard = (board, emptyCellValue) => {
         if (board[i][j - 1] === 9) {
           count += 1;
         }
+        if (board[i][j] === 9) {
+          count += 1;
+        }
         if (board[i][j + 1] === 9) {
           count += 1;
         }
