@@ -14,14 +14,18 @@ const testBoard = [
 
 describe('findNumberedNeighbours tests', () => {
   it.each`
-    emptyCells                          | length | output
-    ${[{ r: 0, c: 4 }, { r: 0, c: 5 }]} | ${2}   | ${[{ r: 0, c: 3 }, { r: 1, c: 5 }]}
-    ${[{ r: 4, c: 3 }]}                 | ${3}   | ${[{ r: 3, c: 3 }, { r: 4, c: 2 }, { r: 4, c: 4 }]}
+    searchCells                         | length | output
+    ${[{ r: 0, c: 4 }]}                 | ${3}   | ${[{ r: 0, c: 3 }, { r: 1, c: 3 }, { r: 1, c: 5 }]}
+    ${[{ r: 3, c: 4 }]}                 | ${4}   | ${[{ r: 2, c: 5 }, { r: 3, c: 3 }, { r: 4, c: 4 }, { r: 4, c: 5 }]}
     ${[{ r: 8, c: 0 }, { r: 8, c: 1 }]} | ${0}   | ${[]}
+    ${[{ r: 1, c: 8 }, { r: 2, c: 8 }]} | ${4}   | ${[{ r: 0, c: 7 }, { r: 1, c: 7 }, { r: 2, c: 7 }, { r: 3, c: 8 }]}
   `(
     'should return the positions of adjacent cells that are 1-8',
-    ({ emptyCells, length, output }) => {
-      const numberedNeighbours = findNumberedNeighbours(testBoard, emptyCells);
+    ({ searchCells, length, output }) => {
+      const numberedNeighbours = findNumberedNeighbours({
+        board: testBoard,
+        cellsToSearch: searchCells,
+      });
       expect(numberedNeighbours.length).toBe(length);
       expect([...numberedNeighbours]).toEqual(expect.arrayContaining(output));
     }

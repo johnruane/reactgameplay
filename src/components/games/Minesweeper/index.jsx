@@ -22,8 +22,11 @@ import './minsweeper.scss';
 const Minesweeper = () => {
   const mineCount = 9;
   const emptyCellValue = -1;
-  const mineBoard = generateMineBoard(create2dArray(9, 9, emptyCellValue), mineCount);
-  const cluesBoard = generateCluesBoard(mineBoard, emptyCellValue);
+  const mineBoard = generateMineBoard({
+    board: create2dArray(9, 9, emptyCellValue),
+    numberOfMines: mineCount,
+  });
+  const cluesBoard = generateCluesBoard({ board: mineBoard, emptyCellValue });
 
   const [gameplayBoard, setGameplayBoard] = useState();
   const [displayBoard, setDisplayBoard] = useState(create2dArray(9, 9, emptyCellValue));
@@ -36,11 +39,19 @@ const Minesweeper = () => {
     if (gameOver || gameWon) return;
 
     const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
-    const dfsCells = depthFirstSearch(gameplayBoard, selectedCellPos);
-    const numberedCells = findNumberedNeighbours(gameplayBoard, dfsCells);
+    const dfsCells = depthFirstSearch({ board: gameplayBoard, pos: selectedCellPos });
+    const numberedCells = findNumberedNeighbours({
+      board: gameplayBoard,
+      cellsToSearch: dfsCells,
+    });
 
     const combinedCells = dfsCells.length > 1 ? dfsCells.concat(numberedCells) : dfsCells;
-    const newBoard = updateDisplayBoard(displayBoard, gameplayBoard, combinedCells);
+
+    const newBoard = updateDisplayBoard({
+      displayBoard,
+      gameplayBoard,
+      cellsToUpdate: combinedCells,
+    });
 
     setDisplayBoard(newBoard);
     setCellSelected(selectedCellPos);
@@ -51,7 +62,7 @@ const Minesweeper = () => {
   }
 
   useEffect(() => {
-    if (getCellValue(gameplayBoard, cellSelected) === 9) {
+    if (getCellValue({ board: gameplayBoard, pos: cellSelected }) === 9) {
       setGameOver(true);
     }
   }, [cellSelected]);

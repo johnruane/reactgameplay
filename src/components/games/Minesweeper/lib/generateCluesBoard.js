@@ -7,7 +7,7 @@
  * @return {{r: string, c: string}[]}
  */
 
-export const generateCluesBoard = (board, emptyCellValue) => {
+export const generateCluesBoard = ({ board, emptyCellValue }) => {
   board?.forEach((boardRow, i) => {
     boardRow?.forEach((cell, j) => {
       let count = 0;

@@ -21,6 +21,6 @@ describe('getCellValue tests', () => {
     ${{ r: 8, c: 8 }}  | ${0}
     ${{ r: -1, c: 0 }} | ${null}
   `('should return the value of the cell at pos', ({ pos, output }) => {
-    expect(getCellValue(testBoard, pos)).toEqual(output);
+    expect(getCellValue({ board: testBoard, pos })).toEqual(output);
   });
 });

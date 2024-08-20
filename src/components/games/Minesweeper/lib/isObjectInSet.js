@@ -9,7 +9,7 @@ import isEqual from 'lodash/isEqual';
  * @return {bollean}
  */
 
-export const isValueInSet = (set, obj) => {
+export const isObjectInSet = ({ set, obj }) => {
   for (const item of set) {
     if (isEqual(item, obj)) {
       return true;

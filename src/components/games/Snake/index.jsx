@@ -168,7 +168,7 @@ const Snake = ({ onSelectClickHandler }) => {
    */
   useEffect(() => {
     if (JSON.stringify(snakeHeadPosition) === JSON.stringify(foodBoardPosition)) {
-      const { row, col } = getRandomEmptyBoardPosition(displayBoard);
+      const { row, col } = getRandomEmptyBoardPosition({ board: displayBoard });
       const newFoodBoard = create2dArray(15, 15);
       newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
