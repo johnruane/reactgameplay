@@ -1,5 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import path from 'path';
+
+console.log('Current directory:', __dirname);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,8 +17,10 @@ export default defineConfig({
     },
   },
   test: {
-    include: ['**/*.test.js'],
     globals: true,
+    environment: 'jsdom',
+    setupFiles: path.resolve(__dirname, './.vitest/setup.ts'),
+    include: ['*.test.{ts,tsx}'],
   },
   resolve: {
     alias: [

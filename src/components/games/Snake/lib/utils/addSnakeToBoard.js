@@ -6,11 +6,11 @@
  *
  * @param {Number[][]} board
  * @param {Number[]} snake
- * @param {{r: Number, c: Number}} r Row
+ * @param {{r: Number, c: Number}} pos Row
  * @return {Number[][]} New board with @snake added
  */
 const SNAKE_VALUE = 1;
-export function addSnakeToBoard(board, snake, pos) {
+export function addSnakeToBoard({ board, snake, pos }) {
   let localR = pos.r;
   let localC = pos.c;
   let localBoard = [...board];

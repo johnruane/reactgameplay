@@ -6,14 +6,16 @@ import { isObjectInArray } from './isObjectInArray';
  * Takes @board and @cellsToSearch array and iterates over each {r: string, c: string}. Each position
  * in @cellsToSearch is passed to @findNeighbourCells with a @predicate to override the default. In this
  * case we're looking for cell values between 1-8 in order to extend the 'flood fill' feature.
- *
- * @param {Number[][]} board
- * @param {{r: string, c: string}[]} cellsToSearch
- * @return {{r: string, c: string}[]}
  */
 
-export const findNumberedNeighbours = ({ board, cellsToSearch }) => {
-  const numberedNeighbours = new Set();
+export const findNumberedNeighbours = ({
+  board,
+  cellsToSearch,
+}: {
+  board: number[][];
+  cellsToSearch: { r: number; c: number }[];
+}): { r: number; c: number }[] => {
+  const numberedNeighbours = new Set<{ r: number; c: number }>();
 
   cellsToSearch.forEach((pos) => {
     const neighbours = findNeighbourCells({

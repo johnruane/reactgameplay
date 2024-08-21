@@ -1,7 +1,13 @@
 import { getRandomEmptyBoardPosition } from '../../Snake/lib/utils/getRandomEmptyBoardPosition';
 
-export const generateMineBoard = ({ board, numberOfMines }) => {
-  let mineBoard = board;
+export const generateMineBoard = ({
+  board,
+  numberOfMines,
+}: {
+  board: number[][];
+  numberOfMines: number;
+}) => {
+  const mineBoard = board;
 
   for (let i = 0; i <= numberOfMines; i += 1) {
     const { row, col } = getRandomEmptyBoardPosition({

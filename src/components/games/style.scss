@@ -54,9 +54,9 @@
     opacity: 1;
   }
 
-  @include media('>=desktop') {
-    opacity: 0;
-  }
+  // @include media('>=desktop') {
+  //   opacity: 0;
+  // }
 }
 
 .overlay-wrapper {

@@ -190,11 +190,11 @@ const Snake = ({ onSelectClickHandler }) => {
    * Update the displayBoard when various values are updated.
    */
   useEffect(() => {
-    const snakeBoard = addSnakeToBoard(
-      deepClone(foodBoard),
-      snakeBody,
-      snakeHeadPosition
-    );
+    const snakeBoard = addSnakeToBoard({
+      board: deepClone(foodBoard),
+      snake: snakeBody,
+      pos: snakeHeadPosition,
+    });
     setDisplayBoard(snakeBoard);
   }, [foodBoard, snakeBody, snakeHeadPosition]);
 

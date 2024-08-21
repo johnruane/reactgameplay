@@ -6,17 +6,16 @@ import { getCellValue } from './getCellValue';
  * cell position is added to an array and returned at the end.
  *
  * Does not return @pos if this cell value is zero.
- *
- * @param {Number[][]} board
- * @param {{r: string, c: string}} pos
- * @param {function(cellValue: number): boolean} predicate
- * @return {{r: string, c: string}[]}
  */
 
 export const findNeighbourCells = ({
   board,
   pos,
   predicate = (cellValue) => cellValue === 0,
+}: {
+  board: number[][];
+  pos: { r: number; c: number };
+  predicate?: (cellValue: number) => boolean;
 }) => {
   const { r, c } = pos || {};
 
@@ -36,10 +35,14 @@ export const findNeighbourCells = ({
     { r: r + 1, c: c - 1 }, // bottom left
   ];
 
-  let neighbours = [];
+  const neighbours: { r: number; c: number }[] = [];
 
   newDirections.forEach((direction) => {
-    if (predicate(getCellValue({ board, pos: direction }))) {
+    const cellValue = getCellValue({ board, pos: direction });
+
+    if (cellValue === null) return;
+
+    if (predicate(cellValue)) {
       neighbours.push(direction);
     }
   });
