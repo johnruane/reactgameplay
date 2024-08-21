@@ -9,8 +9,16 @@
  * @return {String[]} Array of strings
  */
 
-export function findEmptyCells({ board, emptyCellValue = 0, delimiter = '-' }) {
-  let emptyCellsArray = [];
+export function findEmptyCells({
+  board,
+  emptyCellValue = 0,
+  delimiter = '-',
+}: {
+  board: number[][];
+  emptyCellValue: number;
+  delimiter: string;
+}) {
+  const emptyCellsArray: string[] = [];
   board.forEach((row, i) => {
     row.forEach((cell, j) => {
       if (cell === emptyCellValue) {
