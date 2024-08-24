@@ -1,6 +1,6 @@
 import { findEmptyCells } from './findEmptyCells';
 
-export function getRandomEmptyBoardPosition({
+export const getRandomEmptyBoardPosition = ({
   board,
   emptyCellValue = 0,
   delimiter = '-',
@@ -8,7 +8,7 @@ export function getRandomEmptyBoardPosition({
   board: number[][];
   emptyCellValue: number;
   delimiter?: string;
-}) {
+}) => {
   const availableCells = findEmptyCells({
     board: board,
     emptyCellValue: emptyCellValue,
@@ -19,4 +19,4 @@ export function getRandomEmptyBoardPosition({
     availableCells[Math.floor(Math.random() * availableCells.length)];
   const [row, col] = randomPosition.split(delimiter).map(Number);
   return { row, col };
-}
+};

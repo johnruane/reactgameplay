@@ -12,7 +12,7 @@ export const getCellValue = ({
   if (!board || !pos) return null;
 
   const { r, c } = pos || {};
-  const cellValue = board?.[r]?.[c];
+  const cellValue = board[r]?.[c];
 
   return typeof cellValue === 'number' && Number.isFinite(cellValue) ? cellValue : null;
 };

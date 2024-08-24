@@ -2,8 +2,6 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-console.log('Current directory:', __dirname);
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -20,21 +18,26 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: path.resolve(__dirname, './.vitest/setup.ts'),
-    include: ['*.test.{ts,tsx}'],
   },
   resolve: {
     alias: [
-      { find: '@icons', replacement: '/src/components/icons' },
-      { find: '@sections', replacement: '/src/components/sections' },
-      { find: '@assets', replacement: '/src/assets' },
-      { find: '@components', replacement: '/src/components' },
-      { find: '@games', replacement: '/src/components/games' },
-      { find: '@layouts', replacement: '/src/components/Layouts' },
-      { find: '@pages', replacement: '/src/pages' },
-      { find: '@templates', replacement: '/src/templates' },
-      { find: '@data', replacement: '/src/data' },
-      { find: '@utils', replacement: '/src/utils' },
-      { find: '@hooks', replacement: '/src/components/hooks' },
+      { find: '@icons', replacement: path.resolve(__dirname, '/src/components/icons') },
+      {
+        find: '@sections',
+        replacement: path.resolve(__dirname, '/src/components/sections'),
+      },
+      { find: '@assets', replacement: path.resolve(__dirname, '/src/assets') },
+      { find: '@components', replacement: path.resolve(__dirname, '/src/components') },
+      { find: '@games', replacement: path.resolve(__dirname, '/src/components/games') },
+      {
+        find: '@layouts',
+        replacement: path.resolve(__dirname, '/src/components/Layouts'),
+      },
+      { find: '@pages', replacement: path.resolve(__dirname, '/src/pages') },
+      { find: '@templates', replacement: path.resolve(__dirname, '/src/templates') },
+      { find: '@data', replacement: path.resolve(__dirname, '/src/data') },
+      { find: '@utils', replacement: path.resolve(__dirname, '/src/utils') },
+      { find: '@hooks', replacement: path.resolve(__dirname, '/src/components/hooks') },
     ],
   },
   server: {
