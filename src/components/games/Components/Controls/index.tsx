@@ -2,7 +2,15 @@ import Button from '../Button';
 
 import './controls.scss';
 
-export default function Controls({ move, onStartClickHandler, onSelectClickHandler }) {
+export default function Controls({
+  move,
+  onStartClickHandler,
+  onSelectClickHandler,
+}: {
+  move: (unknown: string) => void;
+  onStartClickHandler: () => void;
+  onSelectClickHandler: () => void;
+}) {
   return (
     <div className='game-controls'>
       <div className='game-controls-elements-wrapper'>

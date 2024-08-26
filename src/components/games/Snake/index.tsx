@@ -53,10 +53,10 @@ const Snake = ({ onSelectClickHandler }) => {
   const [gameOver, setGameOver] = useState(false);
   const [hasGameStarted, setHasGameStarted] = useState(false);
 
-  const [speed, setSpeed] = useState(null);
-  const [levelInterval, setLevelInterval] = useState(null);
+  const [speed, setSpeed] = useState<number | null>(null);
+  const [levelInterval, setLevelInterval] = useState<number | null>(null);
 
-  const [score, setScore] = useState(null);
+  const [score, setScore] = useState<number | null>(null);
 
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
@@ -182,7 +182,8 @@ const Snake = ({ onSelectClickHandler }) => {
       newFoodBoard[row][col] = FOOD_VALUE;
       setFoodBoard(newFoodBoard);
       setFoodBoardPosition({ r: row, c: col });
-      setScore(parseInt(score + 1));
+      // @ts-expect-error will never be null
+      setScore(parseInt(score) + 1);
     }
   }, [displayBoard]);
 
@@ -218,14 +219,14 @@ const Snake = ({ onSelectClickHandler }) => {
    * Interval to speed up gameplay every 30 seconds
    */
   useInterval(() => {
-    setLevelInterval((prev) => prev * 0.9);
+    setLevelInterval((prev) => (prev !== null ? prev * 0.9 : prev));
   }, levelInterval);
 
   return (
     <>
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='snake-panel-wrapper'>
-          <Panel sections={[{ heading: 'score', value: score?.toString() | 0 }]} />
+          <Panel sections={[{ heading: 'score', value: score }]} />
           <Panel
             sections={[
               {

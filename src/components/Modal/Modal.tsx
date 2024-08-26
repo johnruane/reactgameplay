@@ -3,7 +3,13 @@ import Ticker from '@components/Ticker';
 
 import './Modal.scss';
 
-const Modal = ({ children, isActive }) => {
+const Modal = ({
+  children,
+  isActive,
+}: {
+  children: React.ReactNode;
+  isActive: boolean;
+}) => {
   return (
     <>
       <div

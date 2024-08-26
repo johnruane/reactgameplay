@@ -16,7 +16,7 @@ export const updateDisplayBoard = ({
 }: {
   displayBoard: number[][];
   gameBoard: number[][];
-  cellsToUpdate: { r: number; c: number }[];
+  cellsToUpdate: CellPosition[];
 }) => {
   const newBoard = _cloneDeep(displayBoard);
 

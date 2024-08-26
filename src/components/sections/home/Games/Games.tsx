@@ -3,10 +3,9 @@ import classNames from 'classnames';
 
 import gameLinks from '@data/games/gameLinks';
 
-import LinkComponent from '@components/LinkComponent';
-
 import RightArrow from '@icons/RightArrow';
 import Circle from '@icons/Circle';
+
 import './Games.scss';
 
 const Games = ({ additionalClasses }) => {

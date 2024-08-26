@@ -7,6 +7,12 @@ export default function Board({
   className,
   onClickCellCallback,
   isGameOver,
+}: {
+  board: number[][];
+  Cell: React.NamedExoticComponent;
+  className?: string;
+  onClickCellCallback?: () => void;
+  isGameOver?: boolean;
 }) {
   return (
     <div className={classNames('board', className)}>
@@ -15,6 +21,7 @@ export default function Board({
           {boardRow.map((cell, j) => (
             <Cell
               key={`c-${i}-${j}`}
+              // @ts-expect-error will never be null
               value={cell}
               pos={`{"r":${i},"c":${j}}`}
               onClickCellCallback={onClickCellCallback}

@@ -9,8 +9,8 @@ export const isObjectInSet = ({
   set,
   obj,
 }: {
-  set: Set<{ r: number; c: number }>;
-  obj: { r: number; c: number };
+  set: Set<CellPosition>;
+  obj: CellPosition;
 }): boolean => {
   for (const item of set) {
     if (isEqual(item, obj)) {

@@ -33,7 +33,7 @@ const Minesweeper = () => {
 
   const cluesBoard = generateCluesBoard({ board: mineBoard, emptyCellValue });
 
-  const [gameplayBoard, setGameplayBoard] = useState();
+  const [gameplayBoard, setGameplayBoard] = useState(cluesBoard);
   const [displayBoard, setDisplayBoard] = useState(
     create2dArray({
       numberOfRows: 9,
@@ -50,8 +50,8 @@ const Minesweeper = () => {
     if (gameOver || gameWon) return;
 
     const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
-    console.log(selectedCellPos);
     const dfsCells = depthFirstSearch({ board: gameplayBoard, pos: selectedCellPos });
+
     const numberedCells = findNumberedNeighbours({
       board: gameplayBoard,
       cellsToSearch: dfsCells,
@@ -69,20 +69,20 @@ const Minesweeper = () => {
     setCellSelected(selectedCellPos);
   }
 
-  function initialiseGame() {
+  function startNewGame() {
     setGameplayBoard(cluesBoard);
   }
 
   useEffect(() => {
-    if (getCellValue({ board: gameplayBoard, pos: cellSelected }) === 9) {
+    if (cellSelected && getCellValue({ board: gameplayBoard, pos: cellSelected }) === 9) {
       setGameOver(true);
     }
   }, [cellSelected]);
 
   useEffect(() => {
     let mineCount = 0;
-    displayBoard.forEach((row, i) => {
-      row.forEach((cell, j) => {
+    displayBoard.forEach((row) => {
+      row.forEach((cell) => {
         if (cell === -1) {
           mineCount += 1;
         }
@@ -93,9 +93,9 @@ const Minesweeper = () => {
     }
   }, [displayBoard]);
 
-  useEffect(() => {
-    initialiseGame();
-  }, []);
+  // useEffect(() => {
+  //   initialiseGame();
+  // }, []);
 
   return (
     <>
@@ -105,6 +105,7 @@ const Minesweeper = () => {
             board={displayBoard}
             Cell={Cell}
             className='minesweeper-board'
+            // @ts-expect-error will never be null
             onClickCellCallback={handleCellClick}
             isGameOver={gameOver}
           />
@@ -134,9 +135,9 @@ const Minesweeper = () => {
       </div>
       <div className='game-controls-wrapper'>
         <Controls
-        // move={setProposedSnakeDirection}
-        // onStartClickHandler={startGame}
-        // onSelectClickHandler={onSelectClickHandler}
+          move={() => null}
+          onStartClickHandler={startNewGame}
+          onSelectClickHandler={() => null}
         />
       </div>
     </>

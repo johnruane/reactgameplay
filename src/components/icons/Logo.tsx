@@ -1,11 +1,10 @@
-const Logo = ({ className }) => (
+const Logo = () => (
   <svg
     width='214'
     height='75'
     viewBox='0 0 214 75'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className={className}
   >
     <rect y='29' width='198' height='12' fill='#E55496' />
     <path

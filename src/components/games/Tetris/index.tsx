@@ -64,22 +64,28 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
   const [staticBoard, setStaticBoard] = useState(create2dArray(boardConfig));
 
-  const [currentTetromino, setCurrentTetromino] = useState(null);
-  const [nextTetromino, setNextTetromino] = useState(null);
+  const [currentTetromino, setCurrentTetromino] = useState<{
+    value: number;
+    matrix: number[][];
+  } | null>(null);
+  const [nextTetromino, setNextTetromino] = useState<{
+    value: number;
+    matrix: number[][];
+  } | null>(null);
 
   const [score, setScore] = useState('000000');
   const [lines, setLines] = useState(0);
   const [level, setLevel] = useState(0);
 
-  const [speed, setSpeed] = useState(null);
-  const [levelInterval, setLevelInterval] = useState(null);
+  const [speed, setSpeed] = useState<number | null>(null);
+  const [levelInterval, setLevelInterval] = useState<number | null>(null);
 
   const [gameOver, setGameOver] = useState(false);
   const [hasGameStarted, setHasGameStarted] = useState(false);
 
-  const previousSpeedRef = useRef(null);
-  const previousLevelIntervalRef = useRef(null);
-  const nextTetrominolRef = useRef(null);
+  const previousSpeedRef = useRef<number | null>(null);
+  const previousLevelIntervalRef = useRef<number | null>(null);
+  const nextTetrominolRef = useRef<{ value: number; matrix: number[][] } | null>(null);
 
   const startGame = () => {
     setDisplayBoard(create2dArray(boardConfig));
@@ -170,7 +176,7 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
     /*
      * If both are falsey the piece can no longer move down so set 'staticBoard' to complete the current play.
      */
-    if (!canMove && !direction) {
+    if (!canMove) {
       setStaticBoard(
         addTetrominoToBoard(
           _cloneDeep(staticBoard),
@@ -197,8 +203,8 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
       moveTetrominoInDirection(key);
     }
 
-    if (key === 'Space') {
-      const rotatedMatrix = rotateMatrix(currentTetromino);
+    if (key === 'Space' && currentTetromino !== null) {
+      const rotatedMatrix = rotateMatrix({ tetromino: currentTetromino });
       const canMove = canTetrominoMoveToPosition(
         {
           r: position.r,
@@ -230,7 +236,9 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
      * We sort the indexes ascending so that rows are removed from top to bottom. If descending then the board
      * indexes would be wrong as we shift the rows downwards after removing a row.
      */
-    const indexesOfCompleteRows = findCompletedRows(cloneBoard).sort((a, b) => a - b);
+    const indexesOfCompleteRows = findCompletedRows({ board: cloneBoard }).sort(
+      (a, b) => a - b
+    );
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
 
     // Callback function to be executed after the last animation has completed.
@@ -318,7 +326,7 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
    * Interval to move tetrominos every 'speed' milliseconds
    */
   useInterval(() => {
-    moveTetrominoInDirection();
+    moveTetrominoInDirection('ArrowDown');
   }, speed);
 
   /*
@@ -326,7 +334,7 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
    * next level of the game.
    */
   useInterval(() => {
-    setSpeed((prev) => Math.round(prev * 0.9));
+    setSpeed((prev) => (prev !== null ? Math.round(prev * 0.9) : prev));
     setLevel((prev) => prev + 1);
   }, levelInterval);
 

@@ -14,7 +14,7 @@ export function addSnakeToBoard({
 }: {
   board: number[][];
   snake: number[];
-  pos: { r: number; c: number };
+  pos: CellPosition;
 }): number[][] {
   let localR = pos.r;
   let localC = pos.c;

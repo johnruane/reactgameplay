@@ -1,28 +1,36 @@
-import { useEffect, useState, useRef, memo } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import './Cell.scss';
 
 const Cell = memo(function Cell(props) {
-  // const [isRevealed, setIsRevealed] = useState(false);
-
   const hiddenValues = [-1, 0, 9];
   const cellRef = useRef(null);
-  const { value, pos, onClickCellCallback, isGameOver } = props;
+  const {
+    value = 0,
+    pos = { r: 0, c: 0 },
+    onClickCellCallback = () => {},
+    isGameOver = false,
+  }: {
+    value?: number;
+    pos?: CellPosition;
+    onClickCellCallback?: (e: Event) => void;
+    isGameOver?: boolean;
+  } = props ?? {};
 
   function onClick(e) {
     if (isGameOver) return;
 
     onClickCellCallback(e);
-    // setIsRevealed(true);
   }
 
   useEffect(() => {
     const currentRef = cellRef.current;
-    cellRef.current.addEventListener('click', onClick);
+
+    (currentRef as unknown as HTMLElement)?.addEventListener('click', onClick);
 
     return () => {
-      currentRef.removeEventListener('click', onClick);
+      (currentRef as unknown as HTMLElement)?.removeEventListener('click', onClick);
     };
-  });
+  }, []);
 
   return (
     <div

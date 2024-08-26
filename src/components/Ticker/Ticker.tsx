@@ -2,7 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 import './Ticker.scss';
 
-const Ticker = ({ textOne, textTwo, direction = 'LTR', additionalClasses }) => {
+const Ticker = ({
+  textOne,
+  textTwo,
+  direction = 'LTR',
+  additionalClasses,
+}: {
+  textOne: string;
+  textTwo: string;
+  direction?: string;
+  additionalClasses?: string;
+}) => {
   return (
     <div className={classNames(`t-wrapper`, additionalClasses)}>
       <div className={classNames('t-ticker', `ticker-${direction}`)}>

@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useState } from 'react';
-import { useParams, useNavigate, Link, ScrollRestoration } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import classNames from 'classnames';
 
@@ -52,7 +52,6 @@ const GamePage = () => {
   }, [pageData]);
 
   const {
-    id,
     title: gameTitle,
     icon,
     year,
@@ -126,7 +125,7 @@ const GamePage = () => {
         <div data-stack='space-3xl-4xl'>
           <div className='grid' data-stack='space-l-xl'>
             <Heading title='DETAILS' className='section-heading' />
-            <Tabs data={tabs} additionalClasses='gp-tabs-wrapper' />
+            <Tabs data={tabs} />
           </div>
           <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
         </div>
@@ -141,7 +140,7 @@ const GamePage = () => {
         <ArrowCircleRight className='modal-close-svg' />
       </button>
 
-      <Modal title={id} isActive={gameSheetToggle} onCloseCallback={handleButtonClick}>
+      <Modal isActive={gameSheetToggle}>
         <GameComponent onSelectClickHandler={handleButtonClick} />
       </Modal>
 

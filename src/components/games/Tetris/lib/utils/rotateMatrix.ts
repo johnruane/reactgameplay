@@ -1,17 +1,18 @@
 /**
  * Takes @matrix and rotates the rows
- *
- * @param {Number[][]} matrix
- * @return {Number[][]} Rotated @matrix
  */
-export function rotateMatrix(tetromino) {
+export function rotateMatrix({
+  tetromino,
+}: {
+  tetromino: { value: number; matrix: number[][] };
+}) {
   if (tetromino.value === 8) return tetromino.matrix;
 
-  let newMatrix = [];
+  const newMatrix: number[][] = [];
   const matrixLength = tetromino.matrix.length - 1;
 
   for (let i = 0; i <= matrixLength; i++) {
-    let row = [];
+    const row: number[] = [];
     for (let j = 0; j <= matrixLength; j++) {
       row.push(tetromino.matrix[matrixLength - j][i]);
     }

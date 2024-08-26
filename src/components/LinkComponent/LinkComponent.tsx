@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -11,6 +12,14 @@ const LinkComponent = ({
   key,
   children,
   additionalClasses,
+}: {
+  to: string;
+  label: string;
+  type?: string;
+  newWindow: boolean;
+  key?: string;
+  children?: ReactNode;
+  additionalClasses?: string;
 }) => {
   switch (type) {
     case 'EXTERNAL':

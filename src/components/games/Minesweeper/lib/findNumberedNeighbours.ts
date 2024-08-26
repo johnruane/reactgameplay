@@ -13,9 +13,9 @@ export const findNumberedNeighbours = ({
   cellsToSearch,
 }: {
   board: number[][];
-  cellsToSearch: { r: number; c: number }[];
-}): { r: number; c: number }[] => {
-  const numberedNeighbours = new Set<{ r: number; c: number }>();
+  cellsToSearch: CellPosition[];
+}): CellPosition[] => {
+  const numberedNeighbours = new Set<CellPosition>();
 
   cellsToSearch.forEach((pos) => {
     const neighbours = findNeighbourCells({

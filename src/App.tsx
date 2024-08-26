@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { RouterProvider, createBrowserRouter, ScrollRestoration } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import DefaultLayout from './components/Layouts/DefaultLayout/DefaultLayout';
 import GameLayout from '@layouts/GameLayout';
@@ -12,7 +12,7 @@ import './styles/app.scss';
 
 export default function App() {
   useEffect(() => {
-    let vh = window.innerHeight * 0.01;
+    const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, []);
 
@@ -30,11 +30,5 @@ export default function App() {
     { path: '*', element: <Error404 /> },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={routes}>
-        <ScrollRestoration />
-      </RouterProvider>
-    </>
-  );
+  return <RouterProvider router={routes} />;
 }

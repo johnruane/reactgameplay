@@ -35,7 +35,7 @@ export const animateCompleteRow = (index, isLastRow, onFinishCallback) => {
       delay: index * 30,
     });
 
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       rabbitDownAnimation.onfinish = () => {
         resolve();
       };

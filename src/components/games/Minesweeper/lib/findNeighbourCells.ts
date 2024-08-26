@@ -14,7 +14,7 @@ export const findNeighbourCells = ({
   predicate = (cellValue) => cellValue === 0,
 }: {
   board: number[][];
-  pos: { r: number; c: number };
+  pos: CellPosition;
   predicate?: (cellValue: number) => boolean;
 }) => {
   const { r, c } = pos || {};
@@ -35,7 +35,7 @@ export const findNeighbourCells = ({
     { r: r + 1, c: c - 1 }, // bottom left
   ];
 
-  const neighbours: { r: number; c: number }[] = [];
+  const neighbours: CellPosition[] = [];
 
   newDirections.forEach((direction) => {
     const cellValue = getCellValue({ board, pos: direction });

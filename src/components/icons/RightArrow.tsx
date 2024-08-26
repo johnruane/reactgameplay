@@ -1,4 +1,4 @@
-const RightArrow = ({ className }) => (
+const RightArrow = ({ className }: { className?: string }) => (
   <svg
     width='17'
     height='16'

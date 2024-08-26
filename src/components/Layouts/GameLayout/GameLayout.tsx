@@ -5,7 +5,7 @@ import Footer from '@components/Footer';
 
 import GetKey from '../../../utils/GetKey';
 
-export default function DefaultLayout() {
+export default function GameLayout() {
   return (
     <>
       <Ticker textOne='INSERT' textTwo='COIN' />

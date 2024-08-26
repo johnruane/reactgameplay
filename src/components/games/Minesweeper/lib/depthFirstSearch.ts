@@ -13,18 +13,18 @@ export const depthFirstSearch = ({
   pos,
 }: {
   board: number[][];
-  pos: { r: number; c: number };
-}): { r: number; c: number }[] => {
+  pos: CellPosition;
+}): CellPosition[] => {
   const valueOfCell = getCellValue({ board, pos });
 
   if (valueOfCell !== 0) return [pos];
 
   const stack = [pos];
-  const visited = new Set<{ r: number; c: number }>();
-  const result = [];
+  const visited = new Set<CellPosition>();
+  const result: CellPosition[] = [];
 
   while (stack.length) {
-    const vertex = stack.pop();
+    const vertex: CellPosition | undefined = stack.pop();
     if (!vertex) return [];
 
     const valueOfCell = getCellValue({ board, pos: vertex });
@@ -34,7 +34,7 @@ export const depthFirstSearch = ({
       result.push(vertex);
 
       const neighbourCells = findNeighbourCells({ board, pos: vertex });
-      neighbourCells.forEach((cell: { r: number; c: number }) => {
+      neighbourCells.forEach((cell: CellPosition) => {
         stack.push(cell);
       });
     }

@@ -7,7 +7,7 @@ export const getCellValue = ({
   pos,
 }: {
   board: number[][];
-  pos: { r: number; c: number };
+  pos: CellPosition;
 }): number | null => {
   if (!board || !pos) return null;
 

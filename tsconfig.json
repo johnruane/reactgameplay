@@ -19,6 +19,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     "paths": {
       "@icons/*": ["./src/components/icons/*"],
@@ -26,14 +27,14 @@
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@games/*": ["./src/components/games/*"],
-      "@layouts/*": ["./src/components/layouts/*"],
-      "@pages/*": ["./src/templates/*"],
+      "@layouts/*": ["./src/components/Layouts/*"],
+      "@pages/*": ["./src/pages/*"],
       "@templates/*": ["./src/assets/*"],
       "@data/*": ["./src/data/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/components/hooks/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "global.d.ts"],
   "exclude": ["src/**/*.test.ts"]
 }

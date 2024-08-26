@@ -9,8 +9,8 @@ export const isObjectInArray = ({
   array,
   obj,
 }: {
-  array: { r: number; c: number }[];
-  obj: { r: number; c: number };
+  array: CellPosition[];
+  obj: CellPosition;
 }) => {
   return _some(array, (cell) => _isEqual(cell, obj));
 };

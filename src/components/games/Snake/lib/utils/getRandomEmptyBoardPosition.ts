@@ -6,7 +6,7 @@ export const getRandomEmptyBoardPosition = ({
   delimiter = '-',
 }: {
   board: number[][];
-  emptyCellValue: number;
+  emptyCellValue?: number;
   delimiter?: string;
 }) => {
   const availableCells = findEmptyCells({
