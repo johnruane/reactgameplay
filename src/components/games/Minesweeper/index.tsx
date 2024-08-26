@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
@@ -46,28 +46,34 @@ const Minesweeper = () => {
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
 
-  function handleCellClick(e) {
-    if (gameOver || gameWon) return;
+  const handleCellClick = useCallback(
+    (e) => {
+      if (gameOver || gameWon) return;
 
-    const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
-    const dfsCells = depthFirstSearch({ board: gameplayBoard, pos: selectedCellPos });
+      const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
+      const dfsCells = depthFirstSearch({ board: gameplayBoard, pos: selectedCellPos });
 
-    const numberedCells = findNumberedNeighbours({
-      board: gameplayBoard,
-      cellsToSearch: dfsCells,
-    });
+      const numberedCells = findNumberedNeighbours({
+        board: gameplayBoard,
+        cellsToSearch: dfsCells,
+      });
 
-    const combinedCells = dfsCells.length > 1 ? dfsCells.concat(numberedCells) : dfsCells;
+      const combinedCells =
+        dfsCells.length > 1 ? dfsCells.concat(numberedCells) : dfsCells;
 
-    const newBoard = updateDisplayBoard({
-      displayBoard,
-      gameBoard: gameplayBoard,
-      cellsToUpdate: combinedCells,
-    });
+      setDisplayBoard((prevDisplayBoard) => {
+        const newBoard = updateDisplayBoard({
+          displayBoard: prevDisplayBoard,
+          gameBoard: gameplayBoard,
+          cellsToUpdate: combinedCells,
+        });
+        return newBoard;
+      });
 
-    setDisplayBoard(newBoard);
-    setCellSelected(selectedCellPos);
-  }
+      setCellSelected(selectedCellPos);
+    },
+    [displayBoard, gameplayBoard]
+  );
 
   function startNewGame() {
     setGameplayBoard(cluesBoard);
