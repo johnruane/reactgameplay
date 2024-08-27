@@ -1,5 +1,5 @@
 import tabs from './tabs/Snake';
-import SnakeHead from '@icons/SnakeHead';
+import SnakeHead from '@svg/games/snake-head.svg?react';
 import SnakeGame from '@games/Snake';
 
 const gamePageData = {

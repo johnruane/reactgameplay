@@ -10,7 +10,7 @@
     }
 
     &[data-value='9'] {
-      background-image: url('/src/assets/mine.svg');
+      background-image: url('@svg/games/mine.svg');
       background-repeat: no-repeat;
       background-position: calc(50% - 1px) calc(50% - 1px);
       background-size: 1.4rem;

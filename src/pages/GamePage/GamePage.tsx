@@ -12,9 +12,9 @@ import Modal from '@components/Modal';
 import Heading from '@components/sections/Heading';
 import Button from '@components/Button';
 
-import Ghost from '@icons/Ghost';
-import Back from '@icons/Back';
-import ArrowCircleRight from '@icons/ArrowCircleRight';
+import Ghost from '@svg/games/ghost.svg?react';
+import Back from '@svg/global/back.svg?react';
+import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 

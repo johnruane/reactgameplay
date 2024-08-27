@@ -1,13 +1,12 @@
 import classNames from 'classnames';
-
-import HeadingIcon from '@icons/Heading';
+import HeadingsIcon from '@svg/global/headings-icon.svg?react';
 
 import './Heading.scss';
 
 const Heading = ({ title, className }) => {
   return (
     <h3 className={classNames('h-heading-wrapper', className)}>
-      <HeadingIcon />
+      <HeadingsIcon className='test2' />
       <span className='h-heading'>{title}</span>
     </h3>
   );

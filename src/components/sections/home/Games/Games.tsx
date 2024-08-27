@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 import gameLinks from '@data/games/gameLinks';
 
-import RightArrow from '@icons/RightArrow';
-import Circle from '@icons/Circle';
+import ArrowRight from '@svg/global/arrow-right.svg?react';
+import CircleFilled from '@svg/global/circle-filled.svg?react';
 
 import './Games.scss';
 
@@ -22,7 +22,7 @@ const Games = ({ additionalClasses }) => {
 
             <div className='gs-level-wrapper'>
               {Array.from({ length: level }).map((_, index) => (
-                <Circle key={`${title}-${index}`} />
+                <CircleFilled key={`${title}-${index}`} />
               ))}
             </div>
 
@@ -31,7 +31,7 @@ const Games = ({ additionalClasses }) => {
             ) : (
               <div className='lc-link gs-link'>
                 <span>Play game</span>
-                <RightArrow className='fluid-img' />
+                <ArrowRight className='fluid-img' />
               </div>
             )}
           </Link>

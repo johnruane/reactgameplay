@@ -8,7 +8,7 @@ import TextLogo from '@components/TextLogo';
 import Divider from '@components/Divider';
 import Banner from '@components/Banner';
 
-import Pacman from '@icons/Pacman';
+import Pacman from '@svg/home/pacman.svg?react';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 import './Home.scss';

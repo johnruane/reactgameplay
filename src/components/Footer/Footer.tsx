@@ -1,7 +1,7 @@
 import Ticker from '@components/Ticker';
 import LinkComponent from '@components/LinkComponent';
 
-import Invader from '@icons/Invader';
+import Invader from '@svg/global/invader.svg?react';
 
 import './Footer.scss';
 

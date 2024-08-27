@@ -1,6 +1,6 @@
 import tabs from './tabs/Minesweeper';
 import MinesweeperGame from '@games/Minesweeper';
-import MineSweeperHead from '@icons/MineSweeperHead';
+import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
 
 const gamePageData = {
   id: 'minesweeper',

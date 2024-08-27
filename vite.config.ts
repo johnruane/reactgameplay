@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr()],
   css: {
     preprocessorOptions: {
       scss: {
@@ -21,12 +22,12 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: '@icons', replacement: path.resolve(__dirname, '/src/components/icons') },
       {
         find: '@sections',
         replacement: path.resolve(__dirname, '/src/components/sections'),
       },
       { find: '@assets', replacement: path.resolve(__dirname, '/src/assets') },
+      { find: '@svg', replacement: path.resolve(__dirname, '/src/assets/svg') },
       { find: '@components', replacement: path.resolve(__dirname, '/src/components') },
       { find: '@games', replacement: path.resolve(__dirname, '/src/components/games') },
       {

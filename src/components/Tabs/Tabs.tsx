@@ -2,7 +2,8 @@ import { useState, useCallback } from 'react';
 import classNames from 'classnames';
 
 import LinkComponent from '@components/LinkComponent';
-import ExternalLinkArrow from '@icons/ExternalLinkArrow';
+
+import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 
 import './Tabs.scss';
 
@@ -38,7 +39,7 @@ const Tabs = ({ data }) => {
           newWindow={true}
           additionalClasses='l-up-link'
         >
-          <ExternalLinkArrow />
+          <ArrowUpRight />
         </LinkComponent>
       </div>
     </>

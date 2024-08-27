@@ -1,6 +1,6 @@
-import TetrisHead from '@icons/TetrisHead';
-import SnakeHead from '@icons/SnakeHead';
-import MineSweeperHead from '@icons/MineSweeperHead';
+import TetrisHead from '@svg/games/tetris-head.svg?react';
+import SnakeHead from '@svg/games/snake-head.svg?react';
+import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
 
 const gameLinks = [
   {

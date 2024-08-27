@@ -1,5 +1,5 @@
-import Potion from '@icons/Potion';
-import ExternalLinkArrow from '@icons/ExternalLinkArrow';
+import Potion from '@svg/home/potion.svg?react';
+import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 
 import LinkComponent from '@components/LinkComponent';
 
@@ -24,7 +24,7 @@ const LevelUp = () => {
           newWindow={true}
           additionalClasses='l-up-link'
         >
-          <ExternalLinkArrow />
+          <ArrowUpRight />
         </LinkComponent>
       </div>
       <Potion className='l-up-svg fluid-img' />

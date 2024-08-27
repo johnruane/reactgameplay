@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import ArrowCircleLeft from '@icons/ArrowCircleLeft';
-import ArrowCircleRight from '@icons/ArrowCircleRight';
+import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
+import ArrowCircleLeft from '@svg/global/arrow-circle-left.svg?react';
 
 import './NextPrev.scss';
 

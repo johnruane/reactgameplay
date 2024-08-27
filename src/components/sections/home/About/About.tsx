@@ -1,6 +1,6 @@
-import Cherries from '@icons/Cherries';
-import Mushroom from '@icons/Mushroom';
-import Key from '@icons/Key';
+import Cherries from '@svg/home/cherries.svg?react';
+import Mushroom from '@svg/home/mushroom.svg?react';
+import Key from '@svg/home/key.svg?react';
 
 import './About.scss';
 

@@ -1,6 +1,6 @@
 import tabs from './tabs/Tetris';
 import TetrisGame from '@games/Tetris';
-import TetrisHead from '@icons/TetrisHead';
+import TetrisHead from '@svg/games/tetris-head.svg?react';
 
 const gamePageData = {
   id: 'tetris',

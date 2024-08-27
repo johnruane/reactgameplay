@@ -15,7 +15,7 @@
 }
 
 .game-controls-d-pad {
-  background-image: url('../../../../assets/dpad.svg');
+  background-image: url('@svg/games/dpad.svg');
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -73,7 +73,7 @@
 }
 
 .control-buttons {
-  background-image: url('/src/assets/game-buttons.svg');
+  background-image: url('@svg/games/game-buttons.svg');
   background-repeat: no-repeat;
   background-position: center center;
   display: grid;
