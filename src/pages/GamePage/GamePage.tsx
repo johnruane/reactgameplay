@@ -15,6 +15,7 @@ import Button from '@components/Button';
 import Ghost from '@svg/games/ghost.svg?react';
 import Back from '@svg/global/back.svg?react';
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
+import ArrowRight from '@svg/global/arrow-right.svg?react';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 
@@ -83,9 +84,11 @@ const GamePage = () => {
             </h1>
             <Button
               text='PLAY NOW'
-              onClickCallback={handleButtonClick}
+              onClick={handleButtonClick}
               className='gp-play-button'
-            />
+            >
+              <ArrowRight />
+            </Button>
           </div>
           <div className='gp-image fluid-img'>{icon}</div>
         </div>
@@ -135,13 +138,13 @@ const GamePage = () => {
           ['hide']: !gameSheetToggle,
         })}
         onClick={() => handleButtonClick()}
-        aria-label='Close modal'
+        aria-label='Quit game'
       >
         <ArrowCircleRight className='modal-close-svg' />
       </button>
 
       <Modal isActive={gameSheetToggle}>
-        <GameComponent onSelectClickHandler={handleButtonClick} />
+        {gameSheetToggle && <GameComponent onQuitClickHandler={handleButtonClick} />}
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}

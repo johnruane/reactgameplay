@@ -13,6 +13,7 @@ import { create2dArray } from '../utils';
 
 /* Hooks */
 import { useInterval } from '../utils/useInterval';
+import useMediaQuery from '@components/hooks/useMatchMedia';
 
 /* Styles */
 import '../style.scss';
@@ -27,7 +28,7 @@ const SNAKE_DIRECTIONS = {
 
 const FOOD_VALUE = 2;
 
-const Snake = ({ onSelectClickHandler }) => {
+const Snake = ({ onQuitClickHandler }) => {
   const emptyBoard = create2dArray({
     numberOfRows: 15,
     numberOfColumns: 15,
@@ -227,14 +228,25 @@ const Snake = ({ onSelectClickHandler }) => {
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
         <div className='snake-panel-wrapper'>
           <Panel sections={[{ heading: 'score', value: score }]} />
-          <Panel
-            sections={[
-              {
-                heading: 'Controls',
-                value: <span className='panel-text'>PAD = MOVE</span>,
-              },
-            ]}
-          />
+          {useMediaQuery('DESKTOP') ? (
+            <Panel
+              sections={[
+                {
+                  heading: 'Controls',
+                  value: <span className='panel-text'>KEYPAD = MOVE</span>,
+                },
+              ]}
+            />
+          ) : (
+            <Panel
+              sections={[
+                {
+                  heading: 'Controls',
+                  value: <span className='panel-text'>PAD = MOVE</span>,
+                },
+              ]}
+            />
+          )}
         </div>
 
         <div className='overlay-wrapper'>
@@ -248,7 +260,7 @@ const Snake = ({ onSelectClickHandler }) => {
         <Controls
           move={setProposedSnakeDirection}
           onStartClickHandler={startGame}
-          onSelectClickHandler={onSelectClickHandler}
+          onQuitClickHandler={onQuitClickHandler}
         />
       </div>
     </>

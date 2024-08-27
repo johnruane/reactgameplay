@@ -4,6 +4,7 @@
   column-gap: 0.5rem;
   color: $color-white;
   margin: 0 auto;
+
   @include media('>=tablet') {
     grid-template-columns: minmax(auto, 1fr) auto minmax(10rem, 1fr);
   }

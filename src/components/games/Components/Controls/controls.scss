@@ -113,14 +113,26 @@
 
 .game-controls-button {
   width: 3.5rem;
-  height: 1rem;
   background-color: $color-controls-grey;
   border-radius: 2rem;
-  padding: 0;
+  margin: 0;
+  padding: 1rem;
+  border: none;
 }
 
 .game-controls-button-text {
   font-size: $font--1;
   font-weight: $font-weight-bold;
   color: $color-white;
+}
+
+.game-controls-elements-wrapper-desktop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-gap: 1rem;
+  justify-items: center;
+
+  & button {
+    grid-column: 2;
+  }
 }

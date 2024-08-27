@@ -25,6 +25,7 @@ import Panel from '../Components/Panel';
 
 /* Hooks */
 import { useInterval } from '../utils/useInterval';
+import useMediaQuery from '@components/hooks/useMatchMedia';
 
 /* Styles */
 import '../style.scss';
@@ -58,7 +59,7 @@ const boardConfig = {
   fillValue: 0,
 };
 
-const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
+const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
@@ -350,19 +351,35 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
                 { heading: 'lines', value: lines },
               ]}
             />
-            <Panel
-              sections={[
-                {
-                  heading: 'controls',
-                  value: (
-                    <>
-                      <span className='panel-text'>A = ROTATE</span>
-                      <span className='panel-text'>PAD = MOVE</span>
-                    </>
-                  ),
-                },
-              ]}
-            />
+            {useMediaQuery('DESKTOP') ? (
+              <Panel
+                sections={[
+                  {
+                    heading: 'controls',
+                    value: (
+                      <>
+                        <span className='panel-text'>SPACE = ROTATE</span>
+                        <span className='panel-text'>KEYPAD = MOVE</span>
+                      </>
+                    ),
+                  },
+                ]}
+              />
+            ) : (
+              <Panel
+                sections={[
+                  {
+                    heading: 'controls',
+                    value: (
+                      <>
+                        <span className='panel-text'>A = ROTATE</span>
+                        <span className='panel-text'>PAD = MOVE</span>
+                      </>
+                    ),
+                  },
+                ]}
+              />
+            )}
           </div>
         </div>
         <div className='overlay-wrapper'>
@@ -383,7 +400,7 @@ const Tetris = ({ additionalClasses, onSelectClickHandler }) => {
         <Controls
           move={move}
           onStartClickHandler={startGame}
-          onSelectClickHandler={onSelectClickHandler}
+          onQuitClickHandler={onQuitClickHandler}
         />
       </div>
     </>

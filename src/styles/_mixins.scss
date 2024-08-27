@@ -23,25 +23,6 @@
   font-weight: $font-weight-bold;
 }
 
-@mixin buttonStyle {
-  all: unset;
-  @include button;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid $color-white;
-  background-color: $color-black;
-  border-radius: $button-border-radius;
-  user-select: none;
-
-  & span {
-    color: $color-white;
-    font-weight: $font-weight-bold;
-    font-size: $font-0;
-  }
-}
-
 @mixin padding($dir, $value) {
   #{'padding-#{$dir}'}: $value * 1vh;
   #{'padding-#{$dir}'}: calc(var(--vh, 1vh) * $value);

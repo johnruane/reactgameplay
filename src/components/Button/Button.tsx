@@ -1,13 +1,17 @@
 import classNames from 'classnames';
-import ArrowRight from '@svg/global/arrow-right.svg?react';
 
 import './Button.scss';
 
-const Button = ({ text, onClickCallback, className }) => {
+const Button = ({ text, children, onClick, className, ariaLabel = '' }) => {
   return (
-    <button className={classNames('button', className)} onClick={onClickCallback}>
+    <button
+      className={classNames('button', className)}
+      type='button'
+      onClick={onClick}
+      aria-label={ariaLabel}
+    >
       <span>{text}</span>
-      <ArrowRight />
+      {children}
     </button>
   );
 };

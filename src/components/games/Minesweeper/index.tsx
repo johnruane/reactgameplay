@@ -9,6 +9,9 @@ import { depthFirstSearch } from './lib/depthFirstSearch';
 import { findNumberedNeighbours } from './lib/findNumberedNeighbours';
 import { create2dArray } from '../utils';
 
+/* Hooks */
+import useMediaQuery from '@components/hooks/useMatchMedia';
+
 /* Components */
 import Board from '../Components/Board';
 import Cell from './Cell';
@@ -123,27 +126,43 @@ const Minesweeper = () => {
 
         <div className='minesweeper-panel-wrapper'>
           <Panel sections={[{ heading: 'time', value: 0 }]} />
-          <Panel
-            sections={[
-              {
-                heading: 'Controls',
-                value: (
-                  <>
-                    <span className='panel-text'>A = REVEAL</span>
-                    <span className='panel-text'>B = FLAG</span>
-                    <span className='panel-text'>PAD = MOVE</span>
-                  </>
-                ),
-              },
-            ]}
-          />
+          {useMediaQuery('DESKTOP') ? (
+            <Panel
+              sections={[
+                {
+                  heading: 'Controls',
+                  value: (
+                    <>
+                      <span className='panel-text'>LEFT-MOUSE = REVEAL</span>
+                      <span className='panel-text'>RIGHT-MOUSE = FLAG</span>
+                    </>
+                  ),
+                },
+              ]}
+            />
+          ) : (
+            <Panel
+              sections={[
+                {
+                  heading: 'Controls',
+                  value: (
+                    <>
+                      <span className='panel-text'>A = REVEAL</span>
+                      <span className='panel-text'>B = FLAG</span>
+                      <span className='panel-text'>PAD = MOVE</span>
+                    </>
+                  ),
+                },
+              ]}
+            />
+          )}
         </div>
       </div>
       <div className='game-controls-wrapper'>
         <Controls
           move={() => null}
           onStartClickHandler={startNewGame}
-          onSelectClickHandler={() => null}
+          onQuitClickHandler={() => null}
         />
       </div>
     </>

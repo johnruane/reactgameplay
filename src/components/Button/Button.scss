@@ -1,6 +1,37 @@
 .button {
-  @include buttonStyle;
+  all: unset;
+  @include button;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $color-white;
+  background-color: $color-black;
+  border-radius: $button-border-radius;
+  user-select: none;
   width: fit-content;
   padding: 1rem 3rem;
+  user-select: none;
+  touch-action: manipulation;
+
+  & span {
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    font-size: $font-0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-reset {
+  border: none;
+  width: unset;
+  background-color: unset;
+  padding: 0;
+}
+
+.button-full-width {
+  width: 100%;
 }
