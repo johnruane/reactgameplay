@@ -16,7 +16,7 @@ const useBouncingHead = () => {
     tl.to(
       bouncingHead,
       {
-        y: '-=30',
+        y: '-=50',
         duration: 1,
         repeat: -1,
         yoyo: true,

@@ -1,7 +1,6 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
-import classNames from 'classnames';
 
 import pages from '@data/pages';
 
@@ -14,7 +13,6 @@ import Button from '@components/Button';
 
 import Ghost from '@svg/games/ghost.svg?react';
 import Back from '@svg/global/back.svg?react';
-import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 
 import useBouncingHead from '@hooks/useBouncingHead';
@@ -133,18 +131,9 @@ const GamePage = () => {
           <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
         </div>
       </section>
-      <button
-        className={classNames('modal-close-btn', {
-          ['hide']: !gameSheetToggle,
-        })}
-        onClick={() => handleButtonClick()}
-        aria-label='Quit game'
-      >
-        <ArrowCircleRight className='modal-close-svg' />
-      </button>
 
-      <Modal isActive={gameSheetToggle}>
-        {gameSheetToggle && <GameComponent onQuitClickHandler={handleButtonClick} />}
+      <Modal isActive={gameSheetToggle} closeModal={handleButtonClick}>
+        <GameComponent onQuitClickHandler={handleButtonClick} />
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}
