@@ -1,11 +1,6 @@
 .game-controls {
   display: grid;
   height: fit-content;
-
-  & svg {
-    width: auto;
-    height: 1.5rem;
-  }
 }
 
 .game-controls-elements-wrapper {
@@ -113,10 +108,10 @@
 
 .game-controls-button {
   width: 3.5rem;
+  height: 1.5rem;
   background-color: $color-controls-grey;
   border-radius: 2rem;
   margin: 0;
-  padding: 1rem;
   border: none;
 }
 

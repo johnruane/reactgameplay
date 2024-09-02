@@ -1,7 +1,6 @@
 .panel-wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
 }
 
 .panel {
@@ -10,7 +9,6 @@
   background-color: $modal-black;
   padding: 0.5rem;
   border-radius: 0.125rem;
-  outline: 1px solid #454545;
 
   @include media('>=tablet') {
     padding: 1rem;

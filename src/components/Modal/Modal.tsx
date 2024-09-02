@@ -29,11 +29,7 @@ const Modal = ({
           ['active']: isActive,
         })}
       >
-        <div
-          className={classNames('modal-close-svg-wrapper', {
-            ['hide']: !isActive,
-          })}
-        >
+        <div className='modal-close-svg-wrapper'>
           <button
             className='modal-close-btn'
             onClick={() => closeModal()}

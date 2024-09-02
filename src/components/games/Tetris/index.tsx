@@ -88,10 +88,27 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
   const previousLevelIntervalRef = useRef<number | null>(null);
   const nextTetrominolRef = useRef<{ value: number; matrix: number[][] } | null>(null);
 
-  const startGame = () => {
+  const resetGame = () => {
     setDisplayBoard(create2dArray(boardConfig));
     setStaticBoard(create2dArray(boardConfig));
 
+    setPosition({ r: 0, c: 4 });
+
+    setCurrentTetromino(null);
+    setNextTetromino(null);
+
+    setScore('000000');
+    setLines(0);
+    setLevel(0);
+
+    setSpeed(null);
+    setLevelInterval(null);
+
+    setGameOver(false);
+    setHasGameStarted(false);
+  };
+
+  const startGame = () => {
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
 
@@ -104,6 +121,11 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
 
     setGameOver(false);
     setHasGameStarted(true);
+  };
+
+  const quitGame = () => {
+    resetGame();
+    onQuitClickHandler();
   };
 
   /*
@@ -130,7 +152,7 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
    * occurs in the execution cycle e.g. like when there is a need to wait for an animation to complete.
    */
   const makeNextPlay = () => {
-    if (!startGame) return;
+    if (!hasGameStarted) return;
 
     setPosition({ r: 0, c: 4 });
     setCurrentTetromino(nextTetromino);
@@ -351,35 +373,6 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
                 { heading: 'lines', value: lines },
               ]}
             />
-            {useMediaQuery('DESKTOP') ? (
-              <Panel
-                sections={[
-                  {
-                    heading: 'controls',
-                    value: (
-                      <>
-                        <span className='panel-text'>SPACE = ROTATE</span>
-                        <span className='panel-text'>KEYPAD = MOVE</span>
-                      </>
-                    ),
-                  },
-                ]}
-              />
-            ) : (
-              <Panel
-                sections={[
-                  {
-                    heading: 'controls',
-                    value: (
-                      <>
-                        <span className='panel-text'>A = ROTATE</span>
-                        <span className='panel-text'>PAD = MOVE</span>
-                      </>
-                    ),
-                  },
-                ]}
-              />
-            )}
           </div>
         </div>
         <div className='overlay-wrapper'>
@@ -396,11 +389,31 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
         </div>
       </div>
 
+      <div className='game-instructions'>
+        <p className='panel-text panel-text-bold'>Instructions</p>
+
+        <ul className='panel-text game-list'>
+          <li>Press START to begin the game or play again when GAME OVER.</li>
+          <li>To quit and close, press QUIT.</li>
+          {useMediaQuery('DESKTOP') ? (
+            <>
+              <li>Use the d-pad to move Left, Right or Down.</li>
+              <li>Press A to rotate.</li>
+            </>
+          ) : (
+            <>
+              <li>Use the ARROW keys to move Left, Right or Down.</li>
+              <li>Press SPACE to rotate.</li>
+            </>
+          )}
+        </ul>
+      </div>
+
       <div className='game-controls-wrapper'>
         <Controls
           move={move}
           onStartClickHandler={startGame}
-          onQuitClickHandler={onQuitClickHandler}
+          onQuitClickHandler={quitGame}
         />
       </div>
     </>

@@ -65,6 +65,11 @@ const GamePage = () => {
     setGameSheetToggle((prev) => !prev);
   }, [setGameSheetToggle]);
 
+  const closeModal = () => {
+    setGameSheetToggle(false);
+    document.getElementById('quit-game')?.click();
+  };
+
   return (
     <>
       <div className='grid background-black gp-back-wrapper'>
@@ -132,8 +137,8 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal isActive={gameSheetToggle} closeModal={handleButtonClick}>
-        <GameComponent onQuitClickHandler={handleButtonClick} />
+      <Modal isActive={gameSheetToggle} closeModal={closeModal}>
+        <GameComponent onQuitClickHandler={closeModal} />
       </Modal>
 
       {gameSheetToggle && <RemoveScrollBar />}

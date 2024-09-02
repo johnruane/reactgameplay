@@ -24,12 +24,11 @@ export default function Controls({
             onClick={onStartClickHandler}
             ariaLabel='Start game'
           />
-
-          <Button
-            className='button button-full-width'
-            text='Quit'
+          <button
+            id='quit-game'
+            className='unset'
             onClick={onQuitClickHandler}
-            ariaLabel='Quit game'
+            aria-label='Quit game'
           />
         </div>
       ) : (
