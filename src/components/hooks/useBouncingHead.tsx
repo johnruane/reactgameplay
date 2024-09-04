@@ -21,7 +21,7 @@ const useBouncingHead = () => {
         repeat: -1,
         yoyo: true,
       },
-      0
+      0 // The animation starts at 0 seconds in the timeline
     );
 
     tl.to(
@@ -33,7 +33,7 @@ const useBouncingHead = () => {
         repeat: -1,
         yoyo: true,
       },
-      0
+      0 // The animation starts at 0 seconds in the timeline
     );
   }, [location]);
 };

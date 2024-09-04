@@ -1,5 +1,8 @@
+import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import classNames from 'classnames';
 import { zeroRightClassName } from 'react-remove-scroll-bar';
+
+import useModalInteractions from './useModalInteractions';
 
 import Ticker from '@components/Ticker';
 
@@ -9,26 +12,16 @@ import './Modal.scss';
 
 const Modal = ({
   children,
-  isActive,
   closeModal,
 }: {
   children: React.ReactNode;
-  isActive: boolean;
   closeModal: () => void;
 }) => {
   return (
     <>
-      <div
-        className={classNames('modal-overlay', {
-          ['active']: isActive,
-        })}
-      ></div>
+      <div className='modal-overlay gsap-modal-overlay'></div>
 
-      <div
-        className={classNames('modal-container', zeroRightClassName, {
-          ['active']: isActive,
-        })}
-      >
+      <div className={classNames('modal-container', zeroRightClassName)}>
         <div className='modal-close-svg-wrapper'>
           <button
             className='modal-close-btn'
@@ -41,6 +34,8 @@ const Modal = ({
         <div className='modal-game-wrapper background-blue'>{children}</div>
         <Ticker textOne='GAME' textTwo='LOADED' additionalClasses='modal-ticker' />
       </div>
+
+      {/* { && <RemoveScrollBar />} */}
     </>
   );
 };

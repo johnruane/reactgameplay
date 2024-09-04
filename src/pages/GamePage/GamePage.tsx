@@ -1,6 +1,5 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 import pages from '@data/pages';
 
@@ -18,12 +17,23 @@ import ArrowRight from '@svg/global/arrow-right.svg?react';
 import useBouncingHead from '@hooks/useBouncingHead';
 
 import './GamePage.scss';
+import useModalInteractions from '@components/Modal/useModalInteractions';
 
 const GamePage = () => {
-  const [gameSheetToggle, setGameSheetToggle] = useState(false);
-
   const { title } = useParams();
   const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalKey, setModalKey] = useState(0); // Used to reset component state
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setModalKey((prev) => prev + 1);
+  }, []);
+
+  const openModal = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
 
   useBouncingHead();
 
@@ -61,14 +71,7 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
-  const handleButtonClick = useCallback(() => {
-    setGameSheetToggle((prev) => !prev);
-  }, [setGameSheetToggle]);
-
-  const closeModal = () => {
-    setGameSheetToggle(false);
-    document.getElementById('quit-game')?.click();
-  };
+  const { openModal: om, closeModal: cm } = useModalInteractions();
 
   return (
     <>
@@ -85,11 +88,7 @@ const GamePage = () => {
               <span className='gp-year'>{year}</span>
               <span className='gp-title'>{gameTitle}</span>
             </h1>
-            <Button
-              text='PLAY NOW'
-              onClick={handleButtonClick}
-              className='gp-play-button'
-            >
+            <Button text='PLAY NOW' onClick={() => om()} className='gp-play-button'>
               <ArrowRight />
             </Button>
           </div>
@@ -137,11 +136,9 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal isActive={gameSheetToggle} closeModal={closeModal}>
-        <GameComponent onQuitClickHandler={closeModal} />
+      <Modal closeModal={cm}>
+        <GameComponent key={modalKey} onQuitClickHandler={cm} />
       </Modal>
-
-      {gameSheetToggle && <RemoveScrollBar />}
     </>
   );
 };
