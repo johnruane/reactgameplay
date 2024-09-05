@@ -71,7 +71,7 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
-  const { openModal: om, closeModal: cm } = useModalInteractions();
+  const { openModal: om, closeModal: cm, tl } = useModalInteractions();
 
   return (
     <>
@@ -88,7 +88,11 @@ const GamePage = () => {
               <span className='gp-year'>{year}</span>
               <span className='gp-title'>{gameTitle}</span>
             </h1>
-            <Button text='PLAY NOW' onClick={() => om()} className='gp-play-button'>
+            <Button
+              text='PLAY NOW'
+              onClick={() => tl.current.play()}
+              className='gp-play-button'
+            >
               <ArrowRight />
             </Button>
           </div>
@@ -136,7 +140,7 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal closeModal={cm}>
+      <Modal timeline={tl}>
         <GameComponent key={modalKey} onQuitClickHandler={cm} />
       </Modal>
     </>

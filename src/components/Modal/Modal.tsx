@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import classNames from 'classnames';
 import { zeroRightClassName } from 'react-remove-scroll-bar';
@@ -10,22 +11,19 @@ import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
 import './Modal.scss';
 
-const Modal = ({
-  children,
-  closeModal,
-}: {
-  children: React.ReactNode;
-  closeModal: () => void;
-}) => {
+const Modal = ({ children, timeline }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className='modal-overlay gsap-modal-overlay'></div>
+      <div className='modal-overlay' data-gsap='modal-overlay'></div>
 
-      <div className={classNames('modal-container', zeroRightClassName)}>
-        <div className='modal-close-svg-wrapper'>
+      <div
+        className={classNames('modal-container', zeroRightClassName)}
+        data-gsap='modal-container'
+      >
+        <div className='modal-close-svg-wrapper' data-gsap='modal-close-btn'>
           <button
             className='modal-close-btn'
-            onClick={() => closeModal()}
+            onClick={() => timeline.current.reverse()}
             aria-label='Quit game'
           >
             <ArrowCircleRight width={70} height={70} className='modal-close-svg' />
