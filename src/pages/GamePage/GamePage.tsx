@@ -18,6 +18,7 @@ import useBouncingHead from '@hooks/useBouncingHead';
 
 import './GamePage.scss';
 import useModalInteractions from '@components/Modal/useModalInteractions';
+import { useGSAP } from '@gsap/react';
 
 const GamePage = () => {
   const { title } = useParams();
@@ -25,15 +26,6 @@ const GamePage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalKey, setModalKey] = useState(0); // Used to reset component state
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-    setModalKey((prev) => prev + 1);
-  }, []);
-
-  const openModal = useCallback(() => {
-    setIsModalOpen(true);
-  }, []);
 
   useBouncingHead();
 
@@ -49,6 +41,8 @@ const GamePage = () => {
     id: pages[pageIndex + 1]?.id,
     title: pages[pageIndex + 1]?.link,
   };
+
+  const { toggleModal } = useModalInteractions();
 
   /*
    * Redirect to 404 if dynamic param title does not match id in page data
@@ -71,8 +65,6 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
-  const { openModal: om, closeModal: cm, tl } = useModalInteractions();
-
   return (
     <>
       <div className='grid background-black gp-back-wrapper'>
@@ -90,7 +82,7 @@ const GamePage = () => {
             </h1>
             <Button
               text='PLAY NOW'
-              onClick={() => tl.current.play()}
+              onClick={() => toggleModal('open')}
               className='gp-play-button'
             >
               <ArrowRight />
@@ -140,8 +132,8 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal timeline={tl}>
-        <GameComponent key={modalKey} onQuitClickHandler={cm} />
+      <Modal>
+        <GameComponent key={modalKey} onQuitClickHandler={() => toggleModal('close')} />
       </Modal>
     </>
   );
