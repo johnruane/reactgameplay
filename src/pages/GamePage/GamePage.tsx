@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import pages from '@data/pages';
@@ -15,19 +15,20 @@ import Back from '@svg/global/back.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 
 import useBouncingHead from '@hooks/useBouncingHead';
+import useModalInteractions from '@components/Modal/useModalInteractions';
 
 import './GamePage.scss';
-import useModalInteractions from '@components/Modal/useModalInteractions';
-import { useGSAP } from '@gsap/react';
 
 const GamePage = () => {
   const { title } = useParams();
   const navigate = useNavigate();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalKey, setModalKey] = useState(0); // Used to reset component state
 
   useBouncingHead();
+  const { toggleModal, setToggleModal } = useModalInteractions({
+    onModalCloseCallback: setModalKey,
+  });
 
   const pageIndex = pages.findIndex(({ id }) => id === title);
   const pageData = pages[pageIndex];
@@ -42,8 +43,6 @@ const GamePage = () => {
     title: pages[pageIndex + 1]?.link,
   };
 
-  const { toggleModal } = useModalInteractions();
-
   /*
    * Redirect to 404 if dynamic param title does not match id in page data
    */
@@ -52,7 +51,7 @@ const GamePage = () => {
     if (!pageData) {
       navigate('/404');
     }
-  }, [pageData]);
+  }, [navigate, pageData]);
 
   const {
     title: gameTitle,
@@ -82,7 +81,7 @@ const GamePage = () => {
             </h1>
             <Button
               text='PLAY NOW'
-              onClick={() => toggleModal('open')}
+              onClick={() => setToggleModal(true)}
               className='gp-play-button'
             >
               <ArrowRight />
@@ -132,8 +131,8 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal>
-        <GameComponent key={modalKey} onQuitClickHandler={() => toggleModal('close')} />
+      <Modal toggleModal={toggleModal} setToggleModal={setToggleModal}>
+        <GameComponent key={modalKey} setToggleModal={setToggleModal} />
       </Modal>
     </>
   );

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef, MouseEvent } from 'react';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
@@ -23,6 +23,8 @@ import '../style.scss';
 import './minsweeper.scss';
 
 const Minesweeper = () => {
+  const boardRef = useRef<HTMLDivElement>(null);
+
   const mineCount = 9;
   const emptyCellValue = -1;
   const mineBoard = generateMineBoard({
@@ -48,6 +50,7 @@ const Minesweeper = () => {
   const [cellSelected, setCellSelected] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
+  const [flagsMarked, setFlagsMarked] = useState<number>(10);
 
   const handleCellClick = useCallback(
     (e) => {
@@ -102,6 +105,29 @@ const Minesweeper = () => {
     }
   }, [displayBoard]);
 
+  function rightClick(e) {
+    e.preventDefault();
+
+    switch (e.target.getAttribute('data-value')) {
+      case '-1':
+        e.target.setAttribute('data-value', '10');
+        setFlagsMarked((prev) => prev - 1);
+        break;
+      case '10':
+        e.target.setAttribute('data-value', '-1');
+        setFlagsMarked((prev) => prev + 1);
+        break;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    if (boardRef.current) {
+      boardRef.current.oncontextmenu = rightClick;
+    }
+  }, []);
+
   // useEffect(() => {
   //   initialiseGame();
   // }, []);
@@ -109,8 +135,19 @@ const Minesweeper = () => {
   return (
     <>
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
+        <div className='minesweeper-panel-wrapper'>
+          <Panel
+            sections={[
+              { heading: 'time', value: 0 },
+              { heading: 'mines', value: flagsMarked },
+            ]}
+          />
+          <span className='minesweeper-emoji'>&#128512;</span>
+        </div>
+
         <div className='overlay-wrapper'>
           <Board
+            ref={boardRef}
             board={displayBoard}
             Cell={Cell}
             className='minesweeper-board'
@@ -123,41 +160,30 @@ const Minesweeper = () => {
             {gameWon && <p className='overlay-text'>You win!</p>}
           </div>
         </div>
-
-        <div className='minesweeper-panel-wrapper'>
-          <Panel sections={[{ heading: 'time', value: 0 }]} />
-          {useMediaQuery('DESKTOP') ? (
-            <Panel
-              sections={[
-                {
-                  heading: 'Controls',
-                  value: (
-                    <>
-                      <span className='panel-text'>LEFT-MOUSE = REVEAL</span>
-                      <span className='panel-text'>RIGHT-MOUSE = FLAG</span>
-                    </>
-                  ),
-                },
-              ]}
-            />
-          ) : (
-            <Panel
-              sections={[
-                {
-                  heading: 'Controls',
-                  value: (
-                    <>
-                      <span className='panel-text'>A = REVEAL</span>
-                      <span className='panel-text'>B = FLAG</span>
-                      <span className='panel-text'>PAD = MOVE</span>
-                    </>
-                  ),
-                },
-              ]}
-            />
-          )}
-        </div>
       </div>
+
+      <div className='game-instructions'>
+        <p className='panel-text panel-text-bold'>Instructions</p>
+
+        <ul className='panel-text game-list'>
+          <li>Press START to begin the game or play again when GAME OVER.</li>
+          <li>To quit and close, press QUIT.</li>
+          {useMediaQuery('DESKTOP') ? (
+            <>
+              <li>Use the MOUSE to select a cell.</li>
+              <li>LEFT-CLICK to reveal a cell.</li>
+              <li>RIGHT-CLICK to mark a cell with a flag.</li>
+            </>
+          ) : (
+            <>
+              <li>Use the d-pad to move Left, Right, Up or Down.</li>
+              <li>Press A to reveal a cell.</li>
+              <li>Press B to mark a cell with a flag.</li>
+            </>
+          )}
+        </ul>
+      </div>
+
       <div className='game-controls-wrapper'>
         <Controls
           move={() => null}

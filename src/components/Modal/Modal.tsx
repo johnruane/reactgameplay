@@ -1,17 +1,22 @@
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
-import classNames from 'classnames';
 import { zeroRightClassName } from 'react-remove-scroll-bar';
+import classNames from 'classnames';
 
 import Ticker from '@components/Ticker';
 
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
 import './Modal.scss';
-import useModalInteractions from './useModalInteractions';
 
-const Modal = ({ children }: { children: React.ReactNode }) => {
-  const { toggleModal } = useModalInteractions();
-
+const Modal = ({
+  children,
+  toggleModal,
+  setToggleModal,
+}: {
+  children: React.ReactNode;
+  toggleModal: boolean;
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <>
       <div className='modal-overlay' data-gsap='modal-overlay'></div>
@@ -24,7 +29,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
           <button
             className='modal-close-btn'
             aria-label='Quit game'
-            onClick={() => toggleModal('close')}
+            onClick={() => setToggleModal(false)}
           >
             <ArrowCircleRight width={70} height={70} className='modal-close-svg' />
           </button>
@@ -33,7 +38,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
         <Ticker textOne='GAME' textTwo='LOADED' additionalClasses='modal-ticker' />
       </div>
 
-      {/* { && <RemoveScrollBar />} */}
+      {toggleModal && <RemoveScrollBar />}
     </>
   );
 };

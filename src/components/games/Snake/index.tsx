@@ -28,7 +28,11 @@ const SNAKE_DIRECTIONS = {
 
 const FOOD_VALUE = 2;
 
-const Snake = ({ onQuitClickHandler }) => {
+const Snake = ({
+  setToggleModal,
+}: {
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const emptyBoard = create2dArray({
     numberOfRows: 15,
     numberOfColumns: 15,
@@ -57,7 +61,7 @@ const Snake = ({ onQuitClickHandler }) => {
   const [speed, setSpeed] = useState<number | null>(null);
   const [levelInterval, setLevelInterval] = useState<number | null>(null);
 
-  const [score, setScore] = useState<number | null>(null);
+  const [score, setScore] = useState<number | null>(0);
 
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,
@@ -225,28 +229,9 @@ const Snake = ({ onQuitClickHandler }) => {
 
   return (
     <>
-      <div className='gp-game-wrapper minesweeper-game-wrapper'>
+      <div className='gp-game-wrapper snake-game-wrapper'>
         <div className='snake-panel-wrapper'>
           <Panel sections={[{ heading: 'score', value: score }]} />
-          {useMediaQuery('DESKTOP') ? (
-            <Panel
-              sections={[
-                {
-                  heading: 'Controls',
-                  value: <span className='panel-text'>KEYPAD = MOVE</span>,
-                },
-              ]}
-            />
-          ) : (
-            <Panel
-              sections={[
-                {
-                  heading: 'Controls',
-                  value: <span className='panel-text'>PAD = MOVE</span>,
-                },
-              ]}
-            />
-          )}
         </div>
 
         <div className='overlay-wrapper'>
@@ -256,11 +241,30 @@ const Snake = ({ onQuitClickHandler }) => {
           </div>
         </div>
       </div>
+
+      <div className='game-instructions'>
+        <p className='panel-text panel-text-bold'>Instructions</p>
+
+        <ul className='panel-text game-list'>
+          <li>Press START to begin the game or play again when GAME OVER.</li>
+          <li>To quit and close, press QUIT.</li>
+          {useMediaQuery('DESKTOP') ? (
+            <>
+              <li>Use the ARROW keys to move Left, Right, Up or Down.</li>
+            </>
+          ) : (
+            <>
+              <li>Use the D-PAD to move Left, Right, Up or Down.</li>
+            </>
+          )}
+        </ul>
+      </div>
+
       <div className='game-controls-wrapper'>
         <Controls
           move={setProposedSnakeDirection}
           onStartClickHandler={startGame}
-          onQuitClickHandler={onQuitClickHandler}
+          onQuitClickHandler={() => setToggleModal(false)}
         />
       </div>
     </>

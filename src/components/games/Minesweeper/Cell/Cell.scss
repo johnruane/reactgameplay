@@ -9,7 +9,7 @@
     height: 1.5rem;
 
     &[data-value='-1'] {
-      background-color: #808080;
+      background-color: #b2b2b2;
     }
 
     &[data-value='9'] {
@@ -24,9 +24,18 @@
       display: contents;
     }
 
+    &[data-value='10'] {
+      background-image: url('@svg/games/flag.svg');
+      background-repeat: no-repeat;
+      background-position: calc(50% - 1px) calc(50% - 1px);
+      background-size: 1.4rem;
+      background-color: #b2b2b2;
+    }
+
+    &[data-value='10'],
     &[data-value='-1']:hover {
       cursor: pointer;
-      background-color: #b6b6b6;
+      background-color: #808080;
     }
 
     &:after {

@@ -8,16 +8,8 @@
   width: -webkit-fill-available;
 
   @include media('>=tablet') {
-    // transition-delay: 0.3s;
     width: 42rem;
   }
-
-  // &.open {
-  //   transform: translateX(0);
-  //   transition:
-  //     width 0.2s ease-out,
-  //     transform 0.4s ease-out;
-  // }
 }
 
 .modal-game-wrapper {
@@ -41,21 +33,11 @@
   position: fixed;
   padding-right: 1rem;
   top: 50%;
-  // opacity: 1;
-  // transform: translate3d(10%, -50%, 0);
-  // transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  // transition-delay: 0.5ms;
 
   @include media('<=tablet') {
     visibility: hidden;
   }
 }
-
-// .open .modal-close-svg-wrapper {
-//   transition-delay: 0.4s;
-//   transform: translate3d(-100%, -50%, 0);
-//   transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-// }
 
 .modal-close-btn {
   all: unset;
@@ -74,8 +56,3 @@
     fill: $color-black;
   }
 }
-
-// .modal-close-btn.hide {
-//   transform: translate3d(-150%, -50%, 0);
-//   pointer-events: none;
-// }

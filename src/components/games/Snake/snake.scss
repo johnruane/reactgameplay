@@ -1,31 +1,14 @@
 .snake-game-wrapper {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-columns: minmax(auto, 1fr) auto;
   margin: 0 auto;
   gap: 1rem;
   color: $color-white;
 }
 
 .snake-panel-wrapper {
-  grid-row: 2;
-  display: flex;
   gap: 0.5rem;
-}
-
-.snake-score-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
-
-  & > * {
-    grid-column: 2;
-    justify-items: center;
-    border-right: 1px solid #1e342c;
-  }
-
-  & > :last-child {
-    border: none;
-  }
+  display: flex;
 }
 
 .snake-board {
@@ -47,9 +30,5 @@
   /* Food colour */
   [data-value='2']::after {
     background: #008000;
-  }
-
-  @include media('>=desktop') {
-    grid-column: 1;
   }
 }

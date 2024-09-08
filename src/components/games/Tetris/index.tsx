@@ -59,7 +59,13 @@ const boardConfig = {
   fillValue: 0,
 };
 
-const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
+const Tetris = ({
+  additionalClasses,
+  setToggleModal,
+}: {
+  additionalClasses: string;
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
@@ -125,7 +131,7 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
 
   const quitGame = () => {
     resetGame();
-    onQuitClickHandler();
+    setToggleModal(false);
   };
 
   /*
@@ -397,13 +403,13 @@ const Tetris = ({ additionalClasses, onQuitClickHandler }) => {
           <li>To quit and close, press QUIT.</li>
           {useMediaQuery('DESKTOP') ? (
             <>
-              <li>Use the d-pad to move Left, Right or Down.</li>
-              <li>Press A to rotate.</li>
+              <li>Use the ARROW keys to move Left, Right or Down.</li>
+              <li>Press SPACE to rotate.</li>
             </>
           ) : (
             <>
-              <li>Use the ARROW keys to move Left, Right or Down.</li>
-              <li>Press SPACE to rotate.</li>
+              <li>Use the D-PAD to move Left, Right or Down.</li>
+              <li>Press A to rotate.</li>
             </>
           )}
         </ul>

@@ -1,21 +1,20 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
+
 import './board.scss';
 
-export default function Board({
-  board,
-  Cell,
-  className,
-  onClickCellCallback,
-  isGameOver,
-}: {
-  board: number[][];
-  Cell: React.NamedExoticComponent;
-  className?: string;
-  onClickCellCallback?: () => void;
-  isGameOver?: boolean;
-}) {
+const Board = forwardRef<
+  HTMLDivElement,
+  {
+    board: number[][];
+    Cell: React.NamedExoticComponent;
+    className?: string;
+    onClickCellCallback?: () => void;
+    isGameOver?: boolean;
+  }
+>(({ board, Cell, className, onClickCellCallback, isGameOver }, ref) => {
   return (
-    <div className={classNames('board', className)}>
+    <div ref={ref} className={classNames('board', className)}>
       {board?.map((boardRow, i) => (
         <div key={`r-${i}`} className='board-row' data-animate='row'>
           {boardRow.map((cell, j) => (
@@ -32,4 +31,6 @@ export default function Board({
       ))}
     </div>
   );
-}
+});
+
+export default Board;

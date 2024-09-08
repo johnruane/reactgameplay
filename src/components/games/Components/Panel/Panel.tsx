@@ -1,9 +1,13 @@
 import './panel.scss';
 
-export default function Panel({ sections }) {
+export default function Panel({
+  sections,
+}: {
+  sections: Record<string, string | number>[];
+}) {
   return (
     <div className='panel-wrapper'>
-      {sections.map((section) => {
+      {sections?.map((section) => {
         const { heading = null, value = null } = section || {};
         return (
           <div className='panel' key={heading}>
