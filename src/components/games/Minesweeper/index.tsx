@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useRef, MouseEvent } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
@@ -21,11 +21,12 @@ import Panel from '../Components/Panel';
 /* Styles */
 import '../style.scss';
 import './minsweeper.scss';
+import removeObjectFromArray from './lib/removeObjectFromArray';
 
 const Minesweeper = () => {
   const boardRef = useRef<HTMLDivElement>(null);
 
-  const mineCount = 9;
+  const mineCount = 10;
   const emptyCellValue = -1;
   const mineBoard = generateMineBoard({
     board: create2dArray({
@@ -50,28 +51,35 @@ const Minesweeper = () => {
   const [cellSelected, setCellSelected] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
-  const [flagsMarked, setFlagsMarked] = useState<number>(10);
+  const [flagsMarked, setFlagsMarked] = useState<CellPosition[]>([]);
 
   const handleCellClick = useCallback(
     (e) => {
       if (gameOver || gameWon) return;
 
       const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
-      const dfsCells = depthFirstSearch({ board: gameplayBoard, pos: selectedCellPos });
-
-      const numberedCells = findNumberedNeighbours({
+      const dfsCellsFound = depthFirstSearch({
         board: gameplayBoard,
-        cellsToSearch: dfsCells,
+        pos: selectedCellPos,
       });
 
-      const combinedCells =
-        dfsCells.length > 1 ? dfsCells.concat(numberedCells) : dfsCells;
+      const neighbouringCellsFound = findNumberedNeighbours({
+        board: gameplayBoard,
+        cellsToSearch: dfsCellsFound,
+      });
+
+      const cellsToUpdate =
+        dfsCellsFound.length > 1
+          ? dfsCellsFound.concat(neighbouringCellsFound)
+          : dfsCellsFound;
+
+      // const flaggedCellsFound = findFlaggedCells({ cellsToSearch: cellsToUpdate });
 
       setDisplayBoard((prevDisplayBoard) => {
         const newBoard = updateDisplayBoard({
           displayBoard: prevDisplayBoard,
           gameBoard: gameplayBoard,
-          cellsToUpdate: combinedCells,
+          cellsToUpdate: cellsToUpdate,
         });
         return newBoard;
       });
@@ -105,28 +113,37 @@ const Minesweeper = () => {
     }
   }, [displayBoard]);
 
-  function rightClick(e) {
-    e.preventDefault();
-
-    switch (e.target.getAttribute('data-value')) {
-      case '-1':
-        e.target.setAttribute('data-value', '10');
-        setFlagsMarked((prev) => prev - 1);
-        break;
-      case '10':
-        e.target.setAttribute('data-value', '-1');
-        setFlagsMarked((prev) => prev + 1);
-        break;
-      default:
-        break;
-    }
-  }
-
   useEffect(() => {
     if (boardRef.current) {
-      boardRef.current.oncontextmenu = rightClick;
+      boardRef.current.oncontextmenu = (e: MouseEvent) => {
+        e.preventDefault();
+
+        const target = e.target as HTMLElement;
+        const targetDataValue = target?.getAttribute('data-value');
+        const targetDataPos = target?.getAttribute('data-pos');
+        const targetCellPos = targetDataPos ? JSON.parse(targetDataPos) : null;
+
+        // Flag cell
+        if (mineCount - flagsMarked.length !== 0 && targetDataValue === '-1') {
+          target.setAttribute('data-value', '10');
+          setFlagsMarked((prev) => [...prev, targetCellPos]);
+        }
+
+        // Un-flag cell
+        if (targetDataValue === '10') {
+          target.setAttribute('data-value', '-1');
+
+          setFlagsMarked((prev) => {
+            const newFlagged = removeObjectFromArray({
+              array: [...prev],
+              obj: targetCellPos,
+            });
+            return newFlagged;
+          });
+        }
+      };
     }
-  }, []);
+  }, [flagsMarked]);
 
   // useEffect(() => {
   //   initialiseGame();
@@ -139,7 +156,7 @@ const Minesweeper = () => {
           <Panel
             sections={[
               { heading: 'time', value: 0 },
-              { heading: 'mines', value: flagsMarked },
+              { heading: 'mines', value: mineCount - flagsMarked.length },
             ]}
           />
           <span className='minesweeper-emoji'>&#128512;</span>

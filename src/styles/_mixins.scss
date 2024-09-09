@@ -35,7 +35,7 @@
 
 @mixin tileColor($color) {
   border-color: $color;
-  background-color: darken($color, 30%);
+  background-color: darken($color, 20%);
 
   & > :first-child {
     background-color: $color;

@@ -3,10 +3,11 @@
   --duration: 240s;
   --delay: 0s;
   --iteration-count: infinite;
+  --ticker-height: clamp(2.625rem, 5vw, 3rem);
 }
 
 .t-wrapper {
-  height: clamp(2.625rem, 5vw, 3rem);
+  height: var(--ticker-height);
   background-color: $color-pink;
   overflow-x: hidden;
   width: 100%;

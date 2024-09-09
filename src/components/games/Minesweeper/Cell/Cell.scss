@@ -32,10 +32,10 @@
       background-color: #b2b2b2;
     }
 
-    &[data-value='10'],
+    &[data-value='10']:hover,
     &[data-value='-1']:hover {
       cursor: pointer;
-      background-color: #808080;
+      background-color: $color-teal;
     }
 
     &:after {

@@ -30,7 +30,7 @@ const Games = ({ additionalClasses }) => {
               <span className='gs-link'>IN DEVELOPMENT</span>
             ) : (
               <div className='lc-link gs-link'>
-                <span>Play game</span>
+                <span>Go to game</span>
                 <ArrowRight className='fluid-img' />
               </div>
             )}

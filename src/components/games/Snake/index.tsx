@@ -61,7 +61,7 @@ const Snake = ({
   const [speed, setSpeed] = useState<number | null>(null);
   const [levelInterval, setLevelInterval] = useState<number | null>(null);
 
-  const [score, setScore] = useState<number | null>(0);
+  const [score, setScore] = useState<number>(0);
 
   const prohibitedDirections = {
     ArrowUp: SNAKE_DIRECTIONS.ARROW_DOWN,

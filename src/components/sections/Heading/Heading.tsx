@@ -5,10 +5,10 @@ import './Heading.scss';
 
 const Heading = ({ title, className }) => {
   return (
-    <h3 className={classNames('h-heading-wrapper', className)}>
+    <h2 className={classNames('h-heading-wrapper', className)}>
       <HeadingsIcon className='test2' />
       <span className='h-heading'>{title}</span>
-    </h3>
+    </h2>
   );
 };
 

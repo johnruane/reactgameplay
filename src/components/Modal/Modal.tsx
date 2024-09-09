@@ -34,7 +34,7 @@ const Modal = ({
             <ArrowCircleRight width={70} height={70} className='modal-close-svg' />
           </button>
         </div>
-        <div className='modal-game-wrapper background-blue'>{children}</div>
+        <div className='modal-game-wrapper'>{children}</div>
         <Ticker textOne='GAME' textTwo='LOADED' additionalClasses='modal-ticker' />
       </div>
 

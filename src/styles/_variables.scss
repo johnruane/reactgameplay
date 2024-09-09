@@ -21,20 +21,22 @@ $component-border-radius: 1.875rem;
 
 /* Colours */
 $color-yellow: #f4d34b;
-$color-black: #1b2f27;
+$color-black: #16261f;
 $color-pink: #e55496;
 $color-teal: #41ead4;
-$color-white: #fefefe;
+$color-white: #fffafa;
 $color-grey: #ececec;
 $color-code-light: lighten($color-pink, 20%);
 $color-code-dark: darken($color-pink, 20%);
-$color-not-black: #0b1215;
-$color-not-white: #fffafa;
+$color-background-black: #1b2f27;
+
+/* Colours Ticker */
+$color-ticker-pink: #e55496;
 
 /* Colours Game Tiles */
 $color-game-tile-red: #c9353e;
-$color-game-tile-green: #27ae60;
-$color-game-tile-teal: #50b0a1;
+$color-game-tile-green: #1e8449;
+$color-game-tile-teal: #387d72;
 $color-game-tile-blue: #1aa5dc;
 $color-game-tile-pink: #e55496;
 
@@ -56,8 +58,8 @@ $cell-background-color: #161616;
 $cell-outline-color: #454545;
 
 /* Modal */
-$modal-blue: #083f88;
-$modal-black: $cell-background-color;
+$color-modal-background: #2978a0;
+$color-panel-background: $cell-background-color;
 
 /* Grid */
 $grid-phone: repeat(6, 1fr);
