@@ -23,11 +23,11 @@ const GamePage = () => {
   const { title } = useParams();
   const navigate = useNavigate();
 
-  const [modalKey, setModalKey] = useState(0); // Used to reset component state
+  const [gameKey, setGameKey] = useState(0); // Used to reset component state
 
   useBouncingHead();
   const { toggleModal, setToggleModal } = useModalInteractions({
-    onModalCloseCallback: setModalKey,
+    onModalCloseCallback: setGameKey,
   });
 
   const pageIndex = pages.findIndex(({ id }) => id === title);
@@ -132,7 +132,11 @@ const GamePage = () => {
       </section>
 
       <Modal toggleModal={toggleModal} setToggleModal={setToggleModal}>
-        <GameComponent key={modalKey} setToggleModal={setToggleModal} />
+        <GameComponent
+          key={gameKey}
+          setToggleModal={setToggleModal}
+          setGameKey={setGameKey}
+        />
       </Modal>
     </>
   );

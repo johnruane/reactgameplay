@@ -60,10 +60,10 @@ const boardConfig = {
 };
 
 const Tetris = ({
-  additionalClasses,
+  setGameKey,
   setToggleModal,
 }: {
-  additionalClasses: string;
+  setGameKey: React.Dispatch<React.SetStateAction<number>>;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [position, setPosition] = useState({ r: 0, c: 4 });
@@ -94,26 +94,6 @@ const Tetris = ({
   const previousLevelIntervalRef = useRef<number | null>(null);
   const nextTetrominolRef = useRef<{ value: number; matrix: number[][] } | null>(null);
 
-  const resetGame = () => {
-    setDisplayBoard(create2dArray(boardConfig));
-    setStaticBoard(create2dArray(boardConfig));
-
-    setPosition({ r: 0, c: 4 });
-
-    setCurrentTetromino(null);
-    setNextTetromino(null);
-
-    setScore('000000');
-    setLines(0);
-    setLevel(0);
-
-    setSpeed(null);
-    setLevelInterval(null);
-
-    setGameOver(false);
-    setHasGameStarted(false);
-  };
-
   const startGame = () => {
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
@@ -129,10 +109,10 @@ const Tetris = ({
     setHasGameStarted(true);
   };
 
-  const quitGame = () => {
-    resetGame();
+  const quitGame = useCallback(() => {
+    setGameKey((prev) => prev + 1);
     setToggleModal(false);
-  };
+  }, [setGameKey, setToggleModal]);
 
   /*
    * Setting these two intervals to 'null' stops the useInterval hook from executing and effectively
@@ -369,7 +349,7 @@ const Tetris = ({
 
   return (
     <>
-      <div className={classNames('tetris tetris-game-wrapper', additionalClasses)}>
+      <div className={'tetris tetris-game-wrapper'}>
         <div className='game-side-details'>
           <div className='tetris-panel-wrapper'>
             <Panel

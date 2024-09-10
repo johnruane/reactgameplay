@@ -7,6 +7,7 @@
 import { getCellValue } from './getCellValue';
 import { findNeighbourCells } from './findNeighbourCells';
 import { isObjectInSet } from '../../utils/isObjectInSet';
+import { findNumberedNeighbours } from './findNumberedNeighbours';
 
 export const depthFirstSearch = ({
   board,
@@ -23,6 +24,10 @@ export const depthFirstSearch = ({
   const visited = new Set<CellPosition>();
   const result: CellPosition[] = [];
 
+  /*
+   * This loop performs a search of all adjacent cells and adds them to the 'stack' if they are 0. The result
+   * is an array of all 0 cells that are connected.
+   */
   while (stack.length) {
     const vertex: CellPosition | undefined = stack.pop();
     if (!vertex) return [];
@@ -40,5 +45,14 @@ export const depthFirstSearch = ({
     }
   }
 
-  return result;
+  /*
+   * This next loop looks at all the cells in 'result' and returns all numbered adjacent cells. This is so that the
+   * 'flood-fill' feature reveals the numbered cells adjacent to the zero-based 'flood-fill' search.
+   */
+  const neighbouringCellsFound = findNumberedNeighbours({
+    board: board,
+    cellsToSearch: result,
+  });
+
+  return result.concat(neighbouringCellsFound);
 };

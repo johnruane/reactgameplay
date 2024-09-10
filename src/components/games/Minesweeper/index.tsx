@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
@@ -6,7 +6,6 @@ import { generateCluesBoard } from './lib/generateCluesBoard';
 import { updateDisplayBoard } from './lib/updateDisplayBoard';
 import { getCellValue } from './lib/getCellValue';
 import { depthFirstSearch } from './lib/depthFirstSearch';
-import { findNumberedNeighbours } from './lib/findNumberedNeighbours';
 import { create2dArray } from '../utils';
 
 /* Hooks */
@@ -23,18 +22,25 @@ import '../style.scss';
 import './minsweeper.scss';
 import removeObjectFromArray from './lib/removeObjectFromArray';
 
-const Minesweeper = () => {
+const Minesweeper = ({
+  setGameKey,
+  setToggleModal,
+}: {
+  setGameKey: React.Dispatch<React.SetStateAction<number>>;
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const boardRef = useRef<HTMLDivElement>(null);
 
-  const mineCount = 10;
+  const numberOfMines = 10;
   const emptyCellValue = -1;
+
   const mineBoard = generateMineBoard({
     board: create2dArray({
       numberOfRows: 9,
       numberOfColumns: 9,
       fillValue: emptyCellValue,
     }),
-    numberOfMines: mineCount,
+    numberOfMines: numberOfMines,
   });
 
   const cluesBoard = generateCluesBoard({ board: mineBoard, emptyCellValue });
@@ -48,68 +54,84 @@ const Minesweeper = () => {
     })
   );
 
-  const [cellSelected, setCellSelected] = useState(null);
-  const [gameOver, setGameOver] = useState(false);
-  const [gameWon, setGameWon] = useState(false);
+  const [gameOver, setGameOver] = useState('');
   const [flagsMarked, setFlagsMarked] = useState<CellPosition[]>([]);
 
-  const handleCellClick = useCallback(
-    (e) => {
-      if (gameOver || gameWon) return;
+  const gameOverRef = useRef(gameOver);
 
-      const selectedCellPos = JSON.parse(e.target.getAttribute('data-pos'));
-      const dfsCellsFound = depthFirstSearch({
-        board: gameplayBoard,
-        pos: selectedCellPos,
-      });
+  const handleCellClick = (e) => {
+    if (gameOverRef.current) return;
 
-      const neighbouringCellsFound = findNumberedNeighbours({
-        board: gameplayBoard,
-        cellsToSearch: dfsCellsFound,
-      });
+    const target = e.target;
+    const selectedCellValue = target.getAttribute('data-value');
+    const selectedCellPos = JSON.parse(target.getAttribute('data-pos'));
 
-      const cellsToUpdate =
-        dfsCellsFound.length > 1
-          ? dfsCellsFound.concat(neighbouringCellsFound)
-          : dfsCellsFound;
-
-      // const flaggedCellsFound = findFlaggedCells({ cellsToSearch: cellsToUpdate });
-
-      setDisplayBoard((prevDisplayBoard) => {
-        const newBoard = updateDisplayBoard({
-          displayBoard: prevDisplayBoard,
-          gameBoard: gameplayBoard,
-          cellsToUpdate: cellsToUpdate,
-        });
-        return newBoard;
-      });
-
-      setCellSelected(selectedCellPos);
-    },
-    [displayBoard, gameplayBoard]
-  );
-
-  function startNewGame() {
-    setGameplayBoard(cluesBoard);
-  }
-
-  useEffect(() => {
-    if (cellSelected && getCellValue({ board: gameplayBoard, pos: cellSelected }) === 9) {
-      setGameOver(true);
+    // If cell is a flagged cell stop execution
+    if (selectedCellValue === '10') {
+      return;
     }
-  }, [cellSelected]);
+
+    const cellsToUpdate = depthFirstSearch({
+      board: gameplayBoard,
+      pos: selectedCellPos,
+    });
+
+    setDisplayBoard((prev) => {
+      const newBoard = updateDisplayBoard({
+        displayBoard: prev,
+        gameBoard: gameplayBoard,
+        cellsToUpdate: cellsToUpdate,
+      });
+      return newBoard;
+    });
+
+    // If cell is a mine set 'game over'
+    if (getCellValue({ board: gameplayBoard, pos: selectedCellPos }) === 9) {
+      setGameOver('lose');
+      return;
+    }
+  };
+
+  const startNewGame = useCallback(() => {
+    setGameKey((prev) => prev + 1);
+  }, [setGameKey]);
+
+  const quitGame = useCallback(() => {
+    setToggleModal(false);
+  }, [setToggleModal]);
 
   useEffect(() => {
-    let mineCount = 0;
+    gameOverRef.current = gameOver;
+  }, [gameOver]);
+
+  useEffect(() => {
+    for (const pos of flagsMarked) {
+      const { r, c } = pos || {};
+      if (displayBoard[r][c] !== -1) {
+        setFlagsMarked((prev) => {
+          const newFlagged = removeObjectFromArray({
+            array: [...prev],
+            obj: pos,
+          });
+          return newFlagged;
+        });
+      }
+    }
+  }, [displayBoard]);
+
+  useEffect(() => {
+    let cellUncovered = 0;
     displayBoard.forEach((row) => {
       row.forEach((cell) => {
         if (cell === -1) {
-          mineCount += 1;
+          cellUncovered += 1;
         }
       });
     });
-    if (mineCount === 9) {
-      setGameWon(true);
+
+    // If there are the same number of cells hidden as mines layed, the game is won
+    if (cellUncovered === numberOfMines) {
+      setGameOver('win');
     }
   }, [displayBoard]);
 
@@ -124,7 +146,7 @@ const Minesweeper = () => {
         const targetCellPos = targetDataPos ? JSON.parse(targetDataPos) : null;
 
         // Flag cell
-        if (mineCount - flagsMarked.length !== 0 && targetDataValue === '-1') {
+        if (numberOfMines - flagsMarked.length !== 0 && targetDataValue === '-1') {
           target.setAttribute('data-value', '10');
           setFlagsMarked((prev) => [...prev, targetCellPos]);
         }
@@ -145,10 +167,6 @@ const Minesweeper = () => {
     }
   }, [flagsMarked]);
 
-  // useEffect(() => {
-  //   initialiseGame();
-  // }, []);
-
   return (
     <>
       <div className='gp-game-wrapper minesweeper-game-wrapper'>
@@ -156,10 +174,10 @@ const Minesweeper = () => {
           <Panel
             sections={[
               { heading: 'time', value: 0 },
-              { heading: 'mines', value: mineCount - flagsMarked.length },
+              { heading: 'flags', value: numberOfMines - flagsMarked.length },
             ]}
           />
-          <span className='minesweeper-emoji'>&#128512;</span>
+          <span className='minesweeper-emoji'> {gameOver ? '😵' : '😀'}</span>
         </div>
 
         <div className='overlay-wrapper'>
@@ -173,8 +191,11 @@ const Minesweeper = () => {
             isGameOver={gameOver}
           />
           <div className='overlay-text-wrapper'>
-            {gameOver && <p className='overlay-text'>Game Over</p>}
-            {gameWon && <p className='overlay-text'>You win!</p>}
+            {gameOver && (
+              <p className='overlay-text'>
+                {gameOver === 'win' ? 'You win!' : 'Game Over'}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -205,7 +226,7 @@ const Minesweeper = () => {
         <Controls
           move={() => null}
           onStartClickHandler={startNewGame}
-          onQuitClickHandler={() => null}
+          onQuitClickHandler={quitGame}
         />
       </div>
     </>

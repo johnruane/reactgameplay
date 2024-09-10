@@ -10,9 +10,8 @@ const Board = forwardRef<
     Cell: React.NamedExoticComponent;
     className?: string;
     onClickCellCallback?: () => void;
-    isGameOver?: boolean;
   }
->(({ board, Cell, className, onClickCellCallback, isGameOver }, ref) => {
+>(({ board, Cell, className, onClickCellCallback }, ref) => {
   return (
     <div ref={ref} className={classNames('board', className)}>
       {board?.map((boardRow, i) => (
@@ -24,7 +23,6 @@ const Board = forwardRef<
               value={cell}
               pos={`{"r":${i},"c":${j}}`}
               onClickCellCallback={onClickCellCallback}
-              isGameOver={isGameOver}
             />
           ))}
         </div>

@@ -8,17 +8,13 @@ const Cell = memo(function Cell(props) {
     value = 0,
     pos = { r: 0, c: 0 },
     onClickCellCallback = () => {},
-    isGameOver = false,
   }: {
     value?: number;
     pos?: CellPosition;
     onClickCellCallback?: (e: Event) => void;
-    isGameOver?: boolean;
   } = props ?? {};
 
   function onClick(e) {
-    if (isGameOver) return;
-
     onClickCellCallback(e);
   }
 
