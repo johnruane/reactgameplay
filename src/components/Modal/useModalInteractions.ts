@@ -65,7 +65,7 @@ const useModalInteractions = ({
         },
         0.1
       );
-  });
+  }, []);
 
   useGSAP(() => {
     if (toggleModal) {
