@@ -15,7 +15,7 @@ const useAnimateGameIcon = () => {
 
       timeline.to(icon, {
         y: '-=8',
-        duration: 0.3,
+        duration: 0.4,
         repeat: -1,
         yoyo: true,
       });

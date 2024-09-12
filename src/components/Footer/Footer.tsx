@@ -1,16 +1,20 @@
 import Ticker from '@components/Ticker';
 import LinkComponent from '@components/LinkComponent';
 
+import useBouncingHead from '@hooks/useBouncingHead';
+
 import Invader from '@svg/global/invader.svg?react';
 
 import './Footer.scss';
 
 const Footer = () => {
+  useBouncingHead();
+
   return (
     <>
       <Ticker textOne='GAME' textTwo='OVER' direction='RTL' />
 
-      <footer className='ft-footer'>
+      <footer className='ft-footer gsap-bouncing'>
         <section className='container background-teal'>
           <div className='grid ft-footer-wrapper'>
             <div className='ft-content-wrapper' data-stack='space-m'>

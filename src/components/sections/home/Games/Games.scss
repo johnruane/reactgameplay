@@ -53,6 +53,12 @@
   text-decoration: none;
 }
 
+.gs-tile:has(~ .gs-tile:hover),
+.gs-tile:hover ~ .gs-tile {
+  transition: opacity 0.35s ease-in-out;
+  opacity: 0.5;
+}
+
 .gs-icon {
   grid-area: icon;
   align-self: baseline;
