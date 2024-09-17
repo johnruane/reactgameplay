@@ -12,8 +12,6 @@
 }
 
 .snake-board {
-  grid-column: 2;
-
   & .board-cell,
   & .board-cell::after {
     @include media('>=tablet') {

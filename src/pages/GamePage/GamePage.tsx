@@ -68,7 +68,7 @@ const GamePage = () => {
     <>
       <div className='grid background-black gp-back-wrapper'>
         <Link to={'../#games-section'} aria-label='Back to homepage'>
-          <Back className='fluid-img' />
+          <Back className='gp-back-btn' />
         </Link>
       </div>
 
