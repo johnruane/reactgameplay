@@ -1,5 +1,3 @@
-import { RemoveScrollBar } from 'react-remove-scroll-bar';
-import { zeroRightClassName } from 'react-remove-scroll-bar';
 import classNames from 'classnames';
 
 import Ticker from '@components/Ticker';
@@ -10,21 +8,16 @@ import './Modal.scss';
 
 const Modal = ({
   children,
-  toggleModal,
   setToggleModal,
 }: {
   children: React.ReactNode;
-  toggleModal: boolean;
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <>
       <div className='modal-overlay' data-gsap='modal-overlay'></div>
 
-      <div
-        className={classNames('modal-container', zeroRightClassName)}
-        data-gsap='modal-container'
-      >
+      <div className={classNames('modal-container')} data-gsap='modal-container'>
         <div className='modal-close-svg-wrapper' data-gsap='modal-close-btn'>
           <button
             className='modal-close-btn'
@@ -37,8 +30,6 @@ const Modal = ({
         <div className='modal-game-wrapper'>{children}</div>
         <Ticker textOne='GAME' textTwo='LOADED' additionalClasses='modal-ticker' />
       </div>
-
-      {toggleModal && <RemoveScrollBar />}
     </>
   );
 };

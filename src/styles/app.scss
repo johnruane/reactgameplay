@@ -21,6 +21,8 @@ body {
   font-weight: $font-weight-regular;
   font-style: normal;
   font-variation-settings: 'wdth' 100;
+  -webkit-font-smoothing: antialiased;
+  background-color: $color-black;
 }
 
 button:hover {

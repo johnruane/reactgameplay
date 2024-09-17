@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import DefaultLayout from './components/Layouts/DefaultLayout/DefaultLayout';
+import GlobalLayout from '@layouts/GlobalLayout';
+import DefaultLayout from '@layouts/DefaultLayout';
 import GameLayout from '@layouts/GameLayout';
+
 import Home from '@pages/Home';
 import Error404 from '@pages/404';
 import GamePage from '@pages/GamePage';
@@ -18,16 +20,21 @@ export default function App() {
 
   const routes = createBrowserRouter([
     {
-      element: <DefaultLayout />,
-      children: [{ path: '/', element: <Home /> }],
-      errorElement: <Error404 />,
+      element: <GlobalLayout />,
+      children: [
+        {
+          element: <DefaultLayout />,
+          children: [{ path: '/', element: <Home /> }],
+          errorElement: <Error404 />,
+        },
+        {
+          element: <GameLayout />,
+          children: [{ path: 'gamepage/:title', element: <GamePage /> }],
+          errorElement: <Error404 />,
+        },
+        { path: '*', element: <Error404 /> },
+      ],
     },
-    {
-      element: <GameLayout />,
-      children: [{ path: 'gamepage/:title', element: <GamePage /> }],
-      errorElement: <Error404 />,
-    },
-    { path: '*', element: <Error404 /> },
   ]);
 
   return <RouterProvider router={routes} />;

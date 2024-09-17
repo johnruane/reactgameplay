@@ -6,9 +6,11 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(MotionPathPlugin);
 
 const useModalInteractions = ({
-  onModalCloseCallback,
+  onModalOpenCallback,
+  onModalCloseCompleteCallback,
 }: {
-  onModalCloseCallback: React.Dispatch<React.SetStateAction<number>>;
+  onModalOpenCallback: () => void;
+  onModalCloseCompleteCallback: () => void;
 }) => {
   const timeline = useRef<gsap.core.Timeline>();
   const [toggleModal, setToggleModal] = useState(false);
@@ -37,10 +39,11 @@ const useModalInteractions = ({
           duration: 0.35,
           ease: 'power2.inOut',
           onStart: () => {
+            onModalOpenCallback();
             gsap.set(modalOverlay, { visibility: 'visible' });
           },
           onReverseComplete: () => {
-            onModalCloseCallback((prev) => prev + 1);
+            onModalCloseCompleteCallback();
             gsap.set(modalOverlay, { visibility: 'hidden' });
           },
         },

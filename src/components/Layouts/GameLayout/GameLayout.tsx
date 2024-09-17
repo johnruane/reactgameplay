@@ -1,17 +1,14 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import Ticker from '@components/Ticker';
 import Footer from '@components/Footer';
 
-import GetKey from '../../../utils/GetKey';
-
-export default function GameLayout() {
+const GameLayout = () => {
   return (
     <>
-      <Ticker textOne='INSERT' textTwo='COIN' />
       <Outlet />
       <Footer />
-      <ScrollRestoration getKey={GetKey()} />
     </>
   );
-}
+};
+
+export default GameLayout;

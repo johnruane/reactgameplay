@@ -1,15 +1,14 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
-import Ticker from '../../Ticker';
-import Footer from '../../Footer';
-import GetKey from '../../../utils/GetKey';
+import { Outlet } from 'react-router-dom';
 
-export default function DefaultLayout() {
+import Footer from '../../Footer';
+
+const DefaultLayout = () => {
   return (
     <>
-      <Ticker textOne='INSERT' textTwo='COIN' />
       <Outlet />
       <Footer />
-      <ScrollRestoration getKey={GetKey()} />
     </>
   );
-}
+};
+
+export default DefaultLayout;

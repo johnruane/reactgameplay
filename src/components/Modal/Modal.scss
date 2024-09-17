@@ -4,8 +4,8 @@
   right: 0;
   bottom: 0;
   will-change: transform;
-  width: fit-content;
-  width: -webkit-fill-available;
+  width: 100vw;
+  transition: width 0.25s ease-in;
 
   @include media('>=tablet') {
     width: 40rem;
@@ -27,7 +27,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-close-svg-wrapper {

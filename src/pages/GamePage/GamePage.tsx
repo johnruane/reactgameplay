@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 import pages from '@data/pages';
 
@@ -24,10 +25,21 @@ const GamePage = () => {
   const navigate = useNavigate();
 
   const [gameKey, setGameKey] = useState(0); // Used to reset component state
+  const [removeScrollbar, setRemoveScrollbar] = useState(false);
+
+  const modalCloseCallback = () => {
+    setGameKey((prev) => prev + 1);
+    setRemoveScrollbar(false);
+  };
+
+  const modalOpenCallback = () => {
+    setRemoveScrollbar(true);
+  };
 
   useBouncingHead();
   const { toggleModal, setToggleModal } = useModalInteractions({
-    onModalCloseCallback: setGameKey,
+    onModalOpenCallback: modalOpenCallback,
+    onModalCloseCompleteCallback: modalCloseCallback,
   });
 
   const pageIndex = pages.findIndex(({ id }) => id === title);
@@ -64,12 +76,20 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
+  const handleBack = () => {
+    window.history.back(); // Use browser's native back functionality
+  };
+
   return (
     <>
       <div className='grid background-black gp-back-wrapper'>
-        <Link to={'../#games-section'} aria-label='Back to homepage'>
-          <Back className='gp-back-btn' />
-        </Link>
+        <button
+          className='gp-back-btn'
+          onClick={handleBack}
+          aria-label='Back to homepage'
+        >
+          <Back />
+        </button>
       </div>
 
       <section className='container background-black'>
@@ -131,13 +151,15 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal toggleModal={toggleModal} setToggleModal={setToggleModal}>
+      <Modal setToggleModal={setToggleModal}>
         <GameComponent
           key={gameKey}
           setToggleModal={setToggleModal}
           setGameKey={setGameKey}
         />
       </Modal>
+
+      {removeScrollbar && <RemoveScrollBar />}
     </>
   );
 };

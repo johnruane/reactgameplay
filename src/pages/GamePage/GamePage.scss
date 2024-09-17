@@ -174,8 +174,12 @@
 }
 
 .gp-back-btn {
-  width: 4rem;
-  height: auto;
-  border: 2px solid $color-white;
-  border-radius: 20rem;
+  all: unset;
+
+  & svg {
+    width: 4rem;
+    height: auto;
+    border: 2px solid $color-white;
+    border-radius: 20rem;
+  }
 }
