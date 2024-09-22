@@ -13,6 +13,6 @@ describe('convertScore Test Suite', () => {
     ({ score, multiplier, output }) => {
       const result = convertScore(score, multiplier);
       expect(result).toBe(output);
-    }
+    },
   );
 });

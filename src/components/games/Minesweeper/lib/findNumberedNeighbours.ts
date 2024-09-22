@@ -1,6 +1,6 @@
-import { findNeighbourCells } from './findNeighbourCells';
-import { isObjectInSet } from '../../utils/isObjectInSet';
 import { isObjectInArray } from '../../utils/isObjectInArray';
+import { isObjectInSet } from '../../utils/isObjectInSet';
+import { findNeighbourCells } from './findNeighbourCells';
 
 /**
  * Takes @board and @cellsToSearch array and iterates over each {r: string, c: string}. Each position

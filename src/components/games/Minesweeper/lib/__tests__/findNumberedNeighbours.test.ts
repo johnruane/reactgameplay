@@ -1,5 +1,6 @@
-import { vi } from 'vitest';
 import { findNumberedNeighbours } from '../findNumberedNeighbours';
+
+import { vi } from 'vitest';
 
 describe('findNumberedNeighbours', () => {
   beforeEach(() => {
@@ -24,7 +25,7 @@ describe('findNumberedNeighbours', () => {
         { r: 0, c: 1 },
         { r: 1, c: 0 },
         { r: 0, c: 2 },
-      ])
+      ]),
     );
   });
 
@@ -48,7 +49,7 @@ describe('findNumberedNeighbours', () => {
       expect.arrayContaining([
         { r: 1, c: 0 },
         { r: 0, c: 2 },
-      ])
+      ]),
     );
   });
 
@@ -73,7 +74,7 @@ describe('findNumberedNeighbours', () => {
         { r: 0, c: 1 },
         { r: 0, c: 2 },
         { r: 1, c: 0 },
-      ])
+      ]),
     );
   });
 

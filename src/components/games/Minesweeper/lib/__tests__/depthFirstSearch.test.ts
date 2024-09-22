@@ -37,7 +37,7 @@ describe('depthFirstSearch', () => {
         { r: 1, c: 3 },
         { r: 2, c: 3 },
         { r: 3, c: 3 },
-      ])
+      ]),
     );
   });
 
@@ -61,7 +61,7 @@ describe('depthFirstSearch', () => {
         { r: 1, c: 0 },
         { r: 2, c: 0 },
         { r: 3, c: 0 },
-      ])
+      ]),
     );
   });
 
@@ -88,7 +88,7 @@ describe('depthFirstSearch', () => {
         { r: 1, c: 2 },
         { r: 2, c: 0 },
         { r: 2, c: 1 },
-      ])
+      ]),
     );
   });
 });

@@ -1,5 +1,6 @@
-import _cloneDeep from 'lodash/cloneDeep';
 import { getCellValue } from './getCellValue';
+
+import _cloneDeep from 'lodash/cloneDeep';
 
 /**
  * Takes @displayBoard @gameplayBoard and @cellsToUpdate and for each position in either a single {r, c} } object or Array of

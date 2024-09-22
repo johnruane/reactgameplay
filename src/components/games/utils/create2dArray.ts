@@ -8,6 +8,8 @@ export const create2dArray = ({
   fillValue?: number;
 }): number[][] => {
   const rows = new Array(numberOfColumns).fill(fillValue);
-  const generatedArray = new Array(numberOfRows).fill(null).map(() => [...rows]);
+  const generatedArray = new Array(numberOfRows)
+    .fill(null)
+    .map(() => [...rows]);
   return generatedArray;
 };

@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+
 import classNames from 'classnames';
 
 import './board.scss';
@@ -15,7 +16,7 @@ const Board = forwardRef<
   return (
     <div ref={ref} className={classNames('board', className)}>
       {board?.map((boardRow, i) => (
-        <div key={`r-${i}`} className='board-row' data-animate='row'>
+        <div key={`r-${i}`} className="board-row" data-animate="row">
           {boardRow.map((cell, j) => (
             <Cell
               key={`c-${i}-${j}`}

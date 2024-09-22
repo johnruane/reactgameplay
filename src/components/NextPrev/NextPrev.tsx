@@ -1,8 +1,9 @@
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
+import classNames from 'classnames';
+
 import ArrowCircleLeft from '@svg/global/arrow-circle-left.svg?react';
+import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
 import './NextPrev.scss';
 
@@ -12,15 +13,23 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
   return (
     <div className={classNames('np-wrapper', additionalClasses)}>
       {prevId && (
-        <Link to={'/gamepage/' + prevId} className='np-link-wrapper np-prev' key={prevId}>
-          <ArrowCircleLeft className='fluid-img' />
-          <span className='np-title text-uppercase'>{prevTitle}</span>
+        <Link
+          to={'/gamepage/' + prevId}
+          className="np-link-wrapper np-prev"
+          key={prevId}
+        >
+          <ArrowCircleLeft className="fluid-img" />
+          <span className="np-title text-uppercase">{prevTitle}</span>
         </Link>
       )}
       {nextId && (
-        <Link to={'/gamepage/' + nextId} className='np-link-wrapper np-next' key={nextId}>
-          <span className='np-title text-uppercase'>{nextTitle}</span>
-          <ArrowCircleRight className='fluid-img' />
+        <Link
+          to={'/gamepage/' + nextId}
+          className="np-link-wrapper np-next"
+          key={nextId}
+        >
+          <span className="np-title text-uppercase">{nextTitle}</span>
+          <ArrowCircleRight className="fluid-img" />
         </Link>
       )}
     </div>

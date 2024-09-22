@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
+
 import classNames from 'classnames';
 
 import LinkComponent from '@components/LinkComponent';
@@ -17,11 +18,11 @@ const Tabs = ({ data }) => {
 
   return (
     <>
-      <div className='tb-tabs-wrapper'>
+      <div className="tb-tabs-wrapper">
         {data?.map((tab) => (
           <button
             key={tab?.title}
-            className={classNames('tb-tab-button', {
+            className={classNames('button tb-tab-button', {
               ['tb-tab-button-active']: tab?.id === selectedSection,
             })}
             value={tab?.id}
@@ -31,13 +32,13 @@ const Tabs = ({ data }) => {
           </button>
         ))}
       </div>
-      <div className='tb-tabs-content' data-stack='space-xl-2xl'>
+      <div className="tb-tabs-content" data-stack="space-xl-2xl">
         {data?.find((x) => x.id === selectedSection)?.content}
         <LinkComponent
-          label='View code in repository'
-          to='https://github.com/johnruane/reactgameplay'
+          label="View code in repository"
+          to="https://github.com/johnruane/reactgameplay"
           newWindow={true}
-          additionalClasses='l-up-link'
+          additionalClasses="l-up-link"
         >
           <ArrowUpRight />
         </LinkComponent>

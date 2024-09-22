@@ -2,7 +2,11 @@
  * Takes @board and returns an array of indexes in the board that have complete rows.
  */
 
-export const findCompletedRows = ({ board }: { board: number[][] }): number[] | [] => {
+export const findCompletedRows = ({
+  board,
+}: {
+  board: number[][];
+}): number[] | [] => {
   if (!board) return [];
 
   const completeRows: number[] = [];

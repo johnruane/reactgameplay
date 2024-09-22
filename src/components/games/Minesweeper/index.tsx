@@ -1,26 +1,26 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+/* Components */
+import Board from '../Components/Board';
+import Controls from '../Components/Controls';
+import Panel from '../Components/Panel';
+import { create2dArray } from '../utils';
+import Cell from './Cell';
+import { depthFirstSearch } from './lib/depthFirstSearch';
+import { generateCluesBoard } from './lib/generateCluesBoard';
 
 /* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
-import { generateCluesBoard } from './lib/generateCluesBoard';
-import { updateDisplayBoard } from './lib/updateDisplayBoard';
 import { getCellValue } from './lib/getCellValue';
-import { depthFirstSearch } from './lib/depthFirstSearch';
-import { create2dArray } from '../utils';
+import removeObjectFromArray from './lib/removeObjectFromArray';
+import { updateDisplayBoard } from './lib/updateDisplayBoard';
 
 /* Hooks */
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-/* Components */
-import Board from '../Components/Board';
-import Cell from './Cell';
-import Controls from '../Components/Controls';
-import Panel from '../Components/Panel';
-
 /* Styles */
 import '../style.scss';
 import './minsweeper.scss';
-import removeObjectFromArray from './lib/removeObjectFromArray';
 
 const Minesweeper = ({
   setGameKey,
@@ -51,7 +51,7 @@ const Minesweeper = ({
       numberOfRows: 9,
       numberOfColumns: 9,
       fillValue: emptyCellValue,
-    })
+    }),
   );
 
   const [gameOver, setGameOver] = useState('');
@@ -146,7 +146,10 @@ const Minesweeper = ({
         const targetCellPos = targetDataPos ? JSON.parse(targetDataPos) : null;
 
         // Flag cell
-        if (numberOfMines - flagsMarked.length !== 0 && targetDataValue === '-1') {
+        if (
+          numberOfMines - flagsMarked.length !== 0 &&
+          targetDataValue === '-1'
+        ) {
           target.setAttribute('data-value', '10');
           setFlagsMarked((prev) => [...prev, targetCellPos]);
         }
@@ -169,30 +172,30 @@ const Minesweeper = ({
 
   return (
     <>
-      <div className='gp-game-wrapper minesweeper-game-wrapper'>
-        <div className='minesweeper-panel-wrapper'>
+      <div className="gp-game-wrapper minesweeper-game-wrapper">
+        <div className="minesweeper-panel-wrapper">
           <Panel
             sections={[
               { heading: 'time', value: 0 },
               { heading: 'flags', value: numberOfMines - flagsMarked.length },
             ]}
           />
-          <span className='minesweeper-emoji'> {gameOver ? '😵' : '😀'}</span>
+          <span className="minesweeper-emoji"> {gameOver ? '😵' : '😀'}</span>
         </div>
 
-        <div className='overlay-wrapper'>
+        <div className="overlay-wrapper">
           <Board
             ref={boardRef}
             board={displayBoard}
             Cell={Cell}
-            className='minesweeper-board'
+            className="minesweeper-board"
             // @ts-expect-error will never be null
             onClickCellCallback={handleCellClick}
             isGameOver={gameOver}
           />
-          <div className='overlay-text-wrapper'>
+          <div className="overlay-text-wrapper">
             {gameOver && (
-              <p className='overlay-text'>
+              <p className="overlay-text">
                 {gameOver === 'win' ? 'You win!' : 'Game Over'}
               </p>
             )}
@@ -200,10 +203,10 @@ const Minesweeper = ({
         </div>
       </div>
 
-      <div className='game-instructions'>
-        <p className='panel-text panel-text-bold'>Instructions</p>
+      <div className="game-instructions">
+        <p className="panel-text panel-text-bold">Instructions</p>
 
-        <ul className='panel-text game-list'>
+        <ul className="panel-text game-list">
           <li>Press START to begin the game or play again when GAME OVER.</li>
           <li>To quit and close, press QUIT.</li>
           {useMediaQuery('DESKTOP') ? (
@@ -222,7 +225,7 @@ const Minesweeper = ({
         </ul>
       </div>
 
-      <div className='game-controls-wrapper'>
+      <div className="game-controls-wrapper">
         <Controls
           move={() => null}
           onStartClickHandler={startNewGame}

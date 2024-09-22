@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import GlobalLayout from '@layouts/GlobalLayout';
 import DefaultLayout from '@layouts/DefaultLayout';
 import GameLayout from '@layouts/GameLayout';
+import GlobalLayout from '@layouts/GlobalLayout';
 
-import Home from '@pages/Home';
 import Error404 from '@pages/404';
 import GamePage from '@pages/GamePage';
+import Home from '@pages/Home';
 
-import './styles/reset.css';
 import './styles/app.scss';
+import './styles/reset.css';
 
 export default function App() {
   useEffect(() => {

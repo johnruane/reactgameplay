@@ -1,6 +1,7 @@
+import { useGSAP } from '@gsap/react';
+
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -19,7 +20,7 @@ const useBouncingHead = () => {
         repeat: -1,
         yoyo: true,
       },
-      0 // The animation starts at 0 seconds in the timeline
+      0, // The animation starts at 0 seconds in the timeline
     );
 
     tl.to(
@@ -31,7 +32,7 @@ const useBouncingHead = () => {
         repeat: -1,
         yoyo: true,
       },
-      0 // The animation starts at 0 seconds in the timeline
+      0, // The animation starts at 0 seconds in the timeline
     );
   }, []);
 };

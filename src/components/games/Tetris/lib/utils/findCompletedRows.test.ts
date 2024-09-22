@@ -10,7 +10,12 @@ describe('findCompletedRows Test Suite', () => {
     ${[[1, 1, 1], [0, 0, 0], [0, 1, 0]]} | ${[0]}
     ${[[1, 1, 1], [0, 0, 0], [1, 1, 1]]} | ${[2, 0]}
     ${[[1, 1, 1], [1, 1, 1], [1, 1, 1]]} | ${[2, 1, 0]}
-  `('should return the index of every complete row in board', ({ board, output }) => {
-    expect(JSON.stringify(findCompletedRows(board))).toBe(JSON.stringify(output));
-  });
+  `(
+    'should return the index of every complete row in board',
+    ({ board, output }) => {
+      expect(JSON.stringify(findCompletedRows(board))).toBe(
+        JSON.stringify(output),
+      );
+    },
+  );
 });

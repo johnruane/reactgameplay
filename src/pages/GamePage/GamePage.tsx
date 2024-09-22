@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import Button from '@components/Button';
+import Divider from '@components/Divider';
+import Modal from '@components/Modal';
+import NextPrev from '@components/NextPrev';
+import Heading from '@components/sections/Heading';
+import Tabs from '@components/Tabs';
+
+import useModalInteractions from '@components/Modal/hooks/useModalInteractions';
+import useBouncingHead from '@hooks/useBouncingHead';
 
 import pages from '@data/pages';
 
-import Tabs from '@components/Tabs';
-import NextPrev from '@components/NextPrev';
-import Divider from '@components/Divider';
-import Modal from '@components/Modal';
-import Heading from '@components/sections/Heading';
-import Button from '@components/Button';
-
 import Ghost from '@svg/games/ghost.svg?react';
-import Back from '@svg/global/back.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
-
-import useBouncingHead from '@hooks/useBouncingHead';
-import useModalInteractions from '@components/Modal/useModalInteractions';
+import Back from '@svg/global/back.svg?react';
 
 import './GamePage.scss';
 
@@ -37,7 +37,7 @@ const GamePage = () => {
   };
 
   useBouncingHead();
-  const { toggleModal, setToggleModal } = useModalInteractions({
+  const { setToggleModal } = useModalInteractions({
     onModalOpenCallback: modalOpenCallback,
     onModalCloseCompleteCallback: modalCloseCallback,
   });
@@ -76,78 +76,92 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
-  const handleBack = () => {
-    window.history.back(); // Use browser's native back functionality
+  const viewNavigate = (newRoute) => {
+    // Navigate to the new route
+    if (!document.startViewTransition) {
+      return navigate(newRoute);
+    } else {
+      return document.startViewTransition(() => {
+        navigate(newRoute);
+      });
+    }
   };
 
   return (
     <>
-      <div className='grid background-black gp-back-wrapper'>
+      <div className="grid background-black gp-back-wrapper">
         <button
-          className='gp-back-btn'
-          onClick={handleBack}
-          aria-label='Back to homepage'
+          className="gp-back-btn"
+          onClick={() => viewNavigate('/')}
+          aria-label="Back to homepage"
         >
           <Back />
         </button>
       </div>
 
-      <section className='container background-black'>
-        <div className='grid gp-section-wrapper'>
-          <div className='gp-text-positioning'>
-            <h1 className='gp-heading text-uppercase'>
-              <span className='gp-year'>{year}</span>
-              <span className='gp-title'>{gameTitle}</span>
+      <section className="container background-black">
+        <div className="grid gp-section-wrapper">
+          <div className="gp-text-positioning">
+            <h1 className="gp-heading text-uppercase">
+              <span className="gp-year">{year}</span>
+              <span className="gp-title">{gameTitle}</span>
             </h1>
             <Button
-              text='PLAY NOW'
+              text="PLAY NOW"
               onClick={() => setToggleModal(true)}
-              className='gp-play-button'
+              className="button gp-play-button"
             >
               <ArrowRight />
             </Button>
           </div>
-          <div className='gp-image fluid-img'>{icon}</div>
+          <div className="gp-image fluid-img">{icon}</div>
         </div>
       </section>
 
-      <div className='container background-black gp-intro' data-stack='space-3xl-4xl'>
-        <section className='grid' data-stack='space-l-xl'>
-          <div className='gp-heading-wrapper'></div>
-          <div className='gp-details-wrapper' data-stack='space-m-l'>
-            <div data-stack='space-default'>
-              <p className='gp-details-title text-uppercase'>Complexity</p>
+      <div
+        className="container background-black gp-intro"
+        data-stack="space-3xl-4xl"
+      >
+        <section className="grid" data-stack="space-l-xl">
+          <div className="gp-heading-wrapper"></div>
+          <div className="gp-details-wrapper" data-stack="space-m-l">
+            <div data-stack="space-default">
+              <p className="gp-details-title text-uppercase">Complexity</p>
               <p>{complexity}</p>
             </div>
 
-            <div data-stack='space-default'>
-              <p className='gp-details-title text-uppercase'>Controls</p>
+            <div data-stack="space-default">
+              <p className="gp-details-title text-uppercase">Controls</p>
               {controls}
             </div>
           </div>
         </section>
 
-        <section className='grid' data-stack='space-l-xl'>
-          <Heading title='INTRO' className='section-heading' />
-          <div className='gp-intro-text' data-stack>
+        <section className="grid" data-stack="space-l-xl">
+          <Heading title="INTRO" className="section-heading" />
+          <div className="gp-intro-text" data-stack>
             {intro}
           </div>
         </section>
       </div>
 
-      <Divider color='black' background='grey' />
+      <Divider color="black" background="grey" />
 
-      <section className='container background-grey gp-tabs'>
-        <div className='grid'>
-          <Ghost className='gp-ghost-wrapper fluid-img' />
+      <section className="container background-grey gp-tabs">
+        <div className="grid">
+          <Ghost className="gp-ghost-wrapper fluid-img" />
         </div>
 
-        <div data-stack='space-3xl-4xl'>
-          <div className='grid' data-stack='space-l-xl'>
-            <Heading title='DETAILS' className='section-heading' />
+        <div data-stack="space-3xl-4xl">
+          <div className="grid" data-stack="space-l-xl">
+            <Heading title="DETAILS" className="section-heading" />
             <Tabs data={tabs} />
           </div>
-          <NextPrev prev={prevPage} next={nextPage} additionalClasses='gp-np-wrapper' />
+          <NextPrev
+            prev={prevPage}
+            next={nextPage}
+            additionalClasses="gp-np-wrapper"
+          />
         </div>
       </section>
 

@@ -28,11 +28,13 @@
 }
 
 .ticker-LTR {
-  animation: marqueeLTR var(--duration) linear var(--delay) var(--iteration-count);
+  animation: marqueeLTR var(--duration) linear var(--delay)
+    var(--iteration-count);
 }
 
 .ticker-RTL {
-  animation: marqueeRTL var(--duration) linear var(--delay) var(--iteration-count);
+  animation: marqueeRTL var(--duration) linear var(--delay)
+    var(--iteration-count);
 }
 
 @keyframes marqueeLTR {

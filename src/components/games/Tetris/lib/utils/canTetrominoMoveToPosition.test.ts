@@ -1,5 +1,5 @@
-import { canTetrominoMoveToPosition } from './canTetrominoMoveToPosition';
 import { t1, t2, t4, t5 } from './__test__/testUtils';
+import { canTetrominoMoveToPosition } from './canTetrominoMoveToPosition';
 
 describe('canTetrominoMoveToPosition Test Suite', () => {
   it.each`
@@ -15,6 +15,6 @@ describe('canTetrominoMoveToPosition Test Suite', () => {
     'should return true if board does not have any negative numbers in any position where the tetro matrix has a positive number',
     ({ position, tetro, board, output }) => {
       expect(canTetrominoMoveToPosition(position, tetro, board)).toBe(output);
-    }
+    },
   );
 });

@@ -1,5 +1,5 @@
-import { addTetrominoToBoard } from './addTetrominoToBoard';
 import { t1, t2, t3, t4 } from './__test__/testUtils';
+import { addTetrominoToBoard } from './addTetrominoToBoard';
 
 describe('addTetrominoToBoard Test Suite', () => {
   it.each`
@@ -14,9 +14,9 @@ describe('addTetrominoToBoard Test Suite', () => {
   `(
     'should add tetromino to board at specified position',
     ({ board, tetromino, r, c, output }) => {
-      expect(JSON.stringify(addTetrominoToBoard(board, tetromino, r, c))).toEqual(
-        JSON.stringify(output)
-      );
-    }
+      expect(
+        JSON.stringify(addTetrominoToBoard(board, tetromino, r, c)),
+      ).toEqual(JSON.stringify(output));
+    },
   );
 });

@@ -16,8 +16,8 @@ describe('removeRowsFromBoard Test Suite', () => {
     'should return board with complete rows removed and new rows added to the top',
     ({ board, indexes, output }) => {
       expect(JSON.stringify(removeRowsFromBoard(board, indexes))).toBe(
-        JSON.stringify(output)
+        JSON.stringify(output),
       );
-    }
+    },
   );
 });

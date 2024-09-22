@@ -52,6 +52,10 @@ describe('removeObjectFromArray', () => {
     const array = [1, { x: 3, y: 4 }, 'string', { x: 5, y: 6 }];
     const obj = { x: 3, y: 4 };
 
-    expect(removeObjectFromArray({ array, obj })).toEqual([1, 'string', { x: 5, y: 6 }]);
+    expect(removeObjectFromArray({ array, obj })).toEqual([
+      1,
+      'string',
+      { x: 5, y: 6 },
+    ]);
   });
 });

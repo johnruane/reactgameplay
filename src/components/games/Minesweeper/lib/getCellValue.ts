@@ -14,5 +14,7 @@ export const getCellValue = ({
   const { r, c } = pos || {};
   const cellValue = board[r]?.[c];
 
-  return typeof cellValue === 'number' && Number.isFinite(cellValue) ? cellValue : null;
+  return typeof cellValue === 'number' && Number.isFinite(cellValue)
+    ? cellValue
+    : null;
 };

@@ -1,36 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useRef, useCallback } from 'react';
-import _cloneDeep from 'lodash/cloneDeep';
-
-/* Utils */
-import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
-import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
-import { rotateMatrix } from './lib/utils/rotateMatrix';
-import { animateCompleteRow } from './lib/utils/animateCompleteRow';
-import { findCompletedRows } from './lib/utils/findCompletedRows';
-import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
-import { convertScore } from './lib/utils/convertScore';
-import { create2dArray } from '../utils';
-
-/* Lib */
-import { getRandomTetromino } from './lib/randomTetromino';
-
-/* Components */
-import Next from './Next';
-import Controls from '../Components/Controls';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
+import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
+import { create2dArray } from '../utils';
+import { useInterval } from '../utils/hooks/useInterval';
+import { getRandomTetromino } from './lib/randomTetromino';
+import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
+import { animateCompleteRow } from './lib/utils/animateCompleteRow';
+import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
+import { convertScore } from './lib/utils/convertScore';
+import { findCompletedRows } from './lib/utils/findCompletedRows';
+import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
+import { rotateMatrix } from './lib/utils/rotateMatrix';
+import Next from './Next';
 
-/* Hooks */
-import { useInterval } from '../utils/useInterval';
+import _cloneDeep from 'lodash/cloneDeep';
+
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-/* Styles */
 import '../style.scss';
 import './tetris.scss';
-import classNames from 'classnames';
 
 /*
  * @position: Current r & c position to place the top left corner of the tetromino on a board.
@@ -92,7 +84,10 @@ const Tetris = ({
 
   const previousSpeedRef = useRef<number | null>(null);
   const previousLevelIntervalRef = useRef<number | null>(null);
-  const nextTetrominolRef = useRef<{ value: number; matrix: number[][] } | null>(null);
+  const nextTetrominolRef = useRef<{
+    value: number;
+    matrix: number[][];
+  } | null>(null);
 
   const startGame = () => {
     setCurrentTetromino(getRandomTetromino());
@@ -172,7 +167,7 @@ const Tetris = ({
         c: newC,
       },
       currentTetromino?.matrix,
-      staticBoard
+      staticBoard,
     );
 
     if (canMove) {
@@ -191,8 +186,8 @@ const Tetris = ({
           _cloneDeep(staticBoard),
           currentTetromino?.matrix,
           position.r,
-          position.c
-        )
+          position.c,
+        ),
       );
     }
   };
@@ -220,7 +215,7 @@ const Tetris = ({
           c: position.c,
         },
         rotatedMatrix,
-        staticBoard
+        staticBoard,
       );
 
       if (canMove) {
@@ -246,7 +241,7 @@ const Tetris = ({
      * indexes would be wrong as we shift the rows downwards after removing a row.
      */
     const indexesOfCompleteRows = findCompletedRows({ board: cloneBoard }).sort(
-      (a, b) => a - b
+      (a, b) => a - b,
     );
     const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
 
@@ -272,7 +267,7 @@ const Tetris = ({
         animateCompleteRow(
           element,
           index === indexesOfCompleteRows.length - 1,
-          updateStaticBoardCallback
+          updateStaticBoardCallback,
         );
         setLines((current) => current + 1);
       });
@@ -294,7 +289,7 @@ const Tetris = ({
         c: 4,
       },
       currentTetromino?.matrix,
-      staticBoard
+      staticBoard,
     );
 
     // End current game.
@@ -316,8 +311,8 @@ const Tetris = ({
         _cloneDeep(staticBoard),
         currentTetromino?.matrix,
         position.r,
-        position.c
-      )
+        position.c,
+      ),
     );
   }, [position, currentTetromino]);
 
@@ -350,8 +345,8 @@ const Tetris = ({
   return (
     <>
       <div className={'tetris tetris-game-wrapper'}>
-        <div className='game-side-details'>
-          <div className='tetris-panel-wrapper'>
+        <div className="game-side-details">
+          <div className="tetris-panel-wrapper">
             <Panel
               sections={[
                 { heading: 'score', value: score },
@@ -361,24 +356,24 @@ const Tetris = ({
             />
           </div>
         </div>
-        <div className='overlay-wrapper'>
-          <Board board={displayBoard} Cell={Cell} className='tetris' />
-          <div className='overlay-text-wrapper'>
-            {gameOver && <p className='overlay-text'>Game Over</p>}
+        <div className="overlay-wrapper">
+          <Board board={displayBoard} Cell={Cell} className="tetris" />
+          <div className="overlay-text-wrapper">
+            {gameOver && <p className="overlay-text">Game Over</p>}
           </div>
         </div>
 
-        <div className='tetris-score-wrapper' data-stack='space-xs'>
-          <div className='next-wrapper'>
+        <div className="tetris-score-wrapper" data-stack="space-xs">
+          <div className="next-wrapper">
             <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted} />
           </div>
         </div>
       </div>
 
-      <div className='game-instructions'>
-        <p className='panel-text panel-text-bold'>Instructions</p>
+      <div className="game-instructions">
+        <p className="panel-text panel-text-bold">Instructions</p>
 
-        <ul className='panel-text game-list'>
+        <ul className="panel-text game-list">
           <li>Press START to begin the game or play again when GAME OVER.</li>
           <li>To quit and close, press QUIT.</li>
           {useMediaQuery('DESKTOP') ? (
@@ -395,7 +390,7 @@ const Tetris = ({
         </ul>
       </div>
 
-      <div className='game-controls-wrapper'>
+      <div className="game-controls-wrapper">
         <Controls
           move={move}
           onStartClickHandler={startGame}

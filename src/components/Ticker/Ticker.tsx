@@ -1,5 +1,7 @@
 import React from 'react';
+
 import classNames from 'classnames';
+
 import './Ticker.scss';
 
 const Ticker = ({
@@ -20,23 +22,26 @@ const Ticker = ({
           return (
             <React.Fragment key={`${textOne}-${index}`}>
               <span>
-                <span className='t-text-one'>{textOne}</span>
-                <span className='t-text-two'>{textTwo}</span>
+                <span className="t-text-one">{textOne}</span>
+                <span className="t-text-two">{textTwo}</span>
               </span>
-              <span className='t-cirle'></span>
+              <span className="t-cirle"></span>
             </React.Fragment>
           );
         })}
       </div>
-      <div className={classNames('t-ticker', `ticker-${direction}`)} aria-hidden='true'>
+      <div
+        className={classNames('t-ticker', `ticker-${direction}`)}
+        aria-hidden="true"
+      >
         {Array.from({ length: 16 }).map((_, index) => {
           return (
             <React.Fragment key={`${textTwo}-${index}`}>
               <span>
-                <span className='t-text-one'>{textOne}</span>
-                <span className='t-text-two'>{textTwo}</span>
+                <span className="t-text-one">{textOne}</span>
+                <span className="t-text-two">{textTwo}</span>
               </span>
-              <span className='t-cirle'></span>
+              <span className="t-cirle"></span>
             </React.Fragment>
           );
         })}

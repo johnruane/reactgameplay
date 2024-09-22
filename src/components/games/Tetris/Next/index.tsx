@@ -1,6 +1,7 @@
 import Board from '../../Components/Board';
 import Cell from '../../Components/Cell';
 import Panel from '../../Components/Panel';
+
 import './next.scss';
 
 const emptyBoard = [
@@ -18,7 +19,9 @@ export default function Next({ nextTetromino, show }) {
       sections={[
         {
           heading: 'Next',
-          value: <Board board={boardToShow} Cell={Cell} className='next-board' />,
+          value: (
+            <Board board={boardToShow} Cell={Cell} className="next-board" />
+          ),
         },
       ]}
     />

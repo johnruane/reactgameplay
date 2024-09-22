@@ -27,6 +27,6 @@ export function compareBoards(board, newBoard) {
  */
 export function negateTetromino(tetro) {
   return tetro.map((row) =>
-    row.map((value) => (Number.isInteger(value) && value > 0 ? -value : value))
+    row.map((value) => (Number.isInteger(value) && value > 0 ? -value : value)),
   );
 }

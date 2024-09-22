@@ -27,13 +27,16 @@ export const animateCompleteRow = (index, isLastRow, onFinishCallback) => {
    * the DOM element itself as that would effect the layout of the board. The ::after element is what contains the block colours.
    */
   const animations = Array.from(rowDOM.children).map((element, index) => {
-    const rabbitDownAnimation = element.animate([{ opacity: 1 }, { opacity: 0 }], {
-      duration: 500,
-      fill: 'forwards',
-      easing: 'ease-out',
-      pseudoElement: '::after',
-      delay: index * 30,
-    });
+    const rabbitDownAnimation = element.animate(
+      [{ opacity: 1 }, { opacity: 0 }],
+      {
+        duration: 500,
+        fill: 'forwards',
+        easing: 'ease-out',
+        pseudoElement: '::after',
+        delay: index * 30,
+      },
+    );
 
     return new Promise<void>((resolve) => {
       rabbitDownAnimation.onfinish = () => {

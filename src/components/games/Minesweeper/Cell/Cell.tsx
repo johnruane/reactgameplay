@@ -1,4 +1,5 @@
-import { useEffect, useRef, memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
+
 import './Cell.scss';
 
 const Cell = memo(function Cell(props) {
@@ -24,14 +25,17 @@ const Cell = memo(function Cell(props) {
     (currentRef as unknown as HTMLElement)?.addEventListener('click', onClick);
 
     return () => {
-      (currentRef as unknown as HTMLElement)?.removeEventListener('click', onClick);
+      (currentRef as unknown as HTMLElement)?.removeEventListener(
+        'click',
+        onClick,
+      );
     };
   }, []);
 
   return (
     <div
       ref={cellRef}
-      className='board-cell mine-cell'
+      className="board-cell mine-cell"
       data-reveal={false}
       data-value={value}
       data-pos={pos}

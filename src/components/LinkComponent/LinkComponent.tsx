@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+
 import classNames from 'classnames';
 
 import './LinkComponent.scss';
@@ -27,8 +28,8 @@ const LinkComponent = ({
         <a
           className={additionalClasses}
           href={to}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {label}
           {children}

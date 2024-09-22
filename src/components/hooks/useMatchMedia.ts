@@ -2,8 +2,7 @@
  * Reference: https://usehooks-ts.com/react-hook/use-media-query
  * Usage: const matches = useMediaQuery('(min-width: 768px)')
  **/
-
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 enum MEDIA_QUERY_LIST {
   PHONE = '(min-width: 425px)',
@@ -24,7 +23,7 @@ const useMediaQuery = (
   }: {
     defaultValue?: boolean;
     initializeWithValue?: boolean;
-  } = {}
+  } = {},
 ): boolean => {
   const getMatches = (query: string): boolean => {
     if (typeof window === 'undefined') {

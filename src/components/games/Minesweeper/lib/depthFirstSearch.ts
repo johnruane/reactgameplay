@@ -3,11 +3,10 @@
  * Takes @board and @pos and does a Depth-first search returning an array of
  * {r: string, c: string} denoting all the adjacent cells next to each @pos that are value zero.
  */
-
-import { getCellValue } from './getCellValue';
-import { findNeighbourCells } from './findNeighbourCells';
 import { isObjectInSet } from '../../utils/isObjectInSet';
+import { findNeighbourCells } from './findNeighbourCells';
 import { findNumberedNeighbours } from './findNumberedNeighbours';
+import { getCellValue } from './getCellValue';
 
 export const depthFirstSearch = ({
   board,

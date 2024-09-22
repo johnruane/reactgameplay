@@ -31,7 +31,11 @@
   & [data-value='4']::after {
     background: #1500ff;
     background: rgb(21, 0, 255);
-    background: linear-gradient(145deg, rgba(21, 0, 255, 1) 0%, rgba(17, 0, 207, 1) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(21, 0, 255, 1) 0%,
+      rgba(17, 0, 207, 1) 100%
+    );
   }
 
   /* Right L shape */
@@ -49,14 +53,22 @@
   & [data-value='6']::after {
     background: #00ff00;
     background: rgb(0, 255, 0);
-    background: linear-gradient(145deg, rgba(0, 255, 0, 1) 0%, rgba(0, 207, 0, 1) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(0, 255, 0, 1) 0%,
+      rgba(0, 207, 0, 1) 100%
+    );
   }
 
   /* Left skew shape */
   & [data-value='7']::after {
     background: #ff0100;
     background: rgb(255, 1, 0);
-    background: linear-gradient(145deg, rgba(255, 1, 0, 1) 0%, rgba(206, 1, 0, 1) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 1, 0, 1) 0%,
+      rgba(206, 1, 0, 1) 100%
+    );
   }
 
   /* Square shape */

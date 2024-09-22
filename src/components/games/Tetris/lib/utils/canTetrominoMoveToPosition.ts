@@ -15,7 +15,10 @@ export function canTetrominoMoveToPosition(position, tetro, board) {
       const row = board[position.r + i];
       const col = row && row[position.c + j];
 
-      if (tetro[i][j] > 0 && (row === undefined || col === undefined || col !== 0)) {
+      if (
+        tetro[i][j] > 0 &&
+        (row === undefined || col === undefined || col !== 0)
+      ) {
         return false;
       }
     }

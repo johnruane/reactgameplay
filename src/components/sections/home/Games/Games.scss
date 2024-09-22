@@ -51,6 +51,7 @@
   border-top-right-radius: var(--tile-border-radius);
   border-bottom-left-radius: var(--tile-border-radius);
   text-decoration: none;
+  text-align: left;
 }
 
 .gs-tile:has(~ .gs-tile:hover),
@@ -83,13 +84,13 @@
   margin: -1rem -1rem 0;
   padding: 1.25rem 1rem 1rem;
   line-height: 1;
-  text-decoration: none;
 }
 
 .gs-intro {
   grid-area: text;
   font-size: $font-0;
   line-height: 1.5;
+  text-transform: none;
 }
 
 .gs-text-icon-wrapper {

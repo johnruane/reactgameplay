@@ -34,7 +34,7 @@ describe('generateMineBoard', () => {
         [9, 0, 0],
         [0, 9, 0],
         [0, 0, 9],
-      ])
+      ]),
     );
   });
 
@@ -57,7 +57,7 @@ describe('generateMineBoard', () => {
         [9, 0, 0],
         [0, 9, 0],
         [0, 0, 2],
-      ])
+      ]),
     );
 
     expect(getRandomEmptyBoardPositionMock).toHaveBeenCalledTimes(2);
@@ -80,7 +80,7 @@ describe('generateMineBoard', () => {
       expect.arrayContaining([
         [9, -1],
         [-1, 9],
-      ])
+      ]),
     );
 
     expect(getRandomEmptyBoardPositionMock).toHaveBeenCalledTimes(2);
@@ -99,7 +99,7 @@ describe('generateMineBoard', () => {
       expect.arrayContaining([
         [0, 0],
         [0, 0],
-      ])
+      ]),
     );
 
     expect(getRandomEmptyBoardPositionMock).not.toHaveBeenCalled();

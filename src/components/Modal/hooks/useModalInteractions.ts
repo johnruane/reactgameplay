@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react';
+
+import { useGSAP } from '@gsap/react';
+
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -47,7 +49,7 @@ const useModalInteractions = ({
             gsap.set(modalOverlay, { visibility: 'hidden' });
           },
         },
-        0
+        0,
       )
       .to(
         modalContainer,
@@ -56,7 +58,7 @@ const useModalInteractions = ({
           duration: inReverse ? 0.25 : 0.35,
           ease: inReverse ? 'power2.inOut' : 'power1.inOut',
         },
-        0
+        0,
       )
       .to(
         modalCloseBtn,
@@ -66,7 +68,7 @@ const useModalInteractions = ({
           duration: inReverse ? 0.15 : 0.6,
           ease: 'elastic.inOut(1,1)',
         },
-        0.1
+        0.1,
       );
   }, []);
 
