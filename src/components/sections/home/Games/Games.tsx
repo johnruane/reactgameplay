@@ -2,6 +2,8 @@ import useAnimateGameIcon from './hooks/useAnimateGameIcon';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
+import viewNavigate from '@utils/viewNavigate';
+
 import gameLinks from '@data/games/gameLinks';
 
 import ArrowRight from '@svg/global/arrow-right.svg?react';
@@ -14,24 +16,13 @@ const Games = ({ additionalClasses }) => {
 
   const navigate = useNavigate();
 
-  const viewNavigate = (newRoute) => {
-    // Navigate to the new route
-    if (!document.startViewTransition) {
-      return navigate(newRoute);
-    } else {
-      return document.startViewTransition(() => {
-        navigate(newRoute);
-      });
-    }
-  };
-
   return (
     <div className={classNames('gs-main', additionalClasses)}>
       {gameLinks.map((game, index) => {
         const { link, title, intro, icon, level, inDev = false } = game || {};
         return (
           <button
-            onClick={() => viewNavigate(link)}
+            onClick={() => viewNavigate({ route: link, navigate })}
             className="gs-tile"
             key={`${title}-${index}`}
             data-gsap="game-tile"

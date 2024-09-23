@@ -9,6 +9,8 @@ import NextPrev from '@components/NextPrev';
 import Heading from '@components/sections/Heading';
 import Tabs from '@components/Tabs';
 
+import viewNavigate from '@utils/viewNavigate';
+
 import useModalInteractions from '@components/Modal/hooks/useModalInteractions';
 import useBouncingHead from '@hooks/useBouncingHead';
 
@@ -76,23 +78,12 @@ const GamePage = () => {
     game: GameComponent,
   } = pageData || {};
 
-  const viewNavigate = (newRoute) => {
-    // Navigate to the new route
-    if (!document.startViewTransition) {
-      return navigate(newRoute);
-    } else {
-      return document.startViewTransition(() => {
-        navigate(newRoute);
-      });
-    }
-  };
-
   return (
     <>
       <div className="grid background-black gp-back-wrapper">
         <button
           className="gp-back-btn"
-          onClick={() => viewNavigate('/')}
+          onClick={() => viewNavigate({ route: '/', navigate })}
           aria-label="Back to homepage"
         >
           <Back />

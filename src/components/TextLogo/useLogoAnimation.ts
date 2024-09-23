@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-import { setOffScreenUp } from '@utils/AnimationUtils';
+import { setOffScreenUp } from '@utils/animationUtils';
 
 gsap.registerPlugin(MotionPathPlugin);
 

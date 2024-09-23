@@ -1,6 +1,6 @@
-import Board from '../../Components/Board';
-import Cell from '../../Components/Cell';
-import Panel from '../../Components/Panel';
+import Board from '../../../Components/Board';
+import Cell from '../../../Components/Cell';
+import Panel from '../../../Components/Panel';
 
 import './next.scss';
 
