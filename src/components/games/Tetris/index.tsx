@@ -1,13 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import _cloneDeep from 'lodash/cloneDeep';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
 import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
+
+import Next from './components/Next';
+
 import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
-import { getRandomTetromino } from './lib/randomTetromino';
 import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
 import { animateCompleteRow } from './lib/utils/animateCompleteRow';
 import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
@@ -15,9 +18,8 @@ import { convertScore } from './lib/utils/convertScore';
 import { findCompletedRows } from './lib/utils/findCompletedRows';
 import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
 import { rotateMatrix } from './lib/utils/rotateMatrix';
-import Next from './Next';
 
-import _cloneDeep from 'lodash/cloneDeep';
+import { getRandomTetromino } from './lib/randomTetromino';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 

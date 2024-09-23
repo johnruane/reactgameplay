@@ -1,7 +1,11 @@
+import _cloneDeep from 'lodash/cloneDeep';
+import { useEffect, useState } from 'react';
+
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
 import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
+
 import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
 import {
@@ -9,8 +13,6 @@ import {
   getRandomEmptyBoardPosition,
   growSnake,
 } from './lib/utils';
-import _cloneDeep from 'lodash/cloneDeep';
-import { useEffect, useState } from 'react';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 

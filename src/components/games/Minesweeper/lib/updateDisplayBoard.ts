@@ -1,5 +1,4 @@
 import { getCellValue } from './getCellValue';
-
 import _cloneDeep from 'lodash/cloneDeep';
 
 /**

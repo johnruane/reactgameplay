@@ -1,8 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-
 import useAnimateGameIcon from './hooks/useAnimateGameIcon';
-
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 import gameLinks from '@data/games/gameLinks';
 

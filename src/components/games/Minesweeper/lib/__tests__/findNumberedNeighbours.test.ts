@@ -1,5 +1,4 @@
 import { findNumberedNeighbours } from '../findNumberedNeighbours';
-
 import { vi } from 'vitest';
 
 describe('findNumberedNeighbours', () => {

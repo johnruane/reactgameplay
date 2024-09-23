@@ -1,9 +1,7 @@
-import { useRef, useState } from 'react';
-
 import { useGSAP } from '@gsap/react';
-
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { useRef, useState } from 'react';
 
 gsap.registerPlugin(MotionPathPlugin);
 

@@ -1,5 +1,4 @@
 import { updateDisplayBoard } from '../updateDisplayBoard';
-
 import { vi } from 'vitest';
 
 describe('updateDisplayBoard', () => {

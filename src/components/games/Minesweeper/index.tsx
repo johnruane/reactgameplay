@@ -1,24 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-/* Components */
 import Board from '../Components/Board';
 import Controls from '../Components/Controls';
 import Panel from '../Components/Panel';
+
+import Cell from './components/Cell';
+
 import { create2dArray } from '../utils';
-import Cell from './Cell';
+
 import { depthFirstSearch } from './lib/depthFirstSearch';
 import { generateCluesBoard } from './lib/generateCluesBoard';
-
-/* Utils */
 import { generateMineBoard } from './lib/generateMineBoard';
 import { getCellValue } from './lib/getCellValue';
 import removeObjectFromArray from './lib/removeObjectFromArray';
 import { updateDisplayBoard } from './lib/updateDisplayBoard';
 
-/* Hooks */
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-/* Styles */
 import '../style.scss';
 import './minsweeper.scss';
 
