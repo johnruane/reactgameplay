@@ -157,6 +157,11 @@ const Minesweeper = ({
     }
   }, [gameOver]);
 
+  /*
+   * This useEffect runs on right mouse click. oncontextmenu preventDefault prevents the
+   * default context menu from opening. From here we are checking whether to set a flag on a
+   * cell, or remove a flag.
+   */
   useEffect(() => {
     if (boardRef.current) {
       boardRef.current.oncontextmenu = (e: MouseEvent) => {

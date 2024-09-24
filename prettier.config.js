@@ -1,5 +1,6 @@
 export default {
   printWidth: 80,
+  proseWrap: 'always',
   tabWidth: 2,
   trailingComma: 'all',
   singleQuote: true,

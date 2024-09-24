@@ -28,7 +28,7 @@ const gameLinks = [
     ),
     intro: 'The most nerve racking office distraction.',
     icon: <MineSweeperHead className="gs-icon" />,
-    level: 3,
+    level: 2,
     link: 'gamepage/minesweeper',
     inDev: true,
   },
