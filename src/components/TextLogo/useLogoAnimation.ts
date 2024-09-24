@@ -39,7 +39,7 @@ const useLogoAnimation = () => {
 
     ballsTL
       .set(pinkBalls, {
-        y: (i, t) => {
+        y: (_, t) => {
           return setOffScreenUp(t);
         },
       })

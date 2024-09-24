@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import DefaultLayout from '@layouts/DefaultLayout';

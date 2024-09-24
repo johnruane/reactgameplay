@@ -5,6 +5,8 @@ export default {
   singleQuote: true,
   semi: true,
   importOrder: [
+    '^react$',
+    '^react/(.*)$',
     '^(?!@svg).*\\?react$',
     '<THIRD_PARTY_MODULES>',
     '^@layouts(/.*)?$',

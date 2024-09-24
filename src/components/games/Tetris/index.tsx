@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import _cloneDeep from 'lodash/cloneDeep';
 import { useCallback, useEffect, useRef, useState } from 'react';
+
+import _cloneDeep from 'lodash/cloneDeep';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';

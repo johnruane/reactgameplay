@@ -7,11 +7,13 @@ import Panel from '../Components/Panel';
 import Cell from './components/Cell';
 
 import { create2dArray } from '../utils';
+import { useInterval } from '../utils/hooks/useInterval';
 
 import { depthFirstSearch } from './lib/depthFirstSearch';
 import { generateCluesBoard } from './lib/generateCluesBoard';
 import { generateMineBoard } from './lib/generateMineBoard';
 import { getCellValue } from './lib/getCellValue';
+import { isBoardDefaultState } from './lib/isBoardDefaultState';
 import removeObjectFromArray from './lib/removeObjectFromArray';
 import { updateDisplayBoard } from './lib/updateDisplayBoard';
 
@@ -41,9 +43,10 @@ const Minesweeper = ({
     numberOfMines: numberOfMines,
   });
 
-  const cluesBoard = generateCluesBoard({ board: mineBoard, emptyCellValue });
+  const cluesBoardRef = useRef<number[][]>(
+    generateCluesBoard({ board: mineBoard, emptyCellValue }),
+  );
 
-  const [gameplayBoard, setGameplayBoard] = useState(cluesBoard);
   const [displayBoard, setDisplayBoard] = useState(
     create2dArray({
       numberOfRows: 9,
@@ -52,6 +55,8 @@ const Minesweeper = ({
     }),
   );
 
+  const [hasGameStarted, setHasGameStarted] = useState(false);
+  const [clock, setClock] = useState(0);
   const [gameOver, setGameOver] = useState('');
   const [flagsMarked, setFlagsMarked] = useState<CellPosition[]>([]);
 
@@ -70,21 +75,23 @@ const Minesweeper = ({
     }
 
     const cellsToUpdate = depthFirstSearch({
-      board: gameplayBoard,
+      board: cluesBoardRef.current,
       pos: selectedCellPos,
     });
 
     setDisplayBoard((prev) => {
       const newBoard = updateDisplayBoard({
         displayBoard: prev,
-        gameBoard: gameplayBoard,
+        gameBoard: cluesBoardRef.current,
         cellsToUpdate: cellsToUpdate,
       });
       return newBoard;
     });
 
-    // If cell is a mine set 'game over'
-    if (getCellValue({ board: gameplayBoard, pos: selectedCellPos }) === 9) {
+    // If cell is 9 (a mine) set 'game over'
+    if (
+      getCellValue({ board: cluesBoardRef.current, pos: selectedCellPos }) === 9
+    ) {
       setGameOver('lose');
       return;
     }
@@ -117,6 +124,17 @@ const Minesweeper = ({
     }
   }, [displayBoard]);
 
+  /*
+   * hasGameStarted state controls the clock timer. If the displayBoard cells are all -1 then
+   * the game has not begun.
+   */
+  useEffect(() => {
+    const isBoardDefault = isBoardDefaultState({ board: displayBoard });
+    if (!isBoardDefault) {
+      setHasGameStarted(true);
+    }
+  }, [displayBoard]);
+
   useEffect(() => {
     let cellUncovered = 0;
     displayBoard.forEach((row) => {
@@ -132,6 +150,12 @@ const Minesweeper = ({
       setGameOver('win');
     }
   }, [displayBoard]);
+
+  useEffect(() => {
+    if (gameOver !== '') {
+      setHasGameStarted(false);
+    }
+  }, [gameOver]);
 
   useEffect(() => {
     if (boardRef.current) {
@@ -168,13 +192,22 @@ const Minesweeper = ({
     }
   }, [flagsMarked]);
 
+  /*
+   * Interval to move tetrominos every 'speed' milliseconds
+   */
+  useInterval(() => {
+    if (hasGameStarted) {
+      setClock((prev) => prev + 1);
+    }
+  }, 1000);
+
   return (
     <>
       <div className="gp-game-wrapper minesweeper-game-wrapper">
         <div className="minesweeper-panel-wrapper">
           <Panel
             sections={[
-              { heading: 'time', value: 0 },
+              { heading: 'clock', value: clock },
               { heading: 'flags', value: numberOfMines - flagsMarked.length },
             ]}
           />
@@ -194,7 +227,7 @@ const Minesweeper = ({
           <div className="overlay-text-wrapper">
             {gameOver && (
               <p className="overlay-text">
-                {gameOver === 'win' ? 'You win!' : 'Game Over'}
+                {gameOver === 'win' ? 'You win!' : 'You Lose'}
               </p>
             )}
           </div>

@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import { ReactNode } from 'react';
+
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
 import './LinkComponent.scss';

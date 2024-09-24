@@ -1,5 +1,6 @@
-import _cloneDeep from 'lodash/cloneDeep';
 import { useEffect, useState } from 'react';
+
+import _cloneDeep from 'lodash/cloneDeep';
 
 import Board from '../Components/Board';
 import Cell from '../Components/Cell';
