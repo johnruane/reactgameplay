@@ -18,7 +18,11 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
       {prevId && (
         <button
           onClick={() =>
-            viewNavigate({ route: `/gamepage/${prevId}`, navigate })
+            viewNavigate({
+              route: `/gamepage/${prevId}`,
+              navigate,
+              resetScroll: true,
+            })
           }
           className="np-prev unset"
           key={prevId}
@@ -32,7 +36,11 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
       {nextId && (
         <button
           onClick={() =>
-            viewNavigate({ route: `/gamepage/${nextId}`, navigate })
+            viewNavigate({
+              route: `/gamepage/${nextId}`,
+              navigate,
+              resetScroll: true,
+            })
           }
           className="np-link-wrapper np-next unset"
           key={nextId}

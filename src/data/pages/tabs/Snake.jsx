@@ -39,27 +39,71 @@ const tabs = [
   },
   {
     id: 3,
-    title: 'Key concepts',
+    title: 'Game logic',
     content: (
       <ol>
         <li>
-          The game makes use of <code>useState</code> to store the state of the
-          gameplay area & <code>useEffect</code> to react to state changes.
+          The game takes place on a grid of a specified size (e.g. 20x20 cells).
+          The snake and food will move around this grid.
         </li>
         <li>
-          <code>eventListeners</code> are listening out for keyboard presses to
-          move the Tetromino.
+          The snake starts as a small length of connected cells placed somewhere
+          on the grid. The snake has a head: the first block, and a tail: the
+          rest of the blocks.
         </li>
         <li>
-          <code>Arrays</code> & <code>Loops</code> are used to make the snake
-          appear to be moving and are the central key to gamifying React.
+          The snake moves automatically at regular intervals. The direction of
+          movement can be controlled by the player using arrow keys up, down,
+          left, right. The snake cannot move in the opposite direction of its
+          current movement, so if moving right, it cannot move left.
+        </li>
+        <li>
+          On each "tick" of the interval, the snake&apos;s head moves one cell
+          in the current direction and the tail follows.
+        </li>
+        <li>
+          A piece of food is randomly placed on the grid. The food must not be
+          placed on any cell currently occupied by the snake.
+        </li>
+        <li>
+          When the snake eats food, its length increases by one cell. This is
+          done by adding a new block to the tail of the snake without removing
+          any of the current blocks. This makes the snake longer while
+          continuing to move.
+        </li>
+        <li>
+          After the snake consumes the food, a new piece of food is generated at
+          a random location on the grid not occupied by the snake.
+        </li>
+        <li>
+          The game ends if the snake collides with the edge of the board or with
+          its own body.
+        </li>
+        <li>
+          If the snake's head moves into any part of its own body i.e. it
+          collides with its tail, the game is over.
+        </li>
+        <li>
+          Collision detection is performed on every movement tick, checking if
+          the snake's head collides with a wall or itself.
+        </li>
+        <li>
+          As the game progresses and the snake eats more food, the speed of the
+          snake can increase making the game more challenging as the snake grows
+          longer.
+        </li>
+        <li>
+          The player controls the direction of the snake using the arrow keys .
+          The direction can only change once per tick, meaning the player cannot
+          queue multiple moves in a single tick, and the snake will only move on
+          'tick' and not immediately as directed.
         </li>
       </ol>
     ),
   },
   {
     id: 4,
-    title: 'Coding challenges',
+    title: 'Tips',
     content: (
       <ol>
         <li>
@@ -70,7 +114,7 @@ const tabs = [
         </li>
         <li>
           The snake has to move on an interval. Changes in direction are not
-          instant. You will need to preventing the snake from making a U-turn
+          instant. You will need to prevent the snake from making a u-turn
           whilst also moving it continuously in a direction of travel.
         </li>
         <li>
@@ -82,7 +126,7 @@ const tabs = [
   },
   {
     id: 5,
-    title: 'How to build',
+    title: 'Deep dive',
     content: (
       <>
         <ol>
@@ -164,7 +208,7 @@ const tabs = [
   },
   {
     id: 6,
-    title: 'Credits',
+    title: 'Useful links',
     content: (
       <ol>
         <li>

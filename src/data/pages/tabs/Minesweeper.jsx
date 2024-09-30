@@ -49,66 +49,104 @@ const tabs = [
   },
   {
     id: 3,
-    title: 'Key concepts',
+    title: 'Game logic',
     content: (
       <ol>
         <li>
-          The game makes use of <code>useState</code>, <code>useEffect</code> &{' '}
-          <code>useRef</code> to store game states and react to state updates.
+          The game is initialised by creating a 2D board of a specified size
+          containing grey squares.
         </li>
         <li>
-          <code>onClick</code> events register when a player has made a move,
-          which triggers a number of utility functions to check what cell has
-          been uncovered and what action to take.
+          A certain number of mines are randomly placed on the grid. The number
+          of mines depends on the difficulty level.
         </li>
         <li>
-          <code>Arrays</code> & loops make up most of the utility functions, as
-          well as storing and accessing a matrix.
+          Each cell can either contain a mine or be empty. The empty cells, when
+          revealed, will display the number of mines in the surrounding cells.
+          Neighboring cells are the eight cells surrounding any given cell
+          (diagonally, vertically, and horizontally adjacent).
         </li>
         <li>
-          <code>HTML</code> 'data' attributes are used to help display board
-          states & store positions. I thought it was important that the code not
-          give away the game by revealing the mine locations, so this has been
-          obfuscated away.
+          The player interacts with the grid by selecting a cell. There are two
+          main actions:
+          <ul>
+            <li>
+              Left-click (Reveal): The player reveals the content of the cell.
+            </li>
+            <li>
+              Right-click (Flag): The player marks the cell with a flag to
+              indicate they believe a mine is there.
+            </li>
+          </ul>
+        </li>
+        <li>
+          If the revealed cell contains a mine, the game is over, and all mines
+          are revealed. If the revealed cell contains a number, indicating the
+          number of mines in the surrounding cells, display that number. If the
+          revealed cell is an empty cell (no surrounding mines), recursively
+          reveal all neighboring empty cells and continue revealing cells until
+          reaching cells with numbers. This prevents the player from revealing
+          all cells one by one.
+        </li>
+        <li>
+          When the player right-clicks a cell, it is marked with a flag to
+          indicate a suspected mine. Flags are purely visual markers and do not
+          affect the underlying game logic. The player can toggle between
+          flagging and unflagging a cell by right-clicking again.
+        </li>
+        <li>
+          The player wins the game when all cells that do not contain mines have
+          been revealed. At this point, the game will display a victory message.
+        </li>
+        <li>
+          The game ends if the player clicks on a mine, resulting in a loss. All
+          remaining mines will be revealed, and the game will indicate the loss.
         </li>
       </ol>
     ),
   },
   {
     id: 4,
-    title: 'Coding challenges',
+    title: 'Tips',
     content: (
       <ol>
         <li>
           The code is fairly simple and there are not many states that need to
-          held. <code>useEffects</code> are mainly used just to break up
+          be held. <code>useEffects</code> are mainly used just to break up
           functionality.
         </li>
         <li>
-          If you don't want the mines to be discoverable within the HTML you'll
-          have to use a number of 'data' attributes on each <code>cell</code> so
-          that you can output a number of states.
+          When randomly generating mines for the board you don't want it to
+          choose a cell already marked for being a mine. Rather than randomly
+          generating a position it is better to randomly choose a position from
+          a list and remove positions previously chosen.
+        </li>
+        <li>
+          You don't want to reveal the value of your cells within your HTML
+          code. The board in HTML doesn't need to hold the value it will be when
+          revealed. Use the board in <code>useState</code> as a value reference.
+          The HTML board can just hold it's 'row' & 'column' position to help
+          the reference.
         </li>
         <li>
           The biggest challenge is the 'flood-fill' feature. This is where
           adjacent empty cells are revealed in a single move. There are two ways
           to achieve this: Breadth-first search (BFS) or Depth-first search
-          (DFS). This is a graph traversal algorithm, which is daunting at first
-          but once you get familiar and look at some code examples you should be
-          able to write a version of one of these searches so that it performs
-          the 'flood-fill' like the real game.
+          (DFS). These are graph traversal algorithms, which is daunting at
+          first but once you get familiar and look at some code examples you
+          should be able to write a version of one of these searches so that it
+          performs the 'flood-fill' like the real game.
         </li>
         <li>
-          <code>Right-click</code> in the game set a flag. You will need to
-          override the browser default of <code>right-click</code> opening up
-          the browser context menu.
+          <code>Right-click</code> in the game sets a flag. You will need to
+          prevent the browser default context menu and perform your own task.
         </li>
       </ol>
     ),
   },
   {
     id: 5,
-    title: 'How to build',
+    title: 'Deep dive',
     content: (
       <>
         <p>The game is made up of the following major components:</p>
@@ -146,28 +184,37 @@ const tabs = [
             <code>cluesBoard</code> and updates the <code>displayBoard</code>.
           </li>
           <li>
-            To do the 'flood-fill' feature I choose Depth-first search. The
-            basic premise of DFS search is it contains a 'stack'
-            <code>Array</code>, a 'visited' <code>Set</code> & a 'result'
-            <code>Array</code>. The 'stack' is all the positions the algorithm
-            needs to visit using a <code>While</code> loop. Initialised to the
-            current <code>Cell</code> position you then need to visit each
-            adjacent <code>Cell</code> and add any empty <code>Cells</code> to
-            the 'stack' for visiting later. The 'stack' will grow add shrink
-            over its execution, visiting all empty cells in one direction before
-            backtracking and searching all the way in another direction.
-          </li>
-          <li>
-            The 'visited' <code>Set</code> is for tracking <code>Cells</code>
-            you have already been to. It is a <code>Set</code> so that it does
-            not contain duplicates. You will check this before visiting a
-            <code>Cell</code>. Any empty <code>Cells</code> are stored in
-            'result' for returning.
-          </li>
-          <li>
-            You will need to expand the 'results' to include some numbered
-            <code>Cells</code> adjacent to the empty ones found. This is how the
-            real game works.
+            To do the 'flood-fill' feature I choose depth-first search. The
+            basic premise of DFS search is it contains:
+            <ul>
+              <li>
+                Stack: The 'stack' is an <cdoe>Array</cdoe> of all the
+                'row/column' combinations the algorithm needs to visit.
+                Initialised to the current cell position you then start a
+                <code>While</code> loop, visiting each cell adjacent to the
+                current cell. Any adjacent cell that is empty has it's
+                'row/column' position pushed to the 'stack' for visiting later.
+                The 'stack' will grow add shrink as it traverses the board
+                visiting all empty cells in a single direction before
+                backtracking and searching all the way in another direction.
+              </li>
+              <li>
+                Visited: The 'visited' <code>Set</code> is for tracking the
+                cells you have already been to. It is a <code>Set</code> so that
+                it does not contain duplicates. You will check this before
+                visiting a cell so that you aren't visited cells you have
+                already been to.
+              </li>
+              <li>
+                Result: Any empty cells you find are pushed in a 'result'
+                <code>Array</code>. When the search is finished you will return
+                this to the program for revealing.
+              </li>
+              <li>
+                As well as empty cells you also want to reveal the first layer
+                of numbered cells in order to give clues to the player.
+              </li>
+            </ul>
           </li>
         </ol>
         This is obviously a brief description of the game mechanics. Some of the
@@ -182,7 +229,7 @@ const tabs = [
   },
   {
     id: 6,
-    title: 'Credits',
+    title: 'Useful links',
     content: (
       <ol>
         <li>

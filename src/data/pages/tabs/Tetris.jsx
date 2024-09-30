@@ -56,40 +56,77 @@ const tabs = [
   },
   {
     id: 3,
-    title: 'Key concepts',
+    title: 'Game logic',
     content: (
       <ol>
         <li>
-          The game makes use of <code>useState</code> to store the state of the
-          gameplay area & <code>useEffect</code> to react to state changes.
+          The game begins with two random tetrominos generated: one for the
+          board, the other for the 'next' play.
         </li>
         <li>
-          <code>eventListeners</code> are listening out for keyboard presses to
-          move the Tetromino.
+          An interval is started. For every tick of the interval the tetromino
+          on the board is moved down. This continues to happen until either the
+          tetromino hits the bottom of the board or there is a static tetromino
+          directly below the moving piece. N.B. The logic for both instances is
+          the same.
         </li>
         <li>
-          <code>Arrays</code> & <code>Loops</code> are used to make the
-          Tetrominos appear to be moving and are the central key to gamifying
-          React.
+          When the tetromino can no longer move down, either because it hit the
+          bottom of the board or another tetromino, it becomes "static". The
+          board must now be checked for any full horizontal lines.
         </li>
         <li>
-          Animation is acheived through the Web Animation API. Promises are used
-          to provide hooks for callbacks.
+          If every cell in a row is occupied by a static block, remove that line
+          and shift all lines above it down by one row. Award points to the
+          player depending on the number of lines cleared simultaneously.
+        </li>
+        <li>
+          After clearing lines, if any, the 'next' tetromino becomes the active
+          piece on the board. A new random tetromino is generated for the 'next'
+          play.
+        </li>
+        <li>
+          If a newly spawned tetromino cannot fully enter the board, because the
+          starting position is blocked by static blocks, the game is over.
+        </li>
+        <li>
+          The player can control the active tetromino in the following ways:
+          <ul>
+            <li>
+              Move left or right: The tetromino moves horizontally by one cell
+              unless blocked by the board edges or another static tetromino.
+            </li>
+            <li>
+              Rotate: The tetromino rotates 90 degrees clockwise or
+              counterclockwise. If the rotated piece would collide with the
+              board or another tetromino, the rotation is prevented.
+            </li>
+            <li>
+              Soft drop: The player can accelerate the tetromino&apos;s descent
+              by temporarily increasing the downward movement speed.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Scoring and level progression are optional. In the game you can choose
+          to award extra points for simultaneously line clears or progressing
+          the piece quicker. You can speed up the game at set intervals, or
+          after line clearances.
         </li>
       </ol>
     ),
   },
   {
     id: 4,
-    title: 'Coding challenges',
+    title: 'Tips',
     content: (
       <ol>
         <li>
-          For newbies the key concept to learn is how to gamify React so that
-          you can give the appearence of movement to coloured squares on a
-          screen. This is detailed in the next section, but understanding that
-          these games are built with changing numbers in a <code>Matrix</code>{' '}
-          is the biggest concept here.
+          The key concept to learn is how to gamify React so that you can give
+          the appearence of movement to coloured squares on a screen. This is
+          detailed in the next section, but understanding that these games are
+          built with changing numbers in a <code>Matrix</code> is the biggest
+          concept here.
         </li>
         <li>
           Updating the game on an interval. This is complicated, but the{' '}
@@ -101,20 +138,21 @@ const tabs = [
         <li>
           Writing the game logic for Tetris in a linear manner is quite
           straightforward. The challenge arises when implementing this logic
-          using React&apos;s useEffect hook. This requires a shift in thinking
-          from a sequential approach (&apos;Do this, then this&apos;) to a
-          declarative approach (&apos;When this happens, do these things&apos;).
+          using React&apos;s <code>useEffect</code> hook. This requires a shift
+          in thinking from a sequential approach &apos;Do this, then this&apos;
+          to a declarative approach &apos;When this happens, do these
+          things&apos;.
         </li>
         <li>
           Rotating a matrix is not as straightforward as expected. Some shapes
-          do not have an obvious centre of rotation, so look at the Tetris
+          do not have an obvious centre of rotation so look at the Tetris
           gameplay in action to figure out how it should behave.
         </li>
         <li>
           Animating a winning row is difficult. You will have to look at how you
           are rendering your <code>Tetrominos</code> in HTML & CSS as modifying
           the DOM will effect any pieces moving into those squares. You&apos;ll
-          need to figure out a method that can be rest after animations
+          need to figure out a method that can be reset after animations
           complete, if making such DOM changes.
         </li>
         <li>
@@ -126,7 +164,7 @@ const tabs = [
         </li>
         <li>
           Lastly is something that you may encounter depending on your React
-          knowledge or how complex you code becomes: stale state or closures.
+          knowledge or how complex you code becomes: stale states or closures.
           These are topics in themselves, so a bit of upfront reading will
           benefit you if you discover the game not behaving as you quite expect.
         </li>
@@ -135,7 +173,7 @@ const tabs = [
   },
   {
     id: 5,
-    title: 'How to build',
+    title: 'Deep dive',
     content: (
       <>
         <ol>
@@ -154,9 +192,9 @@ const tabs = [
             The <code>displayBoard</code> is represented as an{' '}
             <code>Array</code> of arrays - a matrix e.g.{' '}
             <code>{'[[0, 0],[0, 0]]'}</code> would be a 2 x 2 board.{' '}
-            <code>displayBoard</code> is a transient state containing all the
-            static and moving Tetrominos. Whenever this state is updated the
-            board you see on screen is redrawn.
+            <code>displayBoard</code> is the state containing all the static and
+            moving Tetrominos that you will render on screen. Whenever this
+            state is updated the board you see on screen is redrawn.
           </li>
           <li>
             The <code>staticBoard</code> is all the previously played pieces
@@ -214,12 +252,26 @@ const tabs = [
   },
   {
     id: 6,
-    title: 'Credits',
+    title: 'Useful links',
     content: (
       <ol>
         <li>
-          <code>useInterval</code> custom hook written by Dan Abramov
-          https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+          <code>useInterval</code> custom hook written by Dan Abramov:&nbsp;
+          <a
+            href="https://overreacted.io/making-setinterval-declarative-with-react-hooks"
+            target="_blank"
+          >
+            https://overreacted.io/making-setinterval-declarative-with-react-hooks
+          </a>
+        </li>
+        <li>
+          Web Animation API:&nbsp;
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API"
+            target="_blank"
+          >
+            https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API
+          </a>
         </li>
       </ol>
     ),
