@@ -3,7 +3,7 @@ import Ticker from '@components/Ticker';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 
-import Invader from '@svg/global/invader.svg?react';
+import Cloud from '@svg/global/cloud.svg?react';
 
 import './Footer.scss';
 
@@ -40,7 +40,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <Invader className="ft-image fluid-img" />
+            <Cloud className="ft-image fluid-img" />
           </div>
         </section>
 
