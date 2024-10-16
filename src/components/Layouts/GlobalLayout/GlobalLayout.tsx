@@ -1,6 +1,6 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
-import Ticker from '@components/Ticker';
+import { Ticker } from '@components';
 
 import './GlobalLayout.scss';
 

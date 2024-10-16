@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import Button from '@components/Button';
-import Divider from '@components/Divider';
-import Modal from '@components/Modal';
-import NextPrev from '@components/NextPrev';
+import {
+  Button,
+  Complexity,
+  Divider,
+  Modal,
+  NextPrev,
+  Tabs,
+} from '@components';
 import Heading from '@components/sections/Heading';
-import Tabs from '@components/Tabs';
 
 import viewNavigate from '@utils/viewNavigate';
 
@@ -119,7 +122,7 @@ const GamePage = () => {
           <div className="gp-details-wrapper" data-stack="space-m-l">
             <div data-stack="space-default">
               <p className="gp-details-title text-uppercase">Complexity</p>
-              <p>{complexity}</p>
+              <Complexity title="complexity" count={complexity} />
             </div>
 
             <div data-stack="space-default">

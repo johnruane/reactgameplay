@@ -2,12 +2,13 @@ import useAnimateGameIcon from './hooks/useAnimateGameIcon';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 
+import { Complexity } from '@components';
+
 import viewNavigate from '@utils/viewNavigate';
 
 import gameLinks from '@data/games/gameLinks';
 
 import ArrowRight from '@svg/global/arrow-right.svg?react';
-import CircleFilled from '@svg/global/circle-filled.svg?react';
 
 import './Games.scss';
 
@@ -35,9 +36,7 @@ const Games = ({ additionalClasses }) => {
             </span>
 
             <div className="gs-level-wrapper">
-              {Array.from({ length: level }).map((_, index) => (
-                <CircleFilled key={`${title}-${index}`} />
-              ))}
+              <Complexity title={title} count={level} />
             </div>
 
             {inDev ? (

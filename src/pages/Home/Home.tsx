@@ -4,9 +4,7 @@ import GamesSection from '@sections/home/Games';
 import IntroSection from '@sections/home/Intro';
 import LevelUpSection from '@sections/home/LevelUp';
 
-import Banner from '@components/Banner';
-import Divider from '@components/Divider';
-import TextLogo from '@components/TextLogo';
+import { Banner, Divider, TextLogo } from '@components';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 

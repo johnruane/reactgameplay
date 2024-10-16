@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 import classNames from 'classnames';
 
-import LinkComponent from '@components/LinkComponent';
+import { LinkComponent } from '@components';
 
 import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import Ticker from '@components/Ticker';
+import { Ticker } from '@components';
 
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 

@@ -1,9 +1,8 @@
-import LinkComponent from '@components/LinkComponent';
-import Ticker from '@components/Ticker';
+import { LinkComponent, Ticker } from '@components';
 
 import useBouncingHead from '@hooks/useBouncingHead';
 
-import Cloud from '@svg/global/cloud.svg?react';
+import Star from '@svg/global/star.svg?react';
 
 import './Footer.scss';
 
@@ -40,7 +39,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <Cloud className="ft-image fluid-img" />
+            <Star className="ft-image fluid-img" />
           </div>
         </section>
 

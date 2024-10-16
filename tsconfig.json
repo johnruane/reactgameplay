@@ -27,6 +27,7 @@
       "@assets/*": ["./src/assets/*"],
       "@svg/*": ["./src/assets/svg/*"],
       "@components/*": ["./src/components/*"],
+      "@components": ["./src/components"],
       "@games/*": ["./src/components/games/*"],
       "@layouts/*": ["./src/components/Layouts/*"],
       "@pages/*": ["./src/pages/*"],
