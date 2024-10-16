@@ -2,6 +2,7 @@
  * Takes @board and @emptyCellValue and for each cell in @board compares it's value to @emptyCellValue and if it
  * is a match proceeds to count the number of mines (9) that cell is touching.
  */
+import _cloneDeep from 'lodash/cloneDeep';
 
 export const generateCluesBoard = ({
   board,
@@ -10,7 +11,8 @@ export const generateCluesBoard = ({
   board: number[][];
   emptyCellValue: number;
 }) => {
-  board?.forEach((boardRow, i) => {
+  const cloneBoard = _cloneDeep(board);
+  cloneBoard?.forEach((boardRow, i) => {
     boardRow?.forEach((cell, j) => {
       if (cell !== emptyCellValue) return;
 
@@ -29,13 +31,13 @@ export const generateCluesBoard = ({
       directions.forEach((dir) => {
         const { r, c } = dir || {};
 
-        if (board[r]?.[c] === 9) {
+        if (cloneBoard[r]?.[c] === 9) {
           count += 1;
         }
       });
 
-      board[i][j] = count;
+      cloneBoard[i][j] = count;
     });
   });
-  return board;
+  return cloneBoard;
 };

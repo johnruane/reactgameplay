@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /* Font sizes */
 $font--2: clamp(0.64rem, 0.5775rem + 0.3123cqi, 0.8442rem);
 $font--1: clamp(0.8rem, 0.7005rem + 0.4976cqi, 1.1253rem);
@@ -26,8 +28,8 @@ $color-pink: #e55496;
 $color-teal: #41ead4;
 $color-white: #fffafa;
 $color-grey: #ececec;
-$color-code-light: lighten($color-pink, 20%);
-$color-code-dark: darken($color-pink, 20%);
+$color-code-light: color.adjust($color-pink, $lightness: 20%);
+$color-code-dark: color.adjust($color-pink, $lightness: -20%);
 $color-background-black: #1b2f27;
 
 /* Colours Ticker */

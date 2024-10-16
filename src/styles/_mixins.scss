@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @mixin display1 {
   font-size: $font-3;
   font-weight: $font-weight-bold;
@@ -35,7 +37,7 @@
 
 @mixin tileColor($color) {
   border-color: $color;
-  background-color: darken($color, 20%);
+  background-color: color.adjust($color, $lightness: -20%);
 
   & > :first-child {
     background-color: $color;
@@ -45,7 +47,7 @@
 @mixin gridColumnUtil {
   grid-column: 1 / -1;
 
-  @include media('>=tablet') {
-    grid-column: 2 / -2;
-  }
+  // @include media('>=tablet') {
+  //   grid-column: 2 / -2;
+  // }
 }

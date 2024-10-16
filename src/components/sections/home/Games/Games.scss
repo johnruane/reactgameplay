@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 :root {
   --tile-border-radius: 1.25rem;
 }
@@ -31,7 +33,7 @@
 
 .gs-tile-content-wrapper {
   padding: 1rem;
-  background-color: darken($color-game-tile-red, 30%);
+  background-color: color.adjust($color-game-tile-red, $lightness: -30%);
   border-bottom-left-radius: var(--tile-border-radius);
 }
 

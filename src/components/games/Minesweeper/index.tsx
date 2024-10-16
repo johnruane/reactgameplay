@@ -10,6 +10,7 @@ import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
 
 import { depthFirstSearch } from './lib/depthFirstSearch';
+import { findAllMinePositions } from './lib/findAllMinePositions';
 import { generateCluesBoard } from './lib/generateCluesBoard';
 import { generateMineBoard } from './lib/generateMineBoard';
 import { getCellValue } from './lib/getCellValue';
@@ -21,6 +22,9 @@ import useMediaQuery from '@components/hooks/useMatchMedia';
 
 import '../style.scss';
 import './minsweeper.scss';
+
+const GAME_WIN = 'win';
+const GAME_LOSE = 'lose';
 
 const Minesweeper = ({
   setGameKey,
@@ -92,7 +96,7 @@ const Minesweeper = ({
     if (
       getCellValue({ board: cluesBoardRef.current, pos: selectedCellPos }) === 9
     ) {
-      setGameOver('lose');
+      setGameOver(GAME_LOSE);
       return;
     }
   };
@@ -109,6 +113,9 @@ const Minesweeper = ({
     gameOverRef.current = gameOver;
   }, [gameOver]);
 
+  /*
+   * This useEffect resets any flagged cell that have been revealed during a 'flood-fill'.
+   */
   useEffect(() => {
     for (const pos of flagsMarked) {
       const { r, c } = pos || {};
@@ -122,7 +129,7 @@ const Minesweeper = ({
         });
       }
     }
-  }, [displayBoard]);
+  }, [displayBoard, flagsMarked]);
 
   /*
    * hasGameStarted state controls the clock timer. If the displayBoard cells are all -1 then
@@ -147,13 +154,26 @@ const Minesweeper = ({
 
     // If there are the same number of cells hidden as mines layed, the game is won
     if (cellUncovered === numberOfMines) {
-      setGameOver('win');
+      setGameOver(GAME_WIN);
     }
   }, [displayBoard]);
 
   useEffect(() => {
+    // Used to start the clock timer
     if (gameOver !== '') {
       setHasGameStarted(false);
+    }
+
+    if (gameOver === GAME_LOSE) {
+      const cellsToUpdate = findAllMinePositions({ board: mineBoard });
+      setDisplayBoard((prev) => {
+        const newBoard = updateDisplayBoard({
+          displayBoard: prev,
+          gameBoard: mineBoard,
+          cellsToUpdate: cellsToUpdate,
+        });
+        return newBoard;
+      });
     }
   }, [gameOver]);
 
@@ -166,6 +186,8 @@ const Minesweeper = ({
     if (boardRef.current) {
       boardRef.current.oncontextmenu = (e: MouseEvent) => {
         e.preventDefault();
+
+        if (gameOver !== '') return;
 
         const target = e.target as HTMLElement;
         const targetDataValue = target?.getAttribute('data-value');

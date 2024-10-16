@@ -92,20 +92,24 @@
   @include body;
   @include gridColumnUtil;
 
-  display: grid;
-  color: $color-white;
-  padding-left: $space-m-l;
-  border-left: clamp(0.375rem, 1vw, 0.75rem) solid $color-white;
+  & {
+    display: grid;
+    color: $color-white;
+    padding-left: $space-m-l;
+    border-left: clamp(0.375rem, 1vw, 0.75rem) solid $color-white;
+  }
 }
 
 .gp-intro-text {
   @include body;
   @include gridColumnUtil;
 
-  color: $color-white;
+  & {
+    color: $color-white;
 
-  & > * {
-    --stack-override: var(--space-default);
+    & > * {
+      --stack-override: var(--space-default);
+    }
   }
 }
 
