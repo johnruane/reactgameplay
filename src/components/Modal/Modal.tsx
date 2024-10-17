@@ -4,7 +4,7 @@ import { Ticker } from '@components';
 
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
-import './Modal.scss';
+import './modal.scss';
 
 const Modal = ({
   children,

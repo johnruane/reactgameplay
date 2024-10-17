@@ -1,4 +1,4 @@
-import removeObjectFromArray from './removeObjectFromArray';
+import removeObjectFromArray from '../removeObjectFromArray';
 
 describe('removeObjectFromArray', () => {
   it('should remove the correct object from the array', () => {

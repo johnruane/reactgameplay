@@ -1,4 +1,4 @@
-import { convertScore } from './convertScore';
+import { convertScore } from '../convertScore';
 
 describe('convertScore Test Suite', () => {
   it.each`

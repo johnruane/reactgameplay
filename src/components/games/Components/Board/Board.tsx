@@ -2,25 +2,31 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
+import { Cell } from '../../Components';
+
 import './board.scss';
 
 const Board = forwardRef<
   HTMLDivElement,
   {
     board: number[][];
-    Cell: React.NamedExoticComponent;
+    CellComponent?: React.ComponentType<{
+      id?: string;
+      value: number;
+      pos: string;
+      onClickCellCallback?: (pos: string) => void;
+    }>;
     className?: string;
-    onClickCellCallback?: () => void;
+    onClickCellCallback?: (pos: string) => void;
   }
->(({ board, Cell, className, onClickCellCallback }, ref) => {
+>(({ board, CellComponent = Cell, className, onClickCellCallback }, ref) => {
   return (
     <div ref={ref} className={classNames('board', className)}>
       {board?.map((boardRow, i) => (
         <div key={`r-${i}`} className="board-row" data-animate="row">
           {boardRow.map((cell, j) => (
-            <Cell
+            <CellComponent
               key={`c-${i}-${j}`}
-              // @ts-expect-error will never be null
               value={cell}
               pos={`{"r":${i},"c":${j}}`}
               onClickCellCallback={onClickCellCallback}

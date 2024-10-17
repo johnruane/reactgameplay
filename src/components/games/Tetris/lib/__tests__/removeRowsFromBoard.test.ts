@@ -1,4 +1,4 @@
-import { removeRowsFromBoard } from './removeRowsFromBoard';
+import { removeRowsFromBoard } from '../removeRowsFromBoard';
 
 describe('removeRowsFromBoard Test Suite', () => {
   it.each`

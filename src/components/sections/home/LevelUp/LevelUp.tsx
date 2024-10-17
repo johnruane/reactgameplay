@@ -3,7 +3,7 @@ import { LinkComponent } from '@components';
 import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 import Potion from '@svg/home/potion.svg?react';
 
-import './LevelUp.scss';
+import './levelUp.scss';
 
 const LevelUp = () => {
   return (

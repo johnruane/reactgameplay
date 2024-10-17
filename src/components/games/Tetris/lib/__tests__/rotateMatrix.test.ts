@@ -1,5 +1,5 @@
-import { t1, t3, t5 } from './__test__/testUtils';
-import { rotateMatrix } from './rotateMatrix';
+import { rotateMatrix } from '../rotateMatrix';
+import { t1, t3, t5 } from './testUtils';
 
 describe('rotateMatrix Test Suite', () => {
   it.each`

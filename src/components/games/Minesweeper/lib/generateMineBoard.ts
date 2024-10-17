@@ -1,4 +1,4 @@
-import { getRandomEmptyBoardPosition } from '../../Snake/lib/utils/getRandomEmptyBoardPosition';
+import { getRandomEmptyBoardPosition } from '../../Snake/lib/getRandomEmptyBoardPosition';
 
 export const generateMineBoard = ({
   board,

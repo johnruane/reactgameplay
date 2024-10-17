@@ -2,18 +2,12 @@ import { useEffect, useState } from 'react';
 
 import _cloneDeep from 'lodash/cloneDeep';
 
-import Board from '../Components/Board';
-import Cell from '../Components/Cell';
-import Controls from '../Components/Controls';
-import Panel from '../Components/Panel';
+import { Board, Controls, Panel } from '../Components';
 
 import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
-import {
-  addSnakeToBoard,
-  getRandomEmptyBoardPosition,
-  growSnake,
-} from './lib/utils';
+
+import { addSnakeToBoard, getRandomEmptyBoardPosition, growSnake } from './lib';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
@@ -238,7 +232,7 @@ const Snake = ({
         </div>
 
         <div className="overlay-wrapper">
-          <Board board={displayBoard} Cell={Cell} className="snake-board" />
+          <Board board={displayBoard} className="snake-board" />
           <div className="overlay-text-wrapper">
             {gameOver && <p className="overlay-text">Game Over</p>}
           </div>

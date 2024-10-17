@@ -1,22 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import Board from '../Components/Board';
-import Controls from '../Components/Controls';
-import Panel from '../Components/Panel';
+import { Board, Controls, Panel } from '../Components';
 
 import Cell from './components/Cell';
 
 import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
 
-import { depthFirstSearch } from './lib/depthFirstSearch';
-import { findAllMinePositions } from './lib/findAllMinePositions';
-import { generateCluesBoard } from './lib/generateCluesBoard';
-import { generateMineBoard } from './lib/generateMineBoard';
-import { getCellValue } from './lib/getCellValue';
-import { isBoardDefaultState } from './lib/isBoardDefaultState';
-import removeObjectFromArray from './lib/removeObjectFromArray';
-import { updateDisplayBoard } from './lib/updateDisplayBoard';
+import {
+  depthFirstSearch,
+  findAllMinePositions,
+  generateCluesBoard,
+  generateMineBoard,
+  getCellValue,
+  isBoardDefaultState,
+  removeObjectFromArray,
+  updateDisplayBoard,
+} from './lib';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
@@ -245,11 +245,9 @@ const Minesweeper = ({
           <Board
             ref={boardRef}
             board={displayBoard}
-            Cell={Cell}
+            CellComponent={Cell}
             className="minesweeper-board"
-            // @ts-expect-error will never be null
             onClickCellCallback={handleCellClick}
-            isGameOver={gameOver}
           />
           <div className="overlay-text-wrapper">
             {gameOver && (

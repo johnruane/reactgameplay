@@ -1,5 +1,5 @@
-import { t1, t2, t4, t5 } from './__test__/testUtils';
-import { canTetrominoMoveToPosition } from './canTetrominoMoveToPosition';
+import { canTetrominoMoveToPosition } from '../canTetrominoMoveToPosition';
+import { t1, t2, t4, t5 } from './testUtils';
 
 describe('canTetrominoMoveToPosition Test Suite', () => {
   it.each`

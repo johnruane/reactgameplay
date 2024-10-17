@@ -1,5 +1,5 @@
-import { t1, t2, t3, t4 } from './__test__/testUtils';
-import { addTetrominoToBoard } from './addTetrominoToBoard';
+import { addTetrominoToBoard } from '../addTetrominoToBoard';
+import { t1, t2, t3, t4 } from './testUtils';
 
 describe('addTetrominoToBoard Test Suite', () => {
   it.each`

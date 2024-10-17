@@ -6,7 +6,7 @@ import { LinkComponent } from '@components';
 
 import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 
-import './Tabs.scss';
+import './tabs.scss';
 
 const Tabs = ({ data }) => {
   const [selectedSection, setSelectedSection] = useState(1);

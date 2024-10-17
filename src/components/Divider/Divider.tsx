@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import './Divider.scss';
+import './divider.scss';
 
 const Divider = ({ color, background }) => {
   return (

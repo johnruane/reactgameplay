@@ -1,4 +1,4 @@
-import { findCompletedRows } from './findCompletedRows';
+import { findCompletedRows } from '../findCompletedRows';
 
 describe('findCompletedRows Test Suite', () => {
   it.each`

@@ -1,4 +1,4 @@
-import { tetrominos } from './matrices.js';
+import { tetrominos } from '../utils/matrices.js';
 
 export const getRandomTetromino = () => {
   const tetro =

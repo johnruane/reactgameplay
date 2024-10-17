@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import './Button.scss';
+import './button.scss';
 
 const Button = ({ text, children, onClick, className, ariaLabel = '' }) => {
   return (

@@ -3,24 +3,23 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import _cloneDeep from 'lodash/cloneDeep';
 
-import Board from '../Components/Board';
-import Cell from '../Components/Cell';
-import Controls from '../Components/Controls';
-import Panel from '../Components/Panel';
+import { Board, Controls, Panel } from '../Components';
 
 import Next from './components/Next';
 
 import { create2dArray } from '../utils';
 import { useInterval } from '../utils/hooks/useInterval';
-import { addTetrominoToBoard } from './lib/utils/addTetrominoToBoard';
-import { animateCompleteRow } from './lib/utils/animateCompleteRow';
-import { canTetrominoMoveToPosition } from './lib/utils/canTetrominoMoveToPosition';
-import { convertScore } from './lib/utils/convertScore';
-import { findCompletedRows } from './lib/utils/findCompletedRows';
-import { removeRowsFromBoard } from './lib/utils/removeRowsFromBoard';
-import { rotateMatrix } from './lib/utils/rotateMatrix';
 
-import { getRandomTetromino } from './lib/randomTetromino';
+import {
+  addTetrominoToBoard,
+  animateCompleteRow,
+  canTetrominoMoveToPosition,
+  convertScore,
+  findCompletedRows,
+  getRandomTetromino,
+  removeRowsFromBoard,
+  rotateMatrix,
+} from './lib';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
@@ -360,7 +359,7 @@ const Tetris = ({
           </div>
         </div>
         <div className="overlay-wrapper">
-          <Board board={displayBoard} Cell={Cell} className="tetris" />
+          <Board board={displayBoard} className="tetris" />
           <div className="overlay-text-wrapper">
             {gameOver && <p className="overlay-text">Game Over</p>}
           </div>
