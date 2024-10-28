@@ -9,8 +9,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        api: 'modern-compiler',
         additionalData: `
-          @use './src/styles/essential' as *;
+          @use '@styles/_essential.scss' as *;
         `,
       },
     },
@@ -46,6 +47,10 @@ export default defineConfig({
       {
         find: '@hooks',
         replacement: path.resolve(__dirname, '/src/components/hooks'),
+      },
+      {
+        find: '@styles',
+        replacement: path.resolve(__dirname, '/src/styles'),
       },
     ],
   },
