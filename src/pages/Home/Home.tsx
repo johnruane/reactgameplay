@@ -1,8 +1,10 @@
-import Heading from '@sections/Heading';
-import AboutSection from '@sections/home/About';
-import GamesSection from '@sections/home/Games';
-import IntroSection from '@sections/home/Intro';
-import LevelUpSection from '@sections/home/LevelUp';
+import { Heading } from '@sections';
+import {
+  About as AboutSection,
+  Games as GamesSection,
+  Intro as IntroSection,
+  LevelUp as LevelUpSection,
+} from '@sections';
 
 import { Banner, Divider, TextLogo } from '@components';
 
@@ -10,7 +12,7 @@ import useBouncingHead from '@hooks/useBouncingHead';
 
 import Pacman from '@svg/home/pacman.svg?react';
 
-import './home.scss';
+import './style.scss';
 
 export default function Home() {
   useBouncingHead();

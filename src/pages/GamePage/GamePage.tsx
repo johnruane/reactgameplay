@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { Heading } from '@sections';
+
 import {
   Button,
   Complexity,
@@ -11,7 +13,6 @@ import {
   NextPrev,
   Tabs,
 } from '@components';
-import Heading from '@components/sections/Heading';
 
 import viewNavigate from '@utils/viewNavigate';
 
@@ -24,7 +25,7 @@ import Ghost from '@svg/games/ghost.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 import Back from '@svg/global/back.svg?react';
 
-import './gamePage.scss';
+import './style.scss';
 
 const GamePage = () => {
   const { title } = useParams();

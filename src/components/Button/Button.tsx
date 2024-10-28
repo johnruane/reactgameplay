@@ -1,8 +1,20 @@
 import classNames from 'classnames';
 
-import './button.scss';
+import './style.scss';
 
-const Button = ({ text, children, onClick, className, ariaLabel = '' }) => {
+const Button = ({
+  text,
+  children,
+  onClick,
+  className,
+  ariaLabel = '',
+}: {
+  text?: string;
+  children?: JSX.Element;
+  onClick?: () => void;
+  className?: string;
+  ariaLabel?: string;
+}) => {
   return (
     <button
       className={classNames('button', className)}

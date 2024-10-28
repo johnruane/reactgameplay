@@ -23,8 +23,8 @@ import {
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-import '../style.scss';
-import './tetris.scss';
+import '../games-style.scss';
+import './style.scss';
 
 /*
  * @position: Current r & c position to place the top left corner of the tetromino on a board.

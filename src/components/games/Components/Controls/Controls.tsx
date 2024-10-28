@@ -2,7 +2,7 @@ import { Button } from '@components';
 
 import useMediaQuery from '@hooks/useMatchMedia';
 
-import './controls.scss';
+import './style.scss';
 
 export default function Controls({
   move,
@@ -39,25 +39,21 @@ export default function Controls({
               className="button-reset pad-left"
               onClick={() => move('ArrowLeft')}
               ariaLabel="Move left"
-              showIcon={false}
             />
             <Button
               className="button-reset pad-down"
               onClick={() => move('ArrowDown')}
               ariaLabel="Move down"
-              showIcon={false}
             />
             <Button
               className="button-reset pad-up"
               onClick={() => move('ArrowUp')}
               ariaLabel="Move up"
-              showIcon={false}
             />
             <Button
               className="button-reset pad-right"
               onClick={() => move('ArrowRight')}
               ariaLabel="Move right"
-              showIcon={false}
             />
 
             <div className="game-controls-d-pad-spacer"></div>
@@ -69,7 +65,6 @@ export default function Controls({
                 className="button-reset game-controls-button"
                 onClick={onStartClickHandler}
                 ariaLabel="Start game"
-                showIcon={false}
               />
             </span>
             <span className="game-controls-button-text-wrapper">
@@ -78,7 +73,6 @@ export default function Controls({
                 className="button-reset game-controls-button"
                 onClick={onQuitClickHandler}
                 ariaLabel="Quit game"
-                showIcon={false}
               />
             </span>
           </div>
@@ -87,13 +81,8 @@ export default function Controls({
               className="button-reset button-a"
               onClick={() => move('Space')}
               ariaLabel="A button"
-              showIcon={false}
             />
-            <Button
-              className="button-reset button-b"
-              ariaLabel="B button"
-              showIcon={false}
-            />
+            <Button className="button-reset button-b" ariaLabel="B button" />
           </div>
         </div>
       )}

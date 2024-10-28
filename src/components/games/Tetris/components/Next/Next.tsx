@@ -1,6 +1,6 @@
 import { Board, Cell, Panel } from '../../../Components';
 
-import './next.scss';
+import './style.scss';
 
 const emptyBoard = [
   [0, 0, 0, 0],

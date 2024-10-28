@@ -1,6 +1,6 @@
 import useLogoAnimation from './useLogoAnimation';
 
-import './textLogo.scss';
+import './style.scss';
 
 const TextLogo = () => {
   useLogoAnimation();

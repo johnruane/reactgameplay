@@ -20,8 +20,8 @@ import {
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-import '../style.scss';
-import './minsweeper.scss';
+import '../games-style.scss';
+import './style.scss';
 
 const GAME_WIN = 'win';
 const GAME_LOSE = 'lose';

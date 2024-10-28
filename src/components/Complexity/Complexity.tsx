@@ -1,6 +1,6 @@
 import CircleFilled from '@svg/global/circle-filled.svg?react';
 
-import './complexity.scss';
+import './style.scss';
 
 const Complexity = ({ count, title }: { count: number; title: string }) => {
   return (

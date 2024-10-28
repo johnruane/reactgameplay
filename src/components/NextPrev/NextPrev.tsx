@@ -6,7 +6,7 @@ import viewNavigate from '@utils/viewNavigate';
 import ArrowCircleLeft from '@svg/global/arrow-circle-left.svg?react';
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
-import './nextPrev.scss';
+import './style.scss';
 
 const NextPrev = ({ prev, next, additionalClasses }) => {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-import './ticker.scss';
+import './style.scss';
 
 const Ticker = ({
   textOne,

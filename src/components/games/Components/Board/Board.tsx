@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { Cell } from '../../Components';
 
-import './board.scss';
+import './style.scss';
 
 const Board = forwardRef<
   HTMLDivElement,

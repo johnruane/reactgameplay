@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef } from 'react';
 
-import './cell.scss';
+import './style.scss';
 
 const Cell = memo(function Cell({
   value = 0,

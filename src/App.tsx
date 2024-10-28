@@ -2,13 +2,9 @@ import { useEffect } from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import DefaultLayout from '@layouts/DefaultLayout';
-import GameLayout from '@layouts/GameLayout';
-import GlobalLayout from '@layouts/GlobalLayout';
+import { DefaultLayout, GameLayout, GlobalLayout } from '@layouts';
 
-import Error404 from '@pages/404';
-import GamePage from '@pages/GamePage';
-import Home from '@pages/Home';
+import { Error404, GamePage, Home } from '@pages';
 
 import './styles/app.scss';
 import './styles/reset.css';

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import HeadingsIcon from '@svg/global/headings-icon.svg?react';
 
-import './heading.scss';
+import './style.scss';
 
 const Heading = ({ title, className }) => {
   return (

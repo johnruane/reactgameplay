@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import './cell.scss';
+import './style.scss';
 
 const Cell = memo(function Cell({
   id = '',

@@ -11,8 +11,8 @@ import { addSnakeToBoard, getRandomEmptyBoardPosition, growSnake } from './lib';
 
 import useMediaQuery from '@components/hooks/useMatchMedia';
 
-import '../style.scss';
-import './snake.scss';
+import '../games-style.scss';
+import './style.scss';
 
 const SNAKE_DIRECTIONS = {
   ARROW_UP: 'ArrowUp',

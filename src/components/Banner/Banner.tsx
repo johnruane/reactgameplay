@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Spaceship from '@svg/home/spaceship.svg?react';
 import Stars from '@svg/home/stars.svg?react';
 
-import './banner.scss';
+import './style.scss';
 
 const Banner = ({ additionalClasses }) => {
   return (

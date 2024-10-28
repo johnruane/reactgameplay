@@ -1,4 +1,4 @@
-import './panel.scss';
+import './style.scss';
 
 export default function Panel({
   sections,
