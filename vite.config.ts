@@ -35,7 +35,7 @@ export default defineConfig({
       },
       {
         find: '@games',
-        replacement: path.resolve(__dirname, '/src/components/games'),
+        replacement: path.resolve(__dirname, '/apps/games'),
       },
       {
         find: '@layouts',

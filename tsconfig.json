@@ -37,6 +37,6 @@
       "@hooks/*": ["./src/components/hooks/*"]
     }
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src", "global.d.ts", "apps"],
   "exclude": ["src/**/*.test.ts"]
 }
