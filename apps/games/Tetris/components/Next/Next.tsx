@@ -1,4 +1,4 @@
-import { Board, Cell, Panel } from '../../../../shared/components';
+import { Board, Cell, Panel } from '../../shared/components';
 
 import './style.css';
 
@@ -18,11 +18,7 @@ export default function Next({ nextTetromino, show }) {
         {
           heading: 'Next',
           value: (
-            <Board
-              board={boardToShow}
-              CellComponent={Cell}
-              className="next-board"
-            />
+            <Board board={boardToShow} CellComponent={Cell} className='next-board' />
           ),
         },
       ]}

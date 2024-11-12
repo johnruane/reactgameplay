@@ -24,7 +24,7 @@ const FOOD_VALUE = 2;
 const Snake = ({
   setToggleModal,
 }: {
-  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setToggleModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const emptyBoard = create2dArray({
     numberOfRows: 15,
