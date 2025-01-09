@@ -6,7 +6,7 @@ import { DefaultLayout, GameLayout, GlobalLayout } from '@layouts';
 
 import { Error404, GamePage, Home } from '@pages';
 
-import './styles/app.scss';
+import './styles/app.css';
 import './styles/reset.css';
 
 export default function App() {

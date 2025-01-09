@@ -5,19 +5,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid $color-white;
-  background-color: $color-black;
-  border-radius: $button-border-radius;
+  border: 2px solid var(--color-white);
+  background-color: var(--color-black);
+  border-radius: var(--button-border-radius);
   user-select: none;
   width: fit-content;
   padding: 1rem 3rem;
-  user-select: none;
   touch-action: manipulation;
 
   & span {
-    color: $color-white;
-    font-weight: $font-weight-bold;
-    font-size: $font-0;
+    color: var(--color-white);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-0);
   }
 
   &:hover {

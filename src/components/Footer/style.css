@@ -3,7 +3,7 @@
 }
 
 .grid.ft-footer-wrapper {
-  @include verticalPadding($space-5xl-6xl);
+  /* @include verticalPadding($space-5xl-6xl); */
   row-gap: 16vw;
 }
 
@@ -13,17 +13,17 @@
   grid-template-rows: min-content;
   align-self: center;
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 2 / 11;
   }
 }
 
 .ft-heading {
-  @include display2;
+  /* @include display2; */
 }
 
 .ft-text {
-  @include body;
+  /* @include body; */
 }
 
 .ft-logo-wrapper {
@@ -37,10 +37,10 @@
 }
 
 .ft-footer-links {
-  background-color: $color-black;
+  background-color: var(--color-black);
   padding: 2rem 0rem;
-  border-top-left-radius: $component-border-radius;
-  border-top-right-radius: $component-border-radius;
+  border-top-left-radius: var(--component-border-radius);
+  border-top-right-radius: var(--component-border-radius);
 }
 
 .ft-links-wrapper {
@@ -50,18 +50,18 @@
   justify-content: space-around;
 
   & .ft-links {
-    color: $color-white;
+    color: var(--color-white);
   }
 }
 
 .ft-image {
   grid-column: 2 / span 4;
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     grid-column: 4 / span 6;
   }
 
-  @include media('>=desktop') {
+  @media(min-width: var(--desktop)) {
     grid-row: 1;
     grid-column: 12 / -2;
     align-self: center;

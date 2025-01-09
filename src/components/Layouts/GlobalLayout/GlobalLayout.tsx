@@ -2,7 +2,7 @@ import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 import { Ticker } from '@components';
 
-import './style.scss';
+import './style.css';
 
 const GlobalLayout = () => {
   return (

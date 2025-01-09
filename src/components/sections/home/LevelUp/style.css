@@ -1,7 +1,7 @@
 .l-up-text-wrapper {
-  @include gridColumnUtil;
+  /* @include gridColumnUtil; */
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 8 / -3;
     grid-row: 1;
     align-self: center;
@@ -13,12 +13,12 @@
   justify-self: center;
   max-width: 10rem;
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     grid-column: 5 / span 4;
     align-self: center;
   }
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-row: 1;
     grid-column: 3 / span 3;
     justify-self: end;
@@ -26,9 +26,9 @@
 }
 
 .l-up-heading {
-  @include display2;
+  /* @include display2; */
 }
 
 .l-up-sub-heading {
-  @include body;
+  /* @include body; */
 }

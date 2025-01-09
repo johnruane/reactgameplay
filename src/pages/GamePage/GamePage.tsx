@@ -25,7 +25,7 @@ import Ghost from '@svg/games/ghost.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 import Back from '@svg/global/back.svg?react';
 
-import './style.scss';
+import './style.css';
 
 const GamePage = () => {
   const { title } = useParams();

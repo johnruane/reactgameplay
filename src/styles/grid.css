@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: var(--grid-phone);
+  padding: 0 var(--margin-horizontal-1);
+
+  @media (min-width: var(--tablet)) {
+    grid-template-columns: var(--grid-tablet);
+    padding: 0 var(--margin-horizontal-2);
+  }
+
+  @media (min-width: var(--desktop)) {
+    grid-template-columns: var(--grid-desktop);
+    padding: 0 var(--margin-horizontal-2);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1920px) 1fr;
+  position: relative;
+
+  & > * {
+    grid-column: 2;
+  }
+}

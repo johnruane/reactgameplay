@@ -10,7 +10,7 @@ import gameLinks from '@data/games/gameLinks';
 
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 
-import './style.scss';
+import './style.css';
 
 const Games = ({ additionalClasses }) => {
   useAnimateGameIcon();

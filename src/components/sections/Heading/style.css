@@ -1,0 +1,11 @@
+.h-heading-wrapper {
+  display: grid;
+  grid-template-columns: var(--space-m-l) 1fr;
+  align-items: center;
+  column-gap: var(--space-s);
+}
+
+.h-heading {
+  font-size: var(--font-0);
+  color: var(--color-white);
+}

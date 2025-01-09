@@ -1,6 +1,6 @@
 .grid.hm-section-wrapper {
-  @include padding('top', 10);
-  @include padding('bottom', 5);
+  /* @include padding('top', 10);
+  @include padding('bottom', 5); */
 
   row-gap: 16vw;
 }
@@ -11,12 +11,12 @@
   align-items: center;
   justify-content: center;
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     grid-column: 1 / 6;
     justify-content: start;
   }
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 2 / 10;
   }
 }
@@ -26,11 +26,11 @@
   grid-column: 2 / -2;
   max-width: 40rem;
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     grid-column: 8 / -2;
   }
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 12 / -3;
   }
 }
@@ -38,7 +38,7 @@
 .hm-intro-wrapper > * {
   grid-column: 1 / -1;
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 2 / 15;
   }
 }
@@ -46,33 +46,33 @@
 .hm-enter-wrapper {
   display: flex;
   justify-content: center;
-  background: $color-black;
-  padding-top: $space-2xl-3xl;
+  background: var(--color-black);
+  padding-top: var(--space-2xl-3xl);
 }
 
 .hm-intro,
 .hm-games,
 .hm-about {
-  @include verticalPadding($space-5xl-6xl);
+  /* @include verticalPadding($space-5xl-6xl); */
 }
 
 .hm-games-content-wrapper {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  column-gap: $space-s;
-  row-gap: $space-m;
+  column-gap: var(--space-s);
+  row-gap: var(--space-m);
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 2 / -2;
   }
 }
 
 .hm-level-up {
-  @include verticalPadding($space-3xl-4xl);
+  /* @include verticalPadding($space-3xl-4xl); */
 
   & .grid {
-    row-gap: $space-2xl-3xl;
+    row-gap: var(--space-2xl-3xl);
   }
 }
 
@@ -83,5 +83,5 @@
 }
 
 .grid.hm-banner {
-  @include verticalPadding($space-2xl-3xl);
+  /* @include verticalPadding($space-2xl-3xl); */
 }

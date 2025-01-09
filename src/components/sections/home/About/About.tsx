@@ -2,7 +2,7 @@ import Cherries from '@svg/home/cherries.svg?react';
 import Key from '@svg/home/key.svg?react';
 import Mushroom from '@svg/home/mushroom.svg?react';
 
-import './style.scss';
+import './style.css';
 
 const About = () => {
   return (

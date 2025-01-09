@@ -1,10 +1,10 @@
 .tb-tabs-wrapper {
   display: flex;
   flex-wrap: wrap;
-  row-gap: $space-s;
-  column-gap: $space-xs;
+  row-gap: var(--space-s);
+  column-gap: var(--space-xs);
   position: sticky;
-  top: $space-m;
+  top: var(--space-m);
 }
 
 .tb-tabs-wrapper::-webkit-scrollbar {
@@ -15,11 +15,11 @@
   all: unset;
   @include body;
 
-  background-color: $color-grey;
+  background-color: var(--color-grey);
   border-radius: 3.125rem;
-  border: 3px solid $color-black;
-  color: $color-black;
-  font-weight: $font-weight-bold;
+  border: 3px solid var(--color-black);
+  color: var(--color-black;
+  font-weight: var(--font-weight-bold);
   align-self: center;
   padding: 0.75rem 1.25rem;
   white-space: nowrap;
@@ -27,8 +27,8 @@
 }
 
 .tb-tab-button-active {
-  background-color: $color-black;
-  color: $color-white;
+  background-color: var(--color-black);
+  color: var(--color-white);
   transform: rotate(-6deg);
 }
 

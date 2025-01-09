@@ -12,7 +12,7 @@ import useBouncingHead from '@hooks/useBouncingHead';
 
 import Pacman from '@svg/home/pacman.svg?react';
 
-import './style.scss';
+import './style.css';
 
 export default function Home() {
   useBouncingHead();

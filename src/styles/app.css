@@ -1,0 +1,19 @@
+@import "essentials.css";
+@import "grid.css";
+@import "type.css";
+@import "utils.css";
+@import "stack.css";
+
+body {
+  font-family: 'Archivo', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight-regular);
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-black);
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.it-heading {
+  /* @include display1; */
+
+  color: var(--color-black);
+}
+
+.it-subheading {
+  /* @include body; */
+
+  color: var(--color-black);
+}

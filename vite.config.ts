@@ -6,16 +6,16 @@ import { defineConfig } from 'vitest/config';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-        additionalData: `
-          @use '@styles/_essential.scss' as *;
-        `,
-      },
-    },
-  },
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       api: 'modern-compiler',
+  //       additionalData: `
+  //         @import '@styles/_essential.scss';
+  //       `,
+  //     },
+  //   },
+  // },
   test: {
     globals: true,
     environment: 'jsdom',

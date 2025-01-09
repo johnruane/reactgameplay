@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import './style.scss';
+import './style.css';
 
 const LinkComponent = ({
   to,

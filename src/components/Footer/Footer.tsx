@@ -4,7 +4,7 @@ import useBouncingHead from '@hooks/useBouncingHead';
 
 import Star from '@svg/global/star.svg?react';
 
-import './style.scss';
+import './style.css';
 
 const Footer = () => {
   useBouncingHead();

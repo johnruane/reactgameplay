@@ -7,7 +7,7 @@
   width: 100vw;
   transition: width 0.25s ease-in;
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     width: 40rem;
   }
 }
@@ -18,7 +18,7 @@
   grid-template-rows: min-content minmax(9.75rem, 1fr);
   padding: $space-s 1rem 0;
   height: calc(calc(var(--vh, 1vh) * 100) - var(--ticker-height));
-  background-color: $color-modal-background;
+  background-color: var(--color-modal-background);
 }
 
 .modal-overlay {
@@ -35,7 +35,7 @@
   padding-right: 1rem;
   top: 50%;
 
-  @include media('<=tablet') {
+  @media (min-width: var(--tablet)) {
     visibility: hidden;
   }
 }
@@ -50,10 +50,10 @@
 
 .modal-close-svg {
   & circle {
-    fill: $color-white;
+    fill: var(--color-white);
   }
 
   & path {
-    fill: $color-black;
+    fill: var(--color-black);
   }
 }

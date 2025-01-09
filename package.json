@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "copy-shared": "node ./scripts/copy-shared.js",
-    "dev": "npm run copy-shared && vite",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest"
@@ -19,7 +18,7 @@
     "react-dom": "^18.2.0",
     "react-remove-scroll-bar": "^2.3.6",
     "react-router-dom": "^6.21.1",
-    "utopia-core-scss": "^1.0.1"
+    "reactgames": "https://github.com/johnruane/reactgames.git"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -37,10 +36,9 @@
     "globals": "^15.9.0",
     "jsdom": "^24.1.1",
     "prettier": "^3.3.3",
-    "sass": "^1.76.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.0.8",
+    "vite": "^6.0.7",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "^1.4.0"
   }

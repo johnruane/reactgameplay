@@ -1,5 +1,5 @@
 .lc-link {
-  @include link;
+  /* @include link; */
 
   display: grid;
   grid-auto-flow: column;
