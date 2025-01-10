@@ -1,3 +1,5 @@
+@import '@styles/mixins';
+
 h1,
 h2,
 h3,
@@ -31,7 +33,7 @@ a {
 }
 
 ol {
-  @include body;
+  @mixin body;
 
   list-style-position: inside;
   padding: 0;
@@ -42,13 +44,9 @@ ol {
 }
 
 .background-black {
-  code {
-    color: var(--color-code-light);
-  }
+  color: var(--color-code-light);
 }
 
 .background-grey {
-  code {
-    color: var(--color-code-dark);
-  }
+  color: var(--color-code-dark);
 }

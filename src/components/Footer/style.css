@@ -1,9 +1,11 @@
+@import '@styles/mixins';
+
 .ft-footer {
-  background-color: $color-teal;
+  background-color: var(--color-teal);
 }
 
 .grid.ft-footer-wrapper {
-  /* @include verticalPadding($space-5xl-6xl); */
+  @mixin verticalPadding var(--space-5xl-6xl);
   row-gap: 16vw;
 }
 
@@ -19,11 +21,11 @@
 }
 
 .ft-heading {
-  /* @include display2; */
+  @mixin display2;
 }
 
 .ft-text {
-  /* @include body; */
+  @mixin body;
 }
 
 .ft-logo-wrapper {
@@ -44,7 +46,7 @@
 }
 
 .ft-links-wrapper {
-  @include gridColumnUtil;
+  @mixin gridColumnUtil;
 
   display: flex;
   justify-content: space-around;

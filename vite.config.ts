@@ -2,24 +2,64 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import svgr from 'vite-plugin-svgr';
 import { defineConfig } from 'vitest/config';
+import fs from 'fs';
+
+const mixinsPath = path.resolve(__dirname, 'src/styles/mixins.css');
+const mixins = fs.readFileSync(mixinsPath, 'utf8');
+
+// {
+//   name: 'vite-dynamic-mixins',
+//   enforce: 'pre',
+//   transform(code, id) {
+//     if (id.endsWith('.css')) {
+//       const mixinsFilePath = path.resolve(__dirname, 'src/styles/mixins.css');
+//       const mixinsContent = fs.readFileSync(mixinsFilePath, 'utf8');
+
+//       // Extract mixin definitions
+//       const mixinDefinitions = {};
+//       const mixinRegex = /@define-mixin\s+([\w-]+)\s*\{([\s\S]*?)\}/g;
+//       let match;
+//       while ((match = mixinRegex.exec(mixinsContent))) {
+//         mixinDefinitions[match[1]] = match[2].trim();
+//       }
+
+//       // Find used mixins in the current CSS file
+//       const usedMixins = [];
+//       const mixinUsageRegex = /@mixin\s+([\w-]+)/g;
+//       while ((match = mixinUsageRegex.exec(code))) {
+//         const mixinName = match[1];
+//         if (mixinDefinitions[mixinName]) {
+//           usedMixins.push(mixinName);
+//         }
+//       }
+
+//       // Build mixins to prepend
+//       const requiredMixins = usedMixins
+//         .map((name) => `@define-mixin ${name} {\n${mixinDefinitions[name]}\n}`)
+//         .join('\n');
+
+//       // Prepend the required mixins to the CSS code
+//       return requiredMixins + '\n' + code;
+//     }
+
+//     return code;
+//   },
+// },
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       api: 'modern-compiler',
-  //       additionalData: `
-  //         @import '@styles/_essential.scss';
-  //       `,
-  //     },
-  //   },
-  // },
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: path.resolve(__dirname, './.vitest/setup.ts'),
+  },
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: `@import "@styles/essentials.css";`,
+      },
+    },
   },
   resolve: {
     alias: [

@@ -1,15 +1,16 @@
 :root {
-  /* @link https://utopia.fyi/type/calculator?c=320,16,1.25,1366,24,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8|10|12,4xl-6xl|3xl-4xl|3xl-5xl|xl-2xl|2xl-3xl|l-xl&g=s,l,xl,12 */
-  /* Font sizes */
-  --step--2: clamp(0.64rem, 0.5775rem + 0.3123vw, 0.8442rem);
-  --step--1: clamp(0.8rem, 0.7005rem + 0.4976vw, 1.1253rem);
-  --step-0: clamp(1rem, 0.847rem + 0.7648vw, 1.5rem);
-  --step-1: clamp(1.25rem, 1.0207rem + 1.1465vw, 1.9995rem);
-  --step-2: clamp(1.5625rem, 1.2251rem + 1.6869vw, 2.6653rem);
-  --step-3: clamp(1.9531rem, 1.4637rem + 2.4471vw, 3.5529rem);
-  --step-4: clamp(2.4414rem, 1.7394rem + 3.5099vw, 4.736rem);
-  --step-5: clamp(3.0518rem, 2.054rem + 4.9887vw, 6.3131rem);
-  --step-6: clamp(3.8147rem, 2.4072rem + 7.0373vw, 8.4153rem);
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.25,1366,24,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8|10|12,4xl-6xl|3xl-4xl|3xl-5xl|xl-2xl|2xl-3xl|l-xl&g=s,l,xl,12 */
+
+/* Font sizes */
+--font--2: clamp(0.64rem, 0.5775rem + 0.3123vw, 0.8442rem);
+--font--1: clamp(0.8rem, 0.7005rem + 0.4976vw, 1.1253rem);
+--font-0: clamp(1rem, 0.847rem + 0.7648vw, 1.5rem);
+--font-1: clamp(1.25rem, 1.0207rem + 1.1465vw, 1.9995rem);
+--font-2: clamp(1.5625rem, 1.2251rem + 1.6869vw, 2.6653rem);
+--font-3: clamp(1.9531rem, 1.4637rem + 2.4471vw, 3.5529rem);
+--font-4: clamp(2.4414rem, 1.7394rem + 3.5099vw, 4.736rem);
+--font-5: clamp(3.0518rem, 2.054rem + 4.9887vw, 6.3131rem);
+--font-6: clamp(3.8147rem, 2.4072rem + 7.0373vw, 8.4153rem);
 
 /* Fonts */
 --font-weight-light: 100;

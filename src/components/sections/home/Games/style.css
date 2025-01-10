@@ -1,3 +1,5 @@
+@import '@styles/mixins';
+
 :root {
   --tile-border-radius: 1.25rem;
 }
@@ -9,23 +11,23 @@
   }
 
   & > :nth-child(5n + 1) {
-    /* @include tileColor($color-game-tile-red); */
+    @mixin tileColor var(--color-game-tile-red);
   }
 
   & > :nth-child(5n + 2) {
-    /* @include tileColor($color-game-tile-teal); */
+    @mixin tileColor var(--color-game-tile-teal);
   }
 
   & > :nth-child(5n + 3) {
-    /* @include tileColor($color-game-tile-green); */
+    @mixin tileColor var(--color-game-tile-green);
   }
 
   & > :nth-child(5n + 4) {
-    /* @include tileColor($color-game-tile-blue); */
+    @mixin tileColor var(--color-game-tile-blue);
   }
 
   & > :nth-child(5n + 5) {
-    /* @include tileColor($color-game-tile-pink); */
+    @mixin tileColor var(--color-game-tile-pink);
   }
 }
 
@@ -107,7 +109,7 @@
 }
 
 .gs-link {
-  @include link;
+  @mixin link;
 
   font-size: var(--font--2);
   color: var(--color-white);

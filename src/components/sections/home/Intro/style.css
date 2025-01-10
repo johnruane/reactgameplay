@@ -1,11 +1,13 @@
+@import '@styles/mixins';
+
 .it-heading {
-  /* @include display1; */
+  @mixin display1;
 
   color: var(--color-black);
 }
 
 .it-subheading {
-  /* @include body; */
+  @mixin body;
 
   color: var(--color-black);
 }

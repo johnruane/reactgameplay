@@ -1,5 +1,7 @@
+@import '@styles/mixins';
+
 .gp-intro {
-  /* @include verticalPadding($space-5xl-6xl); */
+  @mixin verticalPadding var(--space-5xl-6xl);
 }
 
 .gp-image {
@@ -89,8 +91,8 @@
 }
 
 .gp-details-wrapper {
-  /* @include body;
-  @include gridColumnUtil; */
+  @mixin body;
+  @mixin gridColumnUtil;
 
   & {
     display: grid;
@@ -101,8 +103,8 @@
 }
 
 .gp-intro-text {
-  /* @include body;
-  @include gridColumnUtil; */
+  @mixin body;
+  @mixin gridColumnUtil;
 
   & {
     color: var(--color-white);
@@ -114,8 +116,8 @@
 }
 
 .gp-tabs {
-  /* @include body;
-  @include verticalPadding(var(--space-3xl-5xl)); */
+  @mixin body;
+  @mixin verticalPadding var(--space-3xl-5xl);
 
   & .h-heading {
     color: var(--color-black);
@@ -160,17 +162,17 @@
   grid-column: 3 / span 2;
   padding-bottom: var(--space-3xl-4xl);
 
-  @include media('>=tablet') {
+  @media (min-width: var(--tablet)) {
     grid-column: 5 / span 4;
   }
 
-  @include media('>=desktop') {
+  @media (min-width: var(--desktop)) {
     grid-column: 8 / span 4;
   }
 }
 
 .grid.gp-back-wrapper {
-  @include padding('top', 5);
+  @mixin padding 'top', 5;
 
   & > a {
     grid-column: 1 / span 1;

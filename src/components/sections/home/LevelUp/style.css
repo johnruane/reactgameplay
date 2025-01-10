@@ -1,5 +1,7 @@
+@import '@styles/mixins';
+
 .l-up-text-wrapper {
-  /* @include gridColumnUtil; */
+  @mixin gridColumnUtil;
 
   @media (min-width: var(--desktop)) {
     grid-column: 8 / -3;
@@ -26,9 +28,9 @@
 }
 
 .l-up-heading {
-  /* @include display2; */
+  @mixin display2;
 }
 
 .l-up-sub-heading {
-  /* @include body; */
+  @mixin body;
 }

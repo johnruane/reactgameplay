@@ -1,6 +1,8 @@
+@import '@styles/mixins';
+
 .button {
   all: unset;
-  @include button;
+  @mixin button;
 
   display: flex;
   justify-content: center;

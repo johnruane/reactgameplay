@@ -1,3 +1,5 @@
+@import '@styles/mixins';
+
 .np-wrapper {
   display: grid;
   grid-template-rows: min-content min-content;
@@ -25,7 +27,7 @@
 }
 
 .np-title {
-  /* @include display1; */
+  @mixin display1;
 
   display: flex;
   flex-direction: column;

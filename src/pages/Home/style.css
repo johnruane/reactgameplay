@@ -1,6 +1,8 @@
+@import '@styles/mixins';
+
 .grid.hm-section-wrapper {
-  /* @include padding('top', 10);
-  @include padding('bottom', 5); */
+  @mixin padding 'top', 10;
+  @mixin padding 'bottom', 5;
 
   row-gap: 16vw;
 }
@@ -53,7 +55,7 @@
 .hm-intro,
 .hm-games,
 .hm-about {
-  /* @include verticalPadding($space-5xl-6xl); */
+  @mixin verticalPadding var(--space-5xl-6xl);
 }
 
 .hm-games-content-wrapper {
@@ -69,7 +71,7 @@
 }
 
 .hm-level-up {
-  /* @include verticalPadding($space-3xl-4xl); */
+  @mixin verticalPadding var(--space-3xl-4xl);
 
   & .grid {
     row-gap: var(--space-2xl-3xl);
@@ -83,5 +85,5 @@
 }
 
 .grid.hm-banner {
-  /* @include verticalPadding($space-2xl-3xl); */
+  @mixin verticalPadding var(--space-2xl-3xl);
 }

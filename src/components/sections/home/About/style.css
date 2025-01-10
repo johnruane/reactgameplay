@@ -1,5 +1,7 @@
+@import '@styles/mixins';
+
 .ab-text-heading {
-  @include display2;
+  @mixin display2;
 }
 
 .ab-text-icon-wrapper {
@@ -61,11 +63,11 @@
 }
 
 .ab-text {
-  /* @include body; */
+  @mixin body;
 }
 
 .ab-button-text {
-  /* @include button; */
+  @mixin button;
 
   color: var(--color-white);
   text-align: center;

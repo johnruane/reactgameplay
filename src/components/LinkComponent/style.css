@@ -1,5 +1,7 @@
+@import '@styles/mixins';
+
 .lc-link {
-  /* @include link; */
+  @mixin link;
 
   display: grid;
   grid-auto-flow: column;
