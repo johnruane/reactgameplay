@@ -1,14 +1,16 @@
+@import '@styles/globals';
+
 .grid {
   display: grid;
   grid-template-columns: var(--grid-phone);
   padding: 0 var(--margin-horizontal-1);
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-template-columns: var(--grid-tablet);
     padding: 0 var(--margin-horizontal-2);
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-template-columns: var(--grid-desktop);
     padding: 0 var(--margin-horizontal-2);
   }

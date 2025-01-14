@@ -1,4 +1,4 @@
-@import '@styles/mixins';
+@import '@styles/globals';
 
 .ab-text-heading {
   @mixin display2;
@@ -15,11 +15,11 @@
 .ab-svg {
   grid-column: 3 / span 2;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 1 / 4;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 3 / 7;
   }
 }
@@ -29,34 +29,34 @@
   grid-column: 1 / -1;
   justify-self: start;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 5 / -1;
     grid-row: 1;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 9 / -3;
   }
 }
 
 .ab-text-icon-wrapper-flip {
   .ab-svg {
-    @media (min-width: var(--tablet)) {
+    @media (--viewport-tablet-min) {
       grid-column: 10 / -1;
       grid-row: 1;
     }
 
-    @media (min-width: var(--desktop)) {
+    @media (--viewport-desktop-min) {
       grid-column: 13 / -3;
     }
   }
 
   .ab-text-wrapper {
-    @media (min-width: var(--tablet)) {
+    @media (--viewport-tablet-min) {
       grid-column: 1 / 9;
     }
 
-    @media (min-width: var(--desktop)) {
+    @media (--viewport-desktop-min) {
       grid-column: 3 / 11;
     }
   }

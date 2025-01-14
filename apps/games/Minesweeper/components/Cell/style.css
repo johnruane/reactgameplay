@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .minesweeper-board {
   .mine-cell {
     display: flex;
@@ -44,7 +46,7 @@
       height: 1.5rem;
     }
 
-    @media (min-width: var(--tablet)) {
+    @media (--viewport-tablet-min) {
       width: 2.5rem;
       height: 2.5rem;
 

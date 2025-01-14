@@ -1,4 +1,4 @@
-@import '@styles/mixins';
+@import '@styles/globals';
 
 .ft-footer {
   background-color: var(--color-teal);
@@ -15,7 +15,7 @@
   grid-template-rows: min-content;
   align-self: center;
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 2 / 11;
   }
 }
@@ -59,7 +59,7 @@
 .ft-image {
   grid-column: 2 / span 4;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 4 / span 6;
   }
 

@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .b-wrapper {
   grid-column: 1 / -1;
   color: var(--color-white);
@@ -19,7 +21,7 @@
   text-align: center;
   max-width: 80rem;
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 4 / 16;
   }
 }
@@ -34,7 +36,7 @@
     max-width: 5rem;
   }
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     & > :last-child {
       display: none;
     }

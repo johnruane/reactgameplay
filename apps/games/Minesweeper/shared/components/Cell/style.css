@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .board-cell::after {
   content: '';
   display: block;
@@ -10,7 +12,7 @@
   background: var(--cell-background-color);
   outline: 1px solid var(--cell-outline-color);
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     width: var(--cell-md);
     height: var(--cell-md);
   }

@@ -1,4 +1,4 @@
-@import '@styles/mixins';
+@import '@styles/globals';
 
 .gp-intro {
   @mixin verticalPadding var(--space-5xl-6xl);
@@ -7,11 +7,11 @@
 .gp-image {
   grid-column: 2 / -2;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 8 / -1;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 12 / -2;
   }
 }
@@ -38,12 +38,12 @@
   flex-direction: column;
   row-gap: var(--space-s);
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 1 / 7;
     grid-row: 1;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 2 / 11;
   }
 }
@@ -53,7 +53,7 @@
   display: grid;
   row-gap: 5rem;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-auto-flow: column;
 
     & > .gp-heading {
@@ -67,7 +67,7 @@
     }
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 2 / -2;
   }
 }
@@ -131,14 +131,14 @@
     grid-column: 1 / -1;
     align-self: baseline;
 
-    @media (min-width: var(--desktop)) {
+    @media (--viewport-desktop-min) {
       grid-column: 2 / 8;
     }
   }
   & .tb-tabs-content {
     grid-column: 1 / -1;
 
-    @media (min-width: var(--desktop)) {
+    @media (--viewport-desktop-min) {
       grid-column: 9 / -2;
     }
   }
@@ -162,11 +162,11 @@
   grid-column: 3 / span 2;
   padding-bottom: var(--space-3xl-4xl);
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 5 / span 4;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 8 / span 4;
   }
 }

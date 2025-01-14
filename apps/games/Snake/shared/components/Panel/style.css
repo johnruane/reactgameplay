@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .panel-wrapper {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,7 @@
   padding: 0.5rem;
   border-radius: 0.125rem;
 
-  @media (min-width: 768px) {
+  @media (--viewport-tablet-min) {
     padding: 1rem;
   }
 
@@ -25,7 +27,7 @@
   margin: 0;
   font-size: 0.5rem;
 
-  @media (min-width: 768px) {
+  @media (--viewport-tablet-min) {
     font-size: 1rem;
   }
 }
@@ -35,7 +37,7 @@
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
 
-  @media (min-width: 768px) {
+  @media (--viewport-tablet-min) {
     font-size: 1rem;
   }
 }

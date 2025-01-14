@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .tl-text-logo-wrapper {
   position: relative;
   display: flex;
@@ -5,7 +7,7 @@
   flex-direction: column;
   gap: 0.5rem;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     gap: 1rem;
   }
 }

@@ -1,3 +1,5 @@
+@import '@styles/globals';
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -7,7 +9,7 @@
   width: 100vw;
   transition: width 0.25s ease-in;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     width: 40rem;
   }
 }
@@ -35,7 +37,7 @@
   padding-right: 1rem;
   top: 50%;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     visibility: hidden;
   }
 }

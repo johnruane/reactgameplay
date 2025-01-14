@@ -1,9 +1,9 @@
-@import '@styles/mixins';
+@import '@styles/globals';
 
 .l-up-text-wrapper {
   @mixin gridColumnUtil;
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-column: 8 / -3;
     grid-row: 1;
     align-self: center;
@@ -15,12 +15,12 @@
   justify-self: center;
   max-width: 10rem;
 
-  @media (min-width: var(--tablet)) {
+  @media (--viewport-tablet-min) {
     grid-column: 5 / span 4;
     align-self: center;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (--viewport-desktop-min) {
     grid-row: 1;
     grid-column: 3 / span 3;
     justify-self: end;

@@ -54,13 +54,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: path.resolve(__dirname, './.vitest/setup.ts'),
   },
-  css: {
-    preprocessorOptions: {
-      css: {
-        additionalData: `@import "@styles/essentials.css";`,
-      },
-    },
-  },
   resolve: {
     alias: [
       {
