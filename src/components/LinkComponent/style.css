@@ -8,8 +8,8 @@
   grid-auto-columns: max-content;
   align-items: center;
   justify-items: start;
-  gap: $space-2xs;
-  color: $color-black;
+  gap: var(--space-2xs);
+  color: var(--color-black);
   text-transform: uppercase;
   text-decoration: underline;
   text-decoration-thickness: 3px;

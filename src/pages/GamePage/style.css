@@ -172,7 +172,7 @@
 }
 
 .grid.gp-back-wrapper {
-  @mixin padding 'top', 5;
+  @mixin paddingTop 5;
 
   & > a {
     grid-column: 1 / span 1;

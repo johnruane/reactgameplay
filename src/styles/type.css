@@ -44,9 +44,9 @@ ol {
 }
 
 .background-black {
-  color: var(--color-code-light);
+  background-color: var(--color-code-light);
 }
 
 .background-grey {
-  color: var(--color-code-dark);
+  background-color: var(--color-code-dark);
 }

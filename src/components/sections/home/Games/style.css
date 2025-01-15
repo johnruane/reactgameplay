@@ -1,4 +1,4 @@
-@import '@styles/mixins';
+@import '@styles/globals';
 
 :root {
   --tile-border-radius: 1.25rem;
@@ -11,29 +11,54 @@
   }
 
   & > :nth-child(5n + 1) {
-    @mixin tileColor var(--color-game-tile-red);
+    border-color: var(--color-game-tile-red);
+    background-color: color-mod(var(--color-game-tile-red) a(50%));
+  
+    & > :first-child {
+      background-color: var(--color-game-tile-red);
+    }
   }
 
   & > :nth-child(5n + 2) {
-    @mixin tileColor var(--color-game-tile-teal);
+    border-color: var(--color-game-tile-teal);
+    background-color: color-mod(var(--color-game-tile-teal) a(50%));
+  
+    & > :first-child {
+      background-color: var(--color-game-tile-teal);
+    }
   }
 
   & > :nth-child(5n + 3) {
-    @mixin tileColor var(--color-game-tile-green);
+    border-color: var(--color-game-tile-green);
+    background-color: color-mod(var(--color-game-tile-green) a(50%));
+  
+    & > :first-child {
+      background-color: var(--color-game-tile-green);
+    }
   }
 
   & > :nth-child(5n + 4) {
-    @mixin tileColor var(--color-game-tile-blue);
+    border-color: var(--color-game-tile-blue);
+    background-color: color-mod(var(--color-game-tile-blue) a(50%));
+  
+    & > :first-child {
+      background-color: var(--color-game-tile-blue);
+    }
   }
 
   & > :nth-child(5n + 5) {
-    @mixin tileColor var(--color-game-tile-pink);
+    border-color: var(--color-game-tile-pink);
+    background-color: color-mod(var(--color-game-tile-pink) a(50%));
+  
+    & > :first-child {
+      background-color: var(--color-game-tile-pink);
+    }
   }
 }
 
 .gs-tile-content-wrapper {
   padding: 1rem;
-  /* background-color: color.adjust($color-game-tile-red, $lightness: -30%); */
+  background-color: color-mod(var(--color-game-tile-red) a(30%));
   border-bottom-left-radius: var(--tile-border-radius);
 }
 
@@ -49,7 +74,7 @@
     'level link link link';
   gap: 1rem;
   padding: 1rem;
-  color: $color-white;
+  color: var(--color-white);
   border-top-right-radius: var(--tile-border-radius);
   border-bottom-left-radius: var(--tile-border-radius);
   text-decoration: none;

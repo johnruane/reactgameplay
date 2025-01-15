@@ -65,4 +65,7 @@
 
 /* Decoration */
 --pink-decoration: clamp(1rem, 2.5vw, 2.5rem);
+
+--stack-default: 1.2em;
 }
+

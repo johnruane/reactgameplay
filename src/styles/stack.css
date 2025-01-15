@@ -1,3 +1,0 @@
-[data-stack] > * + * {
-  margin-top: var(--stack-override, var(--space-default));
-}

@@ -1,8 +1,8 @@
 @import '@styles/globals';
 
 .grid.hm-section-wrapper {
-  @mixin padding 'top', 10;
-  @mixin padding 'bottom', 5;
+  @mixin paddingTop 10;
+  @mixin paddingBottom 5;
 
   row-gap: 16vw;
 }

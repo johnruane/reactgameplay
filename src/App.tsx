@@ -7,8 +7,10 @@ import { DefaultLayout, GameLayout, GlobalLayout } from '@layouts';
 import { Error404, GamePage, Home } from '@pages';
 
 import '@styles/essentials.css';
+import '@styles/stack.scss'
 import '@styles/app.css';
 import '@styles/reset.css';
+
 
 export default function App() {
   useEffect(() => {

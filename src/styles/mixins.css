@@ -14,29 +14,21 @@
 }
 
 @define-mixin link {
-  font-size: $font--1;
-  font-weight: $font-weight-bold;
+  font-size: var(--font--1);
+  font-weight: var(--font-weight-bold);
 }
 
 @define-mixin button {
-  font-size: $font-0;
-  font-weight: $font-weight-bold;
+  font-size: var(--font-0);
+  font-weight: var(--font-weight-bold);
 }
 
-@define-mixin padding $dir, $value {
-  --dynamic-padding: calc(var(--vh, 1vh) * $value);
-  @if $dir == 'top' {
-    padding-top: var(--dynamic-padding);
-  }
-  @if $dir == 'bottom' {
-    padding-bottom: var(--dynamic-padding);
-  }
-  @if $dir == 'left' {
-    padding-left: var(--dynamic-padding);
-  }
-  @if $dir == 'right' {
-    padding-right: var(--dynamic-padding);
-  }
+@define-mixin paddingTop $value {
+  padding-top: calc(var(--vh, 1vh) * $value);
+}
+
+@define-mixin paddingBottom $value {
+  padding-bottom: calc(var(--vh, 1vh) * $value);
 }
 
 @define-mixin verticalPadding $padding {
@@ -44,14 +36,14 @@
   padding-bottom: $padding;
 }
 
-@define-mixin tileColor $color {
+/* @define-mixin tileColor $color {
   border-color: $color;
-  background-color: color.adjust($color, $lightness: -20%);
+  background-color: color-mod($color a(-20%));
 
   & > :first-child {
     background-color: $color;
   }
-}
+} */
 
 @define-mixin gridColumnUtil {
   grid-column: 1 / -1;
