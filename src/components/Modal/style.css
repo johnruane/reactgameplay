@@ -18,7 +18,7 @@
   display: grid;
   position: relative;
   grid-template-rows: min-content minmax(9.75rem, 1fr);
-  padding: $space-s 1rem 0;
+  padding: var(--space-s) 1rem 0;
   height: calc(calc(var(--vh, 1vh) * 100) - var(--ticker-height));
   background-color: var(--color-modal-background);
 }
@@ -36,10 +36,6 @@
   position: fixed;
   padding-right: 1rem;
   top: 50%;
-
-  @media (--viewport-tablet-min) {
-    visibility: hidden;
-  }
 }
 
 .modal-close-btn {

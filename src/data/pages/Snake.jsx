@@ -1,6 +1,6 @@
 import tabs from './tabs/Snake';
 
-import SnakeGame from '@games/Snake/snake';
+import SnakeGame from 'reactgames/games/Snake/snake';
 
 import SnakeHead from '@svg/games/snake-head.svg?react';
 
