@@ -38,5 +38,5 @@
     }
   },
   "include": ["src", "global.d.ts", "apps"],
-  "exclude": ["src/**/*.test.ts"]
+  "exclude": ["src/**/*.test.ts", "node_modules"]
 }

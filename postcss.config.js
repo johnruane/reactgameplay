@@ -1,10 +1,11 @@
 module.exports = {
-  plugins: {
-    autoprefixer: {},
-    'postcss-color-mod-function': {
+  plugins: [
+    require('autoprefixer'),
+    require('postcss-color-mod-function')({
       importFrom: ['src/styles/variables.css']
-    },
-    'postcss-mixins': {},
-    'postcss-custom-media': {},
-  },
+    }),
+    require('postcss-mixins'),
+    require('postcss-custom-media'),
+    require('./postcss-stack-overrides'),
+  ],
 };
