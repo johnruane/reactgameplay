@@ -21,7 +21,7 @@
     "react-dom": "^18.2.0",
     "react-remove-scroll-bar": "^2.3.6",
     "react-router-dom": "^6.21.1",
-    "reactgames": "file:../reactgames"
+    "reactgames": "https://github.com/johnruane/reactgames.git"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
