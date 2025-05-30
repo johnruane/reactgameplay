@@ -8,7 +8,7 @@ import {
 
 import { Banner, Divider, TextLogo } from '@components';
 
-import useBouncingHead from '@hooks/useBouncingHead';
+import useBouncingHead from '@utils/hooks/useBouncingHead';
 
 import Pacman from '@svg/home/pacman.svg?react';
 

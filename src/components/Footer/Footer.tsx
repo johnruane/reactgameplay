@@ -1,6 +1,6 @@
 import { LinkComponent, Ticker } from '@components';
 
-import useBouncingHead from '@hooks/useBouncingHead';
+import useBouncingHead from '@utils/hooks/useBouncingHead';
 
 import Star from '@svg/global/star.svg?react';
 

@@ -42,6 +42,10 @@ export default defineConfig({
         find: '@styles',
         replacement: path.resolve(__dirname, '/src/styles'),
       },
+      {
+        find: '@context',
+        replacement: path.resolve(__dirname, 'reactgames/utils/context'),
+      },
     ],
   },
   server: {

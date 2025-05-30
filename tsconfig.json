@@ -34,7 +34,8 @@
       "@templates/*": ["./src/assets/*"],
       "@data/*": ["./src/data/*"],
       "@utils/*": ["./src/utils/*"],
-      "@hooks/*": ["./src/components/hooks/*"]
+      "@hooks/*": ["src/utils/hooks/*"],
+      "@context/*": ["reactgames/utils/context/*"] 
     }
   },
   "include": ["src", "global.d.ts", "apps"],

@@ -14,10 +14,10 @@ import {
   Tabs,
 } from '@components';
 
+import useBouncingHead from '@utils/hooks/useBouncingHead';
 import viewNavigate from '@utils/viewNavigate';
 
 import useModalInteractions from '@components/Modal/hooks/useModalInteractions';
-import useBouncingHead from '@hooks/useBouncingHead';
 
 import pages from '@data/pages';
 
