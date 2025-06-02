@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -39,11 +39,16 @@ const GamePage = () => {
     setRemoveScrollbar(false);
   };
 
+  const startNewGame = useCallback(() => {
+    setGameKey?.((prev) => prev + 1);
+  }, [setGameKey]);
+
   const modalOpenCallback = () => {
     setRemoveScrollbar(true);
   };
 
   useBouncingHead();
+
   const { setToggleModal } = useModalInteractions({
     onModalOpenCallback: modalOpenCallback,
     onModalCloseCompleteCallback: modalCloseCallback,
@@ -165,7 +170,7 @@ const GamePage = () => {
         <GameComponent
           key={gameKey}
           setToggleModal={setToggleModal}
-          setGameKey={setGameKey}
+          startNewGame={startNewGame}
         />
       </Modal>
 
