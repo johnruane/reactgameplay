@@ -39,10 +39,6 @@ const GamePage = () => {
     setRemoveScrollbar(false);
   };
 
-  const startNewGame = useCallback(() => {
-    setGameKey?.((prev) => prev + 1);
-  }, [setGameKey]);
-
   const modalOpenCallback = () => {
     setRemoveScrollbar(true);
   };
@@ -53,6 +49,10 @@ const GamePage = () => {
     onModalOpenCallback: modalOpenCallback,
     onModalCloseCompleteCallback: modalCloseCallback,
   });
+
+  const setRestartGame = useCallback(() => {
+    setGameKey?.((prev) => prev + 1);
+  }, [setGameKey]);
 
   const pageIndex = pages.findIndex(({ id }) => id === title);
   const pageData = pages[pageIndex];
@@ -167,11 +167,7 @@ const GamePage = () => {
       </section>
 
       <Modal setToggleModal={setToggleModal}>
-        <GameComponent
-          key={gameKey}
-          setToggleModal={setToggleModal}
-          startNewGame={startNewGame}
-        />
+        <GameComponent key={gameKey} setRestartGame={setRestartGame} />
       </Modal>
 
       {removeScrollbar && <RemoveScrollBar />}
