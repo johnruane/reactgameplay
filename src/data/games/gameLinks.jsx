@@ -30,6 +30,18 @@ const gameLinks = [
     icon: <MineSweeperHead className="gs-icon" />,
     level: 2,
     link: 'gamepage/minesweeper',
+  },
+  {
+    id: 'moo',
+    title: (
+      <span className="gs-title">
+        <span>MOO</span>
+      </span>
+    ),
+    intro: 'Crack the secret code in this fast-paced game of logic and colour!',
+    icon: null,
+    level: 2,
+    link: 'gamepage/moo',
     inDev: true,
   },
 ];

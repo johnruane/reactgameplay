@@ -1,5 +1,4 @@
 import tabs from './tabs/Tetris';
-
 import TetrisGame from 'reactgames/games/Tetris/tetris';
 
 import TetrisHead from '@svg/games/tetris-head.svg?react';
@@ -35,7 +34,6 @@ const gamePageData = {
         sport.
       </p>
       <p>
-        {' '}
         The gameplay of Tetris is straightforward but highly addictive. Players
         must strategically place falling geometric shapes, called
         &quot;tetrominoes,&quot; into a well to create complete horizontal
