@@ -1,6 +1,6 @@
 import tabs from './tabs/Minesweeper';
 
-import MinesweeperGame from 'reactgames/games/Minesweeper/minesweeper';
+import MinesweeperGame from '@games/Minesweeper/minesweeper';
 
 import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
 

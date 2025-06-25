@@ -1,11 +1,17 @@
-import MooGame from 'reactgames/games/Moo/moo';
+import MastermindGame from '@games/Mastermind/mastermind';
 
 // import TetrisHead from '@svg/games/tetris-head.svg?react';
 
 const gamePageData = {
-  id: 'moo',
-  title: <>Moo</>,
-  link: 'Moo',
+  id: 'mastermind',
+  title: (
+    <>
+      <span>Master</span>
+      <br />
+      <span>mind</span>
+    </>
+  ),
+  link: 'Mastermind',
   icon: null,
   year: '1970',
   complexity: 3,
@@ -58,7 +64,7 @@ const gamePageData = {
     </>
   ),
   tabs: null,
-  game: (props) => <MooGame {...props} />,
+  game: (props) => <MastermindGame {...props} />,
 };
 
 export default gamePageData;

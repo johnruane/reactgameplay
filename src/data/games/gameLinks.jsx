@@ -32,16 +32,16 @@ const gameLinks = [
     link: 'gamepage/minesweeper',
   },
   {
-    id: 'moo',
+    id: 'codebreaker',
     title: (
       <span className="gs-title">
-        <span>MOO</span>
+        <span>MASTERMIND</span>
       </span>
     ),
-    intro: 'Crack the secret code in this fast-paced game of logic and colour!',
+    intro: 'Crack the secret code in this game of logic and colour!',
     icon: null,
     level: 2,
-    link: 'gamepage/moo',
+    link: 'gamepage/mastermind',
     inDev: true,
   },
 ];
