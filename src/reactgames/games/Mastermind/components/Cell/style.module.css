@@ -16,8 +16,7 @@
   }
 }
 
-[class*='guess-cell-'],
-.answer-row-cell {
+.cell  {
   &::after {
     border-radius: 50%;
     outline: none !important;

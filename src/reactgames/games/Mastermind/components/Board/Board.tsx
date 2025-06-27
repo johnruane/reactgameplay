@@ -1,20 +1,19 @@
-import classNames from 'classnames';
-
 import MastermindRow from '../MastermindRow';
+import classNames from 'classnames';
 
 import styles from './style.module.css';
 
-const MastermindBoard = ({
+const Board = ({
   numberOfRows,
-  className,
+  additionalBoardClasses,
   activeRow,
 }: {
   numberOfRows: number;
-  className: string;
+  additionalBoardClasses?: string;
   activeRow: number;
 }) => {
   return (
-    <div className={classNames(styles['mastermind-board'], className)}>
+    <div className={classNames(styles['board'], additionalBoardClasses)}>
       {Array.from({ length: numberOfRows }).map((_, index) => (
         <MastermindRow rowIndex={index} activeRow={activeRow} />
       ))}
@@ -22,4 +21,4 @@ const MastermindBoard = ({
   );
 };
 
-export default MastermindBoard;
+export default Board;

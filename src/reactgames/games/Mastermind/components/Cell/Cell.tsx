@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-
 import classNames from 'classnames';
 
 import styles from './style.module.css';
 
-const MastermindCell = ({
+const Cell = ({
   dataRow,
   dataCell,
   dataValue,
@@ -15,10 +13,20 @@ const MastermindCell = ({
   dataRow?: number;
   dataCell?: number;
   dataValue?: number;
-  onClickHandler?: (e: React.MouseEvent<HTMLSpanElement>) => void;
+  onClickHandler?: (
+    e: React.MouseEvent<HTMLSpanElement>,
+    direction?: string,
+  ) => void;
   additionalClasses?: string;
   disable?: boolean;
 }) => {
+  function handleRightClick(e) {
+    e.preventDefault();
+    if (onClickHandler) {
+      onClickHandler(e, 'backwards');
+    }
+  }
+
   return (
     <span
       className={classNames(styles['cell'], additionalClasses)}
@@ -26,8 +34,9 @@ const MastermindCell = ({
       data-cell={dataCell}
       data-value={String(dataValue)}
       onClick={!disable ? onClickHandler : undefined}
+      onContextMenu={!disable ? handleRightClick : undefined}
     />
   );
 };
 
-export default MastermindCell;
+export default Cell;
