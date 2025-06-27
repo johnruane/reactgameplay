@@ -52,7 +52,7 @@ const MastermindRow = ({
   return (
     <div
       key={`row-${rowIndex}`}
-      className={(styles['row'], additionalClasses)}
+      className={classNames(styles['row'], additionalClasses)}
       data-row={`row-${rowIndex}`}
     >
       {Array.from({ length: 4 }).map((_, index) => (

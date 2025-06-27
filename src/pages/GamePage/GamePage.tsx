@@ -53,7 +53,7 @@ const GamePage = () => {
   const setRestartGame = useCallback(() => {
     setGameKey?.((prev) => prev + 1);
   }, [setGameKey]);
-  console.log(pages);
+
   const pageIndex = pages.findIndex(({ id }) => id === title);
   const pageData = pages[pageIndex];
 
