@@ -19,7 +19,9 @@ const MastermindRow = ({
 }) => {
   const secretCode = useContext(MastermindContext)!;
 
-  const [rowValues, setRowValues] = useState<number[]>([0, 0, 0, 0]);
+  const [rowValues, setRowValues] = useState<number[]>(
+    activeRow === rowIndex ? [1, 1, 1, 1] : [0, 0, 0, 0],
+  );
   const [resultValues, setResultValues] = useState<number[]>([0, 0, 0, 0]);
 
   function handleCellClick(
@@ -28,6 +30,8 @@ const MastermindRow = ({
   ) {
     const cellIndex = Number(e.currentTarget.getAttribute('data-cell'));
     const newCellValues = Array.from(rowValues);
+
+    console.log(rowValues[cellIndex] + 1);
 
     if (direction === 'forwards') {
       newCellValues[cellIndex] =
@@ -43,7 +47,7 @@ const MastermindRow = ({
   function handleButtonClick() {
     const results = calculateResults({ guess: rowValues, secret: secretCode });
 
-    console.log(results);
+    setResultValues(results);
   }
 
   return (
@@ -68,6 +72,7 @@ const MastermindRow = ({
         {Array.from({ length: 4 }).map((_, index) => (
           <Cell
             key={`result-cell-${rowIndex}-${index}`}
+            dataValue={resultValues[index]}
             additionalClasses={classNames(
               styles['result-cell'],
               styles[`result-cell-${index + 1}`],

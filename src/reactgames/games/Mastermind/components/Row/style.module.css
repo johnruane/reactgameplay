@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas:    
     'one two three four result button';
-  column-gap: 0.25rem;
+  column-gap: 0.5rem;
   align-items: center;
 }
 
@@ -24,9 +24,10 @@
 
 .result-cell, 
 .result-cell::after {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 0.25rem;
+  background-color:rgb(29, 86, 115); 
 }
 
 .result-wrapper {
