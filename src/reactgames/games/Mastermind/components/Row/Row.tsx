@@ -7,6 +7,8 @@ import classNames from 'classnames';
 
 import calculateResults from '../../lib/calculateResults';
 
+import CircleFilled from '@svg/global/circle-filled.svg?react';
+
 import styles from './style.module.css';
 
 const MastermindRow = ({
@@ -64,6 +66,12 @@ const MastermindRow = ({
       className={classNames(styles['row'], additionalClasses)}
       data-row={`row-${rowIndex}`}
     >
+      <div className={styles['arrow']}>
+        <CircleFilled
+          className={classNames({ [styles['hide']]: rowIndex !== activeRow })}
+        />
+      </div>
+
       {Array.from({ length: 4 }).map((_, index) => (
         <Cell
           key={`guess-cell-${rowIndex}-${index}`}
@@ -75,24 +83,20 @@ const MastermindRow = ({
         />
       ))}
 
-      <div className={styles['result-wrapper']}>
-        {showResult && (
-          <Result rowIndex={rowIndex} resultValues={resultValues} />
-        )}
-        {!showResult && rowIndex !== activeRow && (
-          <div className={styles['empty-result']}></div>
-        )}
-        {!showResult && rowIndex === activeRow && (
-          <button
-            className={classNames(styles['button'], {
-              [styles['hide']]: rowIndex !== activeRow,
-            })}
-            onClick={handleButtonClick}
-          >
-            Go!
-          </button>
-        )}
-      </div>
+      {showResult && <Result rowIndex={rowIndex} resultValues={resultValues} />}
+      {!showResult && rowIndex !== activeRow && (
+        <div className={styles['empty-result']}></div>
+      )}
+      {!showResult && rowIndex === activeRow && (
+        <button
+          className={classNames(styles['button'], {
+            [styles['hide']]: rowIndex !== activeRow,
+          })}
+          onClick={handleButtonClick}
+        >
+          GO!
+        </button>
+      )}
     </div>
   );
 };

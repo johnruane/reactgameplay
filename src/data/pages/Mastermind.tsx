@@ -1,6 +1,6 @@
 import MastermindGame from '@games/Mastermind/mastermind';
 
-// import TetrisHead from '@svg/games/tetris-head.svg?react';
+import MastermindHead from '@svg/games/mastermind-head.svg?react';
 
 const gamePageData = {
   id: 'mastermind',
@@ -12,7 +12,7 @@ const gamePageData = {
     </>
   ),
   link: 'Mastermind',
-  icon: null,
+  icon: <MastermindHead className="gsap-bouncing fluid-img" />,
   year: '1970',
   complexity: 3,
   controls: (

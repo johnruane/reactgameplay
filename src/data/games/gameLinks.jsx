@@ -1,3 +1,4 @@
+import MastermindHead from '@svg/games/mastermind-head.svg?react';
 import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
 import SnakeHead from '@svg/games/snake-head.svg?react';
 import TetrisHead from '@svg/games/tetris-head.svg?react';
@@ -32,15 +33,15 @@ const gameLinks = [
     link: 'gamepage/minesweeper',
   },
   {
-    id: 'codebreaker',
+    id: 'mastermind',
     title: (
       <span className="gs-title">
         <span>MASTERMIND</span>
       </span>
     ),
     intro: 'Crack the secret code in this game of logic and colour!',
-    icon: null,
-    level: 2,
+    icon: <MastermindHead className="gs-icon" />,
+    level: 1,
     link: 'gamepage/mastermind',
     inDev: true,
   },
