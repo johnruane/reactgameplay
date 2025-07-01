@@ -59,12 +59,12 @@ const GamePage = () => {
 
   const prevPage = {
     id: pages[pageIndex - 1]?.id,
-    title: pages[pageIndex - 1]?.link,
+    title: pages[pageIndex - 1]?.id,
   };
 
   const nextPage = {
     id: pages[pageIndex + 1]?.id,
-    title: pages[pageIndex + 1]?.link,
+    title: pages[pageIndex + 1]?.id,
   };
 
   /*
@@ -85,6 +85,7 @@ const GamePage = () => {
     controls,
     intro,
     tabs,
+    link,
     game: GameComponent,
   } = pageData || {};
 
@@ -156,7 +157,7 @@ const GamePage = () => {
         <div data-stack="space-3xl-4xl">
           <div className="grid" data-stack="space-l-xl">
             <Heading title="DETAILS" className="section-heading" />
-            <Tabs data={tabs} />
+            <Tabs tabs={tabs} link={link} />
           </div>
           <NextPrev
             prev={prevPage}

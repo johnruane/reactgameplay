@@ -13,7 +13,7 @@ const gamePageData = {
       <span>sweeper</span>
     </>
   ),
-  link: 'MineSweeper',
+  link: 'https://github.com/johnruane/reactgames/tree/main/games/Minesweeper',
   icon: <MineSweeperHead className="gsap-bouncing fluid-img" />,
   year: '1989',
   complexity: 2,

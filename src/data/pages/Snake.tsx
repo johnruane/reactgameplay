@@ -7,7 +7,7 @@ import SnakeHead from '@svg/games/snake-head.svg?react';
 const gamePageData = {
   id: 'snake',
   title: <>Snake</>,
-  link: 'Snake',
+  link: 'https://github.com/johnruane/reactgames/tree/main/games/Snake',
   icon: <SnakeHead className="gsap-bouncing fluid-img" />,
   year: '1998',
   complexity: 1,

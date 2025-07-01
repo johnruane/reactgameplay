@@ -7,7 +7,7 @@ import TetrisHead from '@svg/games/tetris-head.svg?react';
 const gamePageData = {
   id: 'tetris',
   title: <>Tetris</>,
-  link: 'Tetris',
+  link: 'https://github.com/johnruane/reactgames/tree/main/games/Tetris',
   icon: <TetrisHead className="gsap-bouncing fluid-img" />,
   year: '1984',
   complexity: 3,

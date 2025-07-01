@@ -1,0 +1,14 @@
+<svg width="600" height="682" viewBox="0 0 600 682" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <g className='bouncing-head'>
+    <path
+      d="M302.817 175.907C193.2 -108.037 -304.154 294.393 302.817 603C883.951 298.702 434.783 -110.081 302.817 175.907Z"
+      fill="#FF0000" />
+    <ellipse cx="175.769" cy="267.5" rx="80.7692" ry="80.5" fill="white" />
+    <ellipse cx="424.268" cy="267.5" rx="80.2676" ry="80.5" fill="white" />
+    <ellipse cx="424.127" cy="268" rx="38.1271" ry="38" fill="#083F88" />
+    <ellipse cx="176.127" cy="268" rx="38.1271" ry="38" fill="#083F88" />
+  </g>
+  <ellipse className='bouncing-shadow' cx="300" cy="652" rx="285" ry="30" fill="black"
+    fill-opacity="0.5" />
+</svg>

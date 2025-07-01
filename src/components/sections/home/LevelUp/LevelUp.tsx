@@ -1,3 +1,5 @@
+import { LinkType } from '../../../LinkComponent/LinkComponent.types';
+
 import { LinkComponent } from '@components';
 
 import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
@@ -21,7 +23,7 @@ const LevelUp = () => {
         <LinkComponent
           label="To code repository"
           to="https://github.com/johnruane/reactgameplay"
-          newWindow={true}
+          type={LinkType.EXTERNAL}
           additionalClasses="l-up-link"
         >
           <ArrowUpRight />

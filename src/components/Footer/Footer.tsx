@@ -1,8 +1,10 @@
+import { LinkType } from '../LinkComponent/LinkComponent.types';
+
 import { LinkComponent, Ticker } from '@components';
 
 import useBouncingHead from '@utils/hooks/useBouncingHead';
 
-import Star from '@svg/global/star.svg?react';
+import Heart from '@svg/global/heart.svg?react';
 
 import './style.css';
 
@@ -39,7 +41,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <Star className="ft-image fluid-img" />
+            <Heart className="ft-image fluid-img" />
           </div>
         </section>
 
@@ -49,19 +51,19 @@ const Footer = () => {
               <LinkComponent
                 label="Github"
                 to="https://github.com/johnruane/reactgameplay"
-                newWindow={true}
+                type={LinkType.EXTERNAL}
                 additionalClasses="ft-links"
               />
               <LinkComponent
                 label="LinkedIn"
                 to="https://www.linkedin.com/in/john-ruane-587749103"
-                newWindow={true}
+                type={LinkType.EXTERNAL}
                 additionalClasses="ft-links"
               />
               <LinkComponent
                 label="Instagram"
                 to="https://www.instagram.com/jbruane"
-                newWindow={true}
+                type={LinkType.EXTERNAL}
                 additionalClasses="ft-links"
               />
             </div>

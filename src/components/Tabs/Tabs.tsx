@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
 
+import { LinkType } from '../LinkComponent/LinkComponent.types';
+import { Tabs as TabsType } from './Tabs.types';
 import classNames from 'classnames';
 
 import { LinkComponent } from '@components';
@@ -8,7 +10,13 @@ import ArrowUpRight from '@svg/global/arrow-up-right.svg?react';
 
 import './style.css';
 
-const Tabs = ({ data }) => {
+const Tabs = ({
+  tabs,
+  link,
+}: {
+  tabs: [{ id: number; title: string; content: React.ReactNode }];
+  link: string;
+}) => {
   const [selectedSection, setSelectedSection] = useState(1);
 
   const handleClick = useCallback((e) => {
@@ -19,7 +27,7 @@ const Tabs = ({ data }) => {
   return (
     <>
       <div className="tb-tabs-wrapper">
-        {data?.map((tab) => (
+        {tabs?.map((tab) => (
           <button
             key={tab?.title}
             className={classNames('button tb-tab-button', {
@@ -33,11 +41,11 @@ const Tabs = ({ data }) => {
         ))}
       </div>
       <div className="tb-tabs-content" data-stack="space-xl-2xl">
-        {data?.find((x) => x.id === selectedSection)?.content}
+        {tabs?.find((x) => x.id === selectedSection)?.content}
         <LinkComponent
           label="View code in repository"
-          to="https://github.com/johnruane/reactgameplay"
-          newWindow={true}
+          to={link}
+          type={LinkType.EXTERNAL}
           additionalClasses="l-up-link"
         >
           <ArrowUpRight />

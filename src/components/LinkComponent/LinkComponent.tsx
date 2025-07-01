@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { LinkType } from './LinkComponent.types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +9,7 @@ import './style.css';
 const LinkComponent = ({
   to,
   label,
-  type = 'INTERNAL',
-  newWindow = false,
+  type = LinkType.INTERNAL,
   key,
   children,
   additionalClasses,
@@ -17,7 +17,6 @@ const LinkComponent = ({
   to: string;
   label: string;
   type?: string;
-  newWindow: boolean;
   key?: string;
   children?: ReactNode;
   additionalClasses?: string;
@@ -26,7 +25,7 @@ const LinkComponent = ({
     case 'EXTERNAL':
       return (
         <a
-          className={additionalClasses}
+          className={classNames('lc-link', additionalClasses)}
           href={to}
           target="_blank"
           rel="noopener noreferrer"
@@ -42,8 +41,7 @@ const LinkComponent = ({
           to={to}
           className={classNames('lc-link', additionalClasses)}
           key={key}
-          target={newWindow ? '_blank' : '_self'}
-          rel={newWindow ? 'noopener noreferrer' : ''}
+          target="_self"
         >
           {label}
           {children}
