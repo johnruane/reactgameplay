@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useInterval, useMatchMedia } from './shared/hooks';
-import classNames from 'classnames';
 
 import Cell from './components/Cell';
 import { Board, Controls, Instructions, Panel } from './shared/components';

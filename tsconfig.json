@@ -28,14 +28,13 @@
       "@svg/*": ["./src/assets/svg/*"],
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components"],
-      "@games/*": ["./src/components/games/*"],
+      "@games/*": ["./src/reactgames/games/*"],
       "@layouts": ["./src/components/Layouts"],
       "@pages": ["./src/pages"],
       "@templates/*": ["./src/assets/*"],
       "@data/*": ["./src/data/*"],
       "@utils/*": ["./src/utils/*"],
-      "@hooks/*": ["src/utils/hooks/*"],
-      "@context/*": ["reactgames/utils/context/*"] 
+      "@hooks/*": ["src/utils/hooks/*"]
     }
   },
   "include": ["src", "global.d.ts", "apps"],

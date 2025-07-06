@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 
 import { LinkType } from '../LinkComponent/LinkComponent.types';
-import { Tabs as TabsType } from './Tabs.types';
 import classNames from 'classnames';
 
 import { LinkComponent } from '@components';
