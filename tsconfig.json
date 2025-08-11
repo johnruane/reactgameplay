@@ -28,7 +28,7 @@
       "@svg/*": ["./src/assets/svg/*"],
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components"],
-      "@games/*": ["./src/reactgames/games/*"],
+      "@games/*": ["src/reactgames/games/*"],
       "@layouts": ["./src/components/Layouts"],
       "@pages": ["./src/pages"],
       "@templates/*": ["./src/assets/*"],

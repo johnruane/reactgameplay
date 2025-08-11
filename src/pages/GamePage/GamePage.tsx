@@ -156,7 +156,7 @@ const GamePage = () => {
 
         <div data-stack="space-3xl-4xl">
           <div className="grid" data-stack="space-l-xl">
-            <Heading title="DETAILS" className="section-heading" />
+            <Heading title="DETAILS" className="section-heading black" />
             <Tabs tabs={tabs} link={link} />
           </div>
           <NextPrev

@@ -1,6 +1,5 @@
 import tabs from './tabs/Tetris';
-
-import TetrisGame from '@games/Tetris/tetris';
+import TetrisGame from 'src/reactgames/games/Tetris/tetris';
 
 import TetrisHead from '@svg/games/tetris-head.svg?react';
 

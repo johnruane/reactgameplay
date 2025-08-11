@@ -2,6 +2,7 @@ const path = require('path');
 const fse = require('fs-extra');
 
 const sourceGames = path.resolve(__dirname, 'games');
+
 const destGames = path.resolve(
   __dirname,
   '..',
@@ -13,11 +14,27 @@ const destGames = path.resolve(
 
 async function copyGames() {
   try {
-    await fse.copy(sourceGames, destGames, {
+    // Resolve actual filesystem paths (follows symlinks)
+    const realSource = await fse.realpath(sourceGames);
+    const realDest = await fse.realpath(destGames).catch(() => destGames);
+
+    if (realDest.startsWith(realSource)) {
+      throw new Error(
+        `Destination folder is inside the source folder:\nSource: ${realSource}\nDest: ${realDest}`,
+      );
+    }
+
+    await fse.copy(realSource, realDest, {
       overwrite: true,
       errorOnExist: false,
+      dereference: false, // don't follow symlinks
+      filter: (src) => {
+        const stats = fse.lstatSync(src);
+        return !stats.isSymbolicLink(); // skip symlinks entirely
+      },
     });
-    console.log(`Copied all games from ${sourceGames} to ${destGames}`);
+
+    console.log(`Copied all games from ${realSource} to ${realDest}`);
   } catch (error) {
     console.error('Error copying games folder:', error);
   }

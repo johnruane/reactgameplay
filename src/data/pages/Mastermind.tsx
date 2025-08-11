@@ -1,6 +1,5 @@
 import tabs from './tabs/Mastermind';
-
-import MastermindGame from '@games/Mastermind/mastermind';
+import MastermindGame from 'src/reactgames/games/Mastermind/mastermind';
 
 import MastermindHead from '@svg/games/mastermind-head.svg?react';
 

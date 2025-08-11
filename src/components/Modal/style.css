@@ -17,9 +17,10 @@
 .modal-game-wrapper {
   display: grid;
   position: relative;
-  grid-template-rows: min-content minmax(9.75rem, 1fr);
-  padding: var(--space-s) 1rem 0;
-  height: calc(calc(var(--vh, 1vh) * 100) - var(--ticker-height));
+  grid-auto-rows: auto;
+  row-gap: var(--space-s);
+  padding: var(--space-s) 1rem calc(var(--ticker-height) + var(--space-s) + env(safe-area-inset-left));
+  height: calc(var(--vh, 1vh) * 100);
   background-color: var(--color-modal-background);
 }
 

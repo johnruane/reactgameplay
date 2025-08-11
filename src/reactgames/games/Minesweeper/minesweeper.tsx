@@ -231,8 +231,8 @@ const Minesweeper = ({ setRestartGame }: { setRestartGame?: () => void }) => {
             CellComponent={Cell}
             onClickCellCallback={handleCellClick}
           />
-          <div className="overlay-text-wrapper">
-            {gameOver && (
+          {gameOver && (
+            <div className="overlay-text-wrapper">
               <>
                 <p className="overlay-text">
                   {gameOver === 'win' ? 'You win!' : 'You Lose'}
@@ -241,8 +241,8 @@ const Minesweeper = ({ setRestartGame }: { setRestartGame?: () => void }) => {
                   Play Again?
                 </button>
               </>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
 

@@ -1,13 +1,19 @@
 import classNames from 'classnames';
 
-import HeadingsIcon from '@svg/global/headings-icon.svg?react';
+import HeadingsIcon from '@svg/global/heading-icon.svg?react';
 
 import './style.css';
 
-const Heading = ({ title, className }) => {
+const Heading = ({
+  title,
+  className,
+}: {
+  title: string;
+  className?: string;
+}) => {
   return (
     <h2 className={classNames('h-heading-wrapper', className)}>
-      <HeadingsIcon className="test2" />
+      <HeadingsIcon />
       <span className="h-heading">{title}</span>
     </h2>
   );
