@@ -89,6 +89,8 @@ const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
   } | null>(null);
 
   const startGame = () => {
+    setDisplayBoard(create2dArray(boardConfig));
+    setStaticBoard(create2dArray(boardConfig));
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
 
@@ -172,9 +174,10 @@ const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
     }
 
     /*
-     * If both are falsey the piece can no longer move down so set 'staticBoard' to complete the current play.
+     * If canMove === false AND direction === 'ArrowDown' the piece can no longer move down
+     * so set 'staticBoard' to complete the current play.
      */
-    if (!canMove) {
+    if (!canMove && direction === 'ArrowDown') {
       setStaticBoard(
         addTetrominoToBoard(
           cloneDeep(staticBoard),
@@ -351,7 +354,14 @@ const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
           </div>
         </div>
 
-        <Board board={displayBoard} additionalBoardClasses="tetris" />
+        <div className="overlay-wrapper">
+          <Board board={displayBoard} additionalBoardClasses="tetris" />
+          <GameOverlay
+            showGameOver={gameOver}
+            showGameOverButton={!hasGameStarted}
+            gameOverButtonAction={startGame}
+          />
+        </div>
 
         <div className="tetris-score-wrapper" data-stack="space-xs">
           <div className="next-wrapper">
