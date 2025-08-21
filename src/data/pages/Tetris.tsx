@@ -1,5 +1,7 @@
 import tabs from './tabs/Tetris';
 
+import { Controls } from '../../reactgames/shared/components';
+
 import TetrisGame from '@games/Tetris/tetris';
 
 import TetrisHead from '@svg/games/tetris-head.svg?react';
@@ -59,6 +61,25 @@ const gamePageData = {
     </>
   ),
   tabs: tabs,
+  instructions: (
+    <div className="game-instructions">
+      <p className="panel-text panel-text-bold">Instructions</p>
+
+      <ul className="panel-text game-list">
+        <li>Press PLAY GAME to begin the game.</li>
+        <li>Press START to reset the game.</li>
+        <li>Press SELECT to open the games menu.</li>
+        <li className="hide-mobile">
+          Use the ARROW keys to move Left, Right or Down.
+        </li>
+        <li className="hide-mobile">Press SPACE to rotate.</li>
+        <li className="hide-desktop">
+          Use the D-PAD to move Left, Right or Down.
+        </li>
+        <li className="hide-desktop">Press A to rotate.</li>
+      </ul>
+    </div>
+  ),
   game: (props) => <TetrisGame {...props} />,
 };
 

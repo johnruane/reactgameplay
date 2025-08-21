@@ -17,9 +17,10 @@
 .modal-game-wrapper {
   display: grid;
   position: relative;
-  grid-auto-rows: auto;
+  grid-template-rows: auto auto 1fr;
   row-gap: var(--space-s);
-  padding: var(--space-s) 1rem calc(var(--ticker-height) + var(--space-s) + env(safe-area-inset-left));
+  /* padding: var(--space-s) 1rem calc(var(--ticker-height) + var(--space-s) + env(safe-area-inset-left)); */
+  padding: var(--space-s) 1rem calc(var(--ticker-height) + var(--space-s));
   height: calc(var(--vh, 1vh) * 100);
   background-color: var(--color-modal-background);
 }
@@ -55,4 +56,10 @@
   & path {
     fill: var(--color-black);
   }
+}
+
+.modal-ticker {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

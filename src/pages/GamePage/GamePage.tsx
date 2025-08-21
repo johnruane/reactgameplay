@@ -14,6 +14,8 @@ import {
   Tabs,
 } from '@components';
 
+import { Controls } from '../../reactgames/shared/components';
+
 import useBouncingHead from '@utils/hooks/useBouncingHead';
 import viewNavigate from '@utils/viewNavigate';
 
@@ -50,7 +52,11 @@ const GamePage = () => {
     onModalCloseCompleteCallback: modalCloseCallback,
   });
 
-  const setRestartGame = useCallback(() => {
+  const quitClickHandler = () => {
+    setToggleModal(false);
+  };
+
+  const restartClickHandler = useCallback(() => {
     setGameKey?.((prev) => prev + 1);
   }, [setGameKey]);
 
@@ -86,6 +92,7 @@ const GamePage = () => {
     intro,
     tabs,
     link,
+    instructions,
     game: GameComponent,
   } = pageData || {};
 
@@ -168,7 +175,17 @@ const GamePage = () => {
       </section>
 
       <Modal setToggleModal={setToggleModal}>
-        <GameComponent key={gameKey} setRestartGame={setRestartGame} />
+        <GameComponent
+          key={gameKey}
+          restartClickHandler={restartClickHandler}
+        />
+        {instructions}
+        <div className="game-controls-wrapper">
+          <Controls
+            onStartClickHandler={restartClickHandler}
+            onQuitClickHandler={quitClickHandler}
+          />
+        </div>
       </Modal>
 
       {removeScrollbar && <RemoveScrollBar />}

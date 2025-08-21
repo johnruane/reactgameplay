@@ -52,6 +52,23 @@ const gamePageData = {
     </>
   ),
   tabs: tabs,
+  instructions: (
+    <div className="game-instructions">
+      <p className="panel-text panel-text-bold">Instructions</p>
+
+      <ul className="panel-text game-list">
+        <li>Press PLAY GAME to begin the game.</li>
+        <li>Press START to reset the game.</li>
+        <li>Press SELECT to open the games menu.</li>
+        <li className="hide-mobile">
+          Use the ARROW keys to move Left, Right, Up or Down.
+        </li>
+        <li className="hide-desktop">
+          Use the D-PAD to move Left, Right, Up or Down.
+        </li>
+      </ul>
+    </div>
+  ),
   game: (props) => <SnakeGame {...props} />,
 };
 

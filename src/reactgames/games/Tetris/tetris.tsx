@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import useEventBus from './hooks/useEventBus';
 import { useInterval, useMatchMedia } from './shared/hooks';
 import { cloneDeep } from 'lodash-es';
 
@@ -14,6 +15,7 @@ import {
 } from './shared/components';
 
 import { create2dArray } from './shared/utils';
+import { tetrominos } from './utils/matrices';
 
 import {
   addTetrominoToBoard,
@@ -56,7 +58,7 @@ const boardConfig = {
   fillValue: 0,
 };
 
-const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
+const Tetris = () => {
   const [position, setPosition] = useState({ r: 0, c: 4 });
 
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
@@ -339,11 +341,16 @@ const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
     setLevel((prev) => prev + 1);
   }, levelInterval);
 
+  /*
+   * Event bus setup for control clicks
+   */
+  useEventBus(move);
+
   return (
     <>
       <div className={'tetris tetris-game-wrapper'}>
         <div className="game-side-details">
-          <div className="tetris-panel-wrapper">
+          <div className="panel-wrapper">
             <Panel
               sections={[
                 { heading: 'score', value: score },
@@ -368,29 +375,6 @@ const Tetris = ({ setRestartGame }: { setRestartGame?: () => void }) => {
             <Next nextTetromino={nextTetromino?.matrix} show={hasGameStarted} />
           </div>
         </div>
-      </div>
-
-      <div className="game-instructions">
-        <p className="panel-text panel-text-bold">Instructions</p>
-
-        <ul className="panel-text game-list">
-          <Instructions />
-          {useMatchMedia('DESKTOP') ? (
-            <>
-              <li>Use the ARROW keys to move Left, Right or Down.</li>
-              <li>Press SPACE to rotate.</li>
-            </>
-          ) : (
-            <>
-              <li>Use the D-PAD to move Left, Right or Down.</li>
-              <li>Press A to rotate.</li>
-            </>
-          )}
-        </ul>
-      </div>
-
-      <div className="game-controls-wrapper">
-        <Controls move={move} onStartClickHandler={setRestartGame!} />
       </div>
     </>
   );
