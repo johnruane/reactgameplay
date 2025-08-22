@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
 import MastermindContext from './context/MastermindContext';
+import classNames from 'classnames';
 
 import Board from './components/Board';
 import Cell from './components/Cell';
-import { Instructions } from './shared/components';
+import { Panel } from './shared/components';
 
 import generateSecretCode from './lib/generateSecretCode';
 
@@ -72,12 +73,15 @@ const Snake = () => {
 
   return (
     <>
-      <div className="gp-game-wrapper snake-game-wrapper">
-        {/* <div className='snake-panel-wrapper'>
-          <Panel sections={[{ heading: 'score', value: score }]} />
-        </div> */}
+      <div className={styles['mastermind-game-wrapper']}>
+        <div className={styles['snake-panel-wrapper']}>
+          <Panel sections={[{ heading: 'time', value: 0 }]} />
+        </div>
 
-        <div className="overlay-wrapper" data-stack="default">
+        <div
+          className={classNames(styles['board-wrapper'], 'overlay-wrapper')}
+          data-stack="default"
+        >
           <MastermindContext.Provider value={secretCode}>
             <Board
               numberOfRows={10}
@@ -97,32 +101,13 @@ const Snake = () => {
                 <Cell
                   dataValue={value}
                   key={`result-cell-${index}-${value}`}
-                  additionalClasses={styles[`answer-row-cell`]}
+                  additionalClasses={styles['answer-row-cell']}
                 />
               );
             })}
+            <span className={styles['dummy-cell']}></span>
           </div>
         </div>
-      </div>
-
-      <div className="game-instructions">
-        <p className="panel-text panel-text-bold">Instructions</p>
-
-        <ul className="panel-text game-list">
-          <Instructions />
-          {/* {useMatchMedia('DESKTOP') ? (
-            <li>Use the ARROW keys to move Left, Right, Up or Down.</li>
-          ) : (
-            <li>Use the D-PAD to move Left, Right, Up or Down.</li>
-          )} */}
-        </ul>
-      </div>
-
-      <div className="game-controls-wrapper">
-        {/* <Controls
-          move={setProposedSnakeDirection}
-          onStartClickHandler={setRestartGame!}
-        /> */}
       </div>
     </>
   );

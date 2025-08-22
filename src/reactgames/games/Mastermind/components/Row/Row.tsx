@@ -7,8 +7,6 @@ import classNames from 'classnames';
 
 import calculateResults from '../../lib/calculateResults';
 
-import CircleFilled from '@svg/global/circle-filled.svg?react';
-
 import styles from './style.module.css';
 
 const MastermindRow = ({
@@ -39,10 +37,10 @@ const MastermindRow = ({
 
     if (direction === 'forwards') {
       newCellValues[cellIndex] =
-        rowValues[cellIndex] < 6 ? rowValues[cellIndex] + 1 : 1;
+        rowValues[cellIndex] === 10 ? 1 : rowValues[cellIndex] + 1;
     } else {
       newCellValues[cellIndex] =
-        rowValues[cellIndex] > 1 ? rowValues[cellIndex] - 1 : 6;
+        rowValues[cellIndex] === 1 ? 10 : rowValues[cellIndex] - 1;
     }
 
     setRowValues(newCellValues);
@@ -66,21 +64,17 @@ const MastermindRow = ({
       className={classNames(styles['row'], additionalClasses)}
       data-row={`row-${rowIndex}`}
     >
-      <div className={styles['arrow']}>
-        <CircleFilled
-          className={classNames({ [styles['hide']]: rowIndex !== activeRow })}
-        />
-      </div>
-
       {Array.from({ length: 4 }).map((_, index) => (
-        <Cell
-          key={`guess-cell-${rowIndex}-${index}`}
-          dataRow={rowIndex}
-          dataCell={index}
-          dataValue={rowValues[index]}
-          onClickHandler={handleCellClick}
-          disable={rowIndex !== activeRow}
-        />
+        <>
+          <Cell
+            key={`guess-cell-${rowIndex}-${index}`}
+            dataRow={rowIndex}
+            dataCell={index}
+            dataValue={rowValues[index]}
+            onClickHandler={handleCellClick}
+            disable={rowIndex !== activeRow}
+          />
+        </>
       ))}
 
       {showResult && <Result rowIndex={rowIndex} resultValues={resultValues} />}
