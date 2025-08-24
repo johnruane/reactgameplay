@@ -58,8 +58,8 @@ const gamePageData = {
 
       <ul className="panel-text game-list">
         <li>Press PLAY GAME to begin the game.</li>
-        <li>Press START to reset the game.</li>
-        <li>Press SELECT to open the games menu.</li>
+        <li>Press RESTART to reset the game.</li>
+        <li>Press QUIT to return to the gamepage.</li>
         <li className="hide-mobile">
           Use the ARROW keys to move Left, Right, Up or Down.
         </li>

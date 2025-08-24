@@ -1,5 +1,6 @@
 .mastermind-game-wrapper {
   display: grid;
+  position: relative;
   grid-auto-flow: column;
   column-gap: var(--space-s);
   color: var(--color-white);
@@ -14,6 +15,11 @@
 
 .board-wrapper {
   justify-self: center;
+}
+
+.secret-heading {
+  text-align: center;
+  margin-right: var(--cell-xl); 
 }
 
 .answer-row {
@@ -35,4 +41,8 @@
 .dummy-cell {
   width: var(--cell-xl);
   height: var(--cell-xl);
+}
+
+.secret-heading {
+
 }

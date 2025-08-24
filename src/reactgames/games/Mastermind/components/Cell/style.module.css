@@ -1,10 +1,5 @@
-.cell::after {
-  content: '';
-  display: block;
-}
-
-.cell,
-.cell::after {
+.cell {
+  position: relative;
   width: var(--cell-lg);
   height: var(--cell-lg);
   background: var(--cell-background-color);
@@ -14,54 +9,50 @@
     cursor: pointer;
   }
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     width: var(--cell-xl);
     height: var(--cell-xl);
-  }
+  } */
 }
 
-.cell  {
-  position: relative;
-
-  &[data-value='0']::after {
+.cell,
+.colour-dot  {
+  &[data-value='0'] {
     border-radius: var(--border-radius);
     border: var(--border);
   }
-  .colour-red,
-  &[data-value='1']::after {
+  &[data-value='1'] {
     background-color: #D97A7A /* RED */
   }
-  .colour-orange,
-  &[data-value='2']::after {
+  &[data-value='2'] {
     background-color: #E3A76F /* ORANGE */
   }
-  .colour-yellow,
-  &[data-value='3']::after {
+  &[data-value='3'] {
     background-color: #E6D27A /* YELLOW */
   }
-  .colour-green,
-  &[data-value='4']::after {
+  &[data-value='4'] {
     background-color: #8BBF92 /* GREEN */
   }
-  .colour-teal,
-  &[data-value='5']::after {
+  &[data-value='5'] {
     background-color: #7FB7B7 /* TEAL */
   }
-  .colour-blue,
-  &[data-value='6']::after {
+  &[data-value='6'] {
     background-color: #7A9ED9 /* BLUE */
   }
-  .colour-indigo,
-  &[data-value='8']::after {
+  &[data-value='7'] {
     background-color: #8C7AD9 /* INDIGO */
   }
-  .colour-violet,
-  &[data-value='9']::after {
+  &[data-value='8'] {
     background-color: #B18CCB /* VIOLET */
   }
-  .colour-brown,
-  &[data-value='10']::after {
+  &[data-value='9'] {
     background-color: #A8917A /* BROWN */
+  }
+  &[data-value='10'] {
+    background-color: var(--color-white);
+  }
+  &[data-value='11'] {
+    background-color: var(--color-black);
   }
 }
 
@@ -83,10 +74,15 @@
 }
 
 .colour-dot {
+  all: unset;
   display: block;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
+
+  &:hover {
+    outline: 2px solid var(--color-white);
+  }
 }
 
 .hide {

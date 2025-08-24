@@ -20,7 +20,7 @@ const MastermindRow = ({
   setActiveRow: React.Dispatch<React.SetStateAction<number>>;
   additionalClasses?: string;
 }) => {
-  const secretCode = useContext(MastermindContext)!;
+  const { secretCode } = useContext(MastermindContext)!;
 
   const [rowValues, setRowValues] = useState<number[]>(
     activeRow === rowIndex ? [1, 1, 1, 1] : [0, 0, 0, 0],
@@ -28,27 +28,17 @@ const MastermindRow = ({
   const [resultValues, setResultValues] = useState<number[]>([0, 0, 0, 0]);
   const [showResult, setShowResults] = useState(false);
 
-  function handleCellClick(
-    e: React.MouseEvent<HTMLSpanElement>,
-    direction = 'forwards',
-  ) {
-    const cellIndex = Number(e.currentTarget.getAttribute('data-cell'));
+  function handleCellClick(e: React.MouseEvent<HTMLSpanElement>) {
+    const cellParent = Number(e.currentTarget.getAttribute('data-cell-parent'));
+    const cellValue = Number(e.currentTarget.getAttribute('data-value'));
     const newCellValues = Array.from(rowValues);
 
-    if (direction === 'forwards') {
-      newCellValues[cellIndex] =
-        rowValues[cellIndex] === 10 ? 1 : rowValues[cellIndex] + 1;
-    } else {
-      newCellValues[cellIndex] =
-        rowValues[cellIndex] === 1 ? 10 : rowValues[cellIndex] - 1;
-    }
-
+    newCellValues[cellParent] = cellValue;
     setRowValues(newCellValues);
   }
 
   function handleButtonClick() {
     const results = calculateResults({ guess: rowValues, secret: secretCode });
-
     setResultValues(results);
     setShowResults(true);
     setActiveRow((prev) => prev + 1);
@@ -88,7 +78,7 @@ const MastermindRow = ({
           })}
           onClick={handleButtonClick}
         >
-          GO!
+          Go!
         </button>
       )}
     </div>

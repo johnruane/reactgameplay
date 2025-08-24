@@ -3,18 +3,19 @@ import classNames from 'classnames';
 import styles from './style.module.css';
 
 const colours = {
-  RED: '#D97A7A',
-  ORANGE: '#E3A76F',
-  YELLOW: '#E6D27A',
-  GREEN: '#8BBF92',
-  TEAL: '#7FB7B7',
-  BLUE: '#7A9ED9',
-  INDIGO: '#8C7AD9',
-  VIOLET: '#B18CCB',
-  BROWN: '#A8917A',
+  1: 'RED',
+  2: 'ORANGE',
+  3: 'YELLOW',
+  4: 'GREEN',
+  5: 'TEAL',
+  6: 'BLUE',
+  7: 'INDIGO',
+  8: 'VIOLET',
+  9: 'BROWN',
 };
 
 const Cell = ({
+  renderColourPalette = true,
   dataRow,
   dataCell,
   dataValue,
@@ -22,6 +23,7 @@ const Cell = ({
   onClickHandler,
   additionalClasses,
 }: {
+  renderColourPalette?: boolean;
   dataRow?: number;
   dataCell?: number;
   dataValue?: number;
@@ -32,13 +34,6 @@ const Cell = ({
   additionalClasses?: string;
   disable?: boolean;
 }) => {
-  function handleRightClick(e) {
-    e.preventDefault();
-    if (onClickHandler) {
-      onClickHandler(e, 'backwards');
-    }
-  }
-
   return (
     <>
       <div
@@ -46,26 +41,26 @@ const Cell = ({
         data-row={dataRow}
         data-cell={dataCell}
         data-value={String(dataValue)}
-        onClick={!disable ? onClickHandler : undefined}
-        onContextMenu={!disable ? handleRightClick : undefined}
         data-disable={disable}
       >
-        <div
-          className={classNames(
-            styles['colour-palette-wrapper'],
-            styles['hide'],
-          )}
-        >
-          {Object.entries(colours).map(([key, value]) => (
-            <span
-              key={key}
-              className={classNames(
-                styles[`colour-${key.toLowerCase()}`],
-                styles['colour-dot'],
-              )}
-            />
-          ))}
-        </div>
+        {renderColourPalette && (
+          <div
+            className={classNames(
+              styles['colour-palette-wrapper'],
+              styles['hide'],
+            )}
+          >
+            {Object.entries(colours).map(([key, value]) => (
+              <button
+                key={key}
+                className={classNames(styles['colour-dot'])}
+                data-cell-parent={dataCell}
+                data-value={key}
+                onClick={!disable ? onClickHandler : undefined}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

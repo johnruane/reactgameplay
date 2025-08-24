@@ -1,5 +1,13 @@
 import { createContext } from 'react';
 
-const MastermindContext = createContext<number[]>([]);
+type MastermindContextType = {
+  secretCode: number[];
+};
+
+const defaultValues: MastermindContextType = {
+  secretCode: [],
+};
+
+const MastermindContext = createContext<MastermindContextType>(defaultValues);
 
 export default MastermindContext;

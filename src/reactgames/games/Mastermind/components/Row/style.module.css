@@ -9,10 +9,9 @@
   align-items: center;
 }
 
-.empty-result, 
-.empty-result::after {
-  width: var(--cell-xl);
-  height: var(--cell-xl);
+.empty-result {
+  width: var(--cell-l);
+  height: var(--cell-l);
 }
 
 .button {
@@ -21,8 +20,8 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: var(--cell-xl);
-  height: var(--cell-xl);
+  width:auto;
+  height: var(--cell-l);
   border-radius: var(--border-radius);
   /* border: var(--border); */
   font-size: 0.75rem;
