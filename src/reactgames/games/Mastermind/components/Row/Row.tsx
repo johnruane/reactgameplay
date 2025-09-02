@@ -20,7 +20,8 @@ const MastermindRow = ({
   setActiveRow: React.Dispatch<React.SetStateAction<number>>;
   additionalClasses?: string;
 }) => {
-  const { secretCode } = useContext(MastermindContext)!;
+  const { secretCode, setWin, setHasGameStarted } =
+    useContext(MastermindContext)!;
 
   const [rowValues, setRowValues] = useState<number[]>(
     activeRow === rowIndex ? [1, 1, 1, 1] : [0, 0, 0, 0],
@@ -38,9 +39,17 @@ const MastermindRow = ({
   }
 
   function handleButtonClick() {
+    setHasGameStarted(true);
+
     const results = calculateResults({ guess: rowValues, secret: secretCode });
     setResultValues(results);
     setShowResults(true);
+
+    // Check for win condition: [10, 10, 10, 10] means all 4 exact matches
+    if (results.length === 4 && results.every((result) => result === 10)) {
+      setWin(true);
+    }
+
     setActiveRow((prev) => prev + 1);
   }
 

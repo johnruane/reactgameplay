@@ -13,18 +13,19 @@ import generateSecretCode from './lib/generateSecretCode';
 import './shared/styles/global.css';
 import styles from './styles/style.module.css';
 
-const Snake = () => {
+const Snake = ({
+  restartClickHandler,
+}: {
+  restartClickHandler: () => void;
+}) => {
   const numberOfRows = 10;
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [hasGameStarted, setHasGameStarted] = useState<boolean>(false);
   const [clock, setClock] = useState(0);
+  const [win, setWin] = useState<boolean>(false);
 
   const [secretCode, setSecretCode] = useState<number[]>([0, 0, 0, 0]);
   const [activeRow, setActiveRow] = useState<number>(0);
-
-  const playGameOnClickHandler = () => {
-    setHasGameStarted(true);
-  };
 
   useEffect(() => {
     const secretNumber = generateSecretCode();
@@ -57,7 +58,9 @@ const Snake = () => {
           className={classNames(styles['board-wrapper'], 'overlay-wrapper')}
           data-stack="default"
         >
-          <MastermindContext.Provider value={{ secretCode }}>
+          <MastermindContext.Provider
+            value={{ secretCode, setWin, setHasGameStarted }}
+          >
             <Board
               numberOfRows={numberOfRows}
               additionalBoardClasses="board"
@@ -83,9 +86,10 @@ const Snake = () => {
         </div>
 
         <GameOverlay
-          showGameOver={gameOver}
-          showGameOverButton={gameOver}
-          gameOverButtonAction={playGameOnClickHandler}
+          showGameOver={gameOver || win}
+          showGameOverButton={gameOver || win}
+          gameOverText={win ? 'You win!' : 'You lose!'}
+          gameOverButtonAction={restartClickHandler}
         />
       </div>
     </>

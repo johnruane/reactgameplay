@@ -20,6 +20,7 @@ const gamePageData = {
   controls: (
     <ol>
       <li>Tap a coloured pin to open the palette and choose a new colour.</li>
+      <li>Press 'Go!' to submit your guess.</li>
     </ol>
   ),
   intro: (

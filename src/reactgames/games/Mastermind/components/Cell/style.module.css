@@ -52,7 +52,7 @@
     background-color: var(--color-white);
   }
   &[data-value='11'] {
-    background-color: var(--color-black);
+    background-color: #454545;
   }
 }
 
