@@ -13,7 +13,7 @@ import generateSecretCode from './lib/generateSecretCode';
 import './shared/styles/global.css';
 import styles from './styles/style.module.css';
 
-const Snake = ({
+const Mastermind = ({
   restartClickHandler,
 }: {
   restartClickHandler: () => void;
@@ -42,7 +42,7 @@ const Snake = ({
    * Interval to speed up gameplay every 30 seconds
    */
   useInterval(() => {
-    if (hasGameStarted) {
+    if (hasGameStarted && !gameOver && !win) {
       setClock((prev) => prev + 1);
     }
   }, 1000);
@@ -72,15 +72,28 @@ const Snake = ({
           <p className={styles['secret-heading']}>SECRET CODE</p>
 
           <div className={styles['answer-row']}>
-            {Array.from(secretCode).map((value, index) => {
-              return (
-                <Cell
-                  dataValue={value}
-                  key={`result-cell-${index}-${value}`}
-                  additionalClasses={styles['answer-row-cell']}
-                />
-              );
-            })}
+            {gameOver
+              ? Array(secretCode.length).map((value, index) => {
+                  return (
+                    <Cell
+                      dataValue={value}
+                      key={`result-cell-${index}-${value}`}
+                      additionalClasses={styles['answer-row-cell']}
+                    />
+                  );
+                })
+              : Array(secretCode.length)
+                  .fill('?')
+                  .map((value, index) => {
+                    return (
+                      <span
+                        key={`secret-cell-${index}-${value}`}
+                        className={styles['secret-cell']}
+                      >
+                        ?
+                      </span>
+                    );
+                  })}
             <span className={styles['dummy-cell']}></span>
           </div>
         </div>
@@ -96,4 +109,4 @@ const Snake = ({
   );
 };
 
-export default Snake;
+export default Mastermind;

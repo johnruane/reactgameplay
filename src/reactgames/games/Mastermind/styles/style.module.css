@@ -39,10 +39,16 @@
 }
 
 .dummy-cell {
-  width: var(--cell-xl);
-  height: var(--cell-xl);
+  width: var(--cell-lg);
+  height: var(--cell-lg);
 }
 
-.secret-heading {
-
+.secret-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-lg);
+  height: var(--cell-lg);
+  border-radius: var(--border-radius);
+  border: var(--border);
 }
