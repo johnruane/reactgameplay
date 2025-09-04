@@ -40,4 +40,4 @@ async function copyGames() {
   }
 }
 
-copyGames();
+module.exports = copyGames;

@@ -22,4 +22,4 @@ async function copySharedToGames() {
   }
 }
 
-copySharedToGames();
+module.exports = copySharedToGames;

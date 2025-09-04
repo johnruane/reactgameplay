@@ -50,7 +50,7 @@ const Cell = ({
               styles['hide'],
             )}
           >
-            {Object.entries(colours).map(([key, value]) => (
+            {Object.entries(colours).map(([key]) => (
               <button
                 key={key}
                 className={classNames(styles['colour-dot'])}
