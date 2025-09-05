@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { Helmet } from 'react-helmet-async';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -107,6 +108,18 @@ const GamePage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          {niceName
+            ? `${niceName} - Play & Learn React | React Gameplay`
+            : 'Game - React Gameplay'}
+        </title>
+        <meta
+          name="description"
+          content={`Play ${niceName} in your browser and explore the React code behind it. Learn coding concepts through classic games at React Gameplay.`}
+        />
+      </Helmet>
+
       <div className="grid background-black gp-back-wrapper">
         <button
           className="gp-back-btn"
