@@ -1,1 +1,27 @@
 User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow access to build artifacts and development files
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /*.config.js
+Disallow: /*.config.ts
+Disallow: /tsconfig.json
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Disallow access to source maps and development tools
+Disallow: /*.map
+Disallow: /vite.svg
+
+# Allow important static assets
+Allow: /assets/
+Allow: /public/
+
+# Crawl delay (optional - helps prevent overwhelming your server)
+Crawl-delay: 1
