@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://reactgameplay.com/sitemap.xml
 
 # Disallow access to build artifacts and development files
 Disallow: /dist/
