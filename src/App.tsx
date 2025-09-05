@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import { HelmetProvider } from 'react-helmet-async';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,7 +18,7 @@ import '@styles/essentials.css';
 import '@styles/reset.css';
 import '@styles/spacings.css';
 
-// Component to track page views - must be inside router context
+// Component to track page views
 function PageTracker() {
   const location = useLocation();
 
@@ -58,5 +59,10 @@ export default function App() {
     },
   ]);
 
-  return <RouterProvider router={routes} />;
+  return (
+    <HelmetProvider>
+      <PageTracker />
+      <RouterProvider router={routes} />
+    </HelmetProvider>
+  );
 }
