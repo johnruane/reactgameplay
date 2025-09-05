@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom/client';
 
 import { initGA } from './utils/analytics';
 
-// // Initialize Google Analytics
-// initGA();
+// Initialize Google Analytics
+initGA();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
