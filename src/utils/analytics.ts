@@ -1,7 +1,23 @@
-import gtag from 'gtag';
-
 // Google Analytics 4 Measurement ID
 export const GA_MEASUREMENT_ID = 'G-8JW6NEM2TN';
+
+// Declare gtag function for TypeScript
+declare global {
+  interface Window {
+    gtag: (
+      command: 'config' | 'event' | 'js' | 'set',
+      targetId: string | Date,
+      config?: Record<string, unknown>,
+    ) => void;
+  }
+}
+
+// Use the global gtag function with safety check
+const gtag = (...args: Parameters<Window['gtag']>) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag(...args);
+  }
+};
 
 // Initialize Google Analytics
 export const initGA = () => {
