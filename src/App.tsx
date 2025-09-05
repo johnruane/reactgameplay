@@ -18,7 +18,7 @@ import '@styles/essentials.css';
 import '@styles/reset.css';
 import '@styles/spacings.css';
 
-// Component to track page views
+// Component to track page views - must be inside router context
 function PageTracker() {
   const location = useLocation();
 
@@ -37,7 +37,12 @@ export default function App() {
 
   const routes = createBrowserRouter([
     {
-      element: <GlobalLayout />,
+      element: (
+        <>
+          <PageTracker />
+          <GlobalLayout />
+        </>
+      ),
       children: [
         {
           element: <DefaultLayout />,
@@ -56,7 +61,6 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <PageTracker />
       <RouterProvider router={routes} />
     </HelmetProvider>
   );
