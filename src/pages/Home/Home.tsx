@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async';
+
 import { Heading } from '@sections';
 import {
   About as AboutSection,
@@ -19,6 +21,14 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>React Gameplay - Classic Games in React</title>
+        <meta
+          name="description"
+          content="Play classic games like Tetris, Snake, Minesweeper, and Mastermind built with React. Experience the nostalgia of retro gaming in your browser."
+        />
+      </Helmet>
+
       <section className="container background-yellow">
         <div className="grid hm-section-wrapper">
           <div className="hm-text-positioning">

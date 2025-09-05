@@ -6,6 +6,7 @@ import MastermindHead from '@svg/games/mastermind-head.svg?react';
 
 const gamePageData = {
   id: 'mastermind',
+  niceName: 'Mastermind',
   title: (
     <>
       <span>Master</span>

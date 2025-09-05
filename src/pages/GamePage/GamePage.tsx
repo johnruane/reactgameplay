@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { Helmet } from 'react-helmet-async';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -16,6 +17,12 @@ import {
 
 import { Controls } from '../../reactgames/shared/components';
 
+import {
+  trackButtonClick,
+  trackGameQuit,
+  trackGameRestart,
+  trackGameStart,
+} from '@utils/analytics';
 import useBouncingHead from '@utils/hooks/useBouncingHead';
 import viewNavigate from '@utils/viewNavigate';
 
@@ -31,6 +38,23 @@ import './style.css';
 
 const GamePage = () => {
   const { title } = useParams();
+  const pageIndex = pages.findIndex(({ id }) => id === title);
+  const pageData = pages[pageIndex];
+
+  const {
+    niceName,
+    title: gameTitle,
+    icon,
+    year,
+    complexity,
+    controls,
+    intro,
+    tabs,
+    link,
+    instructions,
+    game: GameComponent,
+  } = pageData || {};
+
   const navigate = useNavigate();
 
   const [gameKey, setGameKey] = useState(0); // Used to reset component state
@@ -53,15 +77,14 @@ const GamePage = () => {
   });
 
   const quitClickHandler = () => {
+    trackGameQuit(niceName || 'unknown');
     setToggleModal(false);
   };
 
   const restartClickHandler = useCallback(() => {
+    trackGameRestart(niceName || 'unknown');
     setGameKey?.((prev) => prev + 1);
-  }, [setGameKey]);
-
-  const pageIndex = pages.findIndex(({ id }) => id === title);
-  const pageData = pages[pageIndex];
+  }, [setGameKey, niceName]);
 
   const prevPage = {
     id: pages[pageIndex - 1]?.id,
@@ -83,25 +106,31 @@ const GamePage = () => {
     }
   }, [navigate, pageData]);
 
-  const {
-    title: gameTitle,
-    icon,
-    year,
-    complexity,
-    controls,
-    intro,
-    tabs,
-    link,
-    instructions,
-    game: GameComponent,
-  } = pageData || {};
-
   return (
     <>
+      <Helmet>
+        <title>
+          {niceName
+            ? `${niceName.toUpperCase()} - React Gameplay`
+            : 'Game - React Gameplay'}
+        </title>
+        <meta
+          name="description"
+          content={`Play ${niceName} in your browser. A classic game built with React.`}
+        />
+        <meta
+          name="keywords"
+          content={`${niceName}, game, react, browser game, ${year || ''}`}
+        />
+      </Helmet>
+
       <div className="grid background-black gp-back-wrapper">
         <button
           className="gp-back-btn"
-          onClick={() => viewNavigate({ route: '/', navigate })}
+          onClick={() => {
+            trackButtonClick('back', 'game_page');
+            viewNavigate({ route: '/', navigate });
+          }}
           aria-label="Back to homepage"
         >
           <Back />
@@ -111,13 +140,19 @@ const GamePage = () => {
       <section className="container background-black">
         <div className="grid gp-section-wrapper">
           <div className="gp-text-positioning">
-            <h1 className="gp-heading text-uppercase">
+            <h1 className="off-screen">
+              {`${niceName} Game - How to build ${niceName} game with React.`}
+            </h1>
+            <h2 className="gp-heading text-uppercase">
               <span className="gp-year">{year}</span>
               <span className="gp-title">{gameTitle}</span>
-            </h1>
+            </h2>
             <Button
               text="PLAY NOW"
-              onClick={() => setToggleModal(true)}
+              onClick={() => {
+                trackGameStart(niceName || 'unknown');
+                setToggleModal(true);
+              }}
               className="button gp-play-button"
             >
               <ArrowRight />

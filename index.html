@@ -2,11 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="React Gameplay. A website for React gaming."
-    />
-    <meta name="keywords" content="HTML, CSS, JavaScript, React" />
     <meta name="author" content="John Ruane" />
     <meta
       name="viewport"
@@ -19,11 +14,26 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>React Gameplay</title>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8JW6NEM2TN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-8JW6NEM2TN');
+    </script>
+
+    <!-- Title, description, and keywords are now managed by React Helmet -->
   </head>
 
   <body>
-    <h1 style="position: absolute; left: -10000px">React Gameplay</h1>
+    <!-- <h1 style="position: absolute; left: -10000px">React Gameplay</h1> -->
     <div id="root" style="height: 100%"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

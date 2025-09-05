@@ -6,6 +6,7 @@ import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
 
 const gamePageData = {
   id: 'minesweeper',
+  niceName: 'Minesweeper',
   title: (
     <>
       <span>Mine</span>
