@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-import { HelmetProvider } from 'react-helmet-async';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -59,9 +58,5 @@ export default function App() {
     },
   ]);
 
-  return (
-    <HelmetProvider>
-      <RouterProvider router={routes} />
-    </HelmetProvider>
-  );
+  return <RouterProvider router={routes} />;
 }
