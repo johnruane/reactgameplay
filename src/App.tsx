@@ -17,7 +17,6 @@ import '@styles/essentials.css';
 import '@styles/reset.css';
 import '@styles/spacings.css';
 
-// Component to track page views - must be inside router context
 function PageTracker() {
   const location = useLocation();
 

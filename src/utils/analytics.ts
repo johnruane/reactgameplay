@@ -19,14 +19,6 @@ const gtag = (...args: Parameters<Window['gtag']>) => {
   }
 };
 
-// Initialize Google Analytics
-export const initGA = () => {
-  gtag('config', GA_MEASUREMENT_ID, {
-    page_title: document.title,
-    page_location: window.location.href,
-  });
-};
-
 // Track page views
 export const trackPageView = (url: string, title?: string) => {
   gtag('config', GA_MEASUREMENT_ID, {
