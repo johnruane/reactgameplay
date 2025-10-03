@@ -1,5 +1,4 @@
 import {
-  addTetrominoToBoard,
   animateCompleteRow,
   convertScore,
   findCompletedRows,
