@@ -11,13 +11,18 @@
  * @return {Number[][]} New board with @tetromino added
  */
 export function addTetrominoToBoard(board, tetromino, r, c) {
+  const localCopyBoard = board.map((row) => [...row]);
   tetromino?.forEach((row, i) => {
     row.forEach((cell, j) => {
-      if (cell !== 0 && r + i < board.length && c + j < board[0].length) {
-        board[r + i][c + j] = cell;
+      if (
+        cell !== 0 &&
+        r + i < localCopyBoard.length &&
+        c + j < localCopyBoard[0].length
+      ) {
+        localCopyBoard[r + i][c + j] = cell;
       }
     });
   });
 
-  return board;
+  return localCopyBoard;
 }

@@ -6,3 +6,4 @@ export { findCompletedRows } from './findCompletedRows';
 export { removeRowsFromBoard } from './removeRowsFromBoard';
 export { rotateMatrix } from './rotateMatrix';
 export { getRandomTetromino } from './getRandomTetromino';
+export { handleAnimationOfCompletedRow } from './handleAnimationOfCompletedRow';

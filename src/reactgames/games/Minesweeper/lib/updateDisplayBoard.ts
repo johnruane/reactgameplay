@@ -1,5 +1,5 @@
 import { getCellValue } from './getCellValue';
-import { cloneDeep } from 'lodash-es';
+
 /**
  * Takes @displayBoard @gameplayBoard and @cellsToUpdate and for each position in either a single {r, c} } object or Array of
  * {r, c}} objects, will update the @displayBoard value to that of the @gameplayBoard value.
@@ -17,16 +17,16 @@ export const updateDisplayBoard = ({
   gameBoard: number[][];
   cellsToUpdate: CellPosition[];
 }) => {
-  const newBoard = cloneDeep(displayBoard);
+  const localCopyBoard = displayBoard.map((row) => [...row]);
 
   cellsToUpdate.forEach((p) => {
     const { r, c } = p || {};
     const cellValue = getCellValue({ board: gameBoard, pos: p });
 
     if (cellValue !== null) {
-      newBoard[r][c] = cellValue;
+      localCopyBoard[r][c] = cellValue;
     }
   });
 
-  return newBoard;
+  return localCopyBoard;
 };

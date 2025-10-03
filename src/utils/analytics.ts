@@ -1,4 +1,3 @@
-// Google Analytics 4 Measurement ID
 export const GA_MEASUREMENT_ID = 'G-8JW6NEM2TN';
 
 // Declare gtag function for TypeScript

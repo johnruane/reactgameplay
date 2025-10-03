@@ -6,7 +6,8 @@
   row-gap: var(--space-s);
   column-gap: var(--space-xs);
   position: sticky;
-  top: var(--space-m);
+  top: 0;
+  padding-top: var(--space-m);
 }
 
 .tb-tabs-wrapper::-webkit-scrollbar {

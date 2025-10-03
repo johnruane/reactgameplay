@@ -181,11 +181,49 @@
 
 .gp-back-btn {
   all: unset;
+  display: flex;
+  z-index: 1;
+  padding: 0.5rem; /* Add padding to create a larger hover area */
+  margin: -0.5rem; /* Compensate for the padding to maintain layout */
 
   & svg {
     width: 4rem;
     height: auto;
-    border: 2px solid var(--color-white);
-    border-radius: 20rem;
+    overflow: visible;
+    & circle {
+      will-change: transform;
+      transition: transform 0.2s ease-in-out 0.02s;
+      transform-origin: center center;
+    }
+
+    &:hover path {
+      animation: slideLeftRight 0.5s ease-in-out;
+    }
+
+    &:hover circle {
+      transform: scale3d(1.2, 1.2, 1);
+    }
+  }
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-0.5rem);
+  }
+
+  60% {
+    transform: translateX(0.3rem);
+  }
+
+  80% {
+    transform: translateX(-0.05rem);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }

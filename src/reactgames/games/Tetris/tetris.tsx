@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import useEventBus from './hooks/useEventBus';
 import { useInterval } from './shared/hooks';
-import { cloneDeep } from 'lodash-es';
 
 import Next from './components/Next';
 import { Board, GameOverlay, Panel } from './shared/components';
@@ -12,12 +11,9 @@ import { create2dArray } from './shared/utils';
 
 import {
   addTetrominoToBoard,
-  animateCompleteRow,
   canTetrominoMoveToPosition,
-  convertScore,
-  findCompletedRows,
   getRandomTetromino,
-  removeRowsFromBoard,
+  handleAnimationOfCompletedRow,
   rotateMatrix,
 } from './lib';
 
@@ -52,10 +48,10 @@ const boardConfig = {
 };
 
 const Tetris = () => {
-  const [position, setPosition] = useState({ r: 0, c: 4 });
+  const staticBoardRef = useRef(create2dArray(boardConfig));
 
+  const [position, setPosition] = useState({ r: 0, c: 4 });
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
-  const [staticBoard, setStaticBoard] = useState(create2dArray(boardConfig));
 
   const [currentTetromino, setCurrentTetromino] = useState<{
     value: number;
@@ -76,16 +72,15 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
   const [hasGameStarted, setHasGameStarted] = useState(false);
 
-  const previousSpeedRef = useRef<number | null>(null);
-  const previousLevelIntervalRef = useRef<number | null>(null);
-  const nextTetrominolRef = useRef<{
-    value: number;
-    matrix: number[][];
+  const pauseStateRef = useRef<{
+    speed: number | null;
+    levelInterval: number | null;
   } | null>(null);
 
-  const startGame = () => {
+  const startGame = useCallback(() => {
+    staticBoardRef.current = create2dArray(boardConfig);
+
     setDisplayBoard(create2dArray(boardConfig));
-    setStaticBoard(create2dArray(boardConfig));
     setCurrentTetromino(getRandomTetromino());
     setNextTetromino(getRandomTetromino());
 
@@ -98,38 +93,44 @@ const Tetris = () => {
 
     setGameOver(false);
     setHasGameStarted(true);
-  };
+  }, []);
 
   /*
    * Setting these two intervals to 'null' stops the useInterval hook from executing and effectively
    * pauses the game.
    */
-  const pauseGameplay = () => {
+  const pauseGameplay = useCallback(() => {
+    pauseStateRef.current = {
+      speed,
+      levelInterval,
+    };
+
     setSpeed(null);
     setLevelInterval(null);
-  };
+  }, [speed, levelInterval]);
 
   /*
    * As pausing and resuming may occur in a callback, state may be stale. Using useRef ensures stale state
    * is not a problem.
    */
   const restoreGameplay = useCallback(() => {
-    setSpeed(previousSpeedRef.current);
-    setLevelInterval(previousLevelIntervalRef.current);
-    setNextTetromino(nextTetrominolRef.current);
-  }, [previousSpeedRef, previousLevelIntervalRef]);
+    if (pauseStateRef.current) {
+      setSpeed(pauseStateRef.current.speed);
+      setLevelInterval(pauseStateRef.current.levelInterval);
+    }
+  }, [pauseStateRef]);
 
   /*
    * Function to reset position and cycle tetrominos. Done as a function in order to control when this
    * occurs in the execution cycle e.g. like when there is a need to wait for an animation to complete.
    */
-  const makeNextPlay = () => {
+  const makeNextPlay = useCallback(() => {
     if (!hasGameStarted) return;
 
     setPosition({ r: 0, c: 4 });
     setCurrentTetromino(nextTetromino);
     setNextTetromino(getRandomTetromino());
-  };
+  }, [hasGameStarted, nextTetromino]);
 
   /*
    * Update the 'position' either via 'useInterval', in which case 'direction' is 'undefined' or
@@ -158,7 +159,7 @@ const Tetris = () => {
         c: newC,
       },
       currentTetromino?.matrix,
-      staticBoard,
+      staticBoardRef.current,
     );
 
     if (canMove) {
@@ -173,14 +174,26 @@ const Tetris = () => {
      * so set 'staticBoard' to complete the current play.
      */
     if (!canMove && direction === 'ArrowDown') {
-      setStaticBoard(
-        addTetrominoToBoard(
-          cloneDeep(staticBoard),
-          currentTetromino?.matrix,
-          position.r,
-          position.c,
-        ),
+      const localCopyBoard = [...staticBoardRef.current];
+      const updatedBoard = addTetrominoToBoard(
+        localCopyBoard,
+        currentTetromino?.matrix,
+        position.r,
+        position.c,
       );
+
+      staticBoardRef.current = updatedBoard;
+
+      handleAnimationOfCompletedRow({
+        setLines,
+        setScore,
+        score,
+        currentTetromino,
+        staticBoardRef,
+        pauseGameplay,
+        restoreGameplay,
+        makeNextPlay,
+      });
     }
   };
 
@@ -207,7 +220,7 @@ const Tetris = () => {
           c: position.c,
         },
         rotatedMatrix,
-        staticBoard,
+        staticBoardRef.current,
       );
 
       if (canMove) {
@@ -220,57 +233,6 @@ const Tetris = () => {
   };
 
   /*
-   * When staticBoard is updated, that signals that a play has ended so we need to check for completed
-   * rows on the board. Completed rows are returned in an array of indexes. Indexed rows are removed from
-   * a clone of the static board. The updated board is passed as an argument to the animateWinningRows
-   * function to be executed as a 'onFinish' function if the index is the last row to be animated.
-   */
-  useEffect(() => {
-    const cloneBoard = cloneDeep(staticBoard);
-
-    /*
-     * We sort the indexes ascending so that rows are removed from top to bottom. If descending then the board
-     * indexes would be wrong as we shift the rows downwards after removing a row.
-     */
-    const indexesOfCompleteRows = findCompletedRows({ board: cloneBoard }).sort(
-      (a, b) => a - b,
-    );
-    const updatedBoard = removeRowsFromBoard(cloneBoard, indexesOfCompleteRows);
-
-    // Callback function to be executed after the last animation has completed.
-    const updateStaticBoardCallback = () => {
-      setStaticBoard(updatedBoard);
-      makeNextPlay();
-      restoreGameplay();
-    };
-
-    /*
-     * Animate each complete row or start next playing piece.
-     */
-    if (indexesOfCompleteRows.length > 0) {
-      // Preserve these values as they need to be restored afterwards
-      previousSpeedRef.current = speed;
-      previousLevelIntervalRef.current = levelInterval;
-      nextTetrominolRef.current = nextTetromino;
-
-      pauseGameplay(); // We do this so the animation can run
-
-      indexesOfCompleteRows.forEach((element, index) => {
-        animateCompleteRow(
-          element,
-          index === indexesOfCompleteRows.length - 1,
-          updateStaticBoardCallback,
-        );
-        setLines((current) => current + 1);
-      });
-
-      setScore(convertScore(score, indexesOfCompleteRows.length));
-    } else {
-      makeNextPlay();
-    }
-  }, [staticBoard]);
-
-  /*
    * If tetromino cannot be placed at position {0, 4} that means the pieces have reached
    * the top and it is game over.
    */
@@ -281,7 +243,7 @@ const Tetris = () => {
         c: 4,
       },
       currentTetromino?.matrix,
-      staticBoard,
+      staticBoardRef.current,
     );
 
     // End current game.
@@ -298,9 +260,10 @@ const Tetris = () => {
    * is put into play.
    */
   useEffect(() => {
+    const localCopyBoard = [...staticBoardRef.current];
     setDisplayBoard(
       addTetrominoToBoard(
-        cloneDeep(staticBoard),
+        localCopyBoard,
         currentTetromino?.matrix,
         position.r,
         position.c,
