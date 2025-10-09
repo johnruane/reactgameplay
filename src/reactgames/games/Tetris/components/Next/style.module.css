@@ -1,17 +1,13 @@
 .next-board {
-  box-shadow: none;
+  box-shadow: none !important;
   margin-top: 0.5rem;
 
-  & .cell,
-  & .cell::after {
+  & .cell {
     max-width: 1rem;
     max-height: 1rem;
   }
 }
 
-.cell[data-value='0'],
-.cell[data-value='0']::after {
+.cell[data-value='0'] {
   outline: none;
 }
-
-

@@ -15,8 +15,7 @@
 }
 
 .snake-board {
-  & .board-cell,
-  & .board-cell::after {
+  & .board-cell {
     @media (--viewport-tablet-min) {
       width: 1.5rem;
       height: 1.5rem;
@@ -24,12 +23,12 @@
   }
 
   /* Snake colour */
-  [data-value='1']::after {
+  [data-value='1'] {
     background: var(--color-white);
   }
 
   /* Food colour */
-  [data-value='2']::after {
+  [data-value='2'] {
     background: #008000;
   }
 }

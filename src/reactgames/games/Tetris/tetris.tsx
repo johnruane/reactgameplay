@@ -5,7 +5,8 @@ import useEventBus from './hooks/useEventBus';
 import { useInterval } from './shared/hooks';
 
 import Next from './components/Next';
-import { Board, GameOverlay, Panel } from './shared/components';
+import { TetrisBoard } from './components/TetrisBoard';
+import { GameOverlay, Panel } from './shared/components';
 
 import { create2dArray } from './shared/utils';
 
@@ -16,6 +17,7 @@ import {
   handleAnimationOfCompletedRow,
   rotateMatrix,
 } from './lib';
+import { handleRowCompletions } from './lib/handleRowCompletions';
 
 import './shared/styles/global.css';
 import './styles/style.css';
@@ -52,6 +54,8 @@ const Tetris = () => {
 
   const [position, setPosition] = useState({ r: 0, c: 4 });
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
+
+  const [animatingRows, setAnimatingRows] = useState(new Set());
 
   const [currentTetromino, setCurrentTetromino] = useState<{
     value: number;
@@ -184,7 +188,7 @@ const Tetris = () => {
 
       staticBoardRef.current = updatedBoard;
 
-      handleAnimationOfCompletedRow({
+      handleRowCompletions({
         setLines,
         setScore,
         score,
@@ -193,6 +197,7 @@ const Tetris = () => {
         pauseGameplay,
         restoreGameplay,
         makeNextPlay,
+        setAnimatingRows,
       });
     }
   };
@@ -318,7 +323,11 @@ const Tetris = () => {
         </div>
 
         <div className="overlay-wrapper">
-          <Board board={displayBoard} additionalBoardClasses="tetris" />
+          <TetrisBoard
+            board={displayBoard}
+            additionalBoardClasses="tetris"
+            animatingRows={animatingRows}
+          />
           <GameOverlay
             showGameOver={gameOver}
             showGameOverButton={!hasGameStarted}

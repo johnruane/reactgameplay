@@ -8,6 +8,7 @@
   will-change: transform;
   width: 100vw;
   transition: width 0.25s ease-in;
+  z-index: 5;
 
   @media (--viewport-tablet-min) {
     width: 40rem;
@@ -32,6 +33,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
 }
 
 .modal-close-svg-wrapper {

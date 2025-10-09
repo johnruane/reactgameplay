@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    // 'postcss-modules': {},
+    // 'postcss-modules': {}, // Uncomment if standalone mode
     autoprefixer: {},
   },
 };

@@ -198,7 +198,7 @@ const Snake = () => {
    */
   useEffect(() => {
     const snakeBoard = addSnakeToBoard({
-      board: [...foodBoard],
+      board: foodBoard.map((row) => [...row]),
       snake: snakeBody,
       pos: snakeHeadPosition,
     });

@@ -1,10 +1,4 @@
-.board-cell::after {
-  content: '';
-  display: block;
-}
-
-.board-cell,
-.board-cell::after {
+.board-cell {
   flex: 1;
   aspect-ratio: 1 / 1;
   /* width: var(--cell-sm);

@@ -6,7 +6,7 @@
  */
 
 export function growSnake(snake) {
-  let lastElement = snake[snake.length - 1];
+  const lastElement = snake[snake.length - 1];
   const copySnakeBody = [...snake];
   copySnakeBody.push(lastElement);
   return copySnakeBody;

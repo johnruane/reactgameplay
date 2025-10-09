@@ -18,7 +18,7 @@ export function addSnakeToBoard({
 }): number[][] {
   let localR = pos.r;
   let localC = pos.c;
-  const localBoard = [...board];
+  const localBoard = board.map((row) => [...row]);
 
   localBoard[localR][localC] = SNAKE_VALUE; // Add snake head first
 
