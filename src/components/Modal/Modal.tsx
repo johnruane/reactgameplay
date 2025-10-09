@@ -15,7 +15,11 @@ const Modal = ({
 }) => {
   return (
     <>
-      <div className="modal-overlay" data-gsap="modal-overlay"></div>
+      <div
+        className="modal-overlay"
+        data-gsap="modal-overlay"
+        onClick={() => setToggleModal(false)}
+      ></div>
 
       <div
         className={classNames('modal-container')}

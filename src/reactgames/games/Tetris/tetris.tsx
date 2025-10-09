@@ -14,7 +14,6 @@ import {
   addTetrominoToBoard,
   canTetrominoMoveToPosition,
   getRandomTetromino,
-  handleAnimationOfCompletedRow,
   rotateMatrix,
 } from './lib';
 import { handleRowCompletions } from './lib/handleRowCompletions';
@@ -55,7 +54,7 @@ const Tetris = () => {
   const [position, setPosition] = useState({ r: 0, c: 4 });
   const [displayBoard, setDisplayBoard] = useState(create2dArray(boardConfig));
 
-  const [animatingRows, setAnimatingRows] = useState(new Set());
+  const [animatingRows, setAnimatingRows] = useState(new Set<number>());
 
   const [currentTetromino, setCurrentTetromino] = useState<{
     value: number;

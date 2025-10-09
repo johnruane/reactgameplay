@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 
-import { TetrisCell } from '../TetrisCell';
 import TetrisRow from '../TetrisRow/TetrisRow';
 import classNames from 'classnames';
 
@@ -12,7 +11,7 @@ const TetrisBoard = forwardRef<
     board: number[][];
     additionalBoardClasses?: string;
     additionalCellClasses?: string;
-    animatingRows?: any;
+    animatingRows?: Set<number> | undefined;
     rowIndex?: string;
   }
 >(

@@ -10,13 +10,10 @@ const TetrisRow = ({
 }: {
   boardRow: number[];
   rowIndex: number;
-  additionalCellClasses: string;
-  animatingRows: any;
+  additionalCellClasses: string | undefined;
+  animatingRows: Set<number> | undefined;
 }) => {
   const isAnimating = animatingRows?.has(rowIndex);
-  const onAnimationComplete = () => {
-    animatingRows?.delete(rowIndex);
-  };
 
   return (
     <div
@@ -32,7 +29,6 @@ const TetrisRow = ({
           pos={`{"r":${rowIndex},"c":${j}}`}
           additionalClasses={additionalCellClasses}
           isAnimating={isAnimating}
-          onAnimationComplete={onAnimationComplete}
         />
       ))}
     </div>

@@ -12,16 +12,14 @@ const Cell = memo(function Cell({
   rowIndex,
   isAnimating,
   additionalClasses,
-  onAnimationComplete,
 }: {
   id?: string;
   value?: number;
   pos?: string;
   additionalClasses?: string;
   rowIndex?: string;
-  animatingRows?: any;
+  animatingRows?: Set<number> | undefined;
   isAnimating?: boolean;
-  onAnimationComplete?: () => void;
 }) {
   return (
     <motion.span
@@ -38,7 +36,6 @@ const Cell = memo(function Cell({
           : {}
       }
       transition={{ duration: 0.3 }}
-      // onAnimationComplete={onAnimationComplete}
     />
   );
 });

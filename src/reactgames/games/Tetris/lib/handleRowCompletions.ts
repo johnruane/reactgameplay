@@ -12,7 +12,7 @@ export const handleRowCompletions = ({
   setAnimatingRows,
 }) => {
   if (!currentTetromino) return;
-  setIsProcessing(true);
+
   // Check for completed rows
   const indexesOfCompleteRows = findCompletedRows({
     board: staticBoardRef.current,
@@ -37,7 +37,6 @@ export const handleRowCompletions = ({
     restoreGameplay();
     setLines((current) => current + indexesOfCompleteRows.length);
     setScore(convertScore(score, indexesOfCompleteRows.length));
-    setIsProcessing(false);
   };
 
   pauseGameplay();
