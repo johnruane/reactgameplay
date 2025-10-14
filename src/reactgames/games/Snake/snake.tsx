@@ -10,6 +10,7 @@ import { create2dArray } from './shared/utils';
 import { addSnakeToBoard, getRandomEmptyBoardPosition, growSnake } from './lib';
 
 import './shared/styles/global.css';
+import './shared/styles/standalone.css';
 import './styles/style.css';
 
 const SNAKE_DIRECTIONS = {

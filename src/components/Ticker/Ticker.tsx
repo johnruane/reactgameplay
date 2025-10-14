@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Ticker = ({
   textOne,
@@ -16,32 +16,40 @@ const Ticker = ({
   additionalClasses?: string;
 }) => {
   return (
-    <div className={classNames(`t-wrapper`, additionalClasses)}>
-      <div className={classNames('t-ticker', `ticker-${direction}`)}>
+    <div className={classNames(styles['t-wrapper'], additionalClasses)}>
+      <div
+        className={classNames(
+          styles['t-ticker'],
+          styles[`ticker-${direction}`],
+        )}
+      >
         {Array.from({ length: 16 }).map((_, index) => {
           return (
             <React.Fragment key={`${textOne}-${index}`}>
               <span>
-                <span className="t-text-one">{textOne}</span>
-                <span className="t-text-two">{textTwo}</span>
+                <span className={styles['t-text-one']}>{textOne}</span>
+                <span className={styles['t-text-two']}>{textTwo}</span>
               </span>
-              <span className="t-cirle"></span>
+              <span className={styles['t-cirle']}></span>
             </React.Fragment>
           );
         })}
       </div>
       <div
-        className={classNames('t-ticker', `ticker-${direction}`)}
+        className={classNames(
+          styles['t-ticker'],
+          styles[`ticker-${direction}`],
+        )}
         aria-hidden="true"
       >
         {Array.from({ length: 16 }).map((_, index) => {
           return (
             <React.Fragment key={`${textTwo}-${index}`}>
               <span>
-                <span className="t-text-one">{textOne}</span>
-                <span className="t-text-two">{textTwo}</span>
+                <span className={styles['t-text-one']}>{textOne}</span>
+                <span className={styles['t-text-two']}>{textTwo}</span>
               </span>
-              <span className="t-cirle"></span>
+              <span className={styles['t-cirle']}></span>
             </React.Fragment>
           );
         })}

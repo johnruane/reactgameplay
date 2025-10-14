@@ -1,4 +1,5 @@
-import { LinkType } from '../LinkComponent/LinkComponent.types';
+import { LinkType } from '../LinkComponent';
+import classNames from 'classnames';
 
 import { LinkComponent, Ticker } from '@components';
 
@@ -6,7 +7,7 @@ import useBouncingHead from '@utils/hooks/useBouncingHead';
 
 import Heart from '@svg/global/heart.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Footer = () => {
   useBouncingHead();
@@ -15,16 +16,16 @@ const Footer = () => {
     <>
       <Ticker textOne="GAME" textTwo="OVER" direction="RTL" />
 
-      <footer className="ft-footer gsap-bouncing">
-        <section className="container background-teal">
-          <div className="grid ft-footer-wrapper">
-            <div className="ft-content-wrapper" data-stack="space-m">
-              <h2 className="ft-heading">Hello, I&apos;m John.</h2>
+      <footer className={classNames(styles['ft-footer'], 'gsap-bouncing')}>
+        <section className={classNames('container', 'background-teal')}>
+          <div className={classNames('grid', styles['ft-footer-wrapper'])}>
+            <div className={styles['ft-content-wrapper']} data-stack="space-m">
+              <h2 className={styles['ft-heading']}>Hello, I&apos;m John.</h2>
               <div data-stack="space-default">
-                <p className="ft-text">
+                <p className={styles['ft-text']}>
                   I&apos;m a Software Engineer from Manchester.
                 </p>
-                <p className="ft-text">
+                <p className={styles['ft-text']}>
                   React Gameplay is one of my pet projects, born out of a
                   passion and curiosity for coding and creating awesome
                   experiences. After building a couple of simple games in React
@@ -34,37 +35,37 @@ const Footer = () => {
                   some of React&apos;s capabilities and serving as a learning
                   platform for other curious developers.
                 </p>
-                <p className="ft-text">
+                <p className={styles['ft-text']}>
                   I hope you enjoy it and find something useful or inspiring
                   within these simple lines of code.
                 </p>
               </div>
             </div>
 
-            <Heart className="ft-image fluid-img" />
+            <Heart className={classNames(styles['ft-image'], 'fluid-img')} />
           </div>
         </section>
 
-        <div className="container ft-footer-links">
+        <div className={classNames('container', styles['ft-footer-links'])}>
           <div className="grid">
-            <div className="ft-links-wrapper">
+            <div className={styles['ft-links-wrapper']}>
               <LinkComponent
                 label="Github"
                 to="https://github.com/johnruane/reactgameplay"
                 type={LinkType.EXTERNAL}
-                additionalClasses="ft-links"
+                additionalClasses={styles['ft-links']}
               />
               <LinkComponent
                 label="LinkedIn"
                 to="https://www.linkedin.com/in/john-ruane-587749103"
                 type={LinkType.EXTERNAL}
-                additionalClasses="ft-links"
+                additionalClasses={styles['ft-links']}
               />
               <LinkComponent
                 label="Instagram"
                 to="https://www.instagram.com/jbruane"
                 type={LinkType.EXTERNAL}
-                additionalClasses="ft-links"
+                additionalClasses={styles['ft-links']}
               />
             </div>
           </div>

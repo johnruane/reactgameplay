@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -34,7 +35,7 @@ import Ghost from '@svg/games/ghost.svg?react';
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 import Back from '@svg/global/back.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const GamePage = () => {
   const { title } = useParams();
@@ -120,9 +121,11 @@ const GamePage = () => {
         />
       </Helmet>
 
-      <div className="grid background-black gp-back-wrapper">
+      <div
+        className={classNames('grid background-black', styles['backWrapper'])}
+      >
         <button
-          className="gp-back-btn"
+          className={styles.backBtn}
           onClick={() => {
             trackButtonClick('back', 'game_page');
             viewNavigate({ route: '/', navigate });
@@ -134,14 +137,14 @@ const GamePage = () => {
       </div>
 
       <section className="container background-black">
-        <div className="grid gp-section-wrapper">
-          <div className="gp-text-positioning">
+        <div className={classNames('grid', styles['sectionWrapper'])}>
+          <div className={styles.textPositioning}>
             <h1 className="off-screen">
               {`${niceName} Game - How to build ${niceName} game with React.`}
             </h1>
-            <h2 className="gp-heading text-uppercase">
-              <span className="gp-year">{year}</span>
-              <span className="gp-title">{gameTitle}</span>
+            <h2 className={classNames(styles['heading'], 'text-uppercase')}>
+              <span className={styles.year}>{year}</span>
+              <span className={styles.title}>{gameTitle}</span>
             </h2>
             <Button
               text="PLAY NOW"
@@ -149,29 +152,37 @@ const GamePage = () => {
                 trackGameStart(niceName || 'unknown');
                 setToggleModal(true);
               }}
-              className="button gp-play-button"
+              className={classNames('button', styles['playButton'])}
             >
               <ArrowRight />
             </Button>
           </div>
-          <div className="gp-image fluid-img">{icon}</div>
+          <div className={classNames(styles['image'], 'fluid-img')}>{icon}</div>
         </div>
       </section>
 
       <div
-        className="container background-black gp-intro"
+        className={classNames('container background-black', styles['intro'])}
         data-stack="space-3xl-4xl"
       >
         <section className="grid" data-stack="space-l-xl">
-          <div className="gp-heading-wrapper"></div>
-          <div className="gp-details-wrapper" data-stack="space-m-l">
+          <div className={styles.headingWrapper}></div>
+          <div className={styles.detailsWrapper} data-stack="space-m-l">
             <div data-stack="space-default">
-              <p className="gp-details-title text-uppercase">Complexity</p>
+              <p
+                className={classNames(styles['detailsTitle'], 'text-uppercase')}
+              >
+                Complexity
+              </p>
               <Complexity title="complexity" count={complexity} />
             </div>
 
             <div data-stack="space-default">
-              <p className="gp-details-title text-uppercase">Controls</p>
+              <p
+                className={classNames(styles['detailsTitle'], 'text-uppercase')}
+              >
+                Controls
+              </p>
               {controls}
             </div>
           </div>
@@ -179,7 +190,7 @@ const GamePage = () => {
 
         <section className="grid" data-stack="space-l-xl">
           <Heading title="INTRO" className="section-heading" />
-          <div className="gp-intro-text" data-stack>
+          <div className={styles.introText} data-stack>
             {intro}
           </div>
         </section>
@@ -187,20 +198,33 @@ const GamePage = () => {
 
       <Divider color="black" background="grey" />
 
-      <section className="container background-grey gp-tabs">
+      <section
+        className={classNames(styles['tabs'], 'container background-grey')}
+      >
         <div className="grid">
-          <Ghost className="gp-ghost-wrapper fluid-img" />
+          <Ghost className={classNames(styles['ghostWrapper'], 'fluid-img')} />
         </div>
 
         <div data-stack="space-3xl-4xl">
           <div className="grid" data-stack="space-l-xl">
-            <Heading title="DETAILS" className="section-heading black" />
-            <Tabs tabs={tabs} link={link} />
+            <Heading
+              title="DETAILS"
+              className={classNames(
+                'section-heading',
+                styles['sectionHeading'],
+              )}
+            />
+            <Tabs
+              tabs={tabs}
+              link={link}
+              additionalTabsClasses={styles['tabsWrapper']}
+              additionalTabsContentClasses={styles['tabsContent']}
+            />
           </div>
           <NextPrev
             prev={prevPage}
             next={nextPage}
-            additionalClasses="gp-np-wrapper"
+            additionalClasses={styles.npWrapper}
           />
         </div>
       </section>
@@ -211,7 +235,7 @@ const GamePage = () => {
           restartClickHandler={restartClickHandler}
         />
         {instructions}
-        <div className="game-controls-wrapper">
+        <div className={styles.gameControlsWrapper}>
           <Controls
             onStartClickHandler={restartClickHandler}
             onQuitClickHandler={quitClickHandler}

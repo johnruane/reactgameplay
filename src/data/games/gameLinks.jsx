@@ -6,7 +6,7 @@ import TetrisHead from '@svg/games/tetris-head.svg?react';
 const gameLinks = [
   {
     id: 'tetris',
-    title: <span className="gs-title">TETRIS</span>,
+    title: 'TETRIS',
     intro: 'The greatest thing to come out of Russian since Dotstevsky.',
     icon: <TetrisHead className="gs-icon" />,
     level: 3,
@@ -14,7 +14,7 @@ const gameLinks = [
   },
   {
     id: 'snake',
-    title: <span className="gs-title">SNAKE</span>,
+    title: 'SNAKE',
     intro: "The iconic 90's Nokia phone game everyone played.",
     icon: <SnakeHead className="gs-icon" />,
     level: 1,
@@ -22,11 +22,7 @@ const gameLinks = [
   },
   {
     id: 'minesweeper',
-    title: (
-      <span className="gs-title">
-        <span>MINESWEEPER</span>
-      </span>
-    ),
+    title: 'MINESWEEPER',
     intro: 'The most nerve racking office distraction.',
     icon: <MineSweeperHead className="gs-icon" />,
     level: 2,
@@ -34,11 +30,7 @@ const gameLinks = [
   },
   {
     id: 'mastermind',
-    title: (
-      <span className="gs-title">
-        <span>MASTERMIND</span>
-      </span>
-    ),
+    title: 'MASTERMIND',
     intro: 'Crack the secret code in this game of logic and colour!',
     icon: <MastermindHead className="gs-icon" />,
     level: 1,

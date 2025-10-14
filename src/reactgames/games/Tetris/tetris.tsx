@@ -19,6 +19,7 @@ import {
 import { handleRowCompletions } from './lib/handleRowCompletions';
 
 import './shared/styles/global.css';
+import './shared/styles/standalone.css';
 import './styles/style.css';
 
 /*

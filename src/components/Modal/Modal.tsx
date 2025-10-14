@@ -4,7 +4,7 @@ import { Ticker } from '@components';
 
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Modal = ({
   children,
@@ -16,33 +16,36 @@ const Modal = ({
   return (
     <>
       <div
-        className="modal-overlay"
+        className={styles['modal-overlay']}
         data-gsap="modal-overlay"
         onClick={() => setToggleModal(false)}
       ></div>
 
       <div
-        className={classNames('modal-container')}
+        className={classNames(styles['modal-container'])}
         data-gsap="modal-container"
       >
-        <div className="modal-close-svg-wrapper" data-gsap="modal-close-btn">
+        <div
+          className={styles['modal-close-svg-wrapper']}
+          data-gsap="modal-close-btn"
+        >
           <button
-            className="button modal-close-btn"
+            className={classNames('button', styles['modal-close-btn'])}
             aria-label="Quit game"
             onClick={() => setToggleModal(false)}
           >
             <ArrowCircleRight
               width={70}
               height={70}
-              className="modal-close-svg"
+              className={styles['modal-close-svg']}
             />
           </button>
         </div>
-        <div className="modal-game-wrapper">{children}</div>
+        <div className={styles['modal-game-wrapper']}>{children}</div>
         <Ticker
           textOne="GAME"
           textTwo="LOADED"
-          additionalClasses="modal-ticker"
+          additionalClasses={styles['modal-ticker']}
         />
       </div>
     </>

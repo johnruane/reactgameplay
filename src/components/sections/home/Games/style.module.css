@@ -1,7 +1,30 @@
 @import '@styles/globals';
+@import '@styles/mixins';
 
 :root {
   --tile-border-radius: 1.25rem;
+}
+
+.lc-link {
+  @mixin link;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: start;
+  gap: var(--space-2xs);
+  color: var(--color-black);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+  padding-bottom: 0.5rem;
+
+  & svg {
+    width: 1rem;
+    height: auto;
+  }
 }
 
 .gs-main {
@@ -13,7 +36,7 @@
   & > :nth-child(5n + 1) {
     border-color: var(--color-game-tile-red);
     background-color: color-mod(var(--color-game-tile-red) a(50%));
-  
+
     & > :first-child {
       background-color: var(--color-game-tile-red);
     }
@@ -22,7 +45,7 @@
   & > :nth-child(5n + 2) {
     border-color: var(--color-game-tile-teal);
     background-color: color-mod(var(--color-game-tile-teal) a(50%));
-  
+
     & > :first-child {
       background-color: var(--color-game-tile-teal);
     }
@@ -31,7 +54,7 @@
   & > :nth-child(5n + 3) {
     border-color: var(--color-game-tile-green);
     background-color: color-mod(var(--color-game-tile-green) a(50%));
-  
+
     & > :first-child {
       background-color: var(--color-game-tile-green);
     }
@@ -40,7 +63,7 @@
   & > :nth-child(5n + 4) {
     border-color: var(--color-game-tile-blue);
     background-color: color-mod(var(--color-game-tile-blue) a(50%));
-  
+
     & > :first-child {
       background-color: var(--color-game-tile-blue);
     }
@@ -49,7 +72,7 @@
   & > :nth-child(5n + 5) {
     border-color: var(--color-game-tile-pink);
     background-color: color-mod(var(--color-game-tile-pink) a(50%));
-  
+
     & > :first-child {
       background-color: var(--color-game-tile-pink);
     }
@@ -97,10 +120,6 @@
   & > svg {
     width: clamp(1.5rem, 10cqw, 4rem);
     height: auto;
-  }
-
-  & .bouncing-shadow {
-    display: none;
   }
 }
 

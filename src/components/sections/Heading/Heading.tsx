@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import HeadingsIcon from '@svg/global/heading-icon.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Heading = ({
   title,
@@ -12,9 +12,9 @@ const Heading = ({
   className?: string;
 }) => {
   return (
-    <h2 className={classNames('h-heading-wrapper', className)}>
+    <h2 className={classNames(styles['h-heading-wrapper'], className)}>
       <HeadingsIcon />
-      <span className="h-heading">{title}</span>
+      <span className={styles['h-heading']}>{title}</span>
     </h2>
   );
 };

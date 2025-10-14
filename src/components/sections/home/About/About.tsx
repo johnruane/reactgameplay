@@ -1,18 +1,20 @@
+import classNames from 'classnames';
+
 import Cherries from '@svg/home/cherries.svg?react';
 import Key from '@svg/home/key.svg?react';
 import Mushroom from '@svg/home/mushroom.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const About = () => {
   return (
     <>
-      <div className="ab-text-icon-wrapper">
-        <div className="ab-text-wrapper" data-stack="space-default">
-          <h2 className="ab-text-heading">
+      <div className={styles['ab-text-icon-wrapper']}>
+        <div className={styles['ab-text-wrapper']} data-stack="space-default">
+          <h2 className={styles['ab-text-heading']}>
             Learning made exciting and interactive
           </h2>
-          <p className="ab-text">
+          <p className={styles['ab-text']}>
             At React Gameplay, I believe that learning should be an engaging and
             hands-on experience. That&apos;s why I&apos;ve meticulously curated
             a selection of well-known games, each tailored to cater to different
@@ -21,14 +23,19 @@ const About = () => {
           </p>
         </div>
 
-        <Cherries className="ab-svg fluid-img" />
+        <Cherries className={classNames(styles['ab-svg'], 'fluid-img')} />
       </div>
-      <div className="ab-text-icon-wrapper ab-text-icon-wrapper-flip">
-        <div className="ab-text-wrapper" data-stack="space-default">
-          <h2 className="ab-text-heading">
+      <div
+        className={classNames(
+          styles['ab-text-icon-wrapper'],
+          styles['ab-text-icon-wrapper-flip'],
+        )}
+      >
+        <div className={styles['ab-text-wrapper']} data-stack="space-default">
+          <h2 className={styles['ab-text-heading']}>
             Guided exploration: Your path to mastery
           </h2>
-          <p className="ab-text">
+          <p className={styles['ab-text']}>
             Every game in our collection comes with insights and practical tips
             on fundamental concepts in React and coding archetecture. From
             mastering state management to implementing game mechanics, I&apos;ve
@@ -38,14 +45,14 @@ const About = () => {
           </p>
         </div>
 
-        <Mushroom className="ab-svg fluid-img" />
+        <Mushroom className={classNames(styles['ab-svg'], 'fluid-img')} />
       </div>
-      <div className="ab-text-icon-wrapper">
-        <div className="ab-text-wrapper" data-stack="space-default">
-          <h2 className="ab-text-heading">
+      <div className={styles['ab-text-icon-wrapper']}>
+        <div className={styles['ab-text-wrapper']} data-stack="space-default">
+          <h2 className={styles['ab-text-heading']}>
             Elevate your skills while having fun
           </h2>
-          <p className="ab-text">
+          <p className={styles['ab-text']}>
             Are you prepared to level-up your coding expertise? Take your pick
             from our array of games, dive into the code, and let the journey
             begin. Whether you&apos;re here just to play or to code, React
@@ -54,7 +61,7 @@ const About = () => {
           </p>
         </div>
 
-        <Key className="ab-svg fluid-img" />
+        <Key className={classNames(styles['ab-svg'], 'fluid-img')} />
       </div>
     </>
   );

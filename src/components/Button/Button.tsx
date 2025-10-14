@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Button = ({
   text,
@@ -17,7 +17,7 @@ const Button = ({
 }) => {
   return (
     <button
-      className={classNames('button', className)}
+      className={classNames(styles['button'], className)}
       type="button"
       onClick={onClick}
       aria-label={ariaLabel}

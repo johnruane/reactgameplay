@@ -23,6 +23,7 @@ import {
 import { getCellElement } from './lib/getCellElement';
 
 import './shared/styles/global.css';
+import './shared/styles/standalone.css';
 import style from './styles/style.module.css';
 
 const GAME_WIN = 'win';
@@ -300,7 +301,7 @@ const Minesweeper = ({
     <>
       <div
         className={classNames(style['minesweeper-game-wrapper'], {
-          ['game-wrapper-overlay']: gameOver,
+          [style['game-wrapper-overlay']]: gameOver,
         })}
       >
         <div className={style['panel-wrapper']}>

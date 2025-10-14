@@ -10,7 +10,7 @@ import gameLinks from '@data/games/gameLinks';
 
 import ArrowRight from '@svg/global/arrow-right.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Games = ({ additionalClasses }) => {
   useAnimateGameIcon();
@@ -18,31 +18,30 @@ const Games = ({ additionalClasses }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={classNames('gs-main', additionalClasses)}>
+    <div className={classNames(styles['gs-main'], additionalClasses)}>
       {gameLinks.map((game, index) => {
         const { link, title, intro, icon, level, inDev = false } = game || {};
         return (
           <button
             onClick={() => viewNavigate({ route: link, navigate })}
-            className="gs-tile"
+            className={styles['gs-tile']}
             key={`${title}-${index}`}
             data-gsap="game-tile"
           >
-            {title}
-
-            <span className="gs-intro">{intro}</span>
-            <span className="gs-icon" data-gsap="game-icon">
+            <span className={styles['gs-title']}>{title}</span>
+            <span className={styles['gs-intro']}>{intro}</span>
+            <span className={styles['gs-icon']} data-gsap="game-icon">
               {icon}
             </span>
 
-            <div className="gs-level-wrapper">
+            <div className={styles['gs-level-wrapper']}>
               <Complexity title={title} count={level} />
             </div>
 
             {inDev ? (
-              <span className="gs-link">IN DEVELOPMENT</span>
+              <span className={styles['gs-link']}>IN DEVELOPMENT</span>
             ) : (
-              <div className="lc-link gs-link">
+              <div className={classNames(styles['lc-link'], styles['gs-link'])}>
                 <span>Go to game</span>
                 <ArrowRight className="fluid-img" />
               </div>

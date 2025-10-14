@@ -11,6 +11,7 @@ import { GameOverlay, Panel } from './shared/components';
 import generateSecretCode from './lib/generateSecretCode';
 
 import './shared/styles/global.css';
+import './shared/styles/standalone.css';
 import styles from './styles/style.module.css';
 
 const Mastermind = ({

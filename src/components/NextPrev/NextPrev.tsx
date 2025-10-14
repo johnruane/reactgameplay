@@ -6,7 +6,7 @@ import viewNavigate from '@utils/viewNavigate';
 import ArrowCircleLeft from '@svg/global/arrow-circle-left.svg?react';
 import ArrowCircleRight from '@svg/global/arrow-circle-right.svg?react';
 
-import './style.css';
+import styles from './style.module.css';
 
 const NextPrev = ({ prev, next, additionalClasses }) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
   const { id: prevId, title: prevTitle } = prev || {};
   const { id: nextId, title: nextTitle } = next || {};
   return (
-    <div className={classNames('np-wrapper', additionalClasses)}>
+    <div className={classNames(styles['np-wrapper'], additionalClasses)}>
       {prevId && (
         <button
           onClick={() =>
@@ -24,12 +24,14 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
               resetScroll: true,
             })
           }
-          className="np-prev unset"
+          className={classNames(styles['np-prev'], 'unset')}
           key={prevId}
         >
-          <span className="np-link-wrapper">
+          <span className={styles['np-link-wrapper']}>
             <ArrowCircleLeft className="fluid-img" />
-            <span className="np-title text-uppercase">{prevTitle}</span>
+            <span className={classNames(styles['np-title'], 'text-uppercase')}>
+              {prevTitle}
+            </span>
           </span>
         </button>
       )}
@@ -42,11 +44,17 @@ const NextPrev = ({ prev, next, additionalClasses }) => {
               resetScroll: true,
             })
           }
-          className="np-link-wrapper np-next unset"
+          className={classNames(
+            styles['np-link-wrapper'],
+            styles['np-next'],
+            'unset',
+          )}
           key={nextId}
         >
-          <span className="np-link-wrapper">
-            <span className="np-title text-uppercase">{nextTitle}</span>
+          <span className={styles['np-link-wrapper']}>
+            <span className={classNames(styles['np-title'], 'text-uppercase')}>
+              {nextTitle}
+            </span>
             <ArrowCircleRight className="fluid-img" />
           </span>
         </button>

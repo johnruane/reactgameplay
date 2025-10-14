@@ -26,13 +26,6 @@
   }
 }
 
-.button-reset {
-  border: none;
-  width: unset;
-  background-color: unset;
-  padding: 0;
-}
-
 .button-full-width {
   width: 100%;
 }

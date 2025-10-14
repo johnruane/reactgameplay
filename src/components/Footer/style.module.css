@@ -1,10 +1,11 @@
 @import '@styles/globals';
+@import '@styles/mixins';
 
 .ft-footer {
   background-color: var(--color-teal);
 }
 
-.grid.ft-footer-wrapper {
+:global(.grid).ft-footer-wrapper {
   @mixin verticalPadding var(--space-5xl-6xl);
   row-gap: 16vw;
 }
@@ -63,7 +64,7 @@
     grid-column: 4 / span 6;
   }
 
-  @media(--viewport-desktop-min) {
+  @media (--viewport-desktop-min) {
     grid-row: 1;
     grid-column: 12 / -2;
     align-self: center;

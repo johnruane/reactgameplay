@@ -1,13 +1,14 @@
 @import '@styles/globals';
+@import '@styles/mixins';
 
-.grid.hm-section-wrapper {
+:global(.grid).sectionWrapper {
   @mixin paddingTop 10;
   @mixin paddingBottom 5;
 
   row-gap: 16vw;
 }
 
-.hm-text-positioning {
+.textPositioning {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
@@ -23,7 +24,7 @@
   }
 }
 
-.hm-pacman-svg {
+.pacmanSvgWrapper {
   position: relative;
   grid-column: 2 / -2;
   max-width: 40rem;
@@ -37,7 +38,7 @@
   }
 }
 
-.hm-intro-wrapper > * {
+.introWrapper > * {
   grid-column: 1 / -1;
 
   @media (--viewport-desktop-min) {
@@ -45,20 +46,20 @@
   }
 }
 
-.hm-enter-wrapper {
+.enterWrapper {
   display: flex;
   justify-content: center;
   background: var(--color-black);
   padding-top: var(--space-2xl-3xl);
 }
 
-.hm-intro,
-.hm-games,
-.hm-about {
+.intro,
+.games,
+.about {
   @mixin verticalPadding var(--space-5xl-6xl);
 }
 
-.hm-games-content-wrapper {
+.gamesContentWrapper {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -70,20 +71,24 @@
   }
 }
 
-.hm-level-up {
+.levelUp {
   @mixin verticalPadding var(--space-3xl-4xl);
 
-  & .grid {
+  & :global(.grid) {
     row-gap: var(--space-2xl-3xl);
   }
 }
 
-.hm-about-wrapper {
+.aboutWrapper {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
 }
 
-.grid.hm-banner {
+.sectionContentWrapper {
+  /* Section content wrapper styles */
+}
+
+:global(.grid).banner {
   @mixin verticalPadding var(--space-2xl-3xl);
 }

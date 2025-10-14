@@ -34,7 +34,8 @@
       "@templates/*": ["./src/assets/*"],
       "@data/*": ["./src/data/*"],
       "@utils/*": ["./src/utils/*"],
-      "@hooks/*": ["src/utils/hooks/*"]
+      "@hooks/*": ["src/utils/hooks/*"],
+      "@motion/*": ["./src/components/motion/*"]
     }
   },
   "include": ["src", "global.d.ts", "apps"],

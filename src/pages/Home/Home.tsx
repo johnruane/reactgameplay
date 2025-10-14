@@ -10,15 +10,11 @@ import {
 
 import { Banner, Divider, TextLogo } from '@components';
 
-import useBouncingHead from '@utils/hooks/useBouncingHead';
+import Pacman from '@motion/Pacman';
 
-import Pacman from '@svg/home/pacman.svg?react';
-
-import './style.css';
+import styles from './style.module.css';
 
 export default function Home() {
-  useBouncingHead();
-
   return (
     <>
       <Helmet>
@@ -30,20 +26,22 @@ export default function Home() {
       </Helmet>
 
       <section className="container background-yellow">
-        <div className="grid hm-section-wrapper">
-          <div className="hm-text-positioning">
+        <div className={`grid ${styles.sectionWrapper}`}>
+          <div className={styles.textPositioning}>
             <TextLogo />
           </div>
 
-          <Pacman className="hm-pacman-svg fluid-img gsap-bouncing" />
+          <div className={styles.pacmanSvgWrapper}>
+            <Pacman />
+          </div>
         </div>
       </section>
 
       <section
-        className="container background-yellow hm-intro"
+        className={`container background-yellow ${styles.intro}`}
         data-stack="space-3xl-4xl"
       >
-        <div className="grid hm-intro-wrapper" data-stack>
+        <div className={`grid ${styles.introWrapper}`} data-stack>
           <IntroSection />
         </div>
       </section>
@@ -51,22 +49,22 @@ export default function Home() {
       <Divider color="yellow" background="black" />
 
       <section
-        className="container background-black hm-games"
+        className={`container background-black ${styles.games}`}
         data-stack="space-3xl-4xl"
       >
         <div id="games-section" className="grid" data-stack="space-l-xl">
           <Heading title="GAMES" className="section-heading" />
-          <GamesSection additionalClasses="hm-games-content-wrapper" />
+          <GamesSection additionalClasses={styles.gamesContentWrapper} />
         </div>
       </section>
 
-      <Banner additionalClasses="hm-banner" />
+      <Banner additionalClasses={styles.banner} />
 
-      <section className="container background-black hm-about">
+      <section className={`container background-black ${styles.about}`}>
         <div className="grid" data-stack="space-l-xl">
           <Heading title="ABOUT" className="section-heading" />
           <div
-            className="hm-section-content-wrapper hm-about-wrapper"
+            className={`${styles.sectionContentWrapper} ${styles.aboutWrapper}`}
             data-stack="space-2xl"
           >
             <AboutSection />
@@ -76,7 +74,7 @@ export default function Home() {
 
       <Divider color="black" background="grey" />
 
-      <section className="container background-grey hm-level-up">
+      <section className={`container background-grey ${styles.levelUp}`}>
         <div className="grid">
           <LevelUpSection />
         </div>

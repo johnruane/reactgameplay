@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
-import './style.css';
+import styles from './style.module.css';
 
 const Divider = ({ color, background }) => {
   return (
     <div
       className={classNames(
-        'divider',
-        `divider-${color}`,
+        styles['divider'],
+        styles[`divider-${color}`],
         `background-${background}`,
       )}
     ></div>

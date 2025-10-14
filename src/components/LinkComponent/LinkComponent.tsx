@@ -4,7 +4,7 @@ import { LinkType } from './LinkComponent.types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import './style.css';
+import styles from './style.module.css';
 
 const LinkComponent = ({
   to,
@@ -25,7 +25,7 @@ const LinkComponent = ({
     case 'EXTERNAL':
       return (
         <a
-          className={classNames('lc-link', additionalClasses)}
+          className={classNames(styles['lc-link'], additionalClasses)}
           href={to}
           target="_blank"
           rel="noopener noreferrer"
@@ -39,7 +39,7 @@ const LinkComponent = ({
       return (
         <Link
           to={to}
-          className={classNames('lc-link', additionalClasses)}
+          className={classNames(styles['lc-link'], additionalClasses)}
           key={key}
           target="_self"
         >

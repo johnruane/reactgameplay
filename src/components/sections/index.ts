@@ -1,5 +1,5 @@
-export { default as About } from './home/About/About';
-export { default as Games } from './home/Games/Games';
-export { default as Intro } from './home/Intro/Intro';
-export { default as LevelUp } from './home/LevelUp/LevelUp';
-export { default as Heading } from './Heading/Heading';
+export { default as About } from './home/About';
+export { default as Games } from './home/Games';
+export { default as Intro } from './home/Intro';
+export { default as LevelUp } from './home/LevelUp';
+export { default as Heading } from './Heading';
