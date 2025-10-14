@@ -1,5 +1,7 @@
-import useAnimateGameIcon from './hooks/useAnimateGameIcon';
+import { useState } from 'react';
+
 import classNames from 'classnames';
+import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 
 import { Complexity } from '@components';
@@ -13,26 +15,47 @@ import ArrowRight from '@svg/global/arrow-right.svg?react';
 import styles from './style.module.css';
 
 const Games = ({ additionalClasses }) => {
-  useAnimateGameIcon();
-
   const navigate = useNavigate();
+
+  const [isHovered, setIsHovered] = useState('');
 
   return (
     <div className={classNames(styles['gs-main'], additionalClasses)}>
       {gameLinks.map((game, index) => {
         const { link, title, intro, icon, level, inDev = false } = game || {};
+        const id = `${title}-${index}`;
         return (
           <button
+            id={id}
             onClick={() => viewNavigate({ route: link, navigate })}
             className={styles['gs-tile']}
-            key={`${title}-${index}`}
+            key={id}
             data-gsap="game-tile"
+            onMouseEnter={() => setIsHovered(id)}
+            onMouseLeave={() => setIsHovered('')}
           >
             <span className={styles['gs-title']}>{title}</span>
             <span className={styles['gs-intro']}>{intro}</span>
-            <span className={styles['gs-icon']} data-gsap="game-icon">
+
+            <motion.span
+              className={classNames('fluid-img', styles['gs-icon'])}
+              initial={{ y: 0 }}
+              animate={
+                isHovered === id
+                  ? {
+                      y: [0, -4],
+                    }
+                  : { y: 0 }
+              }
+              transition={{
+                repeatType: isHovered === id ? 'reverse' : undefined,
+                duration: 0.3,
+                ease: 'easeOut',
+                repeat: isHovered === id ? Infinity : 0,
+              }}
+            >
               {icon}
-            </span>
+            </motion.span>
 
             <div className={styles['gs-level-wrapper']}>
               <Complexity title={title} count={level} />

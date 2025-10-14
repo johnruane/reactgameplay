@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import classNames from 'classnames';
 import { Helmet } from 'react-helmet-async';
+
+import classNames from 'classnames';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -136,7 +137,12 @@ const GamePage = () => {
         </button>
       </div>
 
-      <section className="container background-black">
+      <section
+        className={classNames(
+          'container background-black',
+          styles.titleWrapper,
+        )}
+      >
         <div className={classNames('grid', styles['sectionWrapper'])}>
           <div className={styles.textPositioning}>
             <h1 className="off-screen">

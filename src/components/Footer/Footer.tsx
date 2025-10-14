@@ -3,9 +3,9 @@ import classNames from 'classnames';
 
 import { LinkComponent, Ticker } from '@components';
 
-import useBouncingHead from '@utils/hooks/useBouncingHead';
+import MotionHeartSvg from '@motion/Heart';
 
-import Heart from '@svg/global/heart.svg?react';
+import useBouncingHead from '@utils/hooks/useBouncingHead';
 
 import styles from './style.module.css';
 
@@ -42,7 +42,9 @@ const Footer = () => {
               </div>
             </div>
 
-            <Heart className={classNames(styles['ft-image'], 'fluid-img')} />
+            <div className={styles['ft-image']}>
+              <MotionHeartSvg />
+            </div>
           </div>
         </section>
 

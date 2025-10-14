@@ -1,8 +1,13 @@
 @import '@styles/globals';
 @import '@styles/mixins';
 
+.titleWrapper {
+  @mixin paddingTop 10;
+  @mixin paddingBottom 5;
+}
+
 .intro {
-  @mixin verticalPadding var(--space-5xl-6xl);
+  @mixin verticalPadding var(--space-4xl-5xl);
 }
 
 .image {
@@ -19,7 +24,7 @@
 
 :global(.grid).sectionWrapper {
   padding-top: var(--space-m-l);
-  row-gap: var(--space-l-3xl);
+  row-gap: var(--space-l);
 }
 
 .playButton {

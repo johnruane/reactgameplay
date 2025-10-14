@@ -32,7 +32,7 @@
 .ft-logo-wrapper {
   grid-column: 1 / -1;
   justify-self: center;
-  padding-bottom: $space-xl;
+  padding-bottom: var(--space-xl);
 
   & svg {
     width: 8rem;
@@ -59,6 +59,9 @@
 
 .ft-image {
   grid-column: 2 / span 4;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-m);
 
   @media (--viewport-tablet-min) {
     grid-column: 4 / span 6;
