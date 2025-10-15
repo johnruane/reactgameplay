@@ -12,7 +12,7 @@ const Pacman = () => {
       <MotionPacmanSvg
         className="fluid-img"
         animate={{
-          y: [0, -50],
+          y: [0, -20],
         }}
         transition={{
           repeatType: 'reverse',

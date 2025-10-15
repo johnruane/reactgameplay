@@ -40,13 +40,9 @@ const Games = ({ additionalClasses }) => {
             <motion.span
               className={classNames('fluid-img', styles['gs-icon'])}
               initial={{ y: 0 }}
-              animate={
-                isHovered === id
-                  ? {
-                      y: [0, -4],
-                    }
-                  : { y: 0 }
-              }
+              animate={{
+                y: isHovered === id ? [0, -3] : 0,
+              }}
               transition={{
                 repeatType: isHovered === id ? 'reverse' : undefined,
                 duration: 0.3,

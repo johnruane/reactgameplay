@@ -25,10 +25,7 @@ import {
   trackGameRestart,
   trackGameStart,
 } from '@utils/analytics';
-import useBouncingHead from '@utils/hooks/useBouncingHead';
 import viewNavigate from '@utils/viewNavigate';
-
-import useModalInteractions from '@components/Modal/hooks/useModalInteractions';
 
 import pages from '@data/pages';
 
@@ -59,6 +56,7 @@ const GamePage = () => {
 
   const navigate = useNavigate();
 
+  const [toggleModal, setToggleModal] = useState(false);
   const [gameKey, setGameKey] = useState(0); // Used to reset component state
   const [removeScrollbar, setRemoveScrollbar] = useState(false);
 
@@ -70,13 +68,6 @@ const GamePage = () => {
   const modalOpenCallback = () => {
     setRemoveScrollbar(true);
   };
-
-  useBouncingHead();
-
-  const { setToggleModal } = useModalInteractions({
-    onModalOpenCallback: modalOpenCallback,
-    onModalCloseCompleteCallback: modalCloseCallback,
-  });
 
   const quitClickHandler = () => {
     trackGameQuit(niceName || 'unknown');
@@ -97,6 +88,14 @@ const GamePage = () => {
     id: pages[pageIndex + 1]?.id,
     title: pages[pageIndex + 1]?.id,
   };
+
+  useEffect(() => {
+    if (toggleModal) {
+      modalOpenCallback();
+    } else {
+      modalCloseCallback();
+    }
+  }, [toggleModal]);
 
   /*
    * Redirect to 404 if dynamic param title does not match id in page data
@@ -235,7 +234,7 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal setToggleModal={setToggleModal}>
+      <Modal toggleModal={toggleModal} setToggleModal={setToggleModal}>
         <GameComponent
           key={gameKey}
           restartClickHandler={restartClickHandler}

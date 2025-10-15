@@ -14,12 +14,13 @@ const Heart = () => {
     animate(
       'path',
       {
-        scale: [1, 1.03, 1, 1.05, 1],
+        scale: [1, 1.03, 1],
       },
       {
         duration: 2,
         ease: 'easeInOut',
         repeat: Infinity,
+        delay: 0.5, // Delay before animation starts
       },
     );
   }, [animate]);
@@ -30,7 +31,7 @@ const Heart = () => {
       <MotionShadowSvg
         className="fluid-img"
         animate={{
-          scaleX: [1, 1.03, 1, 1.05, 1],
+          scaleX: [1, 1.03, 1],
         }}
         transition={{
           repeatType: 'reverse',
