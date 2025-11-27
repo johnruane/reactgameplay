@@ -32,6 +32,7 @@ const Pacman = () => {
           duration: 1,
           ease: 'easeInOut',
           repeat: Infinity,
+          delay: 0.1,
         }}
       />
     </>

@@ -1,0 +1,7 @@
+.tl-logo-sub-text {
+  font-size: clamp(1.5rem, 3.5vw, 4rem);
+  font-weight: var(--font-weight-light);
+  color: var(--color-black);
+  letter-spacing: clamp(0.5rem, 2vw, 1.6rem);
+  margin-right: clamp(-0.5rem, -2vw, -1.6rem);
+}

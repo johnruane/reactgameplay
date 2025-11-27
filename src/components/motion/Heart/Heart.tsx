@@ -10,6 +10,7 @@ const MotionShadowSvg = motion.create(Shadow);
 const Heart = () => {
   const [scope, animate] = useAnimate();
 
+  // Required as we only want to animate the path element and not the entire SVG
   useEffect(() => {
     animate(
       'path',
@@ -20,7 +21,6 @@ const Heart = () => {
         duration: 2,
         ease: 'easeInOut',
         repeat: Infinity,
-        delay: 0.5, // Delay before animation starts
       },
     );
   }, [animate]);
@@ -28,6 +28,7 @@ const Heart = () => {
   return (
     <>
       <HeartSvg ref={scope} className={'fluid-img'} />
+
       <MotionShadowSvg
         className="fluid-img"
         animate={{
@@ -38,6 +39,7 @@ const Heart = () => {
           duration: 2,
           ease: 'easeInOut',
           repeat: Infinity,
+          delay: 0.1,
         }}
       />
     </>

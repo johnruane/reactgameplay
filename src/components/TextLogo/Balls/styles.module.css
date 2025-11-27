@@ -1,0 +1,15 @@
+.tl-pink-ball-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+.tl-pink-ball {
+  display: inline-block;
+  background-color: var(--color-pink);
+  width: var(--pink-decoration);
+  height: var(--pink-decoration);
+  border-radius: 50px;
+  margin-left: 0.5rem;
+  z-index: 1;
+}

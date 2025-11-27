@@ -1,0 +1,14 @@
+.title-logo-main-text {
+  font-size: clamp(3.2rem, 9vw, 9rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  letter-spacing: clamp(1rem, 1.8vw, 1.6rem);
+  margin-right: clamp(-1rem, -1.8vw, -1.6rem);
+  line-height: 1;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.title-logo-main-text span {
+  display: inline-block;
+}
