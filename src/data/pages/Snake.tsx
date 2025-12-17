@@ -1,15 +1,18 @@
 import tabs from './tabs/Snake';
+import { motion } from 'motion/react';
 
 import SnakeGame from '@games/Snake/snake';
 
 import SnakeHead from '@svg/games/snake-head.svg?react';
+
+const MotionSnakeHead = motion.create(SnakeHead);
 
 const gamePageData = {
   id: 'snake',
   niceName: 'Snake',
   title: <>Snake</>,
   link: 'https://github.com/johnruane/reactgames/tree/main/games/Snake',
-  icon: <SnakeHead className="gsap-bouncing fluid-img" />,
+  icon: MotionSnakeHead,
   year: '1998',
   complexity: 1,
   controls: (
@@ -19,6 +22,18 @@ const gamePageData = {
         <code>Up</code> & <code>Down</code> to move the snake.
       </li>
     </ol>
+  ),
+  concepts: (
+    <ul>
+      <li>Deque Data Structure Simulation,</li>
+      <li>Collision Detection,</li>
+      <li>Randomization,</li>
+      <li>Interval Management,</li>
+      <li>
+        React hooks: <code>useEffect</code>, <code>useState</code>,{' '}
+        <code>useCallback</code>.
+      </li>
+    </ul>
   ),
   intro: (
     <>

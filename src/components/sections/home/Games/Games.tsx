@@ -30,7 +30,6 @@ const Games = ({ additionalClasses }) => {
             onClick={() => viewNavigate({ route: link, navigate })}
             className={styles['gs-tile']}
             key={id}
-            data-gsap="game-tile"
             onMouseEnter={() => setIsHovered(id)}
             onMouseLeave={() => setIsHovered('')}
           >

@@ -16,6 +16,7 @@ import {
   NextPrev,
   Tabs,
 } from '@components';
+import MotionHead from '@components/motion/Heads/MotionHead';
 
 import { Controls } from '../../reactgames/shared/components';
 
@@ -47,6 +48,7 @@ const GamePage = () => {
     year,
     complexity,
     controls,
+    concepts,
     intro,
     tabs,
     link,
@@ -60,12 +62,13 @@ const GamePage = () => {
   const [gameKey, setGameKey] = useState(0); // Used to reset component state
   const [removeScrollbar, setRemoveScrollbar] = useState(false);
 
-  const modalCloseCallback = () => {
+  const onCloseComplete = () => {
     setGameKey((prev) => prev + 1);
     setRemoveScrollbar(false);
   };
 
   const modalOpenCallback = () => {
+    setToggleModal(true);
     setRemoveScrollbar(true);
   };
 
@@ -88,14 +91,6 @@ const GamePage = () => {
     id: pages[pageIndex + 1]?.id,
     title: pages[pageIndex + 1]?.id,
   };
-
-  useEffect(() => {
-    if (toggleModal) {
-      modalOpenCallback();
-    } else {
-      modalCloseCallback();
-    }
-  }, [toggleModal]);
 
   /*
    * Redirect to 404 if dynamic param title does not match id in page data
@@ -155,14 +150,16 @@ const GamePage = () => {
               text="PLAY NOW"
               onClick={() => {
                 trackGameStart(niceName || 'unknown');
-                setToggleModal(true);
+                modalOpenCallback();
               }}
               className={classNames('button', styles['playButton'])}
             >
               <ArrowRight />
             </Button>
           </div>
-          <div className={classNames(styles['image'], 'fluid-img')}>{icon}</div>
+          <div className={classNames(styles['image'], 'fluid-img')}>
+            <MotionHead MotionIcon={icon} />
+          </div>
         </div>
       </section>
 
@@ -170,26 +167,49 @@ const GamePage = () => {
         className={classNames('container background-black', styles['intro'])}
         data-stack="space-3xl-4xl"
       >
-        <section className="grid" data-stack="space-l-xl">
-          <div className={styles.headingWrapper}></div>
-          <div className={styles.detailsWrapper} data-stack="space-m-l">
-            <div data-stack="space-default">
-              <p
-                className={classNames(styles['detailsTitle'], 'text-uppercase')}
-              >
-                Complexity
-              </p>
-              <Complexity title="complexity" count={complexity} />
-            </div>
+        <section className="grid">
+          <div className={styles.detailsWrapper} data-stack="space-l-xl">
+            {complexity && (
+              <div data-stack="space-default">
+                <p
+                  className={classNames(
+                    styles['detailsTitle'],
+                    'text-uppercase',
+                  )}
+                >
+                  Complexity
+                </p>
+                <Complexity title="complexity" count={complexity} />
+              </div>
+            )}
 
-            <div data-stack="space-default">
-              <p
-                className={classNames(styles['detailsTitle'], 'text-uppercase')}
-              >
-                Controls
-              </p>
-              {controls}
-            </div>
+            {controls && (
+              <div data-stack="space-default">
+                <p
+                  className={classNames(
+                    styles['detailsTitle'],
+                    'text-uppercase',
+                  )}
+                >
+                  Controls
+                </p>
+                {controls}
+              </div>
+            )}
+
+            {concepts && (
+              <div data-stack="space-default">
+                <p
+                  className={classNames(
+                    styles['detailsTitle'],
+                    'text-uppercase',
+                  )}
+                >
+                  Concepts
+                </p>
+                {concepts}
+              </div>
+            )}
           </div>
         </section>
 
@@ -234,7 +254,11 @@ const GamePage = () => {
         </div>
       </section>
 
-      <Modal toggleModal={toggleModal} setToggleModal={setToggleModal}>
+      <Modal
+        toggleModal={toggleModal}
+        setToggleModal={setToggleModal}
+        onCloseComplete={onCloseComplete}
+      >
         <GameComponent
           key={gameKey}
           restartClickHandler={restartClickHandler}

@@ -16,7 +16,7 @@ const Footer = () => {
     <>
       <Ticker textOne="GAME" textTwo="OVER" direction="RTL" />
 
-      <footer className={classNames(styles['ft-footer'], 'gsap-bouncing')}>
+      <footer className={styles['ft-footer']}>
         <section className={classNames('container', 'background-teal')}>
           <div className={classNames('grid', styles['ft-footer-wrapper'])}>
             <div className={styles['ft-content-wrapper']} data-stack="space-m">

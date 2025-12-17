@@ -8,6 +8,9 @@ const Complexity = ({ count, title }: { count: number; title: string }) => {
       {Array.from({ length: count }).map((_, index) => (
         <CircleFilled key={`${title}-${index}`} />
       ))}
+      {Array.from({ length: 5 - count }).map((_, index) => (
+        <div key={`${title}-${index}`} className={styles['complexity-empty']} />
+      ))}
     </div>
   );
 };

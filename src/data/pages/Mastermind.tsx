@@ -1,8 +1,11 @@
 import tabs from './tabs/Mastermind';
+import { motion } from 'motion/react';
 
 import MastermindGame from '@games/Mastermind/mastermind';
 
 import MastermindHead from '@svg/games/mastermind-head.svg?react';
+
+const MotionMastermindHead = motion.create(MastermindHead);
 
 const gamePageData = {
   id: 'mastermind',
@@ -15,7 +18,7 @@ const gamePageData = {
     </>
   ),
   link: 'https://github.com/johnruane/reactgames/tree/main/games/Mastermind',
-  icon: <MastermindHead className="gsap-bouncing fluid-img" />,
+  icon: MotionMastermindHead,
   year: '1970',
   complexity: 1,
   controls: (
@@ -23,6 +26,18 @@ const gamePageData = {
       <li>Tap a coloured pin to open the palette and choose a new colour.</li>
       <li>Press 'Go!' to submit your guess.</li>
     </ol>
+  ),
+  concepts: (
+    <ul>
+      <li>Algorithm Design,</li>
+      <li>Iterative Deduction,</li>
+      <li>Context API,</li>
+      <li>Data Attributes,</li>
+      <li>
+        React hooks: <code>useEffect</code>, <code>useState</code>,{' '}
+        <code>useContext</code>.
+      </li>
+    </ul>
   ),
   intro: (
     <>

@@ -1,8 +1,11 @@
 import tabs from './tabs/Minesweeper';
+import { motion } from 'motion/react';
 
 import MinesweeperGame from '@games/Minesweeper/minesweeper';
 
 import MineSweeperHead from '@svg/games/minesweeper-head.svg?react';
+
+const MotionMineSweeperHead = motion.create(MineSweeperHead);
 
 const gamePageData = {
   id: 'minesweeper',
@@ -15,7 +18,7 @@ const gamePageData = {
     </>
   ),
   link: 'https://github.com/johnruane/reactgames/tree/main/games/Minesweeper',
-  icon: <MineSweeperHead className="gsap-bouncing fluid-img" />,
+  icon: MotionMineSweeperHead,
   year: '1989',
   complexity: 2,
   controls: (
@@ -30,6 +33,17 @@ const gamePageData = {
         If viewing on a desktop use the Mouse and click a square to reveal it.
       </li>
     </ol>
+  ),
+  concepts: (
+    <ul>
+      <li>Graph Traversal Algorithm (DFS),</li>
+      <li>Immutable Data Handling,</li>
+      <li>Guard Clauses,</li>
+      <li>
+        React hooks: <code>useEffect</code>, <code>useState</code>,{' '}
+        <code>useRef</code>, <code>forwardRef</code>.
+      </li>
+    </ul>
   ),
   intro: (
     <>

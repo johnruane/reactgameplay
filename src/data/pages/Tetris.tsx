@@ -1,19 +1,22 @@
 import tabs from './tabs/Tetris';
+import { motion } from 'motion/react';
 
 import TetrisGame from '@games/Tetris/tetris';
 
 import TetrisHead from '@svg/games/tetris-head.svg?react';
+
+const MotionTetrisHead = motion.create(TetrisHead);
 
 const gamePageData = {
   id: 'tetris',
   niceName: 'Tetris',
   title: <>Tetris</>,
   link: 'https://github.com/johnruane/reactgames/tree/main/games/Tetris',
-  icon: <TetrisHead className="gsap-bouncing fluid-img" />,
+  icon: MotionTetrisHead,
   year: '1984',
   complexity: 3,
   controls: (
-    <ol>
+    <ul>
       <li>
         Use the arrow keys <code>Left</code>, <code>Down</code> &{' '}
         <code>Right</code> to move the falling piece.
@@ -21,7 +24,20 @@ const gamePageData = {
       <li>
         Press the <code>Spacebar</code> to rotate.
       </li>
-    </ol>
+    </ul>
+  ),
+  concepts: (
+    <ul>
+      <li>Matrix Rotation,</li>
+      <li>State Machine Pattern,</li>
+      <li>Callback Injection / Dependency Inversion,</li>
+      <li>Motion animation,</li>
+      <li>State coordination,</li>
+      <li>
+        React hooks: <code>useEffect</code>, <code>useState</code>,{' '}
+        <code>useCallback</code>, <code>useRef</code>, <code>forwardRef</code>.
+      </li>
+    </ul>
   ),
   intro: (
     <>

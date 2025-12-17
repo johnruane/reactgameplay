@@ -1,0 +1,9 @@
+.pacman-wrapper {
+  position: relative;
+}
+
+.pacman-eyes {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

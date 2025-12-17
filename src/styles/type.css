@@ -43,10 +43,17 @@ ol {
   }
 }
 
-.background-black {
-  background-color: var(--color-code-light);
+ul {
+  @mixin body;
+
+  list-style-type: circle;
+  list-style-position: inside;
+  
+  &:not(ol > &):has( > li) {
+    padding: 0;
+  }
 }
 
-.background-grey {
-  background-color: var(--color-code-dark);
+code {
+  color: var(--color-code-light);
 }
