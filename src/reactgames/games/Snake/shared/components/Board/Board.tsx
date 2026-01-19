@@ -1,29 +1,31 @@
-import { forwardRef } from 'react';
+import { forwardRef, ElementType } from 'react';
 
 import { Cell } from '..';
 import classNames from 'classnames';
 
 import style from './style.module.css';
 
-const Board = forwardRef<
-  HTMLDivElement,
-  {
-    board: number[][];
-    CellComponent?: React.ComponentType<{
-      id?: string;
-      value: number;
-      pos: string;
-      onClickCellCallback?: (pos: string) => void;
-    }>;
-    additionalBoardClasses?: string;
-    additionalCellClasses?: string;
-    onClickCellCallback?: (pos: string) => void;
-  }
->(
+type CellComponentProps = {
+  id?: string;
+  value?: number;
+  pos?: string;
+  additionalClasses?: string;
+  onClickCellCallback?: (pos: string) => void;
+};
+
+type BoardProps = {
+  board: number[][];
+  CellComponent?: ElementType<CellComponentProps>;
+  additionalBoardClasses?: string;
+  additionalCellClasses?: string;
+  onClickCellCallback?: (pos: string) => void;
+};
+
+const Board = forwardRef<HTMLDivElement, BoardProps>(
   (
     {
       board,
-      CellComponent = Cell,
+      CellComponent = Cell as ElementType<CellComponentProps>,
       additionalBoardClasses,
       additionalCellClasses,
       onClickCellCallback,

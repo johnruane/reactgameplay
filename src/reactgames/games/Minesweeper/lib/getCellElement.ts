@@ -2,7 +2,7 @@ export const getCellElement = ({
   boardRef,
   cellPos,
 }: {
-  boardRef: React.RefObject<HTMLDivElement> | null;
+  boardRef: { current: HTMLDivElement | null } | null;
   cellPos: string;
 }): HTMLElement | undefined => {
   if (!boardRef?.current) return;

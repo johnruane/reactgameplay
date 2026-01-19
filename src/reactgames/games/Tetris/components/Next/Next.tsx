@@ -1,5 +1,6 @@
-import { Board, Cell, Panel } from '../../shared/components';
+import { Board, Cell } from '../../shared/components';
 
+import { TetrisPanel } from '../TetrisPanel';
 import styles from './style.module.css';
 
 const emptyBoard = [
@@ -13,20 +14,13 @@ export default function Next({ nextTetromino, show }) {
   const boardToShow = show ? nextTetromino : emptyBoard;
 
   return (
-    <Panel
-      sections={[
-        {
-          heading: 'Next',
-          value: (
-            <Board
-              board={boardToShow}
-              CellComponent={Cell}
-              additionalBoardClasses={styles['next-board']}
-              additionalCellClasses={styles['cell']}
-            />
-          ),
-        },
-      ]}
-    />
+    <TetrisPanel heading='Next'>
+      <Board
+        board={boardToShow}
+        CellComponent={Cell}
+        additionalBoardClasses={styles['next-board']}
+        additionalCellClasses={styles['cell']}
+      />
+    </TetrisPanel>
   );
 }

@@ -1,10 +1,6 @@
 import { ComponentType } from 'react';
 
-import { motion, MotionProps } from 'motion/react';
-
-import Shadow from '@svg/global/shadow.svg?react';
-
-const MotionShadowSvg = motion.create(Shadow);
+import { MotionProps } from 'motion/react';
 
 const MotionHead = ({
   MotionIcon,

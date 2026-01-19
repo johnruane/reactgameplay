@@ -1,10 +1,11 @@
 import classNames from 'classnames';
+
 import style from './style.module.css';
 
 export default function Panel({
   sections,
 }: {
-  sections: Record<string, string | number | React.ReactNode>[];
+  sections: { heading?: string; value?: number | string }[];
 }) {
   return (
     <div className={style['panel-wrapper']}>
@@ -13,7 +14,9 @@ export default function Panel({
         return (
           <div className={style['panel']} key={`${heading}` || `${value}`}>
             {heading !== null && (
-              <p className={classNames(style['text'], style['bold'])}>{heading}</p>
+              <p className={classNames(style['text'], style['bold'])}>
+                {heading}
+              </p>
             )}
             {value !== null && <div className={style['text']}>{value}</div>}
           </div>
