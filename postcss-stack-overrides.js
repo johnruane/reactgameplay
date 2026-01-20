@@ -1,6 +1,6 @@
-const postcss = require('postcss');
+import postcss from 'postcss';
 
-module.exports = () => {
+const postcssStackOverrides = () => {
   return {
     postcssPlugin: 'postcss-stack-overrides',
     Once(root) {
@@ -34,4 +34,6 @@ module.exports = () => {
   };
 };
 
-module.exports.postcss = true;
+postcssStackOverrides.postcss = true;
+
+export default postcssStackOverrides;
