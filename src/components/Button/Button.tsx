@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import styles from './style.module.css';
@@ -10,7 +11,7 @@ const Button = ({
   ariaLabel = '',
 }: {
   text?: string;
-  children?: JSX.Element;
+  children?: ReactNode;
   onClick?: () => void;
   className?: string;
   ariaLabel?: string;
